@@ -21,5 +21,5 @@ tdata2 <- tdata %>%
 tdata2 %>% 
 	filter(temp_regime == 0) %>% 
 	ggplot(aes(x = mean_temp_calculated, y = response, color = trait)) + geom_point() +
-	facet_wrap(trait ~ study_ID, scales = "free")
+	facet_wrap(study_ID ~ trait, scales = "free")
 ggsave("figures/constant-temp-plots.png", width = 16, height = 8)
