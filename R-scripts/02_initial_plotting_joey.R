@@ -19,7 +19,14 @@ tdata2 <- tdata %>%
 
 
 tdata2 %>% 
-	filter(temp_regime == 0) %>% 
-	ggplot(aes(x = mean_temp_calculated, y = response, color = trait)) + geom_point() +
-	facet_wrap(study_ID ~ trait, scales = "free")
-ggsave("figures/constant-temp-plots.png", width = 16, height = 8)
+	filter(temp_regime == 0, study_ID %in% c(111)) %>% 
+	ggplot(aes(x = mean_temp_calculated, y = response)) + 
+	geom_point(size = 2, color = "cadetblue") +
+	geom_point(size = 2, shape = 1, color = "black") +
+	facet_wrap(study_ID ~ trait, scales = "free", ncol = 3) + xlab("Temperature (°C)") +ylab("Response")
+ggsave("figures/constant-temp-plots-subset-111.png", width = 4, height = 3)
+
+tdata2 %>% 
+	filter(study_ID == 111) %>% 
+	ggplot(aes(x = mean_temp_calculated, y = response, color = factor(temp_regime))) + geom_point() +
+	facet_wrap(study_ID ~ trait, ncol = 3, scales = "free") + xlab("Temperature (°C)")
