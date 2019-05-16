@@ -27,6 +27,15 @@ tdata2 %>%
 ggsave("figures/constant-temp-plots-subset-111.png", width = 4, height = 3)
 
 tdata2 %>% 
-	filter(study_ID == 111) %>% 
+	# filter(temp_regime == 0) %>% 
 	ggplot(aes(x = mean_temp_calculated, y = response, color = factor(temp_regime))) + geom_point() +
-	facet_wrap(study_ID ~ trait, ncol = 3, scales = "free") + xlab("Temperature (°C)")
+	facet_wrap(study_ID ~ trait, ncol = 6, scales = "free") + xlab("Temperature (°C)")
+ggsave("figures/all-responses.png", width = 18, height = 40)
+
+
+### let's start with study 159
+
+tdata2 %>% 
+	filter(study_ID == 159) %>% 
+	ggplot(aes(x = mean_temp_calculated, y = response, color = factor(temp_regime))) + geom_point() +
+	facet_wrap(study_ID ~ trait, ncol = 6, scales = "free") + xlab("Temperature (°C)") + geom_smooth()
