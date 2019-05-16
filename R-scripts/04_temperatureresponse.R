@@ -42,6 +42,9 @@ out <- with(snippet, equ10(temp=temp, rate=rate))
 eq8_fit <- output %>% 
 	filter(model == "equ08")
 
+eq9_fit <- output %>% 
+	filter(model == "equ09")
+
 eq8_fit_var <- output_var %>% 
 	filter(model == "equ08")
 
@@ -54,6 +57,11 @@ eq4 <-  function(t, R = 0.001987) {
 eq8 <-  function(t) {
 	tref <- eq8_fit$estimate[eq8_fit$term == "tref"] 
 	y <- eq8_fit$estimate[eq8_fit$term == "a"] * exp(-0.5 * ((t - tref)/eq8_fit$estimate[eq8_fit$term == "b"])^2)
+}
+
+
+eq9 <- function(t){
+	y <- eq9_fit$estimate[eq9_fit$term == "a"] * exp(-0.5 * (abs((t - eq9_fit$estimate[eq9_fit$term == "tref"] )/eq9_fit$estimate[eq9_fit$term == "b"]))^eq9_fit$estimate[eq9_fit$term == "c"])
 }
 
 eq8_var <-  function(t) {
@@ -72,6 +80,10 @@ temps <- seq(0, 40, length = 50)
 predictions <- sapply(temps, eq8)
 predicted_rate <- data.frame(temperature = temps, predicted_rate = predictions)
 
+predictions9 <- sapply(temps, eq9)
+predicted_rate9 <- data.frame(temperature = temps, predicted_rate = predictions9)
+
+
 
 predictions_var <- sapply(temps, eq8_var)
 predicted_rate_var <- data.frame(temperature = temps, predicted_rate = predictions_var)
@@ -79,6 +91,48 @@ predicted_rate_var <- data.frame(temperature = temps, predicted_rate = predictio
 
 ggplot(aes(x = temp, y = rate), data = snippet) + geom_point(shape = 1, size = 2, color = "grey") +
 	geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate) +
+	geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate9, color = "orange") +
 	geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate_var, color = "purple") +
 	geom_vline(xintercept =  eq8_fit$estimate[eq8_fit$term == "topt"], linetype = 2, color = "grey")  +
 	geom_point(aes(x = temp, y = rate), data = snippet_var, color = "purple") + ylab("Rate") + xlab("Temperature (°C)")
+
+
+output %>% 
+	filter(term == "AIC") %>% View
+
+
+### ok let's go with the norberg curve
+
+
+equation10 <- function(df, augment = F, return_fit = F) {
+	df <- snippet
+	rate <- df$rate
+	temp <- df$temp
+	try_test <- try({
+		b = (max(temp) - min(temp))/2
+		c = 0
+		tref = temp[rate == max(rate)]
+		a = max(rate)/max(exp(c * temp) * (1 - ((temp - tref)/b)^2))
+		fit = minpack.lm::nlsLM(rate ~ a * exp(c * temp) * (1 - 
+																((temp - tref)/b)^2), control = minpack.lm::nls.lm.control(maxiter = 10^20), 
+								start = list(a = a, b = b, c = c, tref = tref))
+		output <- broom::tidy(fit)
+		a <- output$estimate[output$term == "a"]
+		b <- output$estimate[output$term == "b"]
+		c <- output$estimate[output$term == "c"]
+		tref <- output$estimate[output$term == "tref"]
+		f_equ = function(t) {
+			a * exp(c * t) * (1 - ((t - tref)/b)^2)
+		}
+	})
+	output <- temperatureresponse::amend_output(output, fit, 
+												f_equ, temp, rate, try_test, augment, return_fit)
+	output$model <- "equ10"
+	print("equ10")
+	return(output) }
+
+
+
+
+
+
