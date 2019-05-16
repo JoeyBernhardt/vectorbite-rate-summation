@@ -133,6 +133,17 @@ equation10 <- function(df, augment = F, return_fit = F) {
 
 
 
+library(nls.multstart)
 
 
+(fits <- nls_multstart(rate ~ a*exp(b*temp)*(1-((temp-z)/(w/2))^2),
+			  data = snippet,
+			  iter = 500,
+			  start_lower = c(z= 20,w= 20,a= 0.0, b= 0.1),
+			  start_upper = c(z= 40,w= 35,a= 0.3, b= 0.2),
+			  supp_errors = 'N',
+			  na.action = na.omit,
+			  lower = c(z = 0, w= 0, a = -0.2, b = -2),
+			  upper = c(z = 60, w= 180,a =  1, b = 2),
+			  control = nls.control(maxiter=1000, minFactor=1/204800000)))
 
