@@ -3,15 +3,71 @@ library(stringr)
 library(rootSolve)
 library(bbmle)
 library(extrafont)
+library(cowplot)
 
 
+tdata <- read_csv("Data/ExtractedDataAllStudies_JB.csv")
 
 
+tdata2 <- tdata %>% 
+	# filter(study_ID %in% c(168, 165, 159, 150, 124, 119, 111, 91, 67, 61, 58)) %>% 
+	mutate(study_digits = nchar(study_ID)) %>% 
+	mutate(mean_temp_calculated = (min_temp + max_temp)/2) %>% 
+	mutate(mean_temp_calculated = ifelse(temp_regime == 0, mean_temp, mean_temp_calculated)) %>% 
+	mutate(mean_temp_calculated = ifelse(is.na(mean_temp_calculated), mean_temp, mean_temp_calculated)) %>% 
+	# filter(temp_regime == 0) %>% 
+	rename(temp = mean_temp_calculated,
+		   rate = response) %>% 
+	mutate(curve.id = paste(study_ID, trait, long, sep = "_"))
 
-dat.full <- snippet %>% 
+tdata_var <- tdata %>% 
+	# filter(study_ID %in% c(168, 165, 159, 150, 124, 119, 111, 91, 67, 61, 58)) %>% 
+	mutate(study_digits = nchar(study_ID)) %>% 
+	mutate(mean_temp_calculated = (min_temp + max_temp)/2) %>% 
+	mutate(mean_temp_calculated = ifelse(temp_regime == 0, mean_temp, mean_temp_calculated)) %>% 
+	mutate(mean_temp_calculated = ifelse(is.na(mean_temp_calculated), mean_temp, mean_temp_calculated)) %>% 
+	filter(temp_regime != 0) %>% 
+	rename(temp = mean_temp_calculated,
+		   rate = response) %>% 
+	mutate(curve.id = paste(study_ID, trait, long, sep = "_"))
+
+unique_temps <- tdata2 %>% 
+	group_by(curve.id) %>% 
+	distinct(temp, .keep_all = TRUE) %>%
+	tally() %>% 
+	filter(n > 3)
+
+tdata3 <- tdata2 %>% 
+	filter(curve.id %in% unique_temps$curve.id)
+tdata_var <- tdata_var %>% 
+	filter(curve.id %in% unique_temps$curve.id) %>% 
+	rename(temperature = temp) %>% 
+	rename(growth.rate = rate) 
+
+
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))
+
+p + geom_point(aes(x = temp, y = rate), data = tdata3, shape = 1, size = 2, color = "grey") +
+	# stat_function(fun = nbcurve1, color = "red", size = 2) +
+	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
+	# geom_line(aes(x = temperature, y = predicted_rate), data = fits, color = "purple") +
+	xlim(0, 40) +ylab("Rate") + xlab("Temperature (°C)") +
+	facet_wrap( ~ curve.id, scales = "free_y") 
+ggsave("figures/all_TPCs.png", width = 20, height = 20)
+
+
+# snippet <- tdata2 %>% 
+# 	filter(temp_regime == "0") %>% 
+# 	mutate(unique_exp = paste(study_ID, trait, sep = "_")) %>% 
+# 	rename(temp = mean_temp_calculated,
+# 		   rate = response)
+
+
+dat.full <- tdata3 %>% 
 	rename(temperature = temp) %>% 
 	rename(growth.rate = rate) %>% 
-	mutate(curve.id = 1)
+	filter(study_ID == 111) %>% 
+	filter(temp_regime == 0) 
 
 
 #### from Mridul's code, get the best fits for both of the TPCs
@@ -129,14 +185,51 @@ for(i in 1:length(curve.id.list)){
 	maxgrowth.list[i]<-maxgrowth
 	n.list[i]<-length(dat$temperature)
 }
+fits111 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 
-fits2 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
+fits3 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
+# fits2 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
+# write_csv(fits2, "data-processed/norberg-fits.csv")
 
+fits4 <- bind_rows(fits3, fits168)
+
+write_csv(fits4, "data-processed/norberg-fits-all.csv")
 ### now make the plots!
+
 nbcurve1<-function(x){
 	res<-fits2$a.list[1]*exp(fits2$b.list[1]*x)*(1-((x-fits2$z.list[1])/(fits2$w.list[1]/2))^2)
 	res
 }
+
+
+prediction_function <- function(df) {
+	df <- df
+	nbcurve1 <- function(x){
+	res <- df$a.list[1]*exp(df$b.list[1]*x)*(1-((x-df$z.list[1])/(df$w.list[1]/2))^2)
+	res
+	}
+	
+	temps <- seq(0, 40, length = 150)
+	
+	predictions <- sapply(temps, nbcurve1)
+	predicted_rate_nb <- data.frame(temperature = temps, predicted_rate = predictions)
+	return(predicted_rate_nb)
+	
+}
+
+
+fits_split <- fits111 %>% 
+	filter(!is.na(topt.list)) %>% 
+	split(.$curve.id.list)
+
+df <- fits_split[[3]]
+
+fits <- fits_split %>% 
+	map_df(prediction_function, .id = "curve.id")
+
+fits_above_zero <- fits %>% 
+	filter(predicted_rate > -5, predicted_rate < 150)
+
 
 nbcurve<-function(temp,z,w,a,b){
 	res<-a*exp(b*temp)*(1-((temp-z)/(w/2))^2)
@@ -153,14 +246,90 @@ predicted_rate_nb <- data.frame(temperature = temps, predicted_rate = prediction
 p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))
 
 p + geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
+	geom_point(aes(x = temperature, y = growth.rate), data = tdata_var, shape = 1, size = 2, color = "cadetblue") +
 	# stat_function(fun = nbcurve1, color = "red", size = 2) +
 	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
-	geom_line(aes(x = temperature, y = growth), data = preds, color = "purple") +
-	 xlim(0, 40) +ylab("Rate") + xlab("Temperature (°C)") 
+	geom_line(aes(x = temperature, y = predicted_rate), data = fits_above_zero, color = "orange") +
+	 xlim(0, 40) +ylab("Rate") + xlab("Temperature (°C)") +
+	facet_wrap( ~ curve.id, scales = "free") 
+ggsave("figures/norberg-tpc-fits.png", width = 20, height = 15)
 	
-fits2
-expected <- nbcurve(temps,cfs[[1]],cfs[[2]],cfs[[3]],cfs[[4]])
-expected <- nbcurve(temps,fits2$z.list[1],fits2$w.list[1],fits2$a.list[1],fits2$b.list[1])
-temperature <- dat$temperature
 
-preds <- data.frame(growth = expected, temperature = temps)
+### let's look into study 111
+
+tdata111 <- tdata %>% 
+	# filter(study_ID %in% c(168, 165, 159, 150, 124, 119, 111, 91, 67, 61, 58)) %>% 
+	mutate(study_digits = nchar(study_ID)) %>% 
+	# mutate(mean_temp_calculated = (min_temp + max_temp)/2) %>% 
+	# mutate(mean_temp_calculated = ifelse(temp_regime == 0, mean_temp, mean_temp_calculated)) %>% 
+	mutate(mean_temp_calculated = ifelse(is.na(mean_temp), (min_temp + max_temp)/2, mean_temp)) %>% 
+	mutate(mean_temp_calculated = ifelse(temp_regime == 0, mean_temp, mean_temp_calculated)) %>%
+	# filter(temp_regime == 0) %>% 
+	rename(temp = mean_temp_calculated,
+		   rate = response) %>% 
+	rename(temperature = temp) %>% 
+	rename(growth.rate = rate) %>% 
+	mutate(curve.id = paste(study_ID, trait, sep = "_")) %>% 
+	filter(study_ID == "111")
+
+tdata111 %>% 
+	# filter(temp_regime == 0) %>% 
+	ggplot(aes(x = temperature, y = growth.rate, color = factor(temp_regime), shape = treatment_name_study)) + geom_point() +
+	facet_wrap( ~ long)
+
+
+temps18_111 <- read_csv("Data/study111-temps-18C-mean.csv")
+temps25_111 <- read_csv("Data/study111-temps-25C-mean.csv")
+
+
+all_111_temps <- bind_rows(temps18_111, temps25_111) %>% 
+	mutate(study_ID = "111")
+
+all_111_temps %>% 
+	ggplot(aes(x = day, y = temperature, color = factor(mean_temperature))) + geom_line()
+
+
+fits11125 <- fits111 %>%
+	filter(curve.id.list == "111_fecundity_25.761") %>% 
+	mutate(study_ID = "111")
+
+fits11139 <- fits111 %>% 
+	filter(curve.id.list == "111_fecundity_39.891") %>% 
+	mutate(study_ID = "111")
+	
+
+a111_25 <- left_join(all_111_temps, fits11125)
+a111_39 <- left_join(all_111_temps, fits11139)
+
+
+all_111_preds_25 <- a111_25 %>% 
+	mutate(predicted_rate = a.list*exp(b.list*temperature)*(1-((temperature-z.list)/(w.list/2))^2)) %>%
+	mutate(predicted_rate_pos = ifelse(predicted_rate < 0, 0, predicted_rate)) %>% 
+	group_by(mean_temperature, curve.id.list) %>% 
+	summarise(mean_rate = mean(predicted_rate_pos)) %>% 
+	rename(temperature = mean_temperature,
+		   growth.rate = mean_rate) 
+
+all_111_preds_39 <- a111_39 %>% 
+	mutate(predicted_rate = a.list*exp(b.list*temperature)*(1-((temperature-z.list)/(w.list/2))^2)) %>%
+	mutate(predicted_rate_pos = ifelse(predicted_rate < 0, 0, predicted_rate)) %>% 
+	group_by(mean_temperature, curve.id.list) %>% 
+	summarise(mean_rate = mean(predicted_rate_pos)) %>% 
+	rename(temperature = mean_temperature,
+		   growth.rate = mean_rate)
+
+all_preds <- bind_rows(all_111_preds_25, all_111_preds_39) %>% 
+	rename(curve.id = curve.id.list)
+
+
+p + geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
+	# geom_point(aes(x = temperature, y = growth.rate), data = tdata_var, shape = 1, size = 2, color = "cadetblue") +
+	# stat_function(fun = nbcurve1, color = "red", size = 2) +
+	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
+	geom_line(aes(x = temperature, y = predicted_rate), data = fits_above_zero, color = "cadetblue") +
+	xlim(0, 40) + ylab("Rate") + xlab("Temperature (°C)") + ylim(-3, 110) +
+	geom_point(aes(x = mean_temp, y = rate, shape = treatment_name_study),
+			   data = filter(tdata2, study_ID == "111", trait == "fecundity", temp_regime ==1))  +
+	geom_point(aes(x = temperature, y = growth.rate), data = all_preds, color = "purple") +
+	facet_wrap( ~ curve.id, scales = "free") 
+ggsave("figures/study111-predictions-rate-summation.png", width = 12, height = 4)
