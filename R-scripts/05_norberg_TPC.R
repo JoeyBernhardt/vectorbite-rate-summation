@@ -249,6 +249,7 @@ predicted_rate_nb <- data.frame(temperature = temps, predicted_rate = prediction
 p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))
 
 tdata_var168 <- left_join(tdata_var, study168)
+write_csv(tdata_var168, "data-processed/tdatavar168.csv")
 
 p +
 geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
@@ -390,6 +391,8 @@ study168 <- left_join(study168_tempsb, fits168) %>%
 	group_by(unique_regime, DTR, min_temp) %>% 
 	summarise(mean_performance = mean(predicted_performance),
 			  mean_temperature = mean(realized_temp))
+
+write_csv(study168, "data-processed/study168-predicted-variable.csv")
 
 
 study168 %>% 
