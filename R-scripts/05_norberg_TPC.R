@@ -30,7 +30,7 @@ tdata_var <- tdata %>%
 	rename(temp = mean_temp_calculated,
 		   rate = response) %>% 
 	mutate(curve.id = paste(study_ID, trait, species, long, notes, sep = "_")) %>% 
-	filter(study_ID == "159")
+	filter(study_ID == "168", trait == "fecundity/body weight") 
 
 unique_temps <- tdata2 %>% 
 	group_by(curve.id) %>% 
@@ -60,7 +60,7 @@ ggsave("figures/all_TPCs.png", width = 20, height = 20)
 
 
 dat.full <- tdata3 %>% 
-	filter(study_ID == "159") %>% 
+	filter(study_ID == "168", trait == "fecundity/body weight") %>% 
 	rename(temperature = temp) %>% 
 	rename(growth.rate = rate) %>% 
 	# filter(study_ID == 111) %>% 
@@ -184,6 +184,8 @@ for(i in 1:length(curve.id.list)){
 }
 # fits111 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 
+fits168 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
+
 fits159 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 # fits2 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 # write_csv(fits2, "data-processed/norberg-fits.csv")
@@ -192,6 +194,7 @@ fits4 <- bind_rows(fits3, fits168)
 
 write_csv(fits4, "data-processed/norberg-fits-all.csv")
 write_csv(fits159, "data-processed/norberg-fits-study159.csv")
+write_csv(fits168, "data-processed/norberg-fits-study168.csv")
 write_csv(fits, "data-processed/norberg-fits-all-location.csv")
 fits4 <- read_csv("data-processed/norberg-fits-all.csv")
 ### now make the plots!
@@ -218,7 +221,7 @@ prediction_function <- function(df) {
 }
 
 
-fits_split <- fits159 %>% 
+fits_split <- fits168 %>% 
 	filter(!is.na(topt.list)) %>% 
 	split(.$curve.id.list)
 
@@ -245,16 +248,20 @@ predicted_rate_nb <- data.frame(temperature = temps, predicted_rate = prediction
 
 p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))
 
+tdata_var168 <- left_join(tdata_var, study168)
+
 p +
 geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
-	geom_point(aes(x = temp, y = rate), data = tdata_var, shape = 1, size = 2, color = "cadetblue") +
-	geom_point(aes(x = temp, y = perdicted_rate_var), data = all_159_varc, alpha = 0.5, size = 2, color = "purple") +
+	geom_point(aes(x = mean_temperature, y = rate), data = tdata_var168, shape = 1, size = 2, color = "cadetblue") +
+	# geom_point(aes(x = temp, y = perdicted_rate_var), data = all_159_varc, alpha = 0.5, size = 2, color = "purple") +
 	# stat_function(fun = nbcurve1, color = "red", size = 2) +
+	geom_point(aes(x = mean_temperature, y = mean_performance), data = study168, alpha = 0.5, size = 2, color = "purple") +
 	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
 	geom_line(aes(x = temperature, y = predicted_rate), data = fits_above_zero, color = "orange") +
 	 xlim(9, 40) +ylab("Rate") + xlab("Temperature (°C)") +
 	facet_wrap( ~ curve.id, scales = "free") 
 ggsave("figures/norberg-tpc-fits-study159.png", width = 12, height = 8)
+ggsave("figures/norberg-tpc-fits-study168.png", width = 12, height = 8)
 
 ### let's make predictions for the variable regime
 
@@ -359,12 +366,36 @@ study168_temps <- read_csv("Data/study168-temperature-fluctuations.csv")
 
 study168_temps %>% 
 	rename(fluctuation = flutation_type) %>% 
+	mutate(realized_temp = temperature + min_temp) %>% 
+	mutate(unique_regime = paste(fluctuation, min_temp, sep = "_")) %>%  
+	ggplot(aes(x = hour, y = realized_temp, color = unique_regime, group = unique_regime)) + geom_line()
+	
+
+study168_tempsb <- study168_temps %>% 
+	rename(fluctuation = flutation_type) %>% 
+	mutate(realized_temp = temperature + min_temp) %>% 
+	mutate(unique_regime = paste(fluctuation, min_temp, sep = "_")) %>% 
+	mutate(curve.id.list = fits168$curve.id.list[[1]])
+
+study168_tempsb %>% 
 	ggplot(aes(x = hour, y = temperature, color = fluctuation, group = fluctuation)) + geom_line()
 
 
 
 
+study168 <- left_join(study168_tempsb, fits168) %>% 
+	group_by(unique_regime, DTR, min_temp) %>% 
+	sample_n(size = 23, replace = FALSE) %>% 
+	mutate(predicted_performance = a.list*exp(b.list*realized_temp)*(1-((realized_temp-z.list)/(w.list/2))^2)) %>% 
+	group_by(unique_regime, DTR, min_temp) %>% 
+	summarise(mean_performance = mean(predicted_performance),
+			  mean_temperature = mean(realized_temp))
 
+
+study168 %>% 
+	group_by(unique_regime) %>% 
+	distinct(realized_temp) %>% 
+	tally()
 
 
 
