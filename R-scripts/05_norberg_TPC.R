@@ -20,7 +20,7 @@ tdata2 <- tdata %>%
 		   rate = response) %>% 
 	mutate(curve.id = paste(study_ID, trait, species, long, notes, sep = "_"))
 
-tdata_var <- tdata %>% 
+tdata_var150 <- tdata %>% 
 	# filter(study_ID %in% c(168, 165, 159, 150, 124, 119, 111, 91, 67, 61, 58)) %>% 
 	mutate(study_digits = nchar(study_ID)) %>% 
 	mutate(mean_temp_calculated = (min_temp + max_temp)/2) %>% 
@@ -30,7 +30,7 @@ tdata_var <- tdata %>%
 	rename(temp = mean_temp_calculated,
 		   rate = response) %>% 
 	mutate(curve.id = paste(study_ID, trait, species, long, notes, sep = "_")) %>% 
-	filter(study_ID == "168", trait == "fecundity/body weight") 
+	filter(study_ID == "150", trait == "Duration of incubation") 
 
 unique_temps <- tdata2 %>% 
 	group_by(curve.id) %>% 
@@ -49,7 +49,7 @@ tdata_var <- tdata_var %>%
 p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))
 
 tdata3 %>% 
-	filter(study_ID == "159") %>% 
+	filter(study_ID == "150") %>% View
 ggplot(aes(x = temp, y = rate)) + geom_point(shape = 1, size = 2, color = "grey") +
 	# stat_function(fun = nbcurve1, color = "red", size = 2) +
 	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
@@ -60,7 +60,7 @@ ggsave("figures/all_TPCs.png", width = 20, height = 20)
 
 
 dat.full <- tdata3 %>% 
-	filter(study_ID == "168", trait == "fecundity/body weight") %>% 
+	filter(study_ID == "150", trait == "Duration of incubation") %>% 
 	rename(temperature = temp) %>% 
 	rename(growth.rate = rate) %>% 
 	# filter(study_ID == 111) %>% 
@@ -184,6 +184,8 @@ for(i in 1:length(curve.id.list)){
 }
 # fits111 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 
+fits150 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
+
 fits168 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 
 fits159 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
@@ -195,6 +197,7 @@ fits4 <- bind_rows(fits3, fits168)
 write_csv(fits4, "data-processed/norberg-fits-all.csv")
 write_csv(fits159, "data-processed/norberg-fits-study159.csv")
 write_csv(fits168, "data-processed/norberg-fits-study168.csv")
+write_csv(fits150, "data-processed/norberg-fits-study150.csv")
 write_csv(fits, "data-processed/norberg-fits-all-location.csv")
 fits4 <- read_csv("data-processed/norberg-fits-all.csv")
 ### now make the plots!
@@ -221,7 +224,7 @@ prediction_function <- function(df) {
 }
 
 
-fits_split <- fits168 %>% 
+fits_split <- fits150 %>% 
 	filter(!is.na(topt.list)) %>% 
 	split(.$curve.id.list)
 
@@ -253,14 +256,17 @@ write_csv(tdata_var168, "data-processed/tdatavar168.csv")
 
 p +
 geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
-	geom_point(aes(x = mean_temperature, y = rate), data = tdata_var168, shape = 1, size = 2, color = "cadetblue") +
+	geom_point(aes(x = temp, y = rate), data = tdata_var150, shape = 1, size = 2, color = "cadetblue") +
 	# geom_point(aes(x = temp, y = perdicted_rate_var), data = all_159_varc, alpha = 0.5, size = 2, color = "purple") +
 	# stat_function(fun = nbcurve1, color = "red", size = 2) +
-	geom_point(aes(x = mean_temperature, y = mean_performance), data = study168, alpha = 0.5, size = 2, color = "purple") +
+	geom_point(aes(x = mean_temp, y = mean_performance), data = study150t2, alpha = 0.5, size = 2, color = "purple") +
+	# geom_point(aes(x = min_temp, y = mean_performance), data = study150t2, alpha = 0.5, size = 2, color = "purple") +
+	# geom_point(aes(x = max_temp, y = mean_performance), data = study150t2, alpha = 0.5, size = 2, color = "purple") +
 	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
 	geom_line(aes(x = temperature, y = predicted_rate), data = fits_above_zero, color = "orange") +
 	 xlim(9, 40) +ylab("Rate") + xlab("Temperature (°C)") +
 	facet_wrap( ~ curve.id, scales = "free") 
+ggsave("figures/norberg-tpc-fits-study150.png", width = 12, height = 8)
 ggsave("figures/norberg-tpc-fits-study159.png", width = 12, height = 8)
 ggsave("figures/norberg-tpc-fits-study168.png", width = 12, height = 8)
 
@@ -402,3 +408,19 @@ study168 %>%
 
 
 
+study150_temps <- read_csv("Data/study150-temperature-fluctuations.csv") %>% 
+	mutate(curve.id.list = "150_Duration of incubation_sinensis_120.1551_NA")
+
+study150t2 <- left_join(study150_temps, fits150) %>% 
+	mutate(predicted_performance = a.list*exp(b.list*temperature)*(1-((temperature-z.list)/(w.list/2))^2)) %>% 
+	summarise(mean_performance = mean(predicted_performance),
+			  mean_temp = mean(temperature),
+			  max_temp = max(temperature),
+			  min_temp = min(temperature))
+	
+	
+	
+	
+	
+	
+	
