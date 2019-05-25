@@ -18,7 +18,7 @@ tdata2 <- tdata %>%
 	filter(temp_regime == 0) %>% 
 	rename(temp = mean_temp_calculated,
 		   rate = response) %>% 
-	mutate(curve.id = paste(study_ID, trait, species, long, notes, sep = "_"))
+	mutate(curve.id = paste(study_ID, trait, species, long, notes, notes2, sep = "_"))
 
 tdata_var150 <- tdata %>% 
 	# filter(study_ID %in% c(168, 165, 159, 150, 124, 119, 111, 91, 67, 61, 58)) %>% 
@@ -29,7 +29,7 @@ tdata_var150 <- tdata %>%
 	filter(temp_regime != 0) %>% 
 	rename(temp = mean_temp_calculated,
 		   rate = response) %>% 
-	mutate(curve.id = paste(study_ID, trait, species, long, notes, sep = "_")) %>% 
+	mutate(curve.id = paste(study_ID, trait, species, long, notes, notes2, sep = "_")) %>% 
 	filter(study_ID == "150", trait == "Duration of incubation") 
 
 unique_temps <- tdata2 %>% 
