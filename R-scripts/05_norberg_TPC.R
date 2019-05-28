@@ -370,15 +370,16 @@ all_preds_111 <- bind_rows(all_111_preds_25, all_111_preds_39) %>%
 	rename(curve.id = curve.id.list)
 
 p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))
-p + geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
+p + 
+	# geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
 	# geom_point(aes(x = temperature, y = growth.rate), data = tdata_var, shape = 1, size = 2, color = "cadetblue") +
 	# stat_function(fun = nbcurve1, color = "red", size = 2) +
 	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
-	geom_line(aes(x = temperature, y = predicted_rate), data = fits_above_zero, color = "cadetblue") +
+	# geom_line(aes(x = temperature, y = predicted_rate), data = fits_above_zero, color = "cadetblue") +
 	xlim(0, 40) + ylab("Rate") + xlab("Temperature (°C)") + ylim(-3, 110) +
 	geom_point(aes(x = mean_temp, y = rate, shape = treatment_name_study),
 			   data = filter(tdata2, study_ID == "111", trait == "fecundity", temp_regime == 1))  +
-	geom_point(aes(x = temperature, y = growth.rate), data = all_preds, color = "purple") +
+	# geom_point(aes(x = temperature, y = growth.rate), data = all_preds, color = "purple") +
 	facet_wrap( ~ curve.id, scales = "free") 
 ggsave("figures/study111-predictions-rate-summation.png", width = 12, height = 4)
 
@@ -780,7 +781,22 @@ tdata_var2 <- tdata_var %>%
 
 all_responses <- bind_rows(data_sel3, all_var2, tdata_var2) 
 
+
+### trying to fix the mismatch in temperatures for the 168 variable study.
+all_responses2 <- all_responses %>% 
+	filter(type == "variable observed", curve.id.new == "168_fecundity/body weight_n. nevadensis_116.4236111") %>% View
+	mutate(temperature = ifelse(type == "variable observed" &
+								curve.id.new == "168_fecundity/body weight_n. nevadensis_116.4236111" &
+								temperature == "20", "19.86389", temperature)) %>% 
+	mutate(temperature = ifelse(type == "variable observed" &
+									curve.id.new == "168_fecundity/body weight_n. nevadensis_116.4236111" &
+									temperature == "33", "32.79884", temperature)) 
+
+str(all_responses2)
+str(all_responses)
+
 library(beyonce)
+colors <- c("cadetblue", "darkgoldenrod1", "darkorange2")
 
 predictions2 %>% 
 	filter(predicted_rate > 0, predicted_rate < 150) %>% 
@@ -788,17 +804,134 @@ predictions2 %>%
 	geom_point(aes(x = temperature, y = rate, color = type), data = all_responses) +
 	facet_wrap( ~ curve.id.new, scales = "free") +
 	ylab("Response") + xlab("Temperature (°C)") +
-	scale_color_manual(values = beyonce_palette(type = "discrete", 72), name = "Type")
-ggsave("figures/all-rate-summation-color.png", width = 12, height = 10)
+	scale_color_manual(values = colors)
+ggsave("figures/all-rate-summation-color.png", width = 14, height = 10)
 
 
+
+
+### get the study 111 data in order
+s111 <- filter(all_responses, grepl("Dros",curve.id.new)) %>% 
+	filter(type != "variable observed")
+
+thing2 <- filter(tdata2, study_ID == "111", trait == "fecundity", temp_regime == 1) %>% 
+	rename(curve.id.new = curve.id) %>% 
+	mutate(curve.id.new = str_replace(curve.id.new, "_0_Begin Miami flies", "")) %>% 
+	mutate(curve.id.new = str_replace(curve.id.new, "_0_Begin New Jersey flies", "")) %>% 
+	filter(mean_temp %in% c(18, 25)) %>% 
+	mutate(type = "variable observed") %>% 
+	mutate(stoch2 = treatment_name_study) %>% 
+	mutate(stoch2 = str_replace(treatment_name_study, "stochastic_", "")) %>% 
+	filter(stoch2 == mean_temp) %>% 
+	rename(temperature = mean_temp) %>% 
+	select(curve.id.new, temperature, rate, type)
+
+s111b <- bind_rows(s111, thing2)
+
+predictions2 %>%
+	filter(grepl("Dros",curve.id.new)) %>% 
+	filter(predicted_rate > 0, predicted_rate < 150) %>% 
+	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line(color = "cadetblue", size = 1) +
+	geom_point(aes(x = temperature, y = rate, color = type),
+			   data = s111b, size = 2.5) +
+	geom_point(aes(x = temperature, y = rate), shape = 1, color = "black",
+		   data = s111b, size = 2.5) +
+	# geom_point(aes(x = mean_temp, y = rate), shape = 1, color = "black",
+	# 		   data = thing2 )+ 
+	facet_wrap( ~ curve.id.new, scales = "free") +
+	ylab("Response") + xlab("Temperature (°C)") +
+	# scale_color_brewer(type = "qual", palette = "Dark2") +
+	scale_color_manual(values = colors) 
+ggsave("figures/study111-predictions.png", width = 12, height = 4)
+
+temps18_111 <- read_csv("Data/study111-temps-18C-mean.csv")
+temps25_111 <- read_csv("Data/study111-temps-25C-mean.csv")
+
+
+all_111_temps <- bind_rows(temps18_111, temps25_111) %>% 
+	mutate(study_ID = "111")
+
+all_111_temps %>% 
+	ggplot(aes(x = day, y = temperature, color = factor(mean_temperature))) + geom_line() +
+	geom_hline(yintercept = 18, color = "grey", linetype = "dashed") +
+	geom_hline(yintercept = 25, color = "black", linetype = "dashed") +
+	scale_color_manual(values = c("grey", "black"), name = "Mean temperature (°C)") +
+	ylab("Temperature (°C)") + xlab("Days")
+ggsave("figures/study111-temps.png", width = 12, height = 6)
+
+
+fluc150 <- read_csv("Data/study150-temperature-fluctuations.csv")
+
+fluc150 %>% 
+	ggplot(aes(x = day, y = temperature)) + geom_line() +
+	# geom_hline(yintercept = 18, color = "grey", linetype = "dashed") +
+	# geom_hline(yintercept = 25, color = "black", linetype = "dashed") +
+	scale_color_manual(values = c("grey", "black"), name = "Mean temperature (°C)") +
+	ylab("Temperature (°C)") + xlab("Days")
+
+fluc168 <- read_csv("Data/study168-temperature-fluctuations.csv")
+
+fluc168 %>% 
+	ggplot(aes(x = hour, y = temperature, color = DTR, group = min_temp)) + geom_line() +
+	# geom_hline(yintercept = 18, color = "grey", linetype = "dashed") +
+	# geom_hline(yintercept = 25, color = "black", linetype = "dashed") +
+	ylab("Temperature (°C)") + xlab("Days")
+
+study168_temps <- read_csv("Data/study168-temperature-fluctuations.csv")
+
+
+study168_temps %>% 
+	rename(fluctuation = flutation_type) %>% 
+	mutate(realized_temp = temperature + min_temp) %>% 
+	mutate(unique_regime = paste(fluctuation, min_temp, sep = "_")) %>%  
+	ggplot(aes(x = hour, y = realized_temp, color = unique_regime, group = unique_regime)) + geom_line()
+
+
+study168_tempsb <- study168_temps %>% 
+	rename(fluctuation = flutation_type) %>% 
+	mutate(realized_temp = temperature + min_temp) %>% 
+	mutate(unique_regime = paste(fluctuation, min_temp, sep = "_")) %>% 
+	mutate(curve.id.list = fits168$curve.id.list[[1]]) 
+
+study168_tempsb %>% 
+	ggplot(aes(x = hour, y = realized_temp, color = unique_regime)) + geom_point() +
+	geom_line() +
+	ylab("Temperature (°C)") + xlab("Hour") +
+	scale_color_viridis_d(end = 0.9, name = "Temperature regime")
+ggsave("figures/study168-temp-regime.png", width = 12, height = 6)
+
+	
 
 predictions2 %>%
 	filter(grepl("nevad",curve.id.new)) %>% 
-	filter(predicted_rate > 0, predicted_rate < 150) %>% 
-	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +
+	distinct()
+
+all_responses %>% 
+	filter(grepl("Dros",curve.id.new)) %>% 
+	filter(type == "variable observed") %>% View
+
+thing1 <- tdata_var %>% 
+	rename(temperature = temp) %>% 
+	mutate(type = "variable observed") %>% 
+	filter(grepl("Dros",curve.id.new)) %>% 
+	filter(type == "variable observed") 
+
+
+
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))
+p + 
+	# geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
+	# geom_point(aes(x = temperature, y = growth.rate), data = tdata_var, shape = 1, size = 2, color = "cadetblue") +
+	# stat_function(fun = nbcurve1, color = "red", size = 2) +
+	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
+	# geom_line(aes(x = temperature, y = predicted_rate), data = fits_above_zero, color = "cadetblue") +
+	xlim(0, 40) + ylab("Rate") + xlab("Temperature (°C)") + ylim(-3, 110) +
+	# geom_point(aes(x = mean_temp, y = rate, color = treatment_name_study),
+	# 		   data = filter(tdata2, study_ID == "111", trait == "fecundity", temp_regime == 1), size = 2.5)  +
 	geom_point(aes(x = temperature, y = rate, color = type),
-			   data = filter(all_responses, grepl("nevad",curve.id.new))) +
-	facet_wrap( ~ curve.id.new, scales = "free") +
-	ylab("Response") + xlab("Temperature (°C)") +
-	scale_color_manual(values = beyonce_palette(type = "discrete", 72), name = "Type")
+			   data = filter(all_responses, grepl("Dros",curve.id.new)), size = 2.5) +
+	# geom_point(aes(x = temperature, y = growth.rate), data = all_preds, color = "purple") +
+	facet_wrap( ~ curve.id.new, scales = "free") 
+
+
+	
