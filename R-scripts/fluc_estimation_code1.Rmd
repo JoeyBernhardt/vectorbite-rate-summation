@@ -1,0 +1,675 @@
+---
+title: "Fluc_estimation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+NOTE: FOr reasons I don't understand lines below need to be run mulitple times before they make the changes in the dataframes...
+109: component.estimation[[6]][component.estimation[[6]]$hr == 7, "X16.dtr9"] <- 0
+110: component.estimation[[6]][component.estimation[[6]]$hr == 21, "X16.dtr12"] <- 0
+111: component.estimation[[6]][component.estimation[[6]]$hr == 22, "X16.dtr9"] <- 0
+
+
+
+#Rate Summation
+
+##Major question;
+Does rate summation breakdown? 
+
+###Analysis pipeline
+1. Import constant temperature thermal performance curves (component & R0)
+      i. component: bite rate, EFD , lifetime egg production, lifespan, Mu; estimation via lifetime averages | 1st GC
+      ii. R0 of standard vs. reformulated
+2. Estimate R0 under fluctuating conditions using R0 from constant temperature (i. standard, Mord method, Shap base & ii. reformulated, lifetime)
+3. Estimate individual trait performance under fluctuating conditions using constant temperature TPC curves from either i. First GC (or Mu.exp method) or ii. lifetime temp values.
+3b. Use these component traits to parameritize R0.
+4. Compare R0 generated from method A to method B.
+5. Plot observed performance under fluctuation
+6. Estimate R0 (standard) using measured values under fluctuation (i. 1st GC (Mu as exp), or ii. lifetime temp values).
+7. Find a way to statistically compare differences between constant, expected fluc, and observed fluc.
+
+#Temperature Profile under fluctuation
+```{r}
+library(reshape2)
+library(tidyverse)
+
+#create a vector of all daily temperature values
+temp.programs <- read.csv("Data/temp.programs.csv")
+#order dataframe by hr
+temp.programs <- temp.programs[order(temp.programs$hr),]
+#remove the 0.5 hr temps, we only need hourly intervals
+   #create sequence of row to remove (everyother)
+remove.r <- seq(2,length(temp.programs$hr-1), 2)
+temp.programs<- temp.programs[-remove.r,]
+
+#In case I need the hr later
+hr <- temp.programs$hr
+
+#Place into a list for apply statements later
+temp.programs.list <-  list( temp_program = temp.programs[2:length(temp.programs)])  #removes hr, creates a 1 unit list of the dataframe containing all of the hourly temperatures for both deters.
+```
+
+
+#Estimating component trait values at fluctuation using TPCs from constant temperature (lifetime)
+```{r}
+library(ggplot2)
+library(easynls)
+
+#Import functions defined in TPC overlay, generated in AIC curve fits
+#NOTE:These were added 1/12/18, check later for final version
+bite.life_fun <- function(Temp){ 0.0001425*Temp*(Temp-(-2.5761438))*(40.1676495-Temp)^(0.5) }
+#Note this is lifetime (#bites on dayx divided by #females alive each day averaged across each day females are alive)
+EFD.life_fun <- function(Temp){ 0.008925*Temp*(Temp-(10.494189))*(36.546948 -Temp)^(0.5)}   
+#Define function for P
+Miaz_P_Quad_TPC.exp <- function(Temp){.5989 + 0.0333*Temp + (-0.0008)*Temp^2}
+#Convert to Mu
+Mu.exp_fun <- function(Temp){-log(Miaz_P_Quad_TPC.exp(Temp))}
+
+life.expect_fun <-function(Temp){-.1183*Temp^2 + 4.4620*Temp -1.6611}
+life.eggs_fun <-function(Temp){(-1233.9070)+125.4588*Temp + (-2.4786)*Temp^2}
+
+
+#define other functions
+Mord_P<-function(x){-0.000828*x^2 + 0.0367*x + 0.522}
+Mord_Mortality <- function(x) {-log(Mord_P(x=x))}
+Mord_EFD<-function(x){-0.153*x^2 + 8.61*x -97.7}
+Mord_Bx <- function(x){Mord_EFD(x=x) / Mord_Mortality(x=x)}
+#Mord_VectorComp <- function(x){-0.54*x^2 + 25.2*x -206}
+#Mord_PDR <- function(x){0.000111* x *(x - 14.7)*(34.4 -x)^(0.5)}
+Mord_MDR <- function(x){0.000111 *x *(x - 14.7)*(34 -x)^(0.5)}
+Mord_PEA <- function(x){-0.00924*x^2 + 0.453*x -4.77}
+
+Shapiro_PDR <- function(x){ .1574* log(x) - 0.4153 }
+Shapiro_VectorComp <- function(x){-0.0032*x^2 + .1604 *x -1.105}
+
+r0_constant <- function (x){(bite.life_fun(x)^2 * Shapiro_VectorComp(x)* exp(-1/(Shapiro_PDR(x)*life.expect_fun(x))) * life.eggs_fun(x)* Mord_PEA(x) * Mord_MDR(x) * life.expect_fun(x)^2) }
+curve(r0_constant, from = 15, to = 40)
+
+
+#Create a dataframe of y values for Miaz_a & Miaz_a_Mord_1stGCdur using the dataframe in list[1]; assign the output to list[2]
+component.estimation <- list(bite.lifetime = as.data.frame(apply(temp.programs.list[[1]], 2, bite.life_fun)), 
+                             EFD.lifetime = as.data.frame(apply(temp.programs.list[[1]], 2, EFD.life_fun)),
+                             Mu.exp = as.data.frame(apply(temp.programs.list[[1]],2, Mu.exp_fun)),
+                             life.expect = as.data.frame(apply(temp.programs.list[[1]], 2, life.expect_fun)),
+                             life.eggs = as.data.frame(apply(temp.programs.list[[1]], 2, life.eggs_fun)),
+                             r0 = as.data.frame(apply(temp.programs.list[[1]],2, r0_constant))) #store this result into a new list which will correspond with the time 
+
+#Replace all Na values with 0 withing the outputs; and any negative values with 0
+component.estimation[[2]][is.na(component.estimation[[2]])] <- 0  #same as component.estimation[["EFD.lifetime"]][is.na(component.estimation[[EFD.lifetime]])] <- 0 
+component.estimation[[3]][component.estimation[[3]] < 0 ] <- 0
+component.estimation[[4]][component.estimation[[4]] < 0 ] <- 0
+component.estimation[[5]][component.estimation[[5]] < 0 ] <- 0
+
+component.estimation[[6]][is.na(component.estimation[[6]])] <- 0 
+component.estimation[[6]][component.estimation[[6]] < 0 ] <- 0
+
+#NOTE; THERE IS A VERY WIERD VALUE IN THE DATA FRAME i'M REMOVING IT AND REPLACING IT WITH 0c
+#NEED TO RUN THIS PART TWICE?
+component.estimation[[6]][component.estimation[[6]]$hr == 7, "X16.dtr9"] <- 0
+component.estimation[[6]][component.estimation[[6]]$hr == 21, "X16.dtr12"] <- 0
+component.estimation[[6]][component.estimation[[6]]$hr == 22, "X16.dtr9"] <- 0
+
+#Calculates column means in the dataframe
+trait.estimate = lapply(component.estimation, function(x) {
+  means = colMeans(x)
+  means = as.data.frame(means)
+  means$treatment = row.names(means)
+  return(means)
+})
+
+names <- names(component.estimation)
+names(trait.estimate) <- names
+
+#Organizes mean trait.estimate values for easy plotting
+trait.estimate = lapply(trait.estimate, function(x) {  #Applies this function to each element of x (id each dataframe)
+  x$temp =  as.numeric( substr(x$treatment, 2, 3) ) #new columns based on sub strings of the previous name
+  x$dtr = as.factor(substr(x$treatment,8,9))
+    #remove row titled 'hr'
+  row.names(x) <- seq(1:nrow(x))
+  x = x[!x$treatment == "hr",]
+    return(x)
+})
+
+
+#Then plot all of these again from above with the function of the that plot included
+
+#Make a plot of how they change with time; a seperate plot for each dataframe; 1. add hr column to each df, 2. nested inner loop to create a seperate plot for each trait, with a series corresponding for each TEMP*DTR combo
+
+plots_hourly <- list()
+for(i in 1:length(component.estimation)) {  #outter loop start
+  component.estimation[[i]]$hr <- hr #add hr vector to end of dataframe
+    
+  temporary.df <- melt(component.estimation[[i]] ,  id.vars = 'hr', variable.name = 'treatment')
+  
+  plots_hourly[[i]] <- ggplot(temporary.df, aes(hr , value), group = treatment, colour = treatment, fill = treatment) +
+      geom_point(aes(colour = treatment, fill = treatment))+
+      geom_line(aes(colour= treatment, linetype = treatment))+
+      ggtitle( names(component.estimation)[i])+  #title to correspond to trait
+      theme_classic()
+  
+  } #outter loop close
+
+names(plots_hourly) <- names
+
+#Look at hourly estimate plots
+plots_hourly[[1]]
+plots_hourly[[2]]
+plots_hourly[[3]]
+plots_hourly[[4]]
+plots_hourly[[5]]
+plots_hourly[[6]]
+
+
+#Plot for presentation to demonstrate a program
+
+ggplot(component.estimation[[1]], aes(x = hr , y = X32.dtr12)) +
+      geom_point(colour = "red", size = 3)+
+      geom_line(colour = "red", size = 1.5)+
+      scale_y_continuous(name = "Trait X", limits = c(0,.5), breaks = seq(0,.5,.1))+
+      scale_x_continuous(name = "Time (hr)")+
+      theme_classic(base_size = 20)+
+      theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=1),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+
+
+
+#Import experimental values
+obs.df <- read.csv("Data/notfinished_obsvalues.csv")
+obs.df$dtr <- as.factor(obs.df$dtr)
+
+obs.bite <- subset(obs.df, trait == "bite.rate")
+obs.EFD <- subset(obs.df, trait == "EFD")
+obs.life.exp <- subset(obs.df, trait == "life.expect")
+obs.life.egg <- subset(obs.df, trait == "life.eggs")
+
+obs.r0 <- subset(obs.df, trait == "bite.rate")
+obs.r0$obs <- r0_constant(obs.r0$temp)
+obs.r0[is.na(obs.r0)] <- 0 
+
+
+#Try an apply statement for ggplots - makes plots of estimated values
+plots_mean <- lapply(trait.estimate, function(t){ #x is the dataframe in trait.estimate
+  a <- ggplot(t, aes(x = temp, group = dtr, colour = dtr))+
+           scale_colour_manual("Estimated:DTR", values = c("red", "pink", "black"))+
+           geom_point(aes(y = means), size = 2.5, shape = 23, stroke = 1.5) +
+           theme_classic(base_size = 20)
+  
+  return(a)
+})
+
+```
+
+#Generate TPCS to be included in the plotes started above
+```{r}
+#BITE RATE
+
+#Generate TPCs for observed and estimated DTR treatments - to be included in plots
+#Estimate - DTR9
+df.bite.estimate.dtr9 <- subset(trait.estimate[[1]],dtr==9)
+
+nls_dtr9_briere_bite_start <- nls(means ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.bite.estimate.dtr9, 
+                start=list(c=0.001, T0=(-1), Tm=40.753))
+
+temp <- df.bite.estimate.dtr9$temp
+biterate <- df.bite.estimate.dtr9$means
+bite_DF <-  cbind(temp, biterate)
+bite_DF <- as.data.frame(bite_DF)
+
+nls_dtr9_linear_bite <-nlsfit(bite_DF, model = 1)
+
+nls_dtr9_quad_bite <- nlsfit(bite_DF, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr9_linear_bite$Parameters[7,], nls_dtr9_quad_bite$Parameters[9,], AIC(nls_dtr9_briere_bite_start) )
+Fit <- c("linear","quadratic", "briere")
+bite_aic_table <- cbind(Fit, AIC)
+bite_aic_table
+
+nls_dtr9_briere_bite_fun.EST <-   function(x){ 0.0001425*x*(x-(-3.0895947))*(39.0878238 -x)^(0.5) }          
+
+#Observed - DTR9
+df.bite.observed.dtr9 <- subset(obs.df,dtr==9 & trait == "bite.rate")
+nls_dtr9_briere_bite_start2 <- nls(obs ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.bite.observed.dtr9, 
+                start=list(c=0.001, T0=(-3), Tm=40.753))
+
+temp <- df.bite.observed.dtr9$temp
+biterate <- df.bite.observed.dtr9$obs
+bite_DF <-  cbind(temp, biterate)
+bite_DF <- as.data.frame(bite_DF)
+
+nls_dtr9_linear_bite2 <-nlsfit(bite_DF, model = 1)
+nls_dtr9_quad_bite2 <- nlsfit(bite_DF, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr9_linear_bite2$Parameters[7,], nls_dtr9_quad_bite2$Parameters[9,], AIC(nls_dtr9_briere_bite_start2) )
+Fit <- c("linear","quadratic", "briere")
+bite_aic_table <- cbind(Fit, AIC)
+bite_aic_table
+
+nls_dtr9_briere_bite_fun.OBS <-   function(x){ 0.00021*x*(x-(0.8061))*(34.34 -x)^(0.5) }          
+
+#Estimate - DTR12
+df.bite.estimate.dtr12 <- subset(trait.estimate[[1]],dtr==12)
+
+nls_dtr12_briere_bite_start <- nls(means ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.bite.estimate.dtr12, 
+                start=list(c=0.001, T0=(-1), Tm=40.753))
+
+temp <- df.bite.estimate.dtr12$temp
+biterate <- df.bite.estimate.dtr12$means
+bite_DF <-  cbind(temp, biterate)
+bite_DF <- as.data.frame(bite_DF)
+
+nls_dtr12_linear_bite <-nlsfit(bite_DF, model = 1)
+
+nls_dtr12_quad_bite <- nlsfit(bite_DF, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr12_linear_bite$Parameters[7,], nls_dtr12_quad_bite$Parameters[9,], AIC(nls_dtr12_briere_bite_start) )
+Fit <- c("linear","quadratic", "briere")
+bite_aic_table <- cbind(Fit, AIC)
+bite_aic_table
+
+nls_dtr12_briere_bite_fun.EST <-   function(x){  0.0001449*x*(x-(-3.2485674))*(38.0638015 -x)^(0.5) }  
+
+
+#Observed -DTR12
+
+df.bite.observed.dtr12 <- subset(obs.df,dtr==12 & trait == "bite.rate")
+nls_dtr12_briere_bite_start2 <- nls(obs ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.bite.observed.dtr12, 
+                start=list(c=0.001, T0=(-3), Tm=40.753))
+
+temp <- df.bite.observed.dtr12$temp
+biterate <- df.bite.observed.dtr12$obs
+bite_DF12 <-  cbind(temp, biterate)
+bite_DF12 <- as.data.frame(bite_DF12)
+
+nls_dtr12_linear_bite2 <-nlsfit(bite_DF12, model = 1)
+nls_dtr12_quad_bite2 <- nlsfit(bite_DF12, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr12_linear_bite2$Parameters[7,], nls_dtr12_quad_bite2$Parameters[9,], AIC(nls_dtr12_briere_bite_start2) )
+Fit <- c("linear","quadratic", "briere")
+bite_aic_table <- cbind(Fit, AIC)
+bite_aic_table
+
+nls_dtr12_briere_bite_fun.OBS <-   function(x){ 0.00019*x*(x-(1.7703))*(34.21 -x)^(0.5) } 
+
+
+
+
+
+
+###### Life expectancy #######
+#Estimate - DTR9
+df.lifeexpect.estimate.dtr9 <- subset(trait.estimate[[4]],dtr==9)
+
+temp <- df.lifeexpect.estimate.dtr9$temp
+lifeexpect <- df.lifeexpect.estimate.dtr9$means
+lifeexpect_DF <-  cbind(temp, lifeexpect)
+lifeexpect_DF <- as.data.frame(lifeexpect_DF)
+
+#nls_dtr9_briere_lifeexpect_start <- nls(means ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.lifeexpect.estimate.dtr9, start=list(c=0.000000135, T0= (-3880000), Tm=33))
+
+library(thermPerf)
+
+mFunction = function(x, params) {
+  # params model parameters, a0, a1, a2
+  a0 = params[["a0"]]
+  a1 = params[["a1"]]
+  a2 = params[["a2"]]
+  return(a1 * x + a2 * x^2 + a0)
+}
+# 2) Name
+mName = "Quadratic"
+# 3) Formula
+mFormula = y ~ a1 * x + a2 * x^2 + a0
+# 4) Model parameters
+mParams = c("a0", "a1", "a2")
+# 5) List of starting values for the parameters
+mStarting = list(a0 = 0, a1 = 1, a2 = 0.5)
+# Create the customModel object
+quadratic = buildModel(mFunction, mName, mFormula, mParams, mStarting)
+
+
+models = getModelLibrary()[c( "briere1","linearFit")]
+models[["quadratic"]] = quadratic
+models$briere1$starting = list(a = .00001, t0 = 10, tmax = 40 )
+Exfits = fitModels(models, temp, lifeexpect)
+plot(Exfits, xlim = c(10, 40), ylim = c(0, 50), las = 1)
+Exfitsweights = calculateAIC(Exfits)
+plot(Exfitsweights)
+#briere AIC: 31.66
+#linear AIC: 31.71
+#Quadratic: -307.58
+nls_dtr9_linear_lifeexpect <-nlsfit(lifeexpect_DF, model = 1)
+
+Exfits$quadratic$m$getPars()
+nls_dtr9_lifeexpect_quad_fun.EST <-   function(x){ -2.922528 + 4.463632*x +(-0.118300)*x^2}          
+
+
+#Observed - DTR9
+df.lifeexpect.observed.dtr9 <- subset(obs.df,dtr==9 & trait == "life.expect")
+nls_dtr9_briere_lifeexpect_start2 <- nls(obs ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.lifeexpect.observed.dtr9, 
+                start=list(c=0.1, T0= (2), Tm=40.753))
+
+temp <- df.lifeexpect.observed.dtr9$temp
+lifeexpect <- df.lifeexpect.observed.dtr9$obs
+lifeexpect_DF <-  cbind(temp, lifeexpect)
+lifeexpect_DF <- as.data.frame(lifeexpect_DF)
+
+nls_dtr9_linear_lifeexpect2 <-nlsfit(lifeexpect_DF, model = 1)
+nls_dtr9_quad_lifeexpect2 <- nlsfit(lifeexpect_DF, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr9_linear_lifeexpect2$Parameters[7,], nls_dtr9_quad_lifeexpect2$Parameters[9,], AIC(nls_dtr9_briere_lifeexpect_start2) )
+Fit <- c("linear","quadratic", "briere")
+lifeexpect_aic_table <- cbind(Fit, AIC)
+lifeexpect_aic_table
+
+nls_dtr9_lifeexpect_quad_fun.OBS <-   function(x){ 28.2792 + 1.7576*x +(-0.0708)*x^2}        
+
+#Estimate - DTR12
+df.lifeexpect.estimate.dtr12 <- subset(trait.estimate[[4]],dtr==12)
+
+#nls_dtr12_briere_lifeexpect_start <- nls(means ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.lifeexpect.estimate.dtr12,   start=list(c=0.000000111, T0= (-4600000), Tm=33))
+
+
+
+temp <- df.lifeexpect.estimate.dtr12$temp
+lifeexpect <- df.lifeexpect.estimate.dtr12$means
+lifeexpect_DF <-  cbind(temp, lifeexpect)
+lifeexpect_DF <- as.data.frame(lifeexpect_DF)
+
+models = getModelLibrary()[c( "briere1","linearFit")]
+models[["quadratic"]] = quadratic
+models$briere1$starting = list(a = .00001, t0 = 10, tmax = 40 )
+Exfits = fitModels(models, temp, lifeexpect)
+plot(Exfits, xlim = c(10, 40), ylim = c(0, 50), las = 1)
+Exfitsweights = calculateAIC(Exfits)
+plot(Exfitsweights)
+
+nls_dtr12_linear_lifeexpect <-nlsfit(lifeexpect_DF, model = 1)
+nls_dtr12_quad_lifeexpect <- nlsfit(lifeexpect_DF, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr12_linear_bite$Parameters[7,], nls_dtr12_quad_bite$Parameters[9,] )
+Fit <- c("linear","quadratic")
+lifeexpect_aic_table <- cbind(Fit, AIC)
+lifeexpect_aic_table
+
+nls_dtr12_quad_lifeexpect_fun.EST <-   function(x){ -0.9298 + 4.1736*x +(-0.1114)*x^2} 
+
+
+#Observed - DTR12
+df.lifeexpect.observed.dtr12 <- subset(obs.df,dtr==12 & trait == "life.expect")
+nls_dtr12_briere_lifeexpect_start2 <- nls(obs ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.lifeexpect.observed.dtr12, 
+                start=list(c=0.1, T0= (2), Tm=40.753))
+
+temp <- df.lifeexpect.observed.dtr12$temp
+lifeexpect <- df.lifeexpect.observed.dtr12$obs
+lifeexpect_DF12 <-  cbind(temp, lifeexpect)
+lifeexpect_DF12 <- as.data.frame(lifeexpect_DF12)
+
+nls_dtr12_linear_lifeexpect2 <-nlsfit(lifeexpect_DF12, model = 1)
+nls_dtr12_quad_lifeexpect2 <- nlsfit(lifeexpect_DF12, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr12_linear_lifeexpect2$Parameters[7,], nls_dtr12_quad_lifeexpect2$Parameters[9,], AIC(nls_dtr12_briere_lifeexpect_start2) )
+Fit <- c("linear","quadratic", "briere")
+lifeexpect_aic_table <- cbind(Fit, AIC)
+lifeexpect_aic_table
+
+nls_dtr12_lifeexpect_briere_fun.OBS <-   function(x){(-0.02525)*x*(x-(34.36866))*(62.05932 -x)^(0.5) }        
+
+
+
+
+
+
+###### Lifetime eggs #######
+df.lifeegg.estimate.dtr9 <- subset(trait.estimate[[5]],dtr==9)
+
+temp <- df.lifeegg.estimate.dtr9$temp
+lifeegg <- df.lifeegg.estimate.dtr9$means
+lifeegg_DF <-  cbind(temp, lifeegg)
+lifeegg_DF <- as.data.frame(lifeegg_DF)
+
+nls_dtr9_briere_lifeegg_start <- nls(means ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.lifeegg.estimate.dtr9,  start=list(c=0.5, T0=(10.494188502), Tm=36.546948005))
+
+nls_dtr9_linear_lifeegg <-nlsfit(lifeegg_DF, model = 1)
+nls_dtr9_quad_lifeegg <- nlsfit(lifeegg_DF, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr9_linear_lifeegg$Parameters[7,], nls_dtr9_quad_lifeegg$Parameters[9,], AIC(nls_dtr9_briere_lifeegg_start) )
+Fit <- c("linear","quadratic", "briere")
+lifeegg_aic_table <- cbind(Fit, AIC)
+lifeegg_aic_table
+
+nls_dtr9_quad_lifeegg_fun.EST <-   function(x){ -1151.8544 + 117.1790*x + (-2.3235)*x^2  }          
+
+#Observed - DTR9
+df.lifeegg.observed.dtr9 <- subset(obs.df,dtr==9 & trait == "life.eggs")
+nls_dtr9_briere_lifeegg_start2 <- nls(obs ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.lifeegg.observed.dtr9,start=list(c=1.0, T0=(5), Tm=33))
+
+temp <- df.lifeegg.observed.dtr9$temp
+lifeeggs <- df.lifeegg.observed.dtr9$obs
+lifeeggs_DF <-  cbind(temp, lifeeggs)
+lifeeggs_DF <- as.data.frame(lifeeggs_DF)
+
+nls_dtr9_linear_lifeegg2 <-nlsfit(lifeeggs_DF, model = 1)
+nls_dtr9_quad_lifeegg2 <- nlsfit(lifeeggs_DF, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr9_linear_lifeegg2$Parameters[7,], nls_dtr9_quad_lifeegg2$Parameters[9,], AIC(nls_dtr9_briere_lifeegg_start2) )
+Fit <- c("linear","quadratic", "briere")
+lifeegg_aic_table <- cbind(Fit, AIC)
+lifeegg_aic_table
+
+nls_dtr9_quad_lifeegg_fun.OBS <-   function(x){ -1988.71+ 205.6601*x + (-4.2854)*x^2 }          
+
+#Estimate - DTR12
+df.lifeegg.estimate.dtr12 <- subset(trait.estimate[[5]],dtr==12)
+
+temp <- df.lifeegg.estimate.dtr12$temp
+lifeegg <- df.lifeegg.estimate.dtr12$means
+lifeegg_DF <-  cbind(temp, lifeegg)
+lifeegg_DF <- as.data.frame(lifeegg_DF)
+
+nls_dtr12_briere_lifeegg_start <- nls(means ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.lifeegg.estimate.dtr12, start=list(c=0.5, T0=(10.494188502), Tm=36.546948005))
+nls_dtr12_linear_lifeegg <-nlsfit(lifeegg_DF, model = 1)
+nls_dtr12_quad_lifeegg <- nlsfit(lifeegg_DF, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr12_linear_lifeegg$Parameters[7,], nls_dtr12_quad_lifeegg$Parameters[9,], AIC(nls_dtr12_briere_lifeegg_start) )
+Fit <- c("linear","quadratic", "briere")
+lifeegg_aic_table <- cbind(Fit, AIC)
+lifeegg_aic_table
+
+nls_dtr12_quad_lifeegg_fun.EST <-   function(x){ -959.1674 + 99.9361*x + (-1.9801)*x^2 } 
+
+#Observed - DTR12
+df.lifeegg.observed.dtr12 <- subset(obs.df,dtr==12 & trait == "life.eggs")
+nls_dtr12_briere_lifeegg_start2 <- nls(obs ~ c*temp*(temp-T0)*(Tm-temp)^(0.5), data= df.lifeegg.observed.dtr12,start=list(c=1.0, T0=(5), Tm=33))
+
+temp <- df.lifeegg.observed.dtr12$temp
+lifeeggs <- df.lifeegg.observed.dtr12$obs
+lifeeggs_DF12 <-  cbind(temp, lifeeggs)
+lifeeggs_DF12 <- as.data.frame(lifeeggs_DF12)
+
+nls_dtr12_linear_lifeegg2 <-nlsfit(lifeeggs_DF12, model = 1)
+nls_dtr12_quad_lifeegg2 <- nlsfit(lifeeggs_DF12, model = 2)
+
+      #AIC values  
+AIC <- c(nls_dtr12_linear_lifeegg2$Parameters[7,], nls_dtr12_quad_lifeegg2$Parameters[9,], AIC(nls_dtr12_briere_lifeegg_start2) )
+Fit <- c("linear","quadratic", "briere")
+lifeegg_aic_table <- cbind(Fit, AIC)
+lifeegg_aic_table
+
+nls_dtr12_quad_lifeegg_fun.OBS <-   function(x){ -2965.8809+ 298.1961*x + (-6.2444)*x^2 }          
+
+
+```
+
+
+
+```{r}
+#Creates plots that adds the constant temperature TPC and the observed values
+names(plots_mean) <- names
+
+bite.plot <- plots_mean[[1]] + scale_fill_manual("Observed:DTR", values = c("black", "pink", "red")) + 
+  stat_function(fun = bite.life_fun, colour = "black", linetype = "solid", size = 1.5) + 
+  stat_function(fun = nls_dtr9_briere_bite_fun.EST, colour = "pink", linetype = "dashed", size = 1.5) +
+  stat_function(fun = nls_dtr9_briere_bite_fun.OBS , colour = "pink", linetype = "solid", size = 1.5) +
+  stat_function(fun = nls_dtr12_briere_bite_fun.EST, colour = "red", linetype = "dashed", size = 1.5) + 
+  stat_function(fun = nls_dtr12_briere_bite_fun.OBS, colour = "red", linetype = "solid", size = 1.5)+ 
+  geom_point(data = obs.bite, aes(y = obs, fill = dtr),shape = 21, colour = "black", size = 3, stroke = 1.5) +
+  geom_point(aes(y = means), size = .1, shape = 23, stroke = 2.5) +
+  geom_point(aes(y = means), colour = "black", size = 2.5, shape = 23, stroke = 1.5) + 
+  scale_y_continuous(name = "Bite rate", limits = c(0,0.5))+ scale_x_continuous(name = "Temperature (C)", limits = c(10,40)) +  theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+
+#PPT TPC of bite rate only
+ggplot(data.frame(x = c(0, 40)), aes(Temp = x))+ 
+ theme_classic(base_size = 20)+
+ stat_function(fun = bite.life_fun, colour = "black", linetype = "solid", size = 1.5) + 
+  stat_function(fun = nls_dtr9_briere_bite_fun.OBS , colour = "pink", linetype = "solid", size = 1.5) +
+  stat_function(fun = nls_dtr12_briere_bite_fun.OBS, colour = "red", linetype = "solid", size = 1.5)+ 
+ scale_y_continuous(name = "Bite rate", limits = c(0,0.5))+ scale_x_continuous(name = "Temperature (C)", limits = c(10,40)) +     theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+
+E.plot <- plots_mean[[4]]  + scale_fill_manual("Observed:DTR", values = c("black", "pink", "red")) +
+  stat_function(fun = life.expect_fun, colour = "black", linetype = "solid", size = 1.5) +
+  stat_function(fun = nls_dtr9_lifeexpect_quad_fun.EST, colour = "pink", linetype = "dashed", size = 1.5)+
+  stat_function(fun = nls_dtr9_lifeexpect_quad_fun.OBS, colour = "pink", linetype = "solid", size = 1.5)+
+  stat_function(fun = nls_dtr12_quad_lifeexpect_fun.EST, colour = "red", linetype = "dashed", size = 1.5) +
+  stat_function(fun = nls_dtr12_lifeexpect_briere_fun.OBS, colour = "red", linetype = "solid", size = 1.5)+
+  geom_point(data = obs.life.exp, aes(y = obs, fill = dtr),shape = 21, colour = "black", size = 3, stroke = 1.5) +
+  geom_point(aes(y = means), size = .1, shape = 23, stroke = 2.5) +
+  geom_point(aes(y = means),colour = "black", size = 2.5, shape = 23, stroke = 1.5) +
+  scale_y_continuous(name = "Lifespan", limits = c(0,53), breaks = seq(0,50,10))+
+  scale_x_continuous(name = "Temperature (C)", limits = c(10,40)) +  theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+
+#PPT TPC of E only
+ggplot(data.frame(x = c(0, 40)), aes(Temp = x))+ 
+ theme_classic(base_size = 20)+
+ stat_function(fun = life.expect_fun, colour = "black", linetype = "solid", size = 1.5) + 
+  stat_function(fun = nls_dtr9_lifeexpect_quad_fun.OBS, colour = "pink", linetype = "solid", size = 1.5)+
+   stat_function(fun = nls_dtr12_lifeexpect_briere_fun.OBS, colour = "red", linetype = "solid", size = 1.5)+
+ scale_y_continuous(name = "Lifespan", limits = c(0,53), breaks = seq(0,50,10))+
+   scale_x_continuous(name = "Temperature (C)", limits = c(10,40)) +
+theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+
+B.plot <- plots_mean[[5]]  + scale_fill_manual("Observed:DTR", values = c("black", "pink", "red")) +
+  stat_function(fun = life.eggs_fun, colour = "black", linetype = "solid", size = 1.5)  +
+  stat_function(fun = nls_dtr9_quad_lifeegg_fun.EST, colour = "pink", linetype = "dashed", size = 1.5) +
+  stat_function(fun = nls_dtr9_quad_lifeegg_fun.OBS, color = "pink", linetype = "solid", size = 1.5) +
+  stat_function(fun = nls_dtr12_quad_lifeegg_fun.EST, colour = "red", linetype = "dashed", size = 1.5) +
+  stat_function(fun = nls_dtr12_quad_lifeegg_fun.OBS, color = "red", linetype = "solid", size = 1.5) +
+  geom_point(data = obs.life.egg , aes(y = obs, fill = dtr), shape = 21, colour = "black", size = 3, stroke = 1.5) + 
+  geom_point(aes(y = means), size = .1, shape = 23, stroke = 2.5) +
+  geom_point(aes(y = means),colour = "black", size = 2.5, shape = 23, stroke = 1.5) + scale_y_continuous(name = "Lifetime egg production", limits = c(0,750), breaks = seq(0,700,100))+ scale_x_continuous(name = "Temperature (C)", limits = c(10,40)) +  theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+
+#PPT TPC of B only
+ggplot(data.frame(x = c(0, 40)), aes(Temp = x))+ 
+ theme_classic(base_size = 20)+
+ stat_function(fun = life.eggs_fun, colour = "black", linetype = "solid", size = 1.5) + 
+  stat_function(fun = nls_dtr9_quad_lifeegg_fun.OBS, color = "pink", linetype = "solid", size = 1.5) +
+  stat_function(fun = nls_dtr12_quad_lifeegg_fun.OBS, color = "red", linetype = "solid", size = 1.5) +
+scale_y_continuous(name = "Lifetime egg production", limits = c(0,700), breaks = seq(0,700,100))+
+   scale_x_continuous(name = "Temperature (C)", limits = c(10,40)) +
+theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+
+plots_mean[[2]]  +  stat_function(fun = EFD.life_fun, colour = "black", linetype = "solid", size = 1.5)+  ggtitle( names[2])  + geom_point(data = obs.EFD, aes(y = obs),shape = 19, size = 4) 
+plots_mean[[3]]  +  stat_function(fun = Mu.exp_fun, colour = "black", linetype = "solid", size = 1.5)+  ggtitle( names[3])  
+
+
+plots_mean[[6]] + stat_function(fun = r0_constant, colour = "black", linetype = "solid", size =1.5) + geom_point(data = obs.r0, aes(y = obs), shape = 19, size =4 )
+
+#TPC for just the other functions
+PDR.plot <- ggplot( data.frame(x = c(15, 35))) + stat_function(fun = Shapiro_PDR, colour = "black", linetype = "solid", size = 1.5) +  scale_y_continuous(name = "Pathogen development rate", limits = c(0,.2), breaks = seq(0,.2,.05))+ scale_x_continuous(name = "Temperature (C)", limits = c(10,40)) + theme_classic(base_size = 20)+ theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+Vectcomp.plot <- ggplot( data.frame(x = c(15, 35))) + stat_function(fun = Shapiro_VectorComp , colour = "black", linetype = "solid", size = 1.5) +  scale_y_continuous(name = "Vector competence", limits = c(0,1), breaks = seq(0,1,.1))+ scale_x_continuous(name = "Temperature (C)", limits = c(10,40)) + theme_classic(base_size = 20) +  theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+MDR.plot <- ggplot( data.frame(x = c(15, 35))) + stat_function(fun = Mord_MDR, colour = "black", linetype = "solid", size = 1.5) +  scale_y_continuous(name = "Mosquito development rate", limits = c(0,.12), breaks = seq(0,.12,.03))+ scale_x_continuous(name = "Temperature (C)", limits = c(10,40)) + theme_classic(base_size = 20) +  theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+PEA.plot <- ggplot( data.frame(x = c(15, 35))) + stat_function(fun = Mord_PEA, colour = "black", linetype = "solid", size = 1.5) +  scale_y_continuous(name = "Probability of egg to adult survival", limits = c(0,1), breaks = seq(0,1,.2))+ scale_x_continuous(name = "Temperature (C)", limits = c(10,40))  + theme_classic(base_size = 20)+  theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+ 
+```
+
+##Integrate component trait thermal performance into R0
+##R0 with observed vs R0 with estimated at each treatment integrating life.eggs, life.expect, and bite rate with previous TPCS.
+
+```{r}
+
+###PICK UP HERE ADD IN THE NEW FUNCTION NAMES & DEFINE AN R0_OBS_DTR12
+
+r0_obs_dtr9 <- function (x){(nls_dtr9_briere_bite_fun.OBS(x)^2 * Shapiro_VectorComp(x)* exp(-1/(Shapiro_PDR(x)*nls_dtr9_lifeexpect_quad_fun.OBS(x))) * nls_dtr9_quad_lifeegg_fun.OBS(x)* Mord_PEA(x) * Mord_MDR(x) * nls_dtr9_lifeexpect_quad_fun.OBS(x)^2) }
+curve(r0_obs_dtr9, from = 15, to = 40)
+  
+r0_est_dtr9 <- function (x){(nls_dtr9_briere_bite_fun.EST(x)^2 * Shapiro_VectorComp(x)* exp(-1/(Shapiro_PDR(x)*nls_dtr9_lifeexpect_quad_fun.EST(x))) * nls_dtr9_quad_lifeegg_fun.EST(x)* Mord_PEA(x) * Mord_MDR(x) * nls_dtr9_lifeexpect_quad_fun.EST(x)^2) }
+curve(r0_est_dtr9, from = 15, to = 40)
+  
+r0_est_dtr12 <- function (x){(nls_dtr12_briere_bite_fun.EST(x)^2 * Shapiro_VectorComp(x)* exp(-1/(Shapiro_PDR(x)*nls_dtr12_quad_lifeexpect_fun.EST(x))) *  nls_dtr12_quad_lifeegg_fun.EST(x)* Mord_PEA(x) * Mord_MDR(x) * nls_dtr12_quad_lifeexpect_fun.EST(x)^2) }
+curve(r0_est_dtr12, from = 15, to = 40)
+
+r0_obs_dtr12 <- function (x){(nls_dtr12_briere_bite_fun.OBS(x)^2 * Shapiro_VectorComp(x)* exp(-1/(Shapiro_PDR(x)*nls_dtr12_lifeexpect_briere_fun.OBS(x))) * nls_dtr12_quad_lifeegg_fun.OBS(x)* Mord_PEA(x) * Mord_MDR(x) * nls_dtr12_lifeexpect_briere_fun.OBS(x)^2) }
+curve(r0_obs_dtr9, from = 15, to = 40)
+
+
+
+r0.plot<-  ggplot(trait.estimate[[6]], aes(x= temp, group = dtr, colour = dtr) ) +
+  scale_colour_manual("DTR", values = c("pink", "red"))+
+  stat_function(fun = r0_constant, colour = "black", linetype = "solid", size = 1.5)+
+  stat_function(fun = r0_obs_dtr9, colour = "pink", linetype = "solid", size = 1.5) +
+  stat_function(fun = r0_est_dtr9, colour = "pink", linetype = "dashed", size = 1.5) +
+  stat_function(fun = r0_est_dtr12, colour = "red", linetype = "dashed", size = 1.5) +
+  stat_function(fun = r0_obs_dtr12, colour = "red", linetype  = "solid", size = 1.5) +
+  geom_point(aes(y = means), size = .1, shape = 23, stroke = 2.5) +
+  geom_point(aes(y = means),colour = "black", size = 2.5, shape = 23, stroke = 1.5) +
+  scale_x_continuous(name = "Temperature  (C)",breaks = seq(15, 35, 5), limits=c(15, 35)) +
+  scale_y_continuous(name = "Vectorial capacity",breaks = seq(0.0,4000,1000), limits = c(0.0,4000), expand = c(0,0.01)) +
+  theme_classic(base_size = 20)+
+  theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+
+
+#PPT r0 without the rate summation triangles
+ggplot(data.frame(x = c(15, 35)), aes(Temp = x))+ 
+ theme_classic(base_size = 20)+
+  stat_function(fun = r0_constant, colour = "black", linetype = "solid", size = 1.5)+
+  stat_function(fun = r0_obs_dtr9, colour = "pink", linetype = "solid", size = 1.5) +
+  stat_function(fun = r0_est_dtr9, colour = "pink", linetype = "dashed", size = 1.5) +
+  stat_function(fun = r0_est_dtr12, colour = "red", linetype = "dashed", size = 1.5) +
+  stat_function(fun = r0_obs_dtr12, colour = "red", linetype  = "solid", size = 1.5) +
+ scale_x_continuous(name = "Temperature  (C)",breaks = seq(15, 35, 5), limits=c(15, 35)) +
+  scale_y_continuous(name = "Vectorial capacity",breaks = seq(0.0,4000,1000), limits = c(0.0,4000), expand = c(0,0.01)) +
+theme(legend.position = "none", legend.direction = "horizontal", panel.border = element_rect(colour = "black", fill=NA, size=.5),  panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.background = element_blank(), strip.background = element_blank(), strip.text = element_blank())
+ 
+ #Integrating over R0 along falls to capture the complexity of the component traits
+ 
+ #Making a panel of the 3 traits and VC
+library(cowplot)
+
+traits_panel <- plot_grid(bite.plot, E.plot, B.plot, r0.plot, labels=c("A", "B", "C", "D"), ncol = 1, nrow = 4, align = "hv", label_size = 20, vjust = 1.1)
+#save_plot("traits_panel.png", traits_panel, ncol = 1.5, nrow = 4, base_aspect_ratio = 1.3)
+ 
+traits_literature <- plot_grid(PDR.plot, Vectcomp.plot, MDR.plot, PEA.plot, labels=c("D", "E", "F", "G"), ncol = 1, nrow = 4, align = "hv", label_size = 20, vjust = 1.1)
+#save_plot("traits_literature.png", traits_literature, ncol = 1.5, nrow = 4, base_aspect_ratio = 1.3)
+ 
+
+  
+```
+#Estimating R0 at fluctuation from hourly intervals of R0 at constant (ie black line above)
+```{r}
+
+
+```
+
+#Estimating component trait values at fluctuation using TPCs from constant temperature (1st GC, but not lifespan)
+

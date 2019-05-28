@@ -18,9 +18,10 @@ tdata2 <- tdata %>%
 	filter(temp_regime == 0) %>% 
 	rename(temp = mean_temp_calculated,
 		   rate = response) %>% 
-	mutate(curve.id = paste(study_ID, trait, species, long, notes, notes2, sep = "_"))
+	mutate(curve.id = paste(study_ID, trait, species, long, notes, notes2, sep = "_")) %>% 
+	mutate(study_trait = paste(study_ID, trait, sep = "_"))
 
-tdata_var150 <- tdata %>% 
+tdata_var119 <- tdata %>% 
 	# filter(study_ID %in% c(168, 165, 159, 150, 124, 119, 111, 91, 67, 61, 58)) %>% 
 	mutate(study_digits = nchar(study_ID)) %>% 
 	mutate(mean_temp_calculated = (min_temp + max_temp)/2) %>% 
@@ -30,7 +31,7 @@ tdata_var150 <- tdata %>%
 	rename(temp = mean_temp_calculated,
 		   rate = response) %>% 
 	mutate(curve.id = paste(study_ID, trait, species, long, notes, notes2, sep = "_")) %>% 
-	filter(study_ID == "150", trait == "Duration of incubation") 
+	filter(study_ID == "119", trait == "weight gain") 
 
 unique_temps <- tdata2 %>% 
 	group_by(curve.id) %>% 
@@ -40,7 +41,7 @@ unique_temps <- tdata2 %>%
 
 tdata3 <- tdata2 %>% 
 	filter(curve.id %in% unique_temps$curve.id)
-tdata_var <- tdata_var %>% 
+tdata_var_119 <- tdata_var119 %>% 
 	filter(curve.id %in% unique_temps$curve.id) %>% 
 	rename(temperature = temp) %>% 
 	rename(growth.rate = rate) 
@@ -49,18 +50,19 @@ tdata_var <- tdata_var %>%
 p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))
 
 tdata3 %>% 
-	filter(study_ID == "150") %>% View
+	filter(study_ID == "119") %>% 
 ggplot(aes(x = temp, y = rate)) + geom_point(shape = 1, size = 2, color = "grey") +
 	# stat_function(fun = nbcurve1, color = "red", size = 2) +
 	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
 	# geom_line(aes(x = temperature, y = predicted_rate), data = fits, color = "purple") +
-	xlim(0, 40) +ylab("Rate") + xlab("Temperature (°C)") +
+	# xlim(0, 40) +
+	ylab("Rate") + xlab("Temperature (°C)") +
 	facet_wrap( ~ curve.id, scales = "free_y") 
 ggsave("figures/all_TPCs.png", width = 20, height = 20)
 
 
 dat.full <- tdata3 %>% 
-	filter(study_ID == "150", trait == "Duration of incubation") %>% 
+	filter(study_ID == "119", trait == "weight gain") %>% 
 	rename(temperature = temp) %>% 
 	rename(growth.rate = rate) %>% 
 	# filter(study_ID == 111) %>% 
@@ -183,6 +185,7 @@ for(i in 1:length(curve.id.list)){
 	n.list[i]<-length(dat$temperature)
 }
 # fits111 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
+fits119 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 
 fits150 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 
@@ -196,6 +199,7 @@ fits4 <- bind_rows(fits3, fits168)
 
 write_csv(fits4, "data-processed/norberg-fits-all.csv")
 write_csv(fits159, "data-processed/norberg-fits-study159.csv")
+write_csv(fits119, "data-processed/norberg-fits-study119.csv")
 write_csv(fits168, "data-processed/norberg-fits-study168.csv")
 write_csv(fits150, "data-processed/norberg-fits-study150.csv")
 write_csv(fits, "data-processed/norberg-fits-all-location.csv")
@@ -224,7 +228,7 @@ prediction_function <- function(df) {
 }
 
 
-fits_split <- fits150 %>% 
+fits_split <- fits119 %>% 
 	filter(!is.na(topt.list)) %>% 
 	split(.$curve.id.list)
 
@@ -234,18 +238,13 @@ fits <- fits_split %>%
 	map_df(prediction_function, .id = "curve.id")
 
 fits_above_zero <- fits %>% 
-	filter(predicted_rate > -5, predicted_rate < 150)
+	filter(predicted_rate > 0, predicted_rate < 150)
 
 
 nbcurve<-function(temp,z,w,a,b){
 	res<-a*exp(b*temp)*(1-((temp-z)/(w/2))^2)
 	res
 }
-
-temps <- seq(0, 40, length = 150)
-
-predictions <- sapply(temps, nbcurve1)
-predicted_rate_nb <- data.frame(temperature = temps, predicted_rate = predictions)
 
 
 
@@ -256,16 +255,17 @@ write_csv(tdata_var168, "data-processed/tdatavar168.csv")
 
 p +
 geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
-	geom_point(aes(x = temp, y = rate), data = tdata_var150, shape = 1, size = 2, color = "cadetblue") +
-	# geom_point(aes(x = temp, y = perdicted_rate_var), data = all_159_varc, alpha = 0.5, size = 2, color = "purple") +
+	geom_point(aes(x = temp, y = rate), data = tdata_var119, shape = 1, size = 2, color = "cadetblue") +
+	geom_point(aes(x = temp, y = perdicted_rate_var), data = all_119_varc, alpha = 0.5, size = 2, color = "purple") +
 	# stat_function(fun = nbcurve1, color = "red", size = 2) +
-	geom_point(aes(x = mean_temp, y = mean_performance), data = study150t2, alpha = 0.5, size = 2, color = "purple") +
+	# geom_point(aes(x = mean_temp, y = mean_performance), data = study150t2, alpha = 0.5, size = 2, color = "purple") +
 	# geom_point(aes(x = min_temp, y = mean_performance), data = study150t2, alpha = 0.5, size = 2, color = "purple") +
 	# geom_point(aes(x = max_temp, y = mean_performance), data = study150t2, alpha = 0.5, size = 2, color = "purple") +
 	# geom_line(aes(x = temperature, y = predicted_rate), data = predicted_rate, color = "purple") +
 	geom_line(aes(x = temperature, y = predicted_rate), data = fits_above_zero, color = "orange") +
 	 xlim(9, 40) +ylab("Rate") + xlab("Temperature (°C)") +
 	facet_wrap( ~ curve.id, scales = "free") 
+ggsave("figures/norberg-tpc-fits-study119.png", width = 12, height = 8)
 ggsave("figures/norberg-tpc-fits-study150.png", width = 12, height = 8)
 ggsave("figures/norberg-tpc-fits-study159.png", width = 12, height = 8)
 ggsave("figures/norberg-tpc-fits-study168.png", width = 12, height = 8)
@@ -284,6 +284,19 @@ all_159_varc <- all_159_var %>%
 	mutate(predicted_rate_min = a.list*exp(b.list*min_temp)*(1-((min_temp-z.list)/(w.list/2))^2)) %>% 
 	mutate(predicted_rate_max = a.list*exp(b.list*max_temp)*(1-((max_temp-z.list)/(w.list/2))^2)) %>% 
 	mutate(perdicted_rate_var = (predicted_rate_min + predicted_rate_max)/2)
+
+
+### study 119
+fits119b <- fits119 %>% 
+	rename(curve.id = curve.id.list)
+
+all_119_var <- left_join(tdata_var119, fits119b, by = "curve.id")
+
+all_119_varc <- all_119_var %>% 
+	mutate(predicted_rate_min = a.list*exp(b.list*min_temp)*(1-((min_temp-z.list)/(w.list/2))^2)) %>% 
+	mutate(predicted_rate_max = a.list*exp(b.list*max_temp)*(1-((max_temp-z.list)/(w.list/2))^2)) %>% 
+	mutate(perdicted_rate_var = (predicted_rate_min + predicted_rate_max)/2)
+
 	
 
 ### let's look into study 111
@@ -320,11 +333,15 @@ all_111_temps %>%
 	ggplot(aes(x = day, y = temperature, color = factor(mean_temperature))) + geom_line()
 
 
-fits11125 <- fits111 %>%
+fits <- read_csv("data-processed/norberg-fits-all-location.csv") %>% 
+	filter(curve.id.list %in% c("111_fecundity_25.761", "111_fecundity_39.891")) %>% 
+	mutate(study_ID = "111")
+
+fits11125 <- fits %>%
 	filter(curve.id.list == "111_fecundity_25.761") %>% 
 	mutate(study_ID = "111")
 
-fits11139 <- fits111 %>% 
+fits11139 <- fits %>% 
 	filter(curve.id.list == "111_fecundity_39.891") %>% 
 	mutate(study_ID = "111")
 	
@@ -349,10 +366,10 @@ all_111_preds_39 <- a111_39 %>%
 	rename(temperature = mean_temperature,
 		   growth.rate = mean_rate)
 
-all_preds <- bind_rows(all_111_preds_25, all_111_preds_39) %>% 
+all_preds_111 <- bind_rows(all_111_preds_25, all_111_preds_39) %>% 
 	rename(curve.id = curve.id.list)
 
-
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))
 p + geom_point(aes(x = temperature, y = growth.rate), data = dat.full, shape = 1, size = 2, color = "grey") +
 	# geom_point(aes(x = temperature, y = growth.rate), data = tdata_var, shape = 1, size = 2, color = "cadetblue") +
 	# stat_function(fun = nbcurve1, color = "red", size = 2) +
@@ -406,7 +423,7 @@ study168 %>%
 	distinct(realized_temp) %>% 
 	tally()
 
-
+study168 <- read_csv("data-processed/study168-predicted-variable.csv")
 
 study150_temps <- read_csv("Data/study150-temperature-fluctuations.csv") %>% 
 	mutate(curve.id.list = "150_Duration of incubation_sinensis_120.1551_NA")
@@ -419,8 +436,330 @@ study150t2 <- left_join(study150_temps, fits150) %>%
 			  min_temp = min(temperature))
 	
 	
+
+### plot all together
+
+fits159 <- read_csv("data-processed/norberg-fits-study159.csv") %>% 
+	mutate(study_ID = "159")
+fits119 <- read_csv("data-processed/norberg-fits-study119.csv") %>% 
+	mutate(study_ID = "119")
+fits168 <- read_csv("data-processed/norberg-fits-study168.csv") %>% 
+	mutate(study_ID = "168")
+fits150 <- read_csv("data-processed/norberg-fits-study150.csv") %>% 
+	mutate(study_ID = "150")
+fits <- read_csv("data-processed/norberg-fits-all-location.csv") %>% 
+	filter(curve.id.list %in% c("111_fecundity_25.761", "111_fecundity_39.891")) %>% 
+	mutate(study_ID = "111")
+
+fits_all <- bind_rows(fits, fits159, fits119, fits168, fits150) %>% 
+	mutate(curve.id.list = case_when(curve.id.list == "111_fecundity_25.761" ~ "111_fecundity_Drosophila_25.761_0_Begin Miami flies",
+								curve.id.list == "111_fecundity_39.891" ~ "111_fecundity_Drosophila_39.891_0_Begin New Jersey flies",
+								TRUE ~ curve.id.list))
+
+setdiff(fits_all$curve.id.list, data_sel$curve.id)
+data_sel$curve.id
+
+
+data_sel <- tdata2 %>% 
+	# dplyr::filter(study_trait %in% c(study_trait)) %>% 
+	dplyr::filter(study_trait %in% c("111_fecundity", "159_thorax length_melanogaster",
+									  "159_thorax length",
+									  "159_winglength",
+									  "119_weight gain",
+									  "168_fecundity/body weight",
+									  "150_Duration of incubation")) %>% 
+	mutate(curve.id.orig = curve.id) %>% 
+	mutate(curve.id == ifelse(curve.id == "159_thorax length_melanogaster_-4.77913_F_see notes file for calculated equivalent developmental temperatures for fluctuating regimes, expt design details and variance specifics.",
+							  "159_thorax length_melanogaster_-4.77913_F_NA", curve.id)) %>% 
+	dplyr::mutate(curve.id == case_when(curve.id == "111_fecundity_Drosophila_25.761_0_Begin Miami flies" ~ 
+								 	"111_fecundity_Drosophila_25.761",
+								 curve.id == "111_fecundity_Drosophila_39.891_0_Begin New Jersey flies" ~ 
+								 	"111_fecundity_Drosophila_39.891",
+								 TRUE ~ curve.id))
+
+data_sel2 <- data_sel %>% 
+	filter(curve.id %in% c(pred_c$curve.id.new)) %>% 
+	mutate(curve.id.new = curve.id)
+
+unique(data_sel$curve.id)
+
+write_csv(data_sel, "data-processed/tdata-sel.csv")
+data_sel <- read_csv("data-processed/tdata-sel.csv")
+pred_c <- read_csv("data-processed/pred_c.csv") 
+
+
+length(unique(data_sel2$curve.id.new))
+length(unique(pred_c$curve.id.new))
+
+setdiff(unique(data_sel2$curve.id.new), unique(predictions2$curve.id.new))
+
+predictions2 <- left_join(predictions, pred_c) %>% 
+	mutate(curve.id.new = ifelse(is.na(curve.id.new), "119_weight gain_niloticus_NA", curve.id.new))
+
+pre
+
+pred_c <- predictions %>% 
+	distinct(curve.id)
+
+write_csv(pred_c, "data-processed/pred_c.csv")
+
+study_trait <- c("111_fecundity", 
+				 "159_thorax length_melanogaster",
+				 "159_thorax length",
+				 "159_winglength",
+				 "119_weight gain",
+				 "168_fecundity/body weight",
+				 "150_Duration of incubation")
+
+
+
+tdata2$curve.id
+
+fsplit <- fits_all %>% 
+	split(.$curve.id.list)
+
+predictions <- fsplit %>% 
+	map_df(prediction_function, .id = "curve.id")
+
+
+predictions2 %>% 
+	filter(predicted_rate > 0, predicted_rate < 150) %>% 
+	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +
+	geom_point(aes(x = mean_temp, y = rate), data = data_sel2) +
+	facet_wrap( ~ curve.id.new, scales = "free")
+	
+curves_pred <- unique(predictions$curve.id)
+data_sel_curves <- unique(data_sel$curve.id)
+
+pred_c <- predictions %>% 
+	distinct(curve.id)
+
+library(fuzzyjoin)
+joined <- fuzzyjoin::stringdist_inner_join(pred_c, data_sel, by = "curve.id", max_dist = 5) %>% 
+	select(curve.id.x, curve.id.y, everything()) 
+
+
+
+# now bring in the predicted rates ----------------------------------------
+
+
+#### study 168
+study168 <- read_csv("data-processed/study168-predicted-variable.csv")
+
+
+#### study 150
+study150_temps <- read_csv("Data/study150-temperature-fluctuations.csv") %>% 
+	mutate(curve.id.list = "150_Duration of incubation_sinensis_120.1551_NA")
+
+study150t2 <- left_join(study150_temps, fits150) %>% 
+	mutate(predicted_performance = a.list*exp(b.list*temperature)*(1-((temperature-z.list)/(w.list/2))^2)) %>% 
+	summarise(mean_performance = mean(predicted_performance),
+			  mean_temp = mean(temperature),
+			  max_temp = max(temperature),
+			  min_temp = min(temperature))
+
+#### study 111
+
+fits <- read_csv("data-processed/norberg-fits-all-location.csv") %>% 
+	filter(curve.id.list %in% c("111_fecundity_25.761", "111_fecundity_39.891")) %>% 
+	mutate(study_ID = "111")
+
+fits11125 <- fits %>%
+	filter(curve.id.list == "111_fecundity_25.761") %>% 
+	mutate(study_ID = "111")
+
+fits11139 <- fits %>% 
+	filter(curve.id.list == "111_fecundity_39.891") %>% 
+	mutate(study_ID = "111")
+
+
+a111_25 <- left_join(all_111_temps, fits11125)
+a111_39 <- left_join(all_111_temps, fits11139)
+
+
+all_111_preds_25 <- a111_25 %>% 
+	mutate(predicted_rate = a.list*exp(b.list*temperature)*(1-((temperature-z.list)/(w.list/2))^2)) %>%
+	mutate(predicted_rate_pos = ifelse(predicted_rate < 0, 0, predicted_rate)) %>% 
+	group_by(mean_temperature, curve.id.list) %>% 
+	summarise(mean_rate = mean(predicted_rate_pos)) %>% 
+	rename(temperature = mean_temperature,
+		   growth.rate = mean_rate) 
+
+all_111_preds_39 <- a111_39 %>% 
+	mutate(predicted_rate = a.list*exp(b.list*temperature)*(1-((temperature-z.list)/(w.list/2))^2)) %>%
+	mutate(predicted_rate_pos = ifelse(predicted_rate < 0, 0, predicted_rate)) %>% 
+	group_by(mean_temperature, curve.id.list) %>% 
+	summarise(mean_rate = mean(predicted_rate_pos)) %>% 
+	rename(temperature = mean_temperature,
+		   growth.rate = mean_rate)
+
+all_preds_111 <- bind_rows(all_111_preds_25, all_111_preds_39) %>% 
+	rename(curve.id = curve.id.list)
+
+
+
+#### study 119
+
+fits119b <- read_csv("data-processed/norberg-fits-study119.csv") %>% 
+	mutate(study_ID = "119") %>% 
+	rename(curve.id = curve.id.list)
+
+fits119b <- fits119 %>% 
+	rename(curve.id = curve.id.list)
+
+
+
+tdata_var119 <- tdata %>% 
+	# filter(study_ID %in% c(168, 165, 159, 150, 124, 119, 111, 91, 67, 61, 58)) %>% 
+	mutate(study_digits = nchar(study_ID)) %>% 
+	mutate(mean_temp_calculated = (min_temp + max_temp)/2) %>% 
+	mutate(mean_temp_calculated = ifelse(temp_regime == 0, mean_temp, mean_temp_calculated)) %>% 
+	mutate(mean_temp_calculated = ifelse(is.na(mean_temp_calculated), mean_temp, mean_temp_calculated)) %>% 
+	filter(temp_regime != 0) %>% 
+	rename(temp = mean_temp_calculated,
+		   rate = response) %>% 
+	mutate(curve.id = paste(study_ID, trait, species, long, notes, notes2, sep = "_")) %>% 
+	filter(study_ID == "119", trait == "weight gain") 
+
+all_119_var <- left_join(tdata_var119, fits119b, by = "curve.id")
+
+all_119_varc <- all_119_var %>% 
+	mutate(predicted_rate_min = a.list*exp(b.list*min_temp)*(1-((min_temp-z.list)/(w.list/2))^2)) %>% 
+	mutate(predicted_rate_max = a.list*exp(b.list*max_temp)*(1-((max_temp-z.list)/(w.list/2))^2)) %>% 
+	mutate(predicted_rate_var = (predicted_rate_min + predicted_rate_max)/2)
+
+
+### study 159
+
+fits159b <- fits159 %>% 
+	rename(curve.id = curve.id.list)
+
+
+tdata_var159 <- tdata %>% 
+	# filter(study_ID %in% c(168, 165, 159, 150, 124, 119, 111, 91, 67, 61, 58)) %>% 
+	mutate(study_digits = nchar(study_ID)) %>% 
+	mutate(mean_temp_calculated = (min_temp + max_temp)/2) %>% 
+	mutate(mean_temp_calculated = ifelse(temp_regime == 0, mean_temp, mean_temp_calculated)) %>% 
+	mutate(mean_temp_calculated = ifelse(is.na(mean_temp_calculated), mean_temp, mean_temp_calculated)) %>% 
+	filter(temp_regime != 0) %>% 
+	rename(temp = mean_temp_calculated,
+		   rate = response) %>% 
+	mutate(curve.id = paste(study_ID, trait, species, long, notes, notes2, sep = "_")) %>% 
+	filter(study_ID == "159") %>% 
+	mutate(study_ID = as.character(study_ID)) %>% 
+	mutate(curve.id = str_replace(curve.id, "_NA", ""))
+
+all_159_var <- left_join(tdata_var159, fits159b)
+
+all_159_varc <- all_159_var %>% 
+	mutate(predicted_rate_min = a.list*exp(b.list*min_temp)*(1-((min_temp-z.list)/(w.list/2))^2)) %>% 
+	mutate(predicted_rate_max = a.list*exp(b.list*max_temp)*(1-((max_temp-z.list)/(w.list/2))^2)) %>% 
+	mutate(predicted_rate_var = (predicted_rate_min + predicted_rate_max)/2)
+
+unique(all_159_varc$curve.id)
+
+predictions2 %>% 
+	filter(predicted_rate > 0, predicted_rate < 150) %>% 
+	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +
+	geom_point(aes(x = mean_temp, y = rate), data = data_sel2) +
+	facet_wrap( ~ curve.id.new, scales = "free")
+
+unique(predictions2$curve.id.new)
+
+
+
+# now gather the variable predictions -------------------------------------
+
+
+all159 <- all_159_varc %>% 
+	select(curve.id, temp, predicted_rate_var) %>% 
+	rename(temperature = temp) 
+all119 <- all_119_varc %>% 
+	select(curve.id, temp, predicted_rate_var) %>% 
+	rename(temperature = temp)
+	
+all150 <- study150t2 %>% 
+	select(mean_performance, mean_temp) %>% 
+	rename(temperature = mean_temp) %>% 
+	mutate(curve.id = "150_Duration of incubation_sinensis_120.1551_NA") %>% 
+	rename(predicted_rate_var = mean_performance)
+
+all111 <- all_preds_111 %>% 
+	rename(predicted_rate_var = growth.rate)
+	
+
+all168 <- study168 %>% 
+	rename(predicted_rate_var = mean_performance) %>% 
+	rename(temperature = mean_temperature) %>% 
+	mutate(curve.id = fits168$curve.id.list[[1]]) %>% 
+	select(curve.id, temperature, predicted_rate_var)
+	
+
+all_var <- bind_rows(all168, all111, all159, all150, all119) %>% 
+	rename(curve.id.new = curve.id) %>% 
+	mutate(curve.id.new = str_replace(curve.id.new, "111_fecundity_25.761", "111_fecundity_Drosophila_25.761")) %>% 
+	mutate(curve.id.new = str_replace(curve.id.new, "111_fecundity_39.891", "111_fecundity_Drosophila_39.891")) %>%
+	mutate(curve.id.new = str_replace(curve.id.new, "150_Duration of incubation_sinensis_120.1551_NA", "150_Duration of incubation_sinensis_120.1551")) %>% 
+	mutate(curve.id.new = str_replace(curve.id.new, "119_weight gain_niloticus_NA_NA_NA", "119_weight gain_niloticus_NA")) %>% 
+	mutate(curve.id.new = str_replace(curve.id.new, "168_fecundity/body weight_n. nevadensis_116.4236111_NA", "168_fecundity/body weight_n. nevadensis_116.4236111")) %>% 
+mutate(curve.id.new = str_replace(curve.id.new, "119_weight gain_stratiotes_NA_NA_NA", "119_weight gain_stratiotes_NA")) 
+
+	
+
+predictions2 %>% 
+	filter(predicted_rate > 0, predicted_rate < 150) %>% 
+	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +
+	geom_point(aes(x = mean_temp, y = rate), data = data_sel2) +
+	geom_point(aes(x = temperature, y = predicted_rate_var), data = all_var, color = "blue") +
+	facet_wrap( ~ curve.id.new, scales = "free")
+
+unique(all_var$curve.id.new)
+unique(predictions2$curve.id.new)
+
+setdiff(unique(all_var$curve.id.new), unique(predictions2$curve.id.new))
+
+
+
+
+# now let’s gather the variable observed ----------------------------------
+
+tdata_var <- tdata %>% 
+	# filter(study_ID %in% c(168, 159, 150, 119, 111)) %>% 
+	mutate(study_digits = nchar(study_ID)) %>% 
+	mutate(mean_temp_calculated = (min_temp + max_temp)/2) %>% 
+	mutate(mean_temp_calculated = ifelse(temp_regime == 0, mean_temp, mean_temp_calculated)) %>% 
+	mutate(mean_temp_calculated = ifelse(is.na(mean_temp_calculated), mean_temp, mean_temp_calculated)) %>% 
+	filter(temp_regime != 0) %>% 
+	rename(temp = mean_temp_calculated,
+		   rate = response) %>% 
+	mutate(curve.id = paste(study_ID, trait, species, long, notes, sep = "_")) %>% 
+	filter(trait %in% c("weight gain", "Duration of incubation", "fecundity", "fecundity/body weight", "thorax length",
+						"winglength")) %>% 
+	filter(curve.id != "168_fecundity_n. nevadensis_116.4236111_NA") %>% 
+	mutate(curve.id = str_replace(curve.id, "_0", "")) %>% 
+	mutate(curve.id = str_replace(curve.id, "_NA_NA", "_NA")) %>% 
+	mutate(curve.id = str_replace(curve.id, "nevadensis_116.4236111_NA", "nevadensis_116.4236111")) %>% 
+	mutate(curve.id = str_replace(curve.id, "sinensis_120.1551_NA", "sinensis_120.1551")) %>% 
+	rename(curve.id.new = curve.id)
 	
 	
 	
-	
-	
+
+
+unique(tdata_var$curve.id)
+unique(predictions2$curve.id.new)
+
+setdiff(unique(tdata_var$curve.id), unique(predictions2$curve.id.new))
+
+predictions2 %>% 
+	filter(predicted_rate > 0, predicted_rate < 150) %>% 
+	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +
+	geom_point(aes(x = mean_temp, y = rate), data = data_sel2) +
+	geom_point(aes(x = temperature, y = predicted_rate_var), data = all_var, color = "blue") +
+	geom_point(aes(x = temp, y = rate), data = tdata_var, color = "red") +
+	facet_wrap( ~ curve.id.new, scales = "free")
+
+
+
+
+
