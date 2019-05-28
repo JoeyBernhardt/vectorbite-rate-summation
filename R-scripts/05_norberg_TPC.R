@@ -456,8 +456,6 @@ fits_all <- bind_rows(fits, fits159, fits119, fits168, fits150) %>%
 								curve.id.list == "111_fecundity_39.891" ~ "111_fecundity_Drosophila_39.891_0_Begin New Jersey flies",
 								TRUE ~ curve.id.list))
 
-setdiff(fits_all$curve.id.list, data_sel$curve.id)
-data_sel$curve.id
 
 
 data_sel <- tdata2 %>% 
@@ -481,9 +479,9 @@ data_sel2 <- data_sel %>%
 	filter(curve.id %in% c(pred_c$curve.id.new)) %>% 
 	mutate(curve.id.new = curve.id)
 
-unique(data_sel$curve.id)
+unique(data_sel2$curve.id)
 
-write_csv(data_sel, "data-processed/tdata-sel.csv")
+# write_csv(data_sel, "data-processed/tdata-sel.csv")
 data_sel <- read_csv("data-processed/tdata-sel.csv")
 pred_c <- read_csv("data-processed/pred_c.csv") 
 
@@ -492,35 +490,33 @@ length(unique(data_sel2$curve.id.new))
 length(unique(pred_c$curve.id.new))
 
 setdiff(unique(data_sel2$curve.id.new), unique(predictions2$curve.id.new))
+setdiff(unique(data_sel2$curve.id.new), unique(pred_c$curve.id.new))
+
+unique(predictions$curve.id)
 
 predictions2 <- left_join(predictions, pred_c) %>% 
+	filter(is.na(curve.id.new)) %>% View
 	mutate(curve.id.new = ifelse(is.na(curve.id.new), "119_weight gain_niloticus_NA", curve.id.new))
 
-pre
-
-pred_c <- predictions %>% 
-	distinct(curve.id)
 
 write_csv(pred_c, "data-processed/pred_c.csv")
 
-study_trait <- c("111_fecundity", 
-				 "159_thorax length_melanogaster",
-				 "159_thorax length",
-				 "159_winglength",
-				 "119_weight gain",
-				 "168_fecundity/body weight",
-				 "150_Duration of incubation")
-
-
-
-tdata2$curve.id
+unique(fits_all$curve.id.list)
 
 fsplit <- fits_all %>% 
 	split(.$curve.id.list)
 
+
+
 predictions <- fsplit %>% 
 	map_df(prediction_function, .id = "curve.id")
 
+
+predictions2 <- left_join(predictions, pred_c) %>% 
+	# filter(is.na(curve.id.new)) %>% 
+	mutate(curve.id.new = ifelse(is.na(curve.id.new), "119_weight gain_niloticus_NA", curve.id.new))
+
+write_csv(predictions2, "data-processed/predictions2.csv")
 
 predictions2 %>% 
 	filter(predicted_rate > 0, predicted_rate < 150) %>% 
@@ -530,13 +526,13 @@ predictions2 %>%
 	
 curves_pred <- unique(predictions$curve.id)
 data_sel_curves <- unique(data_sel$curve.id)
-
-pred_c <- predictions %>% 
-	distinct(curve.id)
-
-library(fuzzyjoin)
-joined <- fuzzyjoin::stringdist_inner_join(pred_c, data_sel, by = "curve.id", max_dist = 5) %>% 
-	select(curve.id.x, curve.id.y, everything()) 
+# 
+# pred_c <- predictions %>% 
+# 	distinct(curve.id)
+# 
+# library(fuzzyjoin)
+# joined <- fuzzyjoin::stringdist_inner_join(pred_c, data_sel, by = "curve.id", max_dist = 5) %>% 
+# 	select(curve.id.x, curve.id.y, everything()) 
 
 
 
@@ -751,15 +747,58 @@ unique(predictions2$curve.id.new)
 
 setdiff(unique(tdata_var$curve.id), unique(predictions2$curve.id.new))
 
+write_csv(all_var, "data-processed/all_var.csv")
+write_csv(tdata_var, "data-processed/tdata_var.csv")
+write_csv(predictions2, "data-processed/predictions2.csv")
+write_csv(data_sel2, "data-processed/data_sel2.csv")
+
 predictions2 %>% 
 	filter(predicted_rate > 0, predicted_rate < 150) %>% 
 	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +
-	geom_point(aes(x = mean_temp, y = rate), data = data_sel2) +
-	geom_point(aes(x = temperature, y = predicted_rate_var), data = all_var, color = "blue") +
-	geom_point(aes(x = temp, y = rate), data = tdata_var, color = "red") +
-	facet_wrap( ~ curve.id.new, scales = "free")
+	geom_point(aes(x = mean_temp, y = rate), data = data_sel2, color = "cadetblue") +
+	geom_point(aes(x = temperature, y = predicted_rate_var), data = all_var, color = "orange") +
+	geom_point(aes(x = temp, y = rate), data = tdata_var, color = "lightblue") +
+	facet_wrap( ~ curve.id.new, scales = "free") + ylab("Response") + xlab("Temperature (°C)")
+ggsave("figures/all-rate-summation.png", width = 12, height = 10)
+
+
+unique(predictions2$curve.id.new)
+
+data_sel3 <- data_sel2 %>% 
+	rename(temperature = mean_temp) %>% 
+	mutate(type = "constant observed") %>% 
+	select(curve.id.new, temperature, rate, type)
+all_var2 <- all_var %>% 
+	rename(rate = predicted_rate_var) %>% 
+	mutate(type = "variable predicted") %>% 
+	select(curve.id.new, temperature, rate, type)
+tdata_var2 <- tdata_var %>% 
+	rename(temperature = temp) %>% 
+	mutate(type = "variable observed") %>% 
+	select(curve.id.new, temperature, rate, type)
+
+
+all_responses <- bind_rows(data_sel3, all_var2, tdata_var2) 
+
+library(beyonce)
+
+predictions2 %>% 
+	filter(predicted_rate > 0, predicted_rate < 150) %>% 
+	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +
+	geom_point(aes(x = temperature, y = rate, color = type), data = all_responses) +
+	facet_wrap( ~ curve.id.new, scales = "free") +
+	ylab("Response") + xlab("Temperature (°C)") +
+	scale_color_manual(values = beyonce_palette(type = "discrete", 72), name = "Type")
+ggsave("figures/all-rate-summation-color.png", width = 12, height = 10)
 
 
 
-
-
+predictions2 %>%
+	filter(grepl("nevad",curve.id.new)) %>% 
+	filter(predicted_rate > 0, predicted_rate < 150) %>% 
+	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +
+	geom_point(aes(x = temperature, y = rate, color = type),
+			   data = filter(all_responses, grepl("nevad",curve.id.new))) +
+	facet_wrap( ~ curve.id.new, scales = "free") +
+	ylab("Response") + xlab("Temperature (°C)") +
+	scale_color_manual(values = beyonce_palette(type = "discrete", 72), name = "Type")
