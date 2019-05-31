@@ -7,6 +7,7 @@ library(cowplot)
 
 
 tdata <- read_csv("Data/ExtractedDataAllStudies_JB.csv")
+tdata_king <- read_csv("Data/Kingolver-constant-25.csv")
 
 
 tdata2 <- tdata %>% 
@@ -61,13 +62,10 @@ ggplot(aes(x = temp, y = rate)) + geom_point(shape = 1, size = 2, color = "grey"
 ggsave("figures/all_TPCs.png", width = 20, height = 20)
 
 
-dat.full <- tdata3 %>% 
-	filter(study_ID == "119", trait == "weight gain") %>% 
-	rename(temperature = temp) %>% 
-	rename(growth.rate = rate) %>% 
-	# filter(study_ID == 111) %>% 
-	filter(temp_regime == 0) 
-unique(dat.full$curve.id)
+dat.full <- tdata_king %>% 
+	mutate(growth_rate = exp(growth_rate)) %>% 
+	rename(growth.rate = growth_rate) %>% 
+	mutate(curve.id = "1")
 
 #### from Mridul's code, get the best fits for both of the TPCs
 nbcurve<-function(temp,z,w,a,b){
@@ -184,7 +182,7 @@ for(i in 1:length(curve.id.list)){
 	maxgrowth.list[i]<-maxgrowth
 	n.list[i]<-length(dat$temperature)
 }
-# fits111 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
+fits_king <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 fits119 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
 
 fits150 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.list,b.list,rsqr.list,s.list,n.list) ## constant
@@ -198,6 +196,7 @@ fits159 <- data.frame(curve.id.list, topt.list,maxgrowth.list,z.list,w.list,a.li
 fits4 <- bind_rows(fits3, fits168)
 
 write_csv(fits4, "data-processed/norberg-fits-all.csv")
+write_csv(fits_king, "data-processed/norberg-fits-kingolver.csv")
 write_csv(fits159, "data-processed/norberg-fits-study159.csv")
 write_csv(fits119, "data-processed/norberg-fits-study119.csv")
 write_csv(fits168, "data-processed/norberg-fits-study168.csv")
@@ -934,4 +933,73 @@ p +
 	facet_wrap( ~ curve.id.new, scales = "free") 
 
 
-	
+
+### now let's bring in the kingsolver data
+
+tdata_king <- read_csv("Data/Kingolver-constant-25.csv") %>% 
+	mutate(type = "constant observed") %>% 
+	mutate(growth_rate = exp(growth_rate))
+
+king_fits <- read_csv("data-processed/norberg-fits-kingolver.csv") %>% 
+	mutate(study_ID = "kingsolver")
+
+king_var <- read_csv("Data/Kingsolver-variable-growth.csv") %>% 
+	mutate(temperature = round(mean_temp, digits = 0)) %>% 
+	mutate(type = "variable observed") %>% 
+	mutate(growth_rate_g = exp(growth_rate_g)) %>% 
+	mutate(growth_rate = growth_rate_g)
+
+k_temp_data <- read_csv("Data/Kingolver-variable-temps.csv") %>% 
+	rename(mean_temp_25 = temperature) %>% 
+	mutate(mean_temp_20 = mean_temp_25 - 5) %>% 
+	mutate(mean_temp_30 = mean_temp_25 + 5) %>% 
+	gather(key = mean_temp, value = temperature, mean_temp_30, mean_temp_20, mean_temp_25) %>% 
+	mutate(study_ID = "kingsolver")
+
+
+
+
+all_king <- left_join(k_temp_data, king_fits) %>% 
+	mutate(predicted_growth = a.list*exp(b.list*temperature)*(1-((temperature-z.list)/(w.list/2))^2)) %>% 
+	group_by(fluctuation, mean_temp) %>% 
+	summarise(growth_rate = mean(predicted_growth)) %>% 
+	mutate(type = "variable predicted") %>% 
+	mutate(temperature = str_replace(mean_temp, "mean_temp_", "")) %>% 
+	mutate(temperature = as.numeric(temperature)) %>% 
+	select(-mean_temp)
+
+
+fits_split <- king_fits %>% 
+	filter(!is.na(topt.list)) %>% 
+	split(.$curve.id.list)
+
+
+fits_king <- fits_split %>% 
+	map_df(prediction_function, .id = "curve.id")
+
+fits_above_zero_king <- fits_king %>% 
+	filter(predicted_rate > 0, predicted_rate < 150)
+
+
+king_points <- bind_rows(all_king, king_var, tdata_king)
+
+
+king_predicted <- read_csv("Data/Kingsolver-variable-growth-predicted-relative.csv") %>% 
+	gather(key = type, value = growth_rate, 3:5) %>% 
+	filter(type %in% c("observed", "predicted_growth_rate")) %>% 
+	mutate(type = str_replace(type, "observed", "variable observed")) %>% 
+	mutate(type = str_replace(type, "predicted_growth_rate", "variable predicted"))
+
+
+king_points_adj <- king_points %>% 
+	mutate(growth_rate = ifelse(type == "variable observed", growth_rate + 0.37, growth_rate)) 
+
+fits_above_zero_king %>% 
+	# mutate(predicted_rate = predicted_rate - 0.4) %>% 
+	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +
+	geom_point(data = king_points_adj, aes(x = temperature, y = growth_rate, color = type), size =2) +
+	geom_point(data = king_points_adj, aes(x = temperature, y = growth_rate), size =2, shape = 1) +
+	# geom_point(data = king_predicted, aes(x = temperature, y = growth_rate, color = type)) +
+	scale_color_manual(values = colors) +
+	ylab("Growth rate (mg/day)") + xlab("Temperature (°C)")
+ggsave("figures/kingsolver-tpc-plot.png", width = 6, height = 3.5)
