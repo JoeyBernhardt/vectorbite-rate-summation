@@ -67,7 +67,7 @@ dat.full <- tdata_king %>%
 	rename(growth.rate = growth_rate) %>% 
 	mutate(curve.id = "1")
 
-#### from Mridul's code, get the best fits for both of the TPCs
+#### norberg curve
 nbcurve<-function(temp,z,w,a,b){
 	res<-a*exp(b*temp)*(1-((temp-z)/(w/2))^2)
 	res
