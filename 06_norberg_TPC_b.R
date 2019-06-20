@@ -27,9 +27,9 @@ cat("model{
 	cf.tau <- 1 / (cf.sigma * cf.sigma)
 	## Likelihood 
 	for(i in 1:N.obs){
-	trait.mu[i] <- -1 * cf.a * exp(cf.b * temp[i]) * (1-((temp[i]-cf.z)/(cf.w/2))^2) trait[i] ~ dnorm(trait.mu[i], cf.tau) } 
+	trait.mu[i] <- cf.a * exp(cf.b * temp[i]) * (1-((temp[i]-cf.z)/(cf.w/2))^2) trait[i] ~ dnorm(trait.mu[i], cf.tau) } 
 	## Derived Quantities and Predictions 
-	for(i in 1:N.Temp.xs){ z.trait.mu.pred[i] <- -1 * cf.a * exp(cf.b * Temp.xs[i]) * (1-((Temp.xs[i]-cf.z)/(cf.w/2))^2) } 
+	for(i in 1:N.Temp.xs){ z.trait.mu.pred[i] <- cf.a * exp(cf.b * Temp.xs[i]) * (1-((Temp.xs[i]-cf.z)/(cf.w/2))^2) } 
 	} # close model ",fill=T)
 sink()
 

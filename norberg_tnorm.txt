@@ -1,0 +1,22 @@
+model{ 
+	## Priors
+	cf.z ~ dunif(0, 100)
+	cf.w ~ dunif(5, 30)
+	cf.a ~ dunif(-0.02, 20)
+	cf.b ~ dunif(0, 1)
+	cf.tau ~ dnorm(1000, 1/(250^2))
+	cf.sigma <- sqrt(1/cf.tau)
+	# cf.tau <- 1/(cf.sigma^2)
+	# cf.sigma ~ dexp(0.0001)
+	
+	## Likelihood 
+	for(i in 1:N.obs){
+	trait.temp[i] <- cf.a * exp(cf.b * temp[i]) * (1-((temp[i]-cf.z)/(cf.w/2))^2)
+	trait.mu[i] <- trait.temp[i]*((cf.a * exp(cf.b * temp[i]) * (1-((temp[i]-cf.z)/(cf.w/2))^2)) >0) 
+	trait[i] ~ dnorm(trait.mu[i], cf.tau)T(0,) } 
+	## Derived Quantities and Predictions
+
+	for(i in 1:N.Temp.xs){ 
+	temporary[i] <- cf.a * exp(cf.b * Temp.xs[i]) * (1-((Temp.xs[i]-cf.z)/(cf.w/2))^2)	
+	z.trait.mu.pred[i] <- cf.a * exp(cf.b * Temp.xs[i]) * (1-((Temp.xs[i]-cf.z)/(cf.w/2))^2)*(temporary[i] > 0) } 
+	} # close model 
