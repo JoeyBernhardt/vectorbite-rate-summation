@@ -67,7 +67,7 @@ dat.full <- tdata_king %>%
 	rename(growth.rate = growth_rate) %>% 
 	mutate(curve.id = "1")
 
-#### from Mridul's code, get the best fits for both of the TPCs
+#### norberg curve
 nbcurve<-function(temp,z,w,a,b){
 	res<-a*exp(b*temp)*(1-((temp-z)/(w/2))^2)
 	res
@@ -405,7 +405,7 @@ study168_tempsb %>%
 	ggplot(aes(x = hour, y = temperature, color = fluctuation, group = fluctuation)) + geom_line()
 
 
-
+fits168 <- read_csv("data-processed/norberg-fits-study168.csv")
 
 study168 <- left_join(study168_tempsb, fits168) %>% 
 	group_by(unique_regime, DTR, min_temp) %>% 
@@ -495,7 +495,7 @@ setdiff(unique(data_sel2$curve.id.new), unique(pred_c$curve.id.new))
 unique(predictions$curve.id)
 
 predictions2 <- left_join(predictions, pred_c) %>% 
-	filter(is.na(curve.id.new)) %>% View
+	filter(is.na(curve.id.new)) %>% 
 	mutate(curve.id.new = ifelse(is.na(curve.id.new), "119_weight gain_niloticus_NA", curve.id.new))
 
 
