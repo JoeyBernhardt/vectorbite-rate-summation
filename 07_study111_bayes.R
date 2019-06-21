@@ -284,4 +284,49 @@ ggplot() +
 	ylim(0, 100) + xlim(0, 45) 
 ggsave("figures/EN-study111-data-lognormal-exp-truncated-normal-error-predictions-not-pos.png", width = 6, height = 4)
 
+#### now make plots for predicted distributions etc.
 
+## plot 1. Null distribution
+
+tdata_111_sub <- tdata_111 %>% 
+	rename(temperature = mean_temp) %>% 
+	mutate(temperature = as.numeric(temperature))
+
+
+preds_sub <- predictions %>% 
+	mutate(iteration = rownames(.)) %>% 
+	select(iteration, everything()) %>% 
+	gather(key = temperature, value = growth_rate, 2:227) %>% 
+	filter(temperature %in% c(tdata_111$mean_temp)) %>% 
+	mutate(temperature = as.numeric(temperature))
+
+ggplot() +
+	geom_density(aes(x = growth_rate), data = preds_sub) + 
+	geom_vline(aes(xintercept = rate), data = tdata_111_sub, color = "purple") +
+	facet_wrap( ~ temperature, scales = "free", nrow = 1) + xlab("Fecundity (eggs/day)")
+ggsave("figures/study111-null-dist.png", width = 10, height = 2)
+
+
+all_preds_111 <- left_join(preds_sub, tdata_111_sub)
+
+contrast1 <- all_preds_111 %>% 
+	group_by(temperature) %>% 
+	mutate(cons_traj_diff = rate - growth_rate)
+
+
+contrast1 %>% 
+	ggplot(aes(x = cons_traj_diff)) + geom_density(fill = "purple", alpha = 0.5) +
+	facet_wrap( ~ temperature, scales = "free", nrow = 1) + 
+	geom_vline(xintercept = 0, color = "grey") +
+	xlab("Difference between constant temp estimate and TPC distribution") 
+ggsave("figures/study111-null-dist-contrast1.png", width = 14, height = 1.7)
+
+
+### Fallacy of the averages plot
+
+View(tdata_111_var)
+
+tdata_111_var2 <- tdata_111_var %>% 
+	rename(temperature = mean_temp)
+
+all_preds_111_var <- left_join(preds_sub, tdata_111_var2)
