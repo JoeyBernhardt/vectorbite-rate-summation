@@ -7,6 +7,8 @@ library(cowplot)
 
 tdata <- read_csv("Data/ExtractedDataAllStudies.csv")
 
+# %>% = pipe
+
 tdata2 <- tdata %>%
 	mutate(study_digits = nchar(study_ID)) %>%
 	mutate(mean_temp_calculated = (min_temp + max_temp)/2) %>%
