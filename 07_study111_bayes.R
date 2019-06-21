@@ -281,8 +281,8 @@ ggplot() +
 	geom_point(aes(x = temperature, y = mean), data = fluct_preds, color = "cadetblue") +
 	geom_errorbar(aes(x = temperature, ymin = lower, ymax = upper), data = fluct_preds, color = "cadetblue", width = 0.1) +
 	ylab("Fecundity (eggs/day)") + xlab("Temperature (°C)") +
-	ylim(0, 100) + xlim(0, 45) 
-ggsave("figures/EN-study111-data-lognormal-exp-truncated-normal-error-predictions-not-pos.png", width = 6, height = 4)
+	ylim(0, 100) + xlim(5, 40) 
+ggsave("figures/EN-study111-data-lognormal-exp-truncated-normal-error-predictions.png", width = 6, height = 4)
 
 #### now make plots for predicted distributions etc.
 
@@ -311,7 +311,12 @@ all_preds_111 <- left_join(preds_sub, tdata_111_sub)
 
 contrast1 <- all_preds_111 %>% 
 	group_by(temperature) %>% 
-	mutate(cons_traj_diff = rate - growth_rate)
+	mutate(cons_traj_diff = rate - growth_rate) %>% 
+	summarise(lower=quantile(cons_traj_diff, probs=0.025),
+			  upper=quantile(cons_traj_diff, probs=0.975),
+			  median = median(cons_traj_diff)) %>% 
+	mutate(temperature = as.numeric(temperature)) %>% 
+	mutate(contrast = "contrast1")
 
 
 contrast1 %>% 
@@ -321,6 +326,11 @@ contrast1 %>%
 	xlab("Difference between constant temp estimate and TPC distribution") 
 ggsave("figures/study111-null-dist-contrast1.png", width = 14, height = 1.7)
 
+contrast1 %>% 
+	ggplot(aes(x = temperature, y = median)) + geom_point() +
+	geom_errorbar(aes(x = temperature, ymin = lower, max = upper), width = 0.1) +
+	geom_hline(yintercept = 0)
+
 
 ### Fallacy of the averages plot
 
@@ -329,4 +339,107 @@ View(tdata_111_var)
 tdata_111_var2 <- tdata_111_var %>% 
 	rename(temperature = mean_temp)
 
-all_preds_111_var <- left_join(preds_sub, tdata_111_var2)
+preds_sub2 <- preds_sub %>% 
+	filter(temperature %in% c(18, 25))
+
+all_preds_111_var <- left_join(preds_sub2, tdata_111_var2)
+
+contrast2 <- all_preds_111_var %>% 
+	group_by(temperature) %>% 
+	mutate(var_traj_diff = rate - growth_rate) %>% 
+	summarise(lower=quantile(var_traj_diff, probs=0.025),
+			  upper=quantile(var_traj_diff, probs=0.975),
+			  median = median(var_traj_diff)) %>% 
+	mutate(temperature = as.numeric(temperature)) %>% 
+	mutate(contrast = "contrast2")
+
+all_contrasts <- bind_rows(contrast1, contrast2)
+
+all_contrasts %>% 
+	ggplot(aes(x = temperature, y = median, color = contrast)) + geom_point() +
+	geom_errorbar(aes(x = temperature, ymin = lower, max = upper), width = 0.1) +
+	geom_hline(yintercept = 0)
+
+
+### contrast 3 - predicted variable - estimated variable
+
+### rate summation prediction
+
+all_params_temps2 <- all_params_temps %>% 
+	rename(predicted_rate = rate)
+
+### the rate summation accuracy
+contrast3 <- left_join(all_params_temps2, tdata_111_var2) %>% 
+	group_by(temperature) %>% 
+	mutate(var_pred_diff = rate - predicted_rate) %>% 
+	summarise(lower=quantile(var_pred_diff, probs=0.025),
+			  upper=quantile(var_pred_diff, probs=0.975),
+			  median = median(var_pred_diff)) %>% 
+	mutate(temperature = as.numeric(temperature)) %>% 
+	mutate(contrast = "contrast3")
+
+
+all_contrasts <- bind_rows(contrast1, contrast2, contrast3)
+
+all_contrasts %>% 
+	mutate(temp_j = contrast) %>% 
+	# mutate(temp_j = case_when(contrast == "contrast1" ~ "0",
+	# 							contrast == "contrast2" ~ "0.3",
+	# 							contrast == "contrast3" ~ "0.6",
+	# 							TRUE ~ temp_j)) %>% 
+	mutate(temp_j = str_replace(temp_j, "contrast1", "0")) %>% 
+	mutate(temp_j = str_replace(temp_j, "contrast2", "0.5")) %>% 
+	mutate(temp_j = str_replace(temp_j, "contrast3", "1")) %>% 
+	mutate(offset = as.numeric(temp_j)) %>% 
+	mutate(temp_i = temperature + offset) %>% 
+	mutate(contrast = case_when(contrast == "contrast1" ~ "null",
+								 contrast == "contrast2" ~ "fallacy of the averages",
+								 contrast == "contrast3" ~ "rate summation accuracy",
+								 TRUE ~ contrast)) %>% 
+	ggplot(aes(x = temp_i, y = median, color = contrast)) + geom_point() +
+	geom_errorbar(aes(x = temp_i, ymin = lower, max = upper), width = 0.1) +
+	geom_hline(yintercept = 0) +
+	ylab("Median (95% CI)") + xlab("Temperature (°C)") + xlim(5, 40)
+ggsave("figures/study111-differences.png", width = 8, height = 4)
+
+
+plot1 <- ggplot() + 
+	# geom_line(aes(x = temperature, y = growth_rate, group = iteration), alpha = 0.05, size = 1, data = predictions_long2) +
+	geom_point(aes(x = T, y = trait), data = data, color = "purple") + geom_hline(yintercept = 0) +
+	geom_line(aes(x = temperature, y = mean), data = predictions_summary, color = "black") +
+	geom_line(aes(x = temperature, y = q2.5), data = predictions_summary, color = "black", linetype = "dashed") +
+	geom_line(aes(x = temperature, y = q97.5), data = predictions_summary, color = "black", linetype = "dashed") +
+	geom_point(aes(x = mean_temp, y = rate), data = tdata_111_var, color = "lightblue") +
+	geom_point(aes(x = temperature, y = mean), data = fluct_preds, color = "cadetblue") +
+	geom_errorbar(aes(x = temperature, ymin = lower, ymax = upper), data = fluct_preds, color = "cadetblue", width = 0.1) +
+	ylab("Fecundity (eggs/day)") + xlab("Temperature (°C)") +
+	ylim(0, 90) + xlim(5, 40) 
+
+cols <- c("lightblue", "purple", "cadetblue")
+
+plot2 <- all_contrasts %>% 
+	mutate(temp_j = contrast) %>% 
+	mutate(temp_j = str_replace(temp_j, "contrast1", "0")) %>% 
+	mutate(temp_j = str_replace(temp_j, "contrast2", "0.5")) %>% 
+	mutate(temp_j = str_replace(temp_j, "contrast3", "1")) %>% 
+	mutate(offset = as.numeric(temp_j)) %>% 
+	mutate(temp_i = temperature + offset) %>% 
+	mutate(contrast = case_when(contrast == "contrast1" ~ "null",
+								contrast == "contrast2" ~ "fallacy of the averages",
+								contrast == "contrast3" ~ "rate summation accuracy",
+								TRUE ~ contrast)) %>% 
+	ggplot(aes(x = temp_i, y = median, color = contrast)) + geom_point() +
+	geom_errorbar(aes(x = temp_i, ymin = lower, max = upper), width = 0.1) +
+	geom_hline(yintercept = 0) +
+	ylab("Median (95% CI)") + xlab("Temperature (°C)") + xlim(5, 40) +
+	theme(legend.position="top") + scale_color_manual(values = cols)
+
+plot_comb <- plot_grid(plot1, plot2, labels = c("A", "B"), align = "v", ncol = 1)
+
+save_plot("figures/plot_comb.png", plot_comb,
+		  ncol = 1, # we're saving a grid plot of 2 columns
+		  nrow = 2, # and 2 rows
+		  # each individual subplot should have an aspect ratio of 1.3
+		  base_aspect_ratio = 1.3
+)
+
