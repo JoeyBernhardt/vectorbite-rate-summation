@@ -1,9 +1,10 @@
 model{ 
-	## Priors
+	## Priors (if unif isn't working to get convergence, consider gamma, log normal or unif)
 	cf.z ~ dunif(0, 100)
 	cf.w ~ dunif(5, 30)
 	cf.a ~ dunif(-0.02, 20)
 	cf.b ~ dunif(0, 1)
+	## maybe consider making the cf.tau distribution log normal or truncated normal
 	cf.tau ~ dnorm(1000, 1/(250^2))
 	cf.sigma <- sqrt(1/cf.tau)
 	# cf.tau <- 1/(cf.sigma^2)
