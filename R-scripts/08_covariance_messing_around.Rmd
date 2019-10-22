@@ -43,8 +43,8 @@ tpcs
 #### make up temperature time series
 ```{r}
 set.seed(101)
-time <- seq_along(1:100)
-temps <- data.frame(temperature = runif(100, min = 5, max = 33), time = time)
+time <- seq_along(1:10000)
+temps <- data.frame(temperature = runif(10000, min = 5, max = 33), time = time)
 
 ```
 
@@ -54,10 +54,8 @@ temps <- data.frame(temperature = runif(100, min = 5, max = 33), time = time)
 
 ```{r}
 temp_plot <- temps %>% 
-	ggplot(aes(x = time, y = temperature)) + geom_line(size = 1) +
+	ggplot(aes(x = time, y = temperature)) + geom_line() +
 	ylab("Temperature (°C)") + xlab("Time (days)")
-
-temp_plot
 ```
 
 
@@ -77,11 +75,9 @@ both <- left_join(f_time_series, g_time_series) %>%
 trait_plot <- both %>% 
 	gather(key = trait_type, value = trait_value, ftrait, gtrait) %>% 
 	mutate(trait_type = ifelse(trait_type == "ftrait", "f(T)", "g(T)")) %>% 
-	ggplot(aes(x = time, y = trait_value, color = trait_type)) + geom_line(size = 1) +
+	ggplot(aes(x = time, y = trait_value, color = trait_type)) + geom_line(alpha = 0.5) +
 	scale_color_manual(values = c("purple", "orange")) +ylab("Trait value") + xlab("Time (days)") +
 	theme(legend.position = "top")
-
-trait_plot
 ```
 
 
@@ -203,14 +199,15 @@ all_avgs <- left_join(mean2, meanf2) %>%
 	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (ftrait*gtrait) + covariance2) %>% 
 	select(-complete_obs) %>% 
 	mutate(`<f(T)><g(T)>` = ftrait*gtrait) %>% 
-	gather(key = parameter, value = value, 2:7)
+	gather(key = estimate, value = value, 2:7)
 
 ## plot
 all_avgs %>% 
-	filter(parameter %in% c("<f(T)><g(T)> + Cov[f(T), g(T)]", "R_0", "<f(T)><g(T)>", "covariance2")) %>% 
-	mutate(parameter = str_replace(parameter, "R_0", "<f(T)g(T)>")) %>% 
-	mutate(parameter = str_replace(parameter, "covariance2", "Cov[f(T), g(T)]")) %>% 
-	ggplot(aes(x = time, y = value, color = parameter)) + geom_line() 
+	# filter(estimate %in% c("<f(T)><g(T)> + Cov[f(T), g(T)]", "R_0", "<f(T)><g(T)>", "covariance2")) %>% 
+	filter(estimate %in% c("<f(T)><g(T)> + Cov[f(T), g(T)]", "R_0")) %>% 
+	mutate(estimate = str_replace(estimate, "R_0", "<f(T)g(T)>")) %>% 
+	# mutate(estimate = str_replace(estimate, "covariance2", "Cov[f(T), g(T)]")) %>% 
+	ggplot(aes(x = value, fill = estimate)) + geom_histogram(alpha = 0.5) 
 
 ```
 
@@ -254,36 +251,77 @@ all_avgs_10 <- left_join(mean10, meanf10) %>%
 	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (ftrait*gtrait) + covariance2) %>% 
 	select(-complete_obs) %>% 
 	mutate(`<f(T)><g(T)>` = ftrait*gtrait) %>% 
-	gather(key = parameter, value = value, 2:7)
+	gather(key = estimate, value = value, 2:7)
 
 ## plot
 all_avgs_10 %>% 
-	filter(parameter %in% c("<f(T)><g(T)> + Cov[f(T), g(T)]", "R_0", "<f(T)><g(T)>", "covariance2")) %>% 
-	mutate(parameter = str_replace(parameter, "R_0", "<f(T)g(T)>")) %>% 
-	mutate(parameter = str_replace(parameter, "covariance2", "Cov[f(T), g(T)]")) %>% 
-	ggplot(aes(x = time, y = value, color = parameter)) + geom_line() 
+	filter(estimate %in% c("<f(T)><g(T)> + Cov[f(T), g(T)]", "R_0")) %>% 
+	mutate(estimate = str_replace(estimate, "R_0", "<f(T)g(T)>")) %>% 
+	# mutate(estimate = str_replace(estimate, "covariance2", "Cov[f(T), g(T)]")) %>% 
+	ggplot(aes(x = value, fill = estimate)) + geom_histogram(alpha = 0.5) 
 
 ```
 
-Ok let's try something simpler.
-```{r}
+#### Ok let's try something simpler.
+Now just split the time series into 20 chunks of 500 time points each. Calculate the covariances and averages in each of those chunks.
+```{r, fig.width= 10}
 
 
-group <-  sort(rep(seq(from = 1, to = 2), times = 50))
+group <-  sort(rep(seq(from = 1, to = 20), times = 500))
 
 all <- both %>% 
 	mutate(group = group) %>% 
 	mutate(R_0 = ftrait*gtrait) %>% 
 	group_by(group) %>% 
-	mutate(`<R_0>` = mean(R_0)) %>% 
-	mutate(mean_ftrait = mean(ftrait)) %>% 
-	mutate(mean_gtrait = mean(gtrait)) %>% 
-	mutate(cov_fg = cov(ftrait, gtrait)) %>% 
-	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (mean_ftrait * mean_gtrait) + cov_fg)
+	mutate(`<f(T)g(T)>` = mean(R_0)) %>%
+	mutate(`<f(T)>`= mean(ftrait)) %>% 
+	mutate(`<g(T)>` = mean(gtrait)) %>% 
+	mutate(`Cov[f(T), g(T)]` = cov(ftrait, gtrait)) %>% 
+	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (`<f(T)>` * `<g(T)>`) + `Cov[f(T), g(T)]`) %>% 
+	gather(key = estimate, value = value, 7:11)
+
+all_wide <- both %>% 
+	mutate(group = group) %>% 
+	mutate(R_0 = ftrait*gtrait) %>% 
+	group_by(group) %>% 
+	mutate(`<f(T)g(T)>` = mean(R_0)) %>%
+	mutate(`<f(T)>`= mean(ftrait)) %>% 
+	mutate(`<g(T)>` = mean(gtrait)) %>% 
+	mutate(`Cov[f(T), g(T)]` = cov(ftrait, gtrait)) %>% 
+	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (`<f(T)>` * `<g(T)>`) + `Cov[f(T), g(T)]`)
+
+all_wide %>% 
+	rename(`f(T)` = ftrait) %>% 
+	rename(`g(T)` = gtrait) %>% 
+	ggplot(aes(x = `f(T)`, y = `g(T)`, color = `Cov[f(T), g(T)]`)) + geom_point(alpha = 0.5) +
+	scale_color_viridis_c() +
+	facet_wrap( ~ group)
+
+all_wide %>% 
+	rename(`f(T)` = ftrait) %>% 
+	rename(`g(T)` = gtrait) %>% 
+	ggplot(aes(x = `f(T)`, y = `g(T)`, color = temperature)) + geom_point(alpha = 0.5) +
+	scale_color_viridis_c() +
+	facet_wrap( ~ group)
+```
+
+```{r}
+all %>% 
+	ggplot(aes(x = time, y = value, color = estimate)) + geom_line() 
 
 all %>% 
-	ggplot(aes(x = time, y = `<f(T)><g(T)> + Cov[f(T), g(T)]`)) + geom_line() +
-	geom_line(aes(x = time, y =`<R_0>` ), color = "blue")
+	filter(estimate %in% c("Cov[f(T), g(T)]")) %>% 
+	ggplot(aes(x = time, y = value, color = estimate)) + geom_line() 
+```
 
 
+OK this is looking a lot better in terms of matching up
+```{r}
+all %>% 
+	filter(estimate %in% c("<f(T)g(T)>", "<f(T)><g(T)> + Cov[f(T), g(T)]")) %>% 
+	ggplot(aes(x = time, y = value, color = estimate)) + geom_line() 
+
+all %>% 
+	filter(estimate %in% c("<f(T)g(T)>", "<f(T)><g(T)> + Cov[f(T), g(T)]")) %>% 
+	ggplot(aes(x = value, fill = estimate, color = estimate)) + geom_density(alpha = 0.5) 
 ```
