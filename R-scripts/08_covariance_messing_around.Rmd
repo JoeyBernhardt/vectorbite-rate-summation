@@ -3,6 +3,7 @@ title: "Covariance messing around"
 output:
   html_document: default
   html_notebook: default
+  pdf_document: default
 ---
 
 ```{r}
@@ -19,7 +20,7 @@ library(roll)
 
 
 
-#### make up TPCs
+#### Invent some TPCs (purple is f(T), orange is g(T))
 ```{r}
 f_curve <- function(x) 0.06*exp(0.09*x)*(1-((x-15)/(34/2))^2)
 g_curve <- function(x) 0.01*exp(0.15*x)
@@ -69,12 +70,13 @@ g_time_series <- data.frame(time = time, gtrait = sapply(X = temps$temperature, 
 
 #### plot traits over time
 ```{r}
-
-both <- left_join(f_time_series, g_time_series)
+both <- left_join(f_time_series, g_time_series) %>% 
+	mutate(R_0 = ftrait*gtrait)
 
 
 trait_plot <- both %>% 
 	gather(key = trait_type, value = trait_value, ftrait, gtrait) %>% 
+	mutate(trait_type = ifelse(trait_type == "ftrait", "f(T)", "g(T)")) %>% 
 	ggplot(aes(x = time, y = trait_value, color = trait_type)) + geom_line(size = 1) +
 	scale_color_manual(values = c("purple", "orange")) +ylab("Trait value") + xlab("Time (days)") +
 	theme(legend.position = "top")
@@ -86,14 +88,14 @@ trait_plot
 
 
 
-#### Calculate rolling covariances
+#### Calculate rolling covariances over the time series with different time slice durations (2, 5, 10, 20 days)
 
 
 ```{r}
 traits <- both %>% 
 	select(ftrait, gtrait) %>% 
 	as.matrix()
-results2 <- roll_cov(traits, width = 2, center = FALSE)
+results2 <- roll_cov(traits, width = 2, center = FALSE, scale = FALSE)
 covariances2 <- as.data.frame(results2) %>% 
 	select(contains("f")) %>% 
 	rownames_to_column(var = "covariance") %>% 
@@ -103,7 +105,7 @@ covariances2 <- as.data.frame(results2) %>%
 	mutate(time_point = as.numeric(time_point)) %>% 
 	rename(covariance2 = covariance)
 
-results5 <- roll_cov(traits, width = 5, center = FALSE)
+results5 <- roll_cov(traits, width = 5, center = FALSE, scale = FALSE)
 covariances5 <- as.data.frame(results5) %>% 
 	select(contains("f")) %>% 
 	rownames_to_column(var = "covariance") %>% 
@@ -113,7 +115,7 @@ covariances5 <- as.data.frame(results5) %>%
 	mutate(time_point = as.numeric(time_point)) %>% 
 	rename(covariance5 = covariance)
 
-results10 <- roll_cov(traits, width = 10, center = FALSE)
+results10 <- roll_cov(traits, width = 10, center = FALSE, scale = FALSE)
 covariances10 <- as.data.frame(results10) %>% 
 	select(contains("f")) %>% 
 	rownames_to_column(var = "covariance") %>% 
@@ -123,7 +125,7 @@ covariances10 <- as.data.frame(results10) %>%
 	mutate(time_point = as.numeric(time_point)) %>% 
 	rename(covariance10 = covariance)
 
-results20 <- roll_cov(traits, width = 20, center = FALSE)
+results20 <- roll_cov(traits, width = 20, center = FALSE, scale = FALSE)
 covariances20 <- as.data.frame(results20) %>% 
 	select(contains("f")) %>% 
 	rownames_to_column(var = "covariance") %>% 
@@ -146,7 +148,7 @@ all_cov <- left_join(covariances2, covariances5) %>%
 
 cov_plot <- all_cov %>% 
 	ggplot(aes(x = time_point, y = covariance, color = factor(time_slice), group = time_slice)) + geom_line(size = 1) +
-	 scale_color_viridis_d(name = "Duration of time slice") + geom_hline(yintercept = 0) + ylab("cov(ftrait, gtrait)") +
+	 scale_color_viridis_d(name = "Duration of time slice") + geom_hline(yintercept = 0) + ylab("Cov[f(T), g(T)]") +
 	xlab("Time (days)") + theme(legend.position = "top")
 ```
 
@@ -159,4 +161,129 @@ tpcs
 ```{r, fig.height=12, fig_width = 8 }
 all_plots1 <- plot_grid(temp_plot, trait_plot, cov_plot, nrow = 3, ncol = 1)
 all_plots1
+```
+
+### Now, focusing on the 2 day time slice only, check that `<R0(T)>` =  `<f(T)g(T)>` =  `<f(T)><g(T)>` + `Cov[f(T), g(T)]`
+Looks like this isn't working as I expected! i.e. the blue and green lines below should be lining up...Hmmm....
+
+```{r, fig_width = 14}
+
+### get time rolling average for R_0, i.e. <R0(T)> =  <f(T)g(T)>
+R_0 = both %>% 
+	mutate(R_0 = ftrait*gtrait) %>% 
+	select(R_0) %>% 
+	as.matrix()
+results2_R_0 <- roll_mean(R_0, width = 2)
+mean2 <- data.frame(mean_R0 = results2_R_0, complete_obs = TRUE) %>% 
+	rownames_to_column(var = "time")
+
+
+### get time rolling average for f(T), <f(T)>
+f_avg <- both %>% 
+	select(ftrait) %>% 
+	as.matrix()
+results2_fmean <- roll_mean(f_avg, width = 2)
+meanf2 <- data.frame(mean_f = results2_fmean, complete_obs = TRUE) %>% 
+	rownames_to_column(var = "time")
+
+### get time rolling average for g(T), <g(T)>
+g_avg <- both %>% 
+	select(gtrait) %>% 
+	as.matrix()
+results2_gmean <- roll_mean(g_avg, width = 2, complete_obs = TRUE)
+meang2 <- data.frame(mean_g = results2_gmean) %>% 
+	rownames_to_column(var = "time")
+
+
+### put all the averages together
+all_avgs <- left_join(mean2, meanf2) %>% 
+	left_join(meang2) %>% 
+	mutate(time = as.numeric(time)) %>% 
+	left_join(covariances2, by = c("time" = "time_point")) %>% 
+	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (ftrait*gtrait) + covariance2) %>% 
+	select(-complete_obs) %>% 
+	mutate(`<f(T)><g(T)>` = ftrait*gtrait) %>% 
+	gather(key = parameter, value = value, 2:7)
+
+## plot
+all_avgs %>% 
+	filter(parameter %in% c("<f(T)><g(T)> + Cov[f(T), g(T)]", "R_0", "<f(T)><g(T)>", "covariance2")) %>% 
+	mutate(parameter = str_replace(parameter, "R_0", "<f(T)g(T)>")) %>% 
+	mutate(parameter = str_replace(parameter, "covariance2", "Cov[f(T), g(T)]")) %>% 
+	ggplot(aes(x = time, y = value, color = parameter)) + geom_line() 
+
+```
+
+### Now, focusing on the 10 day time slice only, check that `<R0(T)>` =  `<f(T)g(T)>` =  `<f(T)><g(T)>` + `Cov[f(T), g(T)]`
+Looks like this isn't working as I expected! i.e. the blue and green lines below should be lining up...Hmmm....
+
+```{r, fig_width = 14}
+
+### get time rolling average for R_0, i.e. <R0(T)> =  <f(T)g(T)>
+R_0 = both %>% 
+	mutate(R_0 = ftrait*gtrait) %>% 
+	select(R_0) %>% 
+	as.matrix()
+results10_R_0 <- roll_mean(R_0, width = 10)
+mean10 <- data.frame(mean_R0 = results10_R_0, complete_obs = TRUE) %>% 
+	rownames_to_column(var = "time")
+
+
+### get time rolling average for f(T), <f(T)>
+f_avg <- both %>% 
+	select(ftrait) %>% 
+	as.matrix()
+results10_fmean <- roll_mean(f_avg, width = 10)
+meanf10 <- data.frame(mean_f = results10_fmean, complete_obs = TRUE) %>% 
+	rownames_to_column(var = "time")
+
+### get time rolling average for g(T), <g(T)>
+g_avg <- both %>% 
+	select(gtrait) %>% 
+	as.matrix()
+results10_gmean <- roll_mean(g_avg, width = 10, complete_obs = TRUE)
+meang10 <- data.frame(mean_g = results10_gmean) %>% 
+	rownames_to_column(var = "time")
+
+
+### put all the averages together
+all_avgs_10 <- left_join(mean10, meanf10) %>% 
+	left_join(meang10) %>% 
+	mutate(time = as.numeric(time)) %>% 
+	left_join(covariances2, by = c("time" = "time_point")) %>% 
+	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (ftrait*gtrait) + covariance2) %>% 
+	select(-complete_obs) %>% 
+	mutate(`<f(T)><g(T)>` = ftrait*gtrait) %>% 
+	gather(key = parameter, value = value, 2:7)
+
+## plot
+all_avgs_10 %>% 
+	filter(parameter %in% c("<f(T)><g(T)> + Cov[f(T), g(T)]", "R_0", "<f(T)><g(T)>", "covariance2")) %>% 
+	mutate(parameter = str_replace(parameter, "R_0", "<f(T)g(T)>")) %>% 
+	mutate(parameter = str_replace(parameter, "covariance2", "Cov[f(T), g(T)]")) %>% 
+	ggplot(aes(x = time, y = value, color = parameter)) + geom_line() 
+
+```
+
+Ok let's try something simpler.
+```{r}
+
+
+group <-  sort(rep(seq(from = 1, to = 2), times = 50))
+
+all <- both %>% 
+	mutate(group = group) %>% 
+	mutate(R_0 = ftrait*gtrait) %>% 
+	group_by(group) %>% 
+	mutate(`<R_0>` = mean(R_0)) %>% 
+	mutate(mean_ftrait = mean(ftrait)) %>% 
+	mutate(mean_gtrait = mean(gtrait)) %>% 
+	mutate(cov_fg = cov(ftrait, gtrait)) %>% 
+	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (mean_ftrait * mean_gtrait) + cov_fg)
+
+all %>% 
+	ggplot(aes(x = time, y = `<f(T)><g(T)> + Cov[f(T), g(T)]`)) + geom_line() +
+	geom_line(aes(x = time, y =`<R_0>` ), color = "blue")
+
+
 ```

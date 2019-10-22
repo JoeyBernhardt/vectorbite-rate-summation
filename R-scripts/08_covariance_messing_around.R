@@ -54,6 +54,7 @@ traits <- both %>%
 	select(ftrait, gtrait) %>% 
 	as.matrix()
 
+
 # rolling covariances
 results2 <- roll_cov(traits, width = 2, center = FALSE)
 covariances2 <- as.data.frame(results2) %>% 
