@@ -43,8 +43,8 @@ tpcs
 #### make up temperature time series
 ```{r}
 set.seed(101)
-time <- seq_along(1:10000)
-temps <- data.frame(temperature = runif(10000, min = 5, max = 33), time = time)
+time <- seq_along(1:50)
+temps <- data.frame(temperature = runif(50, min = 5, max = 33), time = time)
 
 ```
 
@@ -324,4 +324,19 @@ all %>%
 all %>% 
 	filter(estimate %in% c("<f(T)g(T)>", "<f(T)><g(T)> + Cov[f(T), g(T)]")) %>% 
 	ggplot(aes(x = value, fill = estimate, color = estimate)) + geom_density(alpha = 0.5) 
+```
+
+
+```{r}
+
+ both %>% 
+	sample_n(size = 50) %>% 
+	mutate(R_0 = ftrait*gtrait) %>% 
+	summarise(`<f(T)g(T)>` = mean(R_0),
+			  `<f(T)>`= mean(ftrait),
+			  `<g(T)>` = mean(gtrait),
+			  `Cov[f(T), g(T)]` = cov(ftrait, gtrait)) %>% 
+	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (`<f(T)>` * `<g(T)>`) + `Cov[f(T), g(T)]`) %>%
+	mutate(difference = `<f(T)><g(T)> + Cov[f(T), g(T)]` - `<f(T)g(T)>`) 
+
 ```

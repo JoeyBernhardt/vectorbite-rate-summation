@@ -1,0 +1,147 @@
+---
+title: "Simpler covariance exploration"
+output:
+  html_document: default
+  html_notebook: default
+---
+
+```{r}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(cowplot)
+theme_set(theme_cowplot())
+library(roll)
+```
+
+#### Invent some TPCs (purple is f(T), orange is g(T))
+```{r}
+f_curve <- function(x) 0.02*x + 1 
+g_curve <- function(x) 0.07*x 
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x)) 
+
+tpcs <- p + 
+	stat_function(fun = f_curve, color = "purple", size = 2) +
+	stat_function(fun = g_curve, color = "orange", size = 2) +
+	xlim(0, 35) + ylim(-0.1, 2) + 
+	xlab("Temperature (°C)") + ylab("Trait") + geom_hline(yintercept = 0)
+
+tpcs
+```
+
+
+
+#### make up temperature time series
+```{r}
+set.seed(101)
+time <- seq_along(1:100)
+temps <- data.frame(temperature = runif(100, min = 5, max = 33), time = time)
+
+```
+
+
+
+#### plot temps over time
+
+```{r}
+ temps %>% 
+	ggplot(aes(x = time, y = temperature)) + geom_line() +
+	ylab("Temperature (°C)") + xlab("Time (days)")
+```
+
+
+#### get trait values
+
+```{r}
+f_time_series <- data.frame(time = time, ftrait = sapply(X = temps$temperature, FUN = f_curve), temperature = temps$temperature)
+g_time_series <- data.frame(time = time, gtrait = sapply(X = temps$temperature, FUN = g_curve), temperature = temps$temperature)
+```
+
+#### plot traits over time
+```{r}
+both <- left_join(f_time_series, g_time_series) %>% 
+	mutate(R_0 = ftrait*gtrait)
+
+
+both %>% 
+	gather(key = trait_type, value = trait_value, ftrait, gtrait) %>% 
+	mutate(trait_type = ifelse(trait_type == "ftrait", "f(T)", "g(T)")) %>% 
+	ggplot(aes(x = time, y = trait_value, color = trait_type)) + geom_line() +
+	scale_color_manual(values = c("purple", "orange")) +ylab("Trait value") + xlab("Time (days)") +
+	theme(legend.position = "top")
+
+```
+
+
+
+
+Find the averages at different time slices: 2, 4, 5, 10, 20, 25, 50, 100. 
+Here each panel corresponds to a given time slice length
+```{r}
+x <- 20
+
+time_chunk <- function(x){
+
+group <-  sort(rep(seq(from = 1, to = x), times = 100/x))
+
+all <- both %>% 
+	mutate(group = group) %>% 
+	mutate(slice_length = 100/x) %>% 
+	mutate(R_0 = ftrait*gtrait) %>% 
+	group_by(group) %>% 
+	mutate(`<f(T)g(T)>` = mean(R_0)) %>% 
+	mutate(`<f(T)>`= mean(ftrait)) %>% 
+	mutate(`<g(T)>` = mean(gtrait)) %>% 
+	mutate(`Cov[f(T), g(T)]` = cov(ftrait, gtrait)) %>% 
+	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (`<f(T)>` * `<g(T)>`) + `Cov[f(T), g(T)]`) %>% View
+	gather(key = estimate, value = value, 8:12)
+}
+
+
+x <-c(1, 2, 4, 5, 10, 20, 25, 50)
+
+all_slices <- x %>% 
+	map_df(.f = time_chunk)
+
+all_slices %>% 
+	ggplot(aes(x = time, y = value, color = estimate)) + geom_line() +
+	facet_wrap( ~ slice_length)
+```
+
+Now plot the differences between `<f(T)><g(T)> + Cov[f(T), g(T)]` and `<f(T)g(T)>` (should be 0)
+```{r}
+all_slices %>% 
+	spread(key = estimate, value = value) %>% 
+	mutate(difference = `<f(T)><g(T)> + Cov[f(T), g(T)]` - `<f(T)g(T)>`) %>% 
+	ggplot(aes(x = time, y = difference, color = factor(slice_length), group = slice_length)) + geom_line(size = 1) +
+	scale_color_viridis_d(name = "Time slice length") + ylab("Difference \n <f(T)><g(T)> + Cov[f(T), g(T)] - <f(T)g(T)>") + xlab("Time")
+```
+
+Now get the average differences between `<f(T)><g(T)> + Cov[f(T), g(T)]` and `<f(T)g(T)>`
+```{r}
+all_slices %>% 
+	spread(key = estimate, value = value) %>%  
+	mutate(difference = `<f(T)><g(T)> + Cov[f(T), g(T)]` - `<f(T)g(T)>`) %>% 
+	group_by(slice_length) %>% 
+	summarise(average_difference = mean(difference)) %>% 
+	ggplot(aes(x  = slice_length, y = average_difference)) + geom_point() +
+	ylab("Average difference between \n `<f(T)><g(T)> + Cov[f(T), g(T)]` and `<f(T)g(T)>`") +
+	xlab("Time slice length")
+```
+
+Now get  difference between `<f(T)><g(T)> + Cov[f(T), g(T)]` and `<f(T)g(T)>` using the whole time series
+```{r}
+difference <- both %>% 
+	mutate(R_0 = ftrait*gtrait) %>% 
+	summarise(`<f(T)g(T)>` = mean(R_0),
+			  `<f(T)>`= mean(ftrait),
+			  `<g(T)>` = mean(gtrait),
+			  `Cov[f(T), g(T)]` = cov(ftrait, gtrait)) %>% 
+	mutate(`<f(T)><g(T)> + Cov[f(T), g(T)]` = (`<f(T)>` * `<g(T)>`) + `Cov[f(T), g(T)]`) %>%
+	mutate(difference = `<f(T)><g(T)> + Cov[f(T), g(T)]` - `<f(T)g(T)>`) 
+
+difference
+```
