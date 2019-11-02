@@ -93,7 +93,7 @@ nt <- 8*6 # thinning rate - jags saves every nt iterations in each chain
 nc <- 3 # number of chains
 
 # Temperature sequence for derived quantity calculations
-Temp.xs <- seq(0, 45, 0.2)
+Temp.xs <- seq(0, 45, 0.5)
 N.Temp.xs <-length(Temp.xs)
 
 ### Fitting the trait thermal response; Pull out data columns as vectors
@@ -147,12 +147,12 @@ predictions_sub <- predictions %>%
 
 
 predictions_long <- predictions_sub %>% 
-	gather(key = temperature, value = growth_rate, 2:227)
+	gather(key = temperature, value = growth_rate, 2:(N.Temp.xs + 1))
 
 predictions_summary <- predictions %>% 
 	mutate(iteration = rownames(.)) %>% 
 	select(iteration, everything()) %>% 
-	gather(key = temperature, value = growth_rate, 2:227) %>% 
+	gather(key = temperature, value = growth_rate, 2:(N.Temp.xs + 1)) %>% 
 	group_by(temperature) %>% 
 	summarise(q2.5=quantile(growth_rate, probs=0.025),
 			  q97.5=quantile(growth_rate, probs=0.975),
