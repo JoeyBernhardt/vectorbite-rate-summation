@@ -500,7 +500,7 @@ predictions2 <- left_join(predictions, pred_c) %>%
 
 
 write_csv(pred_c, "data-processed/pred_c.csv")
-
+pred_c <- read_csv("data-processed/pred_c.csv")
 unique(fits_all$curve.id.list)
 
 fsplit <- fits_all %>% 
@@ -517,7 +517,7 @@ predictions2 <- left_join(predictions, pred_c) %>%
 	mutate(curve.id.new = ifelse(is.na(curve.id.new), "119_weight gain_niloticus_NA", curve.id.new))
 
 write_csv(predictions2, "data-processed/predictions2.csv")
-
+predictions2 <- read_csv("data-processed/predictions2.csv")
 predictions2 %>% 
 	filter(predicted_rate > 0, predicted_rate < 150) %>% 
 	ggplot(aes(x = temperature, y = predicted_rate)) + geom_line() +

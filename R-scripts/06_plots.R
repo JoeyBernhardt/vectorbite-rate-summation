@@ -1,6 +1,8 @@
 
 
 library(tidyverse)
+library(cowplot)
+theme_set(theme_cowplot())
 
 colors <- c("cadetblue", "darkgoldenrod1", "darkorange2")
 
