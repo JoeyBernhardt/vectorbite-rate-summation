@@ -4,8 +4,9 @@ library(tidyverse)
 library(R2jags)
 library(coda)
 library(cowplot)
-library(mcmcplots)
-
+library(rjags)
+# library(mcmcplots)
+?as.mcmc
 
 ### study 111 soup to nuts
 
@@ -116,6 +117,34 @@ data %>%
 
 # Bundle all data in a list for JAGS
 jag.data <- list(trait = trait, N.obs = N.obs, temp = temp, Temp.xs = Temp.xs, N.Temp.xs = N.Temp.xs)
+
+
+# ### alternative rjags way
+# library(MCMCvis)
+# 
+# n.adapt = 1000
+# n.update = 10000
+
+# MCMC Settings: number of posterior dist elements = [(ni - nb) / nt ] * nc
+ni <- 25000*6 # number of iterations in each chain
+nb <- 5000 # number of 'burn in' iterations to discard
+nt <- 8*6 # thinning rate - jags saves every nt iterations in each chain
+nc <- 3 # number of chains
+
+# jm = jags.model("norberg_tnorm.txt", data = jag.data, inits = inits,
+# 				n.chains = 3, n.adapt = n.adapt)
+# update(jm, n.iter = n.update)
+# 
+# zm = coda.samples(jm, variable.names = c("cf.a", "cf.z", "cf.b", "cf.w",  "cf.tau"),
+# 				  n.iter = ni, n.thin = nt)
+# zm
+# 
+# zm_df <- as.data.frame(rbind(zm[[1]]))
+# 
+# MCMCsummary(zm)[2, 1:2]
+# MCMCsummary(zm)[1, c(1, 5)]
+# MCMCtrace(zm)
+# MCMCsummary(zm)
 
 
 lf.fit_exp <- jags(data=jag.data, inits=inits, parameters.to.save=parameters, 
@@ -443,3 +472,65 @@ save_plot("figures/plot_comb.png", plot_comb,
 		  base_aspect_ratio = 1.3
 )
 
+
+
+
+# using rjags -------------------------------------------------------------
+
+
+library(rjags)
+n.adapt = 1000
+n.update = 10000
+n.iter = 10000
+# Call to JAGS
+set.seed(1)
+
+
+trait <- data$trait
+N.obs <- length(trait)
+temp <- data$T
+
+### plot it
+
+data %>% 
+	ggplot(aes(x = T, y = trait)) + geom_point()
+
+
+# Bundle all data in a list for JAGS
+jag.data <- list(trait = trait, N.obs = N.obs, temp = temp, Temp.xs = Temp.xs, N.Temp.xs = N.Temp.xs)
+
+
+
+
+
+
+jm = jags.model("norberg_tnorm.txt",data = data, inits = inits,
+				n.chains = length(inits), n.adapt = n.adapt)
+update(jm, n.iter = n.update)
+
+
+
+jm = jags.model("LogisticJAGS.R",data = data, inits = inits,
+				n.chains = length(inits), n.adapt = n.adapt)
+update(jm, n.iter = n.update)
+
+inits = list(
+	list(K = 1500, r = .2, sigma = 1),
+	list(K = 1000, r = .15, sigma = .1),
+	list(K = 900, r = .3, sigma = .01))
+data = list(
+	n = nrow(Logistic),
+	x = as.double(Logistic$PopulationSize),
+	y = as.double(Logistic$GrowthRate))
+n.adapt = 1000
+n.update = 10000
+n.iter = 10000
+
+
+# Call to JAGS
+set.seed(1)
+jm = jags.model("LogisticJAGS.R", data = data, inits = inits,
+				n.chains = length(inits), n.adapt = n.adapt)
+update(jm, n.iter = n.update)
+zm = coda.samples(jm, variable.names = c("K", "r", "sigma", "tau"),
+				  n.iter = n.iter, n.thin = 1)

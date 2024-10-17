@@ -1,0 +1,183 @@
+study_id,trait,temp_regime,n,treatment
+10,development time,0,34,constant
+10,development time,1,52,fluctuating
+11,development rate,1,15,fluctuating
+11,development time,0,5,constant
+11,development time,1,20,fluctuating
+111,fecundity,0,16,constant
+111,fecundity,1,32,fluctuating
+119,food use efficiency,0,14,constant
+119,food use efficiency,1,2,fluctuating
+119,growth rate,0,8,constant
+119,production rate,0,8,constant
+119,respiration,0,6,constant
+119,respiration,1,2,fluctuating
+119,weight gain,0,18,constant
+119,weight gain,1,4,fluctuating
+12,development rate,0,18,constant
+12,development time,0,65,constant
+124,activity,0,5,constant
+124,activity,1,2,fluctuating
+13,development rate,0,16,constant
+13,development rate,1,10,fluctuating
+15,innate capacity for increase (rm),0,6,constant
+15,innate capacity for increase (rm),1,8,fluctuating
+15,NA,0,2,constant
+150,Body mass,0,9,constant
+150,Body mass,1,1,fluctuating
+150,Carapace width,0,9,constant
+150,Carapace width,1,1,fluctuating
+150,Duration of incubation,0,9,constant
+150,Duration of incubation,1,1,fluctuating
+150,Hatching success,0,9,constant
+150,Hatching success,1,1,fluctuating
+150,Max distance travelled,0,5,constant
+150,Max distance travelled,1,1,fluctuating
+159,thorax length,0,68,constant
+159,thorax length,1,92,fluctuating
+159,winglength,0,68,constant
+159,winglength,1,92,fluctuating
+16,growth rate,0,25,constant
+16,growth rate,1,12,fluctuating
+165,development rate,0,15,constant
+165,development rate,1,4,fluctuating
+165,survival,0,20,constant
+165,survival,1,4,fluctuating
+168,egg hatch,0,10,constant
+168,egg hatch,1,5,fluctuating
+168,egg yolk size,0,9,constant
+168,egg yolk size,1,4,fluctuating
+168,fecundity,0,10,constant
+168,fecundity,1,5,fluctuating
+168,fecundity/body weight,0,10,constant
+168,fecundity/body weight,1,5,fluctuating
+168,gonosomatic index,0,10,constant
+168,gonosomatic index,1,5,fluctuating
+168,spawning,0,10,constant
+168,spawning,1,5,fluctuating
+58,Body Length,0,12,constant
+58,Body Length,1,7,fluctuating
+58,Body Mass,0,12,constant
+58,Body Mass,1,7,fluctuating
+58,Critical Swimming Speed,0,3,constant
+58,Critical Swimming Speed,1,2,fluctuating
+58,Critical Thermal Maximum,0,3,constant
+58,Critical Thermal Maximum,1,1,fluctuating
+58,Critical Thermal Minimum,0,3,constant
+58,Critical Thermal Minimum,1,1,fluctuating
+58,Duration,0,3,constant
+58,Duration,1,2,fluctuating
+58,Feeding Efficiency,0,3,constant
+58,Feeding Efficiency,1,1,fluctuating
+58,Feeding Rate,0,3,constant
+58,Feeding Rate,1,1,fluctuating
+58,Final Length,0,3,constant
+58,Final Length,1,1,fluctuating
+58,Final Mass,0,3,constant
+58,Final Mass,1,1,fluctuating
+58,Initial Length,0,3,constant
+58,Initial Length,1,1,fluctuating
+58,Initial Mass,0,3,constant
+58,Initial Mass,1,1,fluctuating
+58,Lethal Thermal Maximum,0,3,constant
+58,Lethal Thermal Maximum,1,1,fluctuating
+58,Lethal Thermal Minimum,0,2,constant
+58,Lethal Thermal Minimum,1,1,fluctuating
+58,Maximum Linear Acceleration,0,3,constant
+58,Maximum Linear Acceleration,1,2,fluctuating
+58,Maximum Linear Velocity,0,3,constant
+58,Maximum Linear Velocity,1,2,fluctuating
+58,Maximum Observed MO2O2,0,1,constant
+58,Maximum Observed MO2O3,0,1,constant
+58,Maximum Observed MO2O4,0,1,constant
+58,Maximum Observed MO2O5,1,1,fluctuating
+58,Maximum Observed MO2O6,1,1,fluctuating
+58,MO2 during swimming speed of 49(cm s-1),0,4,constant
+58,MO2 during swimming speed of 49(cm s-1),1,1,fluctuating
+58,MO2 during swimming speed of 56(cm s-1),0,3,constant
+58,MO2 during swimming speed of 56(cm s-1),1,2,fluctuating
+58,MO2 during swimming speed of 63(cm s-1),0,3,constant
+58,MO2 during swimming speed of 63(cm s-1),1,2,fluctuating
+58,MO2 during time post feeding (0 hours),0,3,constant
+58,MO2 during time post feeding (0 hours),1,2,fluctuating
+58,MO2 during time post feeding (1 hours),0,3,constant
+58,MO2 during time post feeding (1 hours),1,2,fluctuating
+58,MO2 during time post feeding (2 hours),0,3,constant
+58,MO2 during time post feeding (2 hours),1,2,fluctuating
+58,MO2 during time post feeding (3 hours),0,3,constant
+58,MO2 during time post feeding (3 hours),1,2,fluctuating
+58,MO2 during time post feeding (4 hours),0,3,constant
+58,MO2 during time post feeding (4 hours),1,2,fluctuating
+58,O2peak,0,3,constant
+58,O2peak,1,2,fluctuating
+58,O2rest,0,3,constant
+58,O2rest,1,2,fluctuating
+58,Response Latency,0,3,constant
+58,Response Latency,1,2,fluctuating
+58,Specific Dynamic Action magnitude,0,3,constant
+58,Specific Dynamic Action magnitude,1,2,fluctuating
+58,Specific Growth Rate,0,3,constant
+58,Specific Growth Rate,1,1,fluctuating
+61,Development rate,0,12,constant
+61,Development rate,1,6,fluctuating
+61,Fecundity,0,6,constant
+61,Fecundity,1,6,fluctuating
+61,Longevity,0,6,constant
+61,Longevity,1,6,fluctuating
+61,Survivorship,0,6,constant
+61,Survivorship,1,6,fluctuating
+67,development rate,0,6,constant
+67,development rate,1,6,fluctuating
+67,tibia length,0,6,constant
+67,tibia length,1,6,fluctuating
+9,development rate of egg,0,10,constant
+9,development rate of egg,1,4,fluctuating
+9,development rate of first-instar larva,0,7,constant
+9,development rate of first-instar larva,1,4,fluctuating
+9,development rate of pupal stage,0,10,constant
+9,development rate of pupal stage,1,5,fluctuating
+9,development rate of second-instar larva,0,7,constant
+9,development rate of second-instar larva,1,3,fluctuating
+9,development rate of third-instar larva,0,3,constant
+9,development rate of third-instar larva,1,2,fluctuating
+90,Population size,0,12,constant
+90,Population size,1,8,fluctuating
+91,Adult mortality,0,3,constant
+91,Adult mortality,1,3,fluctuating
+91,Egg Cocoon Mortality,0,3,constant
+91,Egg Cocoon Mortality,1,3,fluctuating
+91,Prepupa mortality,0,3,constant
+91,Prepupa mortality,1,3,fluctuating
+91,prepupal weight,0,3,constant
+91,prepupal weight,1,3,fluctuating
+91,Pupa mortality,0,3,constant
+91,Pupa mortality,1,3,fluctuating
+kingsolver,growth rate,0,7,constant
+kingsolver,growth rate,1,9,fluctuating
+VB19-1,development time,0,6,constant
+VB19-1,development time,1,6,fluctuating
+VB19-2,Mesothoracic Femur Length- Females,0,3,constant
+VB19-2,Mesothoracic Femur Length- Females,1,2,fluctuating
+VB19-2,Mesothoracic Femur Length- Males,0,3,constant
+VB19-2,Mesothoracic Femur Length- Males,1,2,fluctuating
+VB19-2,survival,0,6,constant
+VB19-2,survival,1,3,fluctuating
+VB19-2,Teneral WT - Female,0,5,constant
+VB19-2,Teneral WT - Female,1,3,fluctuating
+VB19-2,Teneral WT - Male,0,5,constant
+VB19-2,Teneral WT - Male,1,3,fluctuating
+VB19-3,development time -Females,0,11,constant
+VB19-3,development time -Females,1,10,fluctuating
+VB19-3,development time -Males,0,11,constant
+VB19-3,development time -Males,1,10,fluctuating
+VB19-4,total development time,0,9,constant
+VB19-5,Adult longeivity - Females,0,6,constant
+VB19-5,Adult longeivity - Females,1,5,fluctuating
+VB19-5,Adult longeivity - Males,0,6,constant
+VB19-5,Adult longeivity - Males,1,5,fluctuating
+VB19-5,Development Time - Females,0,6,constant
+VB19-5,Development Time - Females,1,5,fluctuating
+VB19-5,Development Time - Males,0,6,constant
+VB19-5,Development Time - Males,1,5,fluctuating
+VB19-5,Fecundity,0,6,constant
+VB19-5,Fecundity,1,5,fluctuating
