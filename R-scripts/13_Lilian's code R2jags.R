@@ -80,7 +80,7 @@ cat("
 sink()
 
 ## MCMC Settings ----
-# Number of posterior distribution elements = [(ni - nb) / nt ] * nc = [ (25000 - 5000) / 8 ] * 3 = 7500
+# Number of posterior distribution elements = [(ni - nb) / nt ] * nc = [ (25000 - 5000) / 8 ] * 4 = 7500
 ni <- 25000 # number of iterations in each chain
 nb <- 5000 # number of 'burn in' iterations to discard
 nt <- 8 # thinning rate - jags saves every nt iterations in each chain
