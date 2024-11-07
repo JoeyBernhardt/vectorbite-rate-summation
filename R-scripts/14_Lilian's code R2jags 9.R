@@ -147,7 +147,7 @@ cat("
     ## Priors
     cf.q ~ dunif(0, 10)
     cf.T0 ~ dunif(0, 20)
-    cf.Tm ~ dunif(30, 50)
+    cf.Tm ~ dunif(30, 60)
     cf.sigma ~ dunif(0, 1000)
     cf.tau <- 1 / (cf.sigma * cf.sigma)
 
@@ -209,7 +209,7 @@ model_quad <- jags(data = jag.data,
                    DIC = T, 
                    working.directory = getwd()
 )
-
+ 
 ## Diagnostics ----
 ### Examine model output ----
 head(model_quad$BUGSoutput$summary)
