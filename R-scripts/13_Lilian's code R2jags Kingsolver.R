@@ -135,7 +135,7 @@ model_briere$BUGSoutput$DIC
 
 
 ## Plot the TPC ----
-plot(trait ~ jitter(temp, 0.5), xlim = c(0, 60), ylim = c(1.2, 3.2), data = king_const, 
+plot(trait ~ jitter(temp, 0.5), xlim = c(0, 60), ylim = c(0, 3.2), data = king_const, 
      ylab = "growth rate", xlab = expression(paste("Temperature (",degree,"C)")))
 
 lines(model_briere$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "2.5%"] ~ Temp.xs, lty = 2)
@@ -235,3 +235,5 @@ plot(trait ~ jitter(temp, 0.5), xlim = c(0, 60), ylim = c(1.2,2.1), data = king_
 lines(model_quad$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "2.5%"] ~ Temp.xs, lty = 2)
 lines(model_quad$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "97.5%"] ~ Temp.xs, lty = 2)
 lines(model_quad$BUGSoutput$summary[6:(6 + N.Temp.xs - 1), "mean"] ~ Temp.xs)
+
+  
