@@ -67,22 +67,22 @@ unique(adata$study_id)
 
 
 adata2 <- adata %>% 
+  
+  filter(!is.na(response)) %>% 
+  
+  dplyr::group_by(study_id, trait) %>% 
+  mutate(max_response = max(response)) %>% 
+  mutate(scaled_response = response/max_response) %>% 
+  mutate(unique_experiment = paste(study_id, trait, sep = "_"))
 
-	filter(!is.na(response)) %>% 
-	
-	dplyr::group_by(study_id, trait) %>% 
-	mutate(max_response = max(response)) %>% 
-	mutate(scaled_response = response/max_response) %>% 
-	mutate(unique_experiment = paste(study_id, trait, sep = "_"))
-	
-	
-	adata2 %>% 
-	ggplot(aes(x = mean_temp_calculated, y = scaled_response, group = unique_experiment, color = factor(temp_regime))) +
-	geom_point(size = 2) +
-	facet_wrap(study_id ~ trait, ncol = 6, scales = "free")+
-	xlab("Temperature (°C)")
 
-ggsave("figures/all_studies_plots.png", width = 35, height = 45)
+plot1 <- adata2 %>% 
+  ggplot(aes(x = mean_temp_calculated, y = scaled_response, group = unique_experiment, color = factor(temp_regime))) +
+  geom_point(size = 2) +
+  facet_wrap(study_id ~ trait, ncol = 6, scales = "free")+
+  xlab("Temperature (°C)")
+plot1
+ggsave(plot = plot1, "figures/all_studies_plots_LC.png", width = 35, height = 45)
 
 
 num_points <- adata2 %>% 
@@ -103,4 +103,4 @@ adata3 <- left_join(adata2, num_points) %>%
 
 unique(adata2$trait)
 
-
+#write_csv(adata3, "data-processed/alldata_scaled.csv")
