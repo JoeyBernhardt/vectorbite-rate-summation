@@ -1,0 +1,1199 @@
+study_id,temp_init,temp_regime,temp_range,mean_temp,min_temp,max_temp,dtr,fluc_type,trait,units,response,dataset,type,growth_rate_g,fluctuation,mean_temp_calculated,max_response,scaled_response,unique_experiment,n,keep
+58,20 _ .5,0,10,20,15,15,0,NA,Body Mass,g,7.85,vb_team_data,NA,NA,NA,20,8.69,0.903337169159954,58_Body Mass,12,keep
+58,20 _ .5,0,10,20,20,20,0,NA,Body Mass,g,8.26,vb_team_data,NA,NA,NA,20,8.69,0.950517836593786,58_Body Mass,12,keep
+58,20 _ .5,0,10,20,25,25,0,NA,Body Mass,g,8.47,vb_team_data,NA,NA,NA,20,8.69,0.9746835443037976,58_Body Mass,12,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Mass,g,7.77,vb_team_data,NA,NA,NA,20,8.69,0.8941311852704258,58_Body Mass,7,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Mass,g,8.11,vb_team_data,NA,NA,NA,20,8.69,0.9332566168009205,58_Body Mass,7,keep
+58,20 _ .5,0,10,20,15,15,0,NA,Body Length,cm,7.61,vb_team_data,NA,NA,NA,20,7.78,0.9781491002570695,58_Body Length,12,keep
+58,20 _ .5,0,10,20,20,20,0,NA,Body Length,cm,7.61,vb_team_data,NA,NA,NA,20,7.78,0.9781491002570695,58_Body Length,12,keep
+58,20 _ .5,0,10,20,25,25,0,NA,Body Length,cm,7.74,vb_team_data,NA,NA,NA,20,7.78,0.9948586118251928,58_Body Length,12,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Length,cm,7.55,vb_team_data,NA,NA,NA,20,7.78,0.9704370179948586,58_Body Length,7,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Length,cm,7.65,vb_team_data,NA,NA,NA,20,7.78,0.9832904884318766,58_Body Length,7,keep
+58,20 _ .5,0,10,20,15,15,0,NA,Body Mass,g,5.79,vb_team_data,NA,NA,NA,20,8.69,0.666283084004603,58_Body Mass,12,keep
+58,20 _ .5,0,10,20,20,20,0,NA,Body Mass,g,5.7,vb_team_data,NA,NA,NA,20,8.69,0.6559263521288838,58_Body Mass,12,keep
+58,20 _ .5,0,10,20,25,25,0,NA,Body Mass,g,6.23,vb_team_data,NA,NA,NA,20,8.69,0.7169159953970081,58_Body Mass,12,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Mass,g,6.35,vb_team_data,NA,NA,NA,20,8.69,0.7307249712313003,58_Body Mass,7,keep
+58,20 _ .5,0,10,20,15,15,0,NA,Body Length,cm,6.95,vb_team_data,NA,NA,NA,20,7.78,0.8933161953727506,58_Body Length,12,keep
+58,20 _ .5,0,10,20,20,20,0,NA,Body Length,cm,6.83,vb_team_data,NA,NA,NA,20,7.78,0.877892030848329,58_Body Length,12,keep
+58,20 _ .5,0,10,20,25,25,0,NA,Body Length,cm,7.08,vb_team_data,NA,NA,NA,20,7.78,0.910025706940874,58_Body Length,12,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Length,cm,7.09,vb_team_data,NA,NA,NA,20,7.78,0.9113110539845758,58_Body Length,7,keep
+58,20 _ .5,0,10,20,15,15,0,NA,Body Mass,g,6.98,vb_team_data,NA,NA,NA,20,8.69,0.803222094361335,58_Body Mass,12,keep
+58,20 _ .5,0,10,20,20,20,0,NA,Body Mass,g,7.62,vb_team_data,NA,NA,NA,20,8.69,0.8768699654775605,58_Body Mass,12,keep
+58,20 _ .5,0,10,20,25,25,0,NA,Body Mass,g,8.69,vb_team_data,NA,NA,NA,20,8.69,1,58_Body Mass,12,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Mass,g,7.78,vb_team_data,NA,NA,NA,20,8.69,0.8952819332566169,58_Body Mass,7,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Mass,g,7.53,vb_team_data,NA,NA,NA,20,8.69,0.8665132336018413,58_Body Mass,7,keep
+58,20 _ .5,0,10,20,15,15,0,NA,Body Length,cm,7.35,vb_team_data,NA,NA,NA,20,7.78,0.9447300771208226,58_Body Length,12,keep
+58,20 _ .5,0,10,20,20,20,0,NA,Body Length,cm,7.34,vb_team_data,NA,NA,NA,20,7.78,0.9434447300771208,58_Body Length,12,keep
+58,20 _ .5,0,10,20,25,25,0,NA,Body Length,cm,7.78,vb_team_data,NA,NA,NA,20,7.78,1,58_Body Length,12,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Length,cm,7.66,vb_team_data,NA,NA,NA,20,7.78,0.9845758354755784,58_Body Length,7,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Length,cm,7.44,vb_team_data,NA,NA,NA,20,7.78,0.9562982005141388,58_Body Length,7,keep
+58,20 _ .5,0,10,20,15,15,0,NA,Body Mass,g,6.31,vb_team_data,NA,NA,NA,20,8.69,0.7261219792865362,58_Body Mass,12,keep
+58,20 _ .5,0,10,20,20,20,0,NA,Body Mass,g,8.12,vb_team_data,NA,NA,NA,20,8.69,0.9344073647871116,58_Body Mass,12,keep
+58,20 _ .5,0,10,20,25,25,0,NA,Body Mass,g,8.56,vb_team_data,NA,NA,NA,20,8.69,0.9850402761795168,58_Body Mass,12,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Mass,g,7.01,vb_team_data,NA,NA,NA,20,8.69,0.806674338319908,58_Body Mass,7,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Mass,g,7.31,vb_team_data,NA,NA,NA,20,8.69,0.8411967779056386,58_Body Mass,7,keep
+58,20 _ .5,0,10,20,15,15,0,NA,Body Length,cm,7.04,vb_team_data,NA,NA,NA,20,7.78,0.9048843187660668,58_Body Length,12,keep
+58,20 _ .5,0,10,20,20,20,0,NA,Body Length,cm,7.68,vb_team_data,NA,NA,NA,20,7.78,0.987146529562982,58_Body Length,12,keep
+58,20 _ .5,0,10,20,25,25,0,NA,Body Length,cm,7.77,vb_team_data,NA,NA,NA,20,7.78,0.9987146529562981,58_Body Length,12,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Length,cm,7.31,vb_team_data,NA,NA,NA,20,7.78,0.9395886889460153,58_Body Length,7,keep
+58,20 _ .5,1,10,20,15,25,10,2,Body Length,cm,7.46,vb_team_data,NA,NA,NA,20,7.78,0.9588688946015423,58_Body Length,7,keep
+61,22 ± 0.5,1,22,24.5,13,35,22,2,Survivorship,,0.75,vb_team_data,NA,NA,NA,24,0.92,0.8152173913043478,61_Survivorship,6,keep
+61,22 ± 0.5,1,19,25.1,16,35,19,2,Survivorship,,0.54,vb_team_data,NA,NA,NA,25.5,0.92,0.5869565217391305,61_Survivorship,6,keep
+61,22 ± 0.5,1,16,26.2,19,35,16,2,Survivorship,,0.63,vb_team_data,NA,NA,NA,27,0.92,0.6847826086956521,61_Survivorship,6,keep
+61,22 ± 0.5,1,14,26.9,21,35,14,2,Survivorship,,0.6,vb_team_data,NA,NA,NA,28,0.92,0.6521739130434782,61_Survivorship,6,keep
+61,22 ± 0.5,1,12,28.1,23,35,12,2,Survivorship,,0.45,vb_team_data,NA,NA,NA,29,0.92,0.4891304347826087,61_Survivorship,6,keep
+61,22 ± 0.5,1,10,28.6,25,35,10,2,Survivorship,,0.36,vb_team_data,NA,NA,NA,30,0.92,0.3913043478260869,61_Survivorship,6,keep
+61,,0,22,24.5,24.5,24.5,0,NA,Survivorship,,0.92,vb_team_data,NA,NA,NA,24.5,0.92,1,61_Survivorship,6,keep
+61,,0,19,25.1,25.1,25.1,0,NA,Survivorship,,0.91,vb_team_data,NA,NA,NA,25.1,0.92,0.9891304347826086,61_Survivorship,6,keep
+61,,0,16,26.2,26.2,26.2,0,NA,Survivorship,,0.89,vb_team_data,NA,NA,NA,26.2,0.92,0.967391304347826,61_Survivorship,6,keep
+61,,0,14,26.9,26.9,26.9,0,NA,Survivorship,,0.86,vb_team_data,NA,NA,NA,26.9,0.92,0.9347826086956521,61_Survivorship,6,keep
+61,,0,12,28.1,28.1,28.1,0,NA,Survivorship,,0.83,vb_team_data,NA,NA,NA,28.1,0.92,0.9021739130434782,61_Survivorship,6,keep
+61,,0,10,28.6,28.6,28.6,0,NA,Survivorship,,0.77,vb_team_data,NA,NA,NA,28.6,0.92,0.8369565217391304,61_Survivorship,6,keep
+61,22 ± 0.5,1,22,24.5,13,35,22,2,Development rate,1/days,0.099,vb_team_data,NA,NA,NA,24,0.158,0.6265822784810127,61_Development rate,6,keep
+61,22 ± 0.5,1,19,25.1,16,35,19,2,Development rate,1/days,0.102,vb_team_data,NA,NA,NA,25.5,0.158,0.6455696202531646,61_Development rate,6,keep
+61,22 ± 0.5,1,16,26.2,19,35,16,2,Development rate,1/days,0.105,vb_team_data,NA,NA,NA,27,0.158,0.6645569620253164,61_Development rate,6,keep
+61,22 ± 0.5,1,14,26.9,21,35,14,2,Development rate,1/days,0.114,vb_team_data,NA,NA,NA,28,0.158,0.7215189873417722,61_Development rate,6,keep
+61,22 ± 0.5,1,12,28.1,23,35,12,2,Development rate,1/days,0.131,vb_team_data,NA,NA,NA,29,0.158,0.8291139240506329,61_Development rate,6,keep
+61,22 ± 0.5,1,10,28.6,25,35,10,2,Development rate,1/days,0.136,vb_team_data,NA,NA,NA,30,0.158,0.8607594936708861,61_Development rate,6,keep
+61,,0,22,24.5,24.5,24.5,0,NA,Development rate,1/days,0.135,vb_team_data,NA,NA,NA,24.5,0.158,0.8544303797468354,61_Development rate,12,keep
+61,,0,19,25.1,25.1,25.1,0,NA,Development rate,1/days,0.135,vb_team_data,NA,NA,NA,25.1,0.158,0.8544303797468354,61_Development rate,12,keep
+61,,0,16,26.2,26.2,26.2,0,NA,Development rate,1/days,0.134,vb_team_data,NA,NA,NA,26.2,0.158,0.8481012658227849,61_Development rate,12,keep
+61,,0,14,26.9,26.9,26.9,0,NA,Development rate,1/days,0.132,vb_team_data,NA,NA,NA,26.9,0.158,0.8354430379746836,61_Development rate,12,keep
+61,,0,12,28.1,28.1,28.1,0,NA,Development rate,1/days,0.123,vb_team_data,NA,NA,NA,28.1,0.158,0.7784810126582278,61_Development rate,12,keep
+61,,0,10,28.6,28.6,28.6,0,NA,Development rate,1/days,0.117,vb_team_data,NA,NA,NA,28.6,0.158,0.7405063291139241,61_Development rate,12,keep
+61,,0,22,24.5,24.5,24.5,0,NA,Development rate,1/days,0.154,vb_team_data,NA,NA,NA,24.5,0.158,0.9746835443037974,61_Development rate,12,keep
+61,,0,19,25.1,25.1,25.1,0,NA,Development rate,1/days,0.156,vb_team_data,NA,NA,NA,25.1,0.158,0.9873417721518988,61_Development rate,12,keep
+61,,0,16,26.2,26.2,26.2,0,NA,Development rate,1/days,0.158,vb_team_data,NA,NA,NA,26.2,0.158,1,61_Development rate,12,keep
+61,,0,14,26.9,26.9,26.9,0,NA,Development rate,1/days,0.158,vb_team_data,NA,NA,NA,26.9,0.158,1,61_Development rate,12,keep
+61,,0,12,28.1,28.1,28.1,0,NA,Development rate,1/days,0.153,vb_team_data,NA,NA,NA,28.1,0.158,0.9683544303797468,61_Development rate,12,keep
+61,,0,10,28.6,28.6,28.6,0,NA,Development rate,1/days,0.149,vb_team_data,NA,NA,NA,28.6,0.158,0.9430379746835442,61_Development rate,12,keep
+61,22 ± 0.5,1,22,24.5,13,35,22,2,Longevity,days,6.8,vb_team_data,NA,NA,NA,24,10.39,0.654475457170356,61_Longevity,6,keep
+61,22 ± 0.5,1,19,25.1,16,35,19,2,Longevity,days,6.9,vb_team_data,NA,NA,NA,25.5,10.39,0.6641000962463908,61_Longevity,6,keep
+61,22 ± 0.5,1,16,26.2,19,35,16,2,Longevity,days,6.5,vb_team_data,NA,NA,NA,27,10.39,0.6256015399422521,61_Longevity,6,keep
+61,22 ± 0.5,1,14,26.9,21,35,14,2,Longevity,days,3.45,vb_team_data,NA,NA,NA,28,10.39,0.3320500481231954,61_Longevity,6,keep
+61,22 ± 0.5,1,12,28.1,23,35,12,2,Longevity,days,2.95,vb_team_data,NA,NA,NA,29,10.39,0.28392685274302215,61_Longevity,6,keep
+61,22 ± 0.5,1,10,28.6,25,35,10,2,Longevity,days,3.52,vb_team_data,NA,NA,NA,30,10.39,0.3387872954764196,61_Longevity,6,keep
+61,,0,22,24.5,24.5,24.5,0,NA,Longevity,days,10.39,vb_team_data,NA,NA,NA,24.5,10.39,1,61_Longevity,6,keep
+61,,0,19,25.1,25.1,25.1,0,NA,Longevity,days,9.84,vb_team_data,NA,NA,NA,25.1,10.39,0.9470644850818094,61_Longevity,6,keep
+61,,0,16,26.2,26.2,26.2,0,NA,Longevity,days,8.82,vb_team_data,NA,NA,NA,26.2,10.39,0.848893166506256,61_Longevity,6,keep
+61,,0,14,26.9,26.9,26.9,0,NA,Longevity,days,8.15,vb_team_data,NA,NA,NA,26.9,10.39,0.7844080846968239,61_Longevity,6,keep
+61,,0,12,28.1,28.1,28.1,0,NA,Longevity,days,7.14,vb_team_data,NA,NA,NA,28.1,10.39,0.6871992300288738,61_Longevity,6,keep
+61,,0,10,28.6,28.6,28.6,0,NA,Longevity,days,6.56,vb_team_data,NA,NA,NA,28.6,10.39,0.6313763233878729,61_Longevity,6,keep
+61,22 ± 0.5,1,22,24.5,13,35,22,2,Fecundity,nymphs/adult,6.86,vb_team_data,NA,NA,NA,24,32.07,0.2139070782662925,61_Fecundity,6,keep
+61,22 ± 0.5,1,19,25.1,16,35,19,2,Fecundity,nymphs/adult,7.47,vb_team_data,NA,NA,NA,25.5,32.07,0.23292797006548174,61_Fecundity,6,keep
+61,22 ± 0.5,1,16,26.2,19,35,16,2,Fecundity,nymphs/adult,6.29,vb_team_data,NA,NA,NA,27,32.07,0.19613345806049268,61_Fecundity,6,keep
+61,22 ± 0.5,1,14,26.9,21,35,14,2,Fecundity,nymphs/adult,3.83,vb_team_data,NA,NA,NA,28,32.07,0.11942625506704085,61_Fecundity,6,keep
+61,22 ± 0.5,1,12,28.1,23,35,12,2,Fecundity,nymphs/adult,3.39,vb_team_data,NA,NA,NA,29,32.07,0.10570626753975679,61_Fecundity,6,keep
+61,22 ± 0.5,1,10,28.6,25,35,10,2,Fecundity,nymphs/adult,3.32,vb_team_data,NA,NA,NA,30,32.07,0.10352354225132522,61_Fecundity,6,keep
+61,,0,22,24.5,24.5,24.5,0,NA,Fecundity,nymphs/adult,32.07,vb_team_data,NA,NA,NA,24.5,32.07,1,61_Fecundity,6,keep
+61,,0,19,25.1,25.1,25.1,0,NA,Fecundity,nymphs/adult,29.39,vb_team_data,NA,NA,NA,25.1,32.07,0.9164328032429061,61_Fecundity,6,keep
+61,,0,16,26.2,26.2,26.2,0,NA,Fecundity,nymphs/adult,23.85,vb_team_data,NA,NA,NA,26.2,32.07,0.7436856875584659,61_Fecundity,6,keep
+61,,0,14,26.9,26.9,26.9,0,NA,Fecundity,nymphs/adult,19.87,vb_team_data,NA,NA,NA,26.9,32.07,0.6195821640162146,61_Fecundity,6,keep
+61,,0,12,28.1,28.1,28.1,0,NA,Fecundity,nymphs/adult,12.97,vb_team_data,NA,NA,NA,28.1,32.07,0.4044278141565326,61_Fecundity,6,keep
+61,,0,10,28.6,28.6,28.6,0,NA,Fecundity,nymphs/adult,8.21,vb_team_data,NA,NA,NA,28.6,32.07,0.2560024945431868,61_Fecundity,6,keep
+67,25,0,10,20,20,20,0,NA,tibia length,mm,1.87,vb_team_data,NA,NA,NA,20,1.9,0.9842105263157895,67_tibia length,6,keep
+67,25,0,10,25,25,25,0,NA,tibia length,mm,1.88,vb_team_data,NA,NA,NA,25,1.9,0.9894736842105263,67_tibia length,6,keep
+67,25,0,10,30,30,30,0,NA,tibia length,mm,1.78,vb_team_data,NA,NA,NA,30,1.9,0.9368421052631579,67_tibia length,6,keep
+67,25,1,10,20,16,24,8,1,tibia length,mm,1.9,vb_team_data,NA,NA,NA,20,1.9,1,67_tibia length,6,keep
+67,25,1,10,25,21,29,8,1,tibia length,mm,1.79,vb_team_data,NA,NA,NA,25,1.9,0.9421052631578948,67_tibia length,6,keep
+67,25,1,10,30,26,34,8,1,tibia length,mm,1.78,vb_team_data,NA,NA,NA,30,1.9,0.9368421052631579,67_tibia length,6,keep
+67,25,0,10,20,20,20,0,NA,tibia length,mm,1.75,vb_team_data,NA,NA,NA,20,1.9,0.9210526315789475,67_tibia length,6,keep
+67,25,0,10,25,25,25,0,NA,tibia length,mm,1.83,vb_team_data,NA,NA,NA,25,1.9,0.9631578947368422,67_tibia length,6,keep
+67,25,0,10,30,30,30,0,NA,tibia length,mm,1.72,vb_team_data,NA,NA,NA,30,1.9,0.9052631578947369,67_tibia length,6,keep
+67,25,1,10,20,16,24,8,1,tibia length,mm,1.77,vb_team_data,NA,NA,NA,20,1.9,0.9315789473684211,67_tibia length,6,keep
+67,25,1,10,25,21,29,8,1,tibia length,mm,1.79,vb_team_data,NA,NA,NA,25,1.9,0.9421052631578948,67_tibia length,6,keep
+67,25,1,10,30,26,34,8,1,tibia length,mm,1.72,vb_team_data,NA,NA,NA,30,1.9,0.9052631578947369,67_tibia length,6,keep
+67,25,0,10,20,20,20,0,NA,development rate,mm.day-1,0.0476,vb_team_data,NA,NA,NA,20,0.0931,0.5112781954887218,67_development rate,6,keep
+67,25,0,10,25,25,25,0,NA,development rate,mm.day-1,0.0818,vb_team_data,NA,NA,NA,25,0.0931,0.8786251342642319,67_development rate,6,keep
+67,25,0,10,30,30,30,0,NA,development rate,mm.day-1,0.0883,vb_team_data,NA,NA,NA,30,0.0931,0.9484425349087003,67_development rate,6,keep
+67,25,1,10,20,16,24,8,1,development rate,mm.day-1,0.0531,vb_team_data,NA,NA,NA,20,0.0931,0.5703544575725027,67_development rate,6,keep
+67,25,1,10,25,21,29,8,1,development rate,mm.day-1,0.0791,vb_team_data,NA,NA,NA,25,0.0931,0.849624060150376,67_development rate,6,keep
+67,25,1,10,30,26,34,8,1,development rate,mm.day-1,0.086,vb_team_data,NA,NA,NA,30,0.0931,0.9237379162191192,67_development rate,6,keep
+67,25,0,10,20,20,20,0,NA,development rate,mm.day-1,0.0377,vb_team_data,NA,NA,NA,20,0.0931,0.4049409237379162,67_development rate,6,keep
+67,25,0,10,25,25,25,0,NA,development rate,mm.day-1,0.0823,vb_team_data,NA,NA,NA,25,0.0931,0.8839957035445757,67_development rate,6,keep
+67,25,0,10,30,30,30,0,NA,development rate,mm.day-1,0.0931,vb_team_data,NA,NA,NA,30,0.0931,1,67_development rate,6,keep
+67,25,1,10,20,16,24,8,1,development rate,mm.day-1,0.0472,vb_team_data,NA,NA,NA,20,0.0931,0.5069817400644469,67_development rate,6,keep
+67,25,1,10,25,21,29,8,1,development rate,mm.day-1,0.0781,vb_team_data,NA,NA,NA,25,0.0931,0.8388829215896885,67_development rate,6,keep
+67,25,1,10,30,26,34,8,1,development rate,mm.day-1,0.0868,vb_team_data,NA,NA,NA,30,0.0931,0.9323308270676691,67_development rate,6,keep
+90,26,0,NA,26,NA,NA,NA,NA,Population size,individuals/ml,5.25,vb_team_data,NA,NA,NA,26,5.59,0.9391771019677997,90_Population size,12,keep
+90,26,0,NA,28,NA,NA,NA,NA,Population size,individuals/ml,5.25,vb_team_data,NA,NA,NA,28,5.59,0.9391771019677997,90_Population size,12,keep
+90,26,0,NA,30,NA,NA,NA,NA,Population size,individuals/ml,5.08,vb_team_data,NA,NA,NA,30,5.59,0.9087656529516995,90_Population size,12,keep
+90,26,0,NA,32,NA,NA,NA,NA,Population size,individuals/ml,5,vb_team_data,NA,NA,NA,32,5.59,0.8944543828264758,90_Population size,12,keep
+90,26,1,12,26,23,35,12,1,Population size,individuals/ml,5.18,vb_team_data,NA,NA,NA,29,5.59,0.9266547406082289,90_Population size,8,keep
+90,26,1,12,28,23,35,12,1,Population size,individuals/ml,5,vb_team_data,NA,NA,NA,29,5.59,0.8944543828264758,90_Population size,8,keep
+90,26,1,12,30,23,35,12,1,Population size,individuals/ml,4.9,vb_team_data,NA,NA,NA,29,5.59,0.8765652951699464,90_Population size,8,keep
+90,26,1,12,32,23,35,12,1,Population size,individuals/ml,4.76,vb_team_data,NA,NA,NA,29,5.59,0.851520572450805,90_Population size,8,keep
+90,26,0,NA,23,NA,NA,NA,NA,Population size,individuals/ml,5.27,vb_team_data,NA,NA,NA,23,5.59,0.9427549194991055,90_Population size,12,keep
+90,26,0,NA,35,NA,NA,NA,NA,Population size,individuals/ml,4.43,vb_team_data,NA,NA,NA,35,5.59,0.7924865831842576,90_Population size,12,keep
+90,26,0,NA,26,NA,NA,NA,NA,Population size,individuals/ml,4.91,vb_team_data,NA,NA,NA,26,5.59,0.8783542039355994,90_Population size,12,keep
+90,26,0,NA,28,NA,NA,NA,NA,Population size,individuals/ml,4.9,vb_team_data,NA,NA,NA,28,5.59,0.8765652951699464,90_Population size,12,keep
+90,26,0,NA,30,NA,NA,NA,NA,Population size,individuals/ml,4.73,vb_team_data,NA,NA,NA,30,5.59,0.8461538461538463,90_Population size,12,keep
+90,26,0,NA,32,NA,NA,NA,NA,Population size,individuals/ml,5.59,vb_team_data,NA,NA,NA,32,5.59,1,90_Population size,12,keep
+90,26,1,12,26,23,35,12,1,Population size,individuals/ml,4.8,vb_team_data,NA,NA,NA,29,5.59,0.8586762075134168,90_Population size,8,keep
+90,26,1,12,28,23,35,12,1,Population size,individuals/ml,4.72,vb_team_data,NA,NA,NA,29,5.59,0.8443649373881932,90_Population size,8,keep
+90,26,1,12,30,23,35,12,1,Population size,individuals/ml,4.49,vb_team_data,NA,NA,NA,29,5.59,0.8032200357781754,90_Population size,8,keep
+90,26,1,12,32,23,35,12,1,Population size,individuals/ml,4.41,vb_team_data,NA,NA,NA,29,5.59,0.7889087656529518,90_Population size,8,keep
+90,26,0,NA,23,NA,NA,NA,NA,Population size,individuals/ml,4.95,vb_team_data,NA,NA,NA,23,5.59,0.8855098389982111,90_Population size,12,keep
+90,26,0,NA,35,NA,NA,NA,NA,Population size,individuals/ml,4.21,vb_team_data,NA,NA,NA,35,5.59,0.7531305903398927,90_Population size,12,keep
+111,21,0,NA,14,14,14,NA,NA,fecundity,eggs/day,2,vb_team_data,NA,NA,NA,14,97,0.020618556701030927,111_fecundity,16,keep
+111,21,0,NA,18,18,18,NA,NA,fecundity,eggs/day,17,vb_team_data,NA,NA,NA,18,97,0.17525773195876287,111_fecundity,16,keep
+111,21,0,NA,21,21,21,NA,NA,fecundity,eggs/day,41,vb_team_data,NA,NA,NA,21,97,0.422680412371134,111_fecundity,16,keep
+111,21,0,NA,25,25,25,NA,NA,fecundity,eggs/day,57,vb_team_data,NA,NA,NA,25,97,0.5876288659793815,111_fecundity,16,keep
+111,21,0,NA,28,28,28,NA,NA,fecundity,eggs/day,80,vb_team_data,NA,NA,NA,28,97,0.8247422680412371,111_fecundity,16,keep
+111,21,0,NA,30,30,30,NA,NA,fecundity,eggs/day,79,vb_team_data,NA,NA,NA,30,97,0.8144329896907216,111_fecundity,16,keep
+111,21,0,NA,33,33,33,NA,NA,fecundity,eggs/day,60,vb_team_data,NA,NA,NA,33,97,0.6185567010309279,111_fecundity,16,keep
+111,21,0,NA,36,36,36,NA,NA,fecundity,eggs/day,8,vb_team_data,NA,NA,NA,36,97,0.08247422680412371,111_fecundity,16,keep
+111,21,1,25,14,14,32,18,1,fecundity,eggs/day,2,vb_team_data,NA,NA,NA,23,97,0.020618556701030927,111_fecundity,32,keep
+111,21,1,25,18,18,32,14,1,fecundity,eggs/day,22,vb_team_data,NA,NA,NA,25,97,0.2268041237113402,111_fecundity,32,keep
+111,21,1,25,21,18,32,14,1,fecundity,eggs/day,40,vb_team_data,NA,NA,NA,25,97,0.41237113402061853,111_fecundity,32,keep
+111,21,1,25,25,18,21,14,1,fecundity,eggs/day,57,vb_team_data,NA,NA,NA,19.5,97,0.5876288659793815,111_fecundity,32,keep
+111,21,1,25,28,18,32,14,1,fecundity,eggs/day,81,vb_team_data,NA,NA,NA,25,97,0.8350515463917526,111_fecundity,32,keep
+111,21,1,25,30,18,32,14,1,fecundity,eggs/day,68,vb_team_data,NA,NA,NA,25,97,0.7010309278350515,111_fecundity,32,keep
+111,21,1,25,33,18,33,15,1,fecundity,eggs/day,55,vb_team_data,NA,NA,NA,25.5,97,0.5670103092783505,111_fecundity,32,keep
+111,21,1,25,36,18,36,18,1,fecundity,eggs/day,8,vb_team_data,NA,NA,NA,27,97,0.08247422680412371,111_fecundity,32,keep
+111,21,1,25,14,11,25,14,1,fecundity,eggs/day,3,vb_team_data,NA,NA,NA,18,97,0.030927835051546393,111_fecundity,32,keep
+111,21,1,25,18,11,25,14,1,fecundity,eggs/day,15,vb_team_data,NA,NA,NA,18,97,0.15463917525773196,111_fecundity,32,keep
+111,21,1,25,21,11,25,14,1,fecundity,eggs/day,25,vb_team_data,NA,NA,NA,18,97,0.25773195876288657,111_fecundity,32,keep
+111,21,1,25,25,11,25,14,1,fecundity,eggs/day,55,vb_team_data,NA,NA,NA,18,97,0.5670103092783505,111_fecundity,32,keep
+111,21,1,25,28,11,28,17,1,fecundity,eggs/day,63,vb_team_data,NA,NA,NA,19.5,97,0.6494845360824743,111_fecundity,32,keep
+111,21,1,25,30,11,30,19,1,fecundity,eggs/day,61,vb_team_data,NA,NA,NA,20.5,97,0.6288659793814433,111_fecundity,32,keep
+111,21,1,25,33,11,33,21,1,fecundity,eggs/day,39,vb_team_data,NA,NA,NA,22,97,0.4020618556701031,111_fecundity,32,keep
+111,21,1,25,36,11,36,25,1,fecundity,eggs/day,5,vb_team_data,NA,NA,NA,23.5,97,0.05154639175257732,111_fecundity,32,keep
+111,21,0,NA,14,14,14,NA,NA,fecundity,eggs/day,4,vb_team_data,NA,NA,NA,14,97,0.041237113402061855,111_fecundity,16,keep
+111,21,0,NA,18,18,18,NA,NA,fecundity,eggs/day,28,vb_team_data,NA,NA,NA,18,97,0.28865979381443296,111_fecundity,16,keep
+111,21,0,NA,21,21,21,NA,NA,fecundity,eggs/day,59,vb_team_data,NA,NA,NA,21,97,0.6082474226804123,111_fecundity,16,keep
+111,21,0,NA,25,25,25,NA,NA,fecundity,eggs/day,81,vb_team_data,NA,NA,NA,25,97,0.8350515463917526,111_fecundity,16,keep
+111,21,0,NA,28,28,28,NA,NA,fecundity,eggs/day,97,vb_team_data,NA,NA,NA,28,97,1,111_fecundity,16,keep
+111,21,0,NA,30,30,30,NA,NA,fecundity,eggs/day,84,vb_team_data,NA,NA,NA,30,97,0.865979381443299,111_fecundity,16,keep
+111,21,0,NA,33,33,33,NA,NA,fecundity,eggs/day,68,vb_team_data,NA,NA,NA,33,97,0.7010309278350515,111_fecundity,16,keep
+111,21,0,NA,36,36,36,NA,NA,fecundity,eggs/day,10,vb_team_data,NA,NA,NA,36,97,0.10309278350515463,111_fecundity,16,keep
+111,21,1,25,14,14,32,18,1,fecundity,eggs/day,4,vb_team_data,NA,NA,NA,23,97,0.041237113402061855,111_fecundity,32,keep
+111,21,1,25,18,18,32,14,1,fecundity,eggs/day,28,vb_team_data,NA,NA,NA,25,97,0.28865979381443296,111_fecundity,32,keep
+111,21,1,25,21,18,32,14,1,fecundity,eggs/day,50,vb_team_data,NA,NA,NA,25,97,0.5154639175257731,111_fecundity,32,keep
+111,21,1,25,25,18,21,14,1,fecundity,eggs/day,68,vb_team_data,NA,NA,NA,19.5,97,0.7010309278350515,111_fecundity,32,keep
+111,21,1,25,28,18,32,14,1,fecundity,eggs/day,81,vb_team_data,NA,NA,NA,25,97,0.8350515463917526,111_fecundity,32,keep
+111,21,1,25,30,18,32,14,1,fecundity,eggs/day,91,vb_team_data,NA,NA,NA,25,97,0.9381443298969072,111_fecundity,32,keep
+111,21,1,25,33,18,33,15,1,fecundity,eggs/day,60,vb_team_data,NA,NA,NA,25.5,97,0.6185567010309279,111_fecundity,32,keep
+111,21,1,25,36,18,36,18,1,fecundity,eggs/day,20,vb_team_data,NA,NA,NA,27,97,0.20618556701030927,111_fecundity,32,keep
+111,21,1,25,14,11,25,14,1,fecundity,eggs/day,2,vb_team_data,NA,NA,NA,18,97,0.020618556701030927,111_fecundity,32,keep
+111,21,1,25,18,11,25,14,1,fecundity,eggs/day,19,vb_team_data,NA,NA,NA,18,97,0.1958762886597938,111_fecundity,32,keep
+111,21,1,25,21,11,25,14,1,fecundity,eggs/day,42,vb_team_data,NA,NA,NA,18,97,0.4329896907216495,111_fecundity,32,keep
+111,21,1,25,25,11,25,14,1,fecundity,eggs/day,59,vb_team_data,NA,NA,NA,18,97,0.6082474226804123,111_fecundity,32,keep
+111,21,1,25,28,11,28,17,1,fecundity,eggs/day,64,vb_team_data,NA,NA,NA,19.5,97,0.6597938144329897,111_fecundity,32,keep
+111,21,1,25,30,11,30,19,1,fecundity,eggs/day,77,vb_team_data,NA,NA,NA,20.5,97,0.7938144329896907,111_fecundity,32,keep
+111,21,1,25,33,11,33,21,1,fecundity,eggs/day,42,vb_team_data,NA,NA,NA,22,97,0.4329896907216495,111_fecundity,32,keep
+111,21,1,25,36,11,36,25,1,fecundity,eggs/day,4,vb_team_data,NA,NA,NA,23.5,97,0.041237113402061855,111_fecundity,32,keep
+119,,0,6,24,24,24,0,NA,growth rate,% g/day,6.53,vb_team_data,NA,NA,NA,24,8.37,0.7801672640382319,119_growth rate,8,keep
+119,,0,6,26,26,26,0,NA,growth rate,% g/day,8.32,vb_team_data,NA,NA,NA,26,8.37,0.9940262843488651,119_growth rate,8,keep
+119,,0,6,28,28,28,0,NA,growth rate,% g/day,8.37,vb_team_data,NA,NA,NA,28,8.37,1,119_growth rate,8,keep
+119,,0,6,30,30,30,0,NA,growth rate,% g/day,8.29,vb_team_data,NA,NA,NA,30,8.37,0.9904420549581839,119_growth rate,8,keep
+119,,0,6,24,24,24,0,NA,growth rate,% g/day,2.72,vb_team_data,NA,NA,NA,24,8.37,0.32497013142174436,119_growth rate,8,keep
+119,,0,6,26,26,26,0,NA,growth rate,% g/day,3.21,vb_team_data,NA,NA,NA,26,8.37,0.3835125448028674,119_growth rate,8,keep
+119,,0,6,28,28,28,0,NA,growth rate,% g/day,4.02,vb_team_data,NA,NA,NA,28,8.37,0.48028673835125446,119_growth rate,8,keep
+119,,0,6,30,30,30,0,NA,growth rate,% g/day,3.98,vb_team_data,NA,NA,NA,30,8.37,0.47550776583034654,119_growth rate,8,keep
+119,,0,6,24,24,24,0,NA,weight gain,g/day,0.376,vb_team_data,NA,NA,NA,24,7.23,0.05200553250345781,119_weight gain,18,keep
+119,,0,6,26,26,26,0,NA,weight gain,g/day,0.505,vb_team_data,NA,NA,NA,26,7.23,0.0698478561549101,119_weight gain,18,keep
+119,,0,6,28,28,28,0,NA,weight gain,g/day,0.577,vb_team_data,NA,NA,NA,28,7.23,0.07980636237897648,119_weight gain,18,keep
+119,,0,6,30,30,30,0,NA,weight gain,g/day,0.566,vb_team_data,NA,NA,NA,30,7.23,0.07828492392807744,119_weight gain,18,keep
+119,,0,6,24,24,24,0,NA,weight gain,g/day,0.517,vb_team_data,NA,NA,NA,24,7.23,0.07150760719225449,119_weight gain,18,keep
+119,,0,6,26,26,26,0,NA,weight gain,g/day,0.61,vb_team_data,NA,NA,NA,26,7.23,0.08437067773167357,119_weight gain,18,keep
+119,,0,6,28,28,28,0,NA,weight gain,g/day,0.803,vb_team_data,NA,NA,NA,28,7.23,0.11106500691562932,119_weight gain,18,keep
+119,,0,6,30,30,30,0,NA,weight gain,g/day,0.72,vb_team_data,NA,NA,NA,30,7.23,0.0995850622406639,119_weight gain,18,keep
+119,,0,6,24,24,24,0,NA,food use efficiency,proportion,0.74,vb_team_data,NA,NA,NA,24,1.24,0.5967741935483871,119_food use efficiency,14,keep
+119,,0,6,26,26,26,0,NA,food use efficiency,proportion,0.55,vb_team_data,NA,NA,NA,26,1.24,0.44354838709677424,119_food use efficiency,14,keep
+119,,0,6,28,28,28,0,NA,food use efficiency,proportion,0.48,vb_team_data,NA,NA,NA,28,1.24,0.3870967741935484,119_food use efficiency,14,keep
+119,,0,6,30,30,30,0,NA,food use efficiency,proportion,0.49,vb_team_data,NA,NA,NA,30,1.24,0.3951612903225806,119_food use efficiency,14,keep
+119,,0,6,24,24,24,0,NA,food use efficiency,proportion,1.24,vb_team_data,NA,NA,NA,24,1.24,1,119_food use efficiency,14,keep
+119,,0,6,26,26,26,0,NA,food use efficiency,proportion,1.06,vb_team_data,NA,NA,NA,26,1.24,0.8548387096774194,119_food use efficiency,14,keep
+119,,0,6,28,28,28,0,NA,food use efficiency,proportion,0.8,vb_team_data,NA,NA,NA,28,1.24,0.6451612903225807,119_food use efficiency,14,keep
+119,,0,6,30,30,30,0,NA,food use efficiency,proportion,0.89,vb_team_data,NA,NA,NA,30,1.24,0.717741935483871,119_food use efficiency,14,keep
+119,,0,6,24,24,24,0,NA,production rate,proportion,0.063,vb_team_data,NA,NA,NA,24,0.078,0.8076923076923077,119_production rate,8,keep
+119,,0,6,26,26,26,0,NA,production rate,proportion,0.078,vb_team_data,NA,NA,NA,26,0.078,1,119_production rate,8,keep
+119,,0,6,28,28,28,0,NA,production rate,proportion,0.078,vb_team_data,NA,NA,NA,28,0.078,1,119_production rate,8,keep
+119,,0,6,30,30,30,0,NA,production rate,proportion,0.077,vb_team_data,NA,NA,NA,30,0.078,0.9871794871794871,119_production rate,8,keep
+119,,0,6,24,24,24,0,NA,production rate,proportion,0.029,vb_team_data,NA,NA,NA,24,0.078,0.3717948717948718,119_production rate,8,keep
+119,,0,6,26,26,26,0,NA,production rate,proportion,0.035,vb_team_data,NA,NA,NA,26,0.078,0.44871794871794873,119_production rate,8,keep
+119,,0,6,28,28,28,0,NA,production rate,proportion,0.046,vb_team_data,NA,NA,NA,28,0.078,0.5897435897435898,119_production rate,8,keep
+119,,0,6,30,30,30,0,NA,production rate,proportion,0.042,vb_team_data,NA,NA,NA,30,0.078,0.5384615384615385,119_production rate,8,keep
+119,,0,4,24,24,24,0,NA,weight gain,g/day,0.34,vb_team_data,NA,NA,NA,24,7.23,0.04702627939142462,119_weight gain,18,keep
+119,,0,4,26,26,26,0,NA,weight gain,g/day,0.47,vb_team_data,NA,NA,NA,26,7.23,0.06500691562932226,119_weight gain,18,keep
+119,,0,4,28,28,28,0,NA,weight gain,g/day,0.57,vb_team_data,NA,NA,NA,28,7.23,0.0788381742738589,119_weight gain,18,keep
+119,,0,4,24,24,24,0,NA,food use efficiency,proportion,0.81,vb_team_data,NA,NA,NA,24,1.24,0.653225806451613,119_food use efficiency,14,keep
+119,,0,4,26,26,26,0,NA,food use efficiency,proportion,0.59,vb_team_data,NA,NA,NA,26,1.24,0.4758064516129032,119_food use efficiency,14,keep
+119,,0,4,28,28,28,0,NA,food use efficiency,proportion,0.49,vb_team_data,NA,NA,NA,28,1.24,0.3951612903225806,119_food use efficiency,14,keep
+119,,0,4,24,24,24,0,NA,respiration,mg O2 / (g h),0.472,vb_team_data,NA,NA,NA,24,0.687,0.6870451237263463,119_respiration,6,keep
+119,,0,4,26,26,26,0,NA,respiration,mg O2 / (g h),0.565,vb_team_data,NA,NA,NA,26,0.687,0.8224163027656476,119_respiration,6,keep
+119,,0,4,28,28,28,0,NA,respiration,mg O2 / (g h),0.687,vb_team_data,NA,NA,NA,28,0.687,1,119_respiration,6,keep
+119,,0,4,26,24,24,0,NA,weight gain,g/day,0.65,vb_team_data,NA,NA,NA,26,7.23,0.08990318118948824,119_weight gain,18,keep
+119,,0,4,28,26,26,0,NA,weight gain,g/day,0.83,vb_team_data,NA,NA,NA,28,7.23,0.11479944674965421,119_weight gain,18,keep
+119,,0,4,30,28,28,0,NA,weight gain,g/day,0.78,vb_team_data,NA,NA,NA,30,7.23,0.10788381742738588,119_weight gain,18,keep
+119,,0,4,26,24,24,0,NA,food use efficiency,proportion,0.98,vb_team_data,NA,NA,NA,26,1.24,0.7903225806451613,119_food use efficiency,14,keep
+119,,0,4,28,26,26,0,NA,food use efficiency,proportion,0.8,vb_team_data,NA,NA,NA,28,1.24,0.6451612903225807,119_food use efficiency,14,keep
+119,,0,4,30,28,28,0,NA,food use efficiency,proportion,0.83,vb_team_data,NA,NA,NA,30,1.24,0.6693548387096774,119_food use efficiency,14,keep
+119,,0,4,26,24,24,0,NA,respiration,mg O2 / (g h),0.431,vb_team_data,NA,NA,NA,26,0.687,0.6273653566229985,119_respiration,6,keep
+119,,0,4,28,26,26,0,NA,respiration,mg O2 / (g h),0.452,vb_team_data,NA,NA,NA,28,0.687,0.6579330422125181,119_respiration,6,keep
+119,,0,4,30,28,28,0,NA,respiration,mg O2 / (g h),0.485,vb_team_data,NA,NA,NA,30,0.687,0.7059679767103347,119_respiration,6,keep
+119,,0,6,24,24,24,0,NA,weight gain,g/day,3.52,vb_team_data,NA,NA,NA,24,7.23,0.48686030428769017,119_weight gain,18,keep
+119,,0,6,26,26,26,0,NA,weight gain,g/day,4.57,vb_team_data,NA,NA,NA,26,7.23,0.632088520055325,119_weight gain,18,keep
+119,,0,6,28,28,28,0,NA,weight gain,g/day,6.22,vb_team_data,NA,NA,NA,28,7.23,0.8603042876901797,119_weight gain,18,keep
+119,,0,6,30,30,30,0,NA,weight gain,g/day,7.23,vb_team_data,NA,NA,NA,30,7.23,1,119_weight gain,18,keep
+124,25,0,20,10,10,10,0,NA,activity,percent,1.2,vb_team_data,NA,NA,NA,10,99.8,0.012024048096192385,124_activity,5,keep
+124,25,0,20,15,15,15,0,NA,activity,percent,75.4,vb_team_data,NA,NA,NA,15,99.8,0.7555110220440883,124_activity,5,keep
+124,25,0,20,20,20,20,0,NA,activity,percent,92,vb_team_data,NA,NA,NA,20,99.8,0.9218436873747495,124_activity,5,keep
+124,25,0,20,25,25,25,0,NA,activity,percent,99.8,vb_team_data,NA,NA,NA,25,99.8,1,124_activity,5,keep
+124,25,0,20,30,30,30,0,NA,activity,percent,99.6,vb_team_data,NA,NA,NA,30,99.8,0.9979959919839679,124_activity,5,keep
+150,,0,11,23,23,23,0,NA,Duration of incubation,days,97.2,vb_team_data,NA,NA,NA,23,97.2,1,150_Duration of incubation,9,keep
+150,,0,11,24,24,24,0,NA,Duration of incubation,days,88.6,vb_team_data,NA,NA,NA,24,97.2,0.9115226337448559,150_Duration of incubation,9,keep
+150,,0,11,26.5,26.5,26.5,0,NA,Duration of incubation,days,66.1,vb_team_data,NA,NA,NA,26.5,97.2,0.6800411522633744,150_Duration of incubation,9,keep
+150,,0,11,27,27,27,0,NA,Duration of incubation,days,63.4,vb_team_data,NA,NA,NA,27,97.2,0.6522633744855967,150_Duration of incubation,9,keep
+150,,0,11,28,28,28,0,NA,Duration of incubation,days,56.3,vb_team_data,NA,NA,NA,28,97.2,0.5792181069958847,150_Duration of incubation,9,keep
+150,,0,11,30,30,30,0,NA,Duration of incubation,days,45.7,vb_team_data,NA,NA,NA,30,97.2,0.47016460905349794,150_Duration of incubation,9,keep
+150,,0,11,32,32,32,0,NA,Duration of incubation,days,42,vb_team_data,NA,NA,NA,32,97.2,0.43209876543209874,150_Duration of incubation,9,keep
+150,,0,11,33,33,33,0,NA,Duration of incubation,days,40.4,vb_team_data,NA,NA,NA,33,97.2,0.4156378600823045,150_Duration of incubation,9,keep
+150,,0,11,34,34,34,0,NA,Duration of incubation,days,39.4,vb_team_data,NA,NA,NA,34,97.2,0.4053497942386831,150_Duration of incubation,9,keep
+150,,0,11,23,23,23,0,NA,Hatching success,percent,44,vb_team_data,NA,NA,NA,23,96.9,0.4540763673890609,150_Hatching success,9,keep
+150,,0,11,24,24,24,0,NA,Hatching success,percent,82.6,vb_team_data,NA,NA,NA,24,96.9,0.8524251805985551,150_Hatching success,9,keep
+150,,0,11,26.5,26.5,26.5,0,NA,Hatching success,percent,84.2,vb_team_data,NA,NA,NA,26.5,96.9,0.868937048503612,150_Hatching success,9,keep
+150,,0,11,27,27,27,0,NA,Hatching success,percent,96.9,vb_team_data,NA,NA,NA,27,96.9,1,150_Hatching success,9,keep
+150,,0,11,28,28,28,0,NA,Hatching success,percent,90,vb_team_data,NA,NA,NA,28,96.9,0.9287925696594427,150_Hatching success,9,keep
+150,,0,11,30,30,30,0,NA,Hatching success,percent,85.9,vb_team_data,NA,NA,NA,30,96.9,0.8864809081527348,150_Hatching success,9,keep
+150,,0,11,32,32,32,0,NA,Hatching success,percent,81.7,vb_team_data,NA,NA,NA,32,96.9,0.8431372549019608,150_Hatching success,9,keep
+150,,0,11,33,33,33,0,NA,Hatching success,percent,86.8,vb_team_data,NA,NA,NA,33,96.9,0.8957688338493291,150_Hatching success,9,keep
+150,,0,11,34,34,34,0,NA,Hatching success,percent,73.7,vb_team_data,NA,NA,NA,34,96.9,0.760577915376677,150_Hatching success,9,keep
+150,,0,11,23,23,23,0,NA,Body mass,g,3.077661795,vb_team_data,NA,NA,NA,23,3.319415449,0.9271698111567113,150_Body mass,9,keep
+150,,0,11,24,24,24,0,NA,Body mass,g,3.209185804,vb_team_data,NA,NA,NA,24,3.319415449,0.9667924528599734,150_Body mass,9,keep
+150,,0,11,26.5,26.5,26.5,0,NA,Body mass,g,3.268058455,vb_team_data,NA,NA,NA,26.5,3.319415449,0.9845283018082379,150_Body mass,9,keep
+150,,0,11,27,27,27,0,NA,Body mass,g,3.296868476,vb_team_data,NA,NA,NA,27,3.319415449,0.9932075471279763,150_Body mass,9,keep
+150,,0,11,28,28,28,0,NA,Body mass,g,3.255532359,vb_team_data,NA,NA,NA,28,3.319415449,0.980754716912809,150_Body mass,9,keep
+150,,0,11,30,30,30,0,NA,Body mass,g,3.263048017,vb_team_data,NA,NA,NA,30,3.319415449,0.9830188679705696,150_Body mass,9,keep
+150,,0,11,32,32,32,0,NA,Body mass,g,3.265553236,vb_team_data,NA,NA,NA,32,3.319415449,0.9837735848894038,150_Body mass,9,keep
+150,,0,11,33,33,33,0,NA,Body mass,g,3.195407098,vb_team_data,NA,NA,NA,33,3.319415449,0.9626415093544983,150_Body mass,9,keep
+150,,0,11,34,34,34,0,NA,Body mass,g,3.215448852,vb_team_data,NA,NA,NA,34,3.319415449,0.9686792453076879,150_Body mass,9,keep
+150,,0,11,23,23,23,0,NA,Carapace width,mm,17.7437213,vb_team_data,NA,NA,NA,23,19.1371688,0.927186329672757,150_Carapace width,9,keep
+150,,0,11,24,24,24,0,NA,Carapace width,mm,18.7057684,vb_team_data,NA,NA,NA,24,19.1371688,0.9774574596426195,150_Carapace width,9,keep
+150,,0,11,26.5,26.5,26.5,0,NA,Carapace width,mm,18.6672031,vb_team_data,NA,NA,NA,26.5,19.1371688,0.9754422555963449,150_Carapace width,9,keep
+150,,0,11,27,27,27,0,NA,Carapace width,mm,19.1371688,vb_team_data,NA,NA,NA,27,19.1371688,1,150_Carapace width,9,keep
+150,,0,11,28,28,28,0,NA,Carapace width,mm,18.6173154,vb_team_data,NA,NA,NA,28,19.1371688,0.9728354070848765,150_Carapace width,9,keep
+150,,0,11,30,30,30,0,NA,Carapace width,mm,18.5731042,vb_team_data,NA,NA,NA,30,19.1371688,0.9705251802973069,150_Carapace width,9,keep
+150,,0,11,32,32,32,0,NA,Carapace width,mm,18.6872538,vb_team_data,NA,NA,NA,32,19.1371688,0.976489991560298,150_Carapace width,9,keep
+150,,0,11,33,33,33,0,NA,Carapace width,mm,18.7499797,vb_team_data,NA,NA,NA,33,19.1371688,0.9797676916556225,150_Carapace width,9,keep
+150,,0,11,34,34,34,0,NA,Carapace width,mm,18.7222179,vb_team_data,NA,NA,NA,34,19.1371688,0.9783170173009081,150_Carapace width,9,keep
+150,,0,9,24,24,24,0,NA,Max distance travelled,m,0.597479394,vb_team_data,NA,NA,NA,24,1.052096926,0.5678938691243739,150_Max distance travelled,5,keep
+150,,0,9,27,27,27,0,NA,Max distance travelled,m,0.650426983,vb_team_data,NA,NA,NA,27,1.052096926,0.6182196401550936,150_Max distance travelled,5,keep
+150,,0,9,28,28,28,0,NA,Max distance travelled,m,0.928577328,vb_team_data,NA,NA,NA,28,1.052096926,0.8825967504062454,150_Max distance travelled,5,keep
+150,,0,9,30,30,30,0,NA,Max distance travelled,m,1.052096926,vb_team_data,NA,NA,NA,30,1.052096926,1,150_Max distance travelled,5,keep
+150,,0,9,33,33,33,0,NA,Max distance travelled,m,0.597471135,vb_team_data,NA,NA,NA,33,1.052096926,0.5678860190871806,150_Max distance travelled,5,keep
+159,21,0,20,12,NA,NA,NA,NA,thorax length,mm,1.04,vb_team_data,NA,NA,NA,12,1.15,0.9043478260869566,159_thorax length,68,keep
+159,21,0,20,14,NA,NA,NA,NA,thorax length,mm,1.1,vb_team_data,NA,NA,NA,14,1.15,0.9565217391304349,159_thorax length,68,keep
+159,21,0,20,16,NA,NA,NA,NA,thorax length,mm,1.14,vb_team_data,NA,NA,NA,16,1.15,0.9913043478260869,159_thorax length,68,keep
+159,21,0,20,18,NA,NA,NA,NA,thorax length,mm,1.13,vb_team_data,NA,NA,NA,18,1.15,0.9826086956521739,159_thorax length,68,keep
+159,21,0,20,21,NA,NA,NA,NA,thorax length,mm,1.11,vb_team_data,NA,NA,NA,21,1.15,0.965217391304348,159_thorax length,68,keep
+159,21,0,20,26,NA,NA,NA,NA,thorax length,mm,1.06,vb_team_data,NA,NA,NA,26,1.15,0.9217391304347827,159_thorax length,68,keep
+159,21,0,20,28,NA,NA,NA,NA,thorax length,mm,1.05,vb_team_data,NA,NA,NA,28,1.15,0.9130434782608696,159_thorax length,68,keep
+159,21,0,20,30,NA,NA,NA,NA,thorax length,mm,1.04,vb_team_data,NA,NA,NA,30,1.15,0.9043478260869566,159_thorax length,68,keep
+159,21,0,20,32,NA,NA,NA,NA,thorax length,mm,1.02,vb_team_data,NA,NA,NA,32,1.15,0.8869565217391305,159_thorax length,68,keep
+159,21,1,28,NA,5,15,10,1,thorax length,mm,1,vb_team_data,NA,NA,NA,10,1.15,0.8695652173913044,159_thorax length,92,keep
+159,21,1,28,NA,7,29,22,1,thorax length,mm,0.91,vb_team_data,NA,NA,NA,18,1.15,0.791304347826087,159_thorax length,92,keep
+159,21,1,28,NA,7,21,14,1,thorax length,mm,1.05,vb_team_data,NA,NA,NA,14,1.15,0.9130434782608696,159_thorax length,92,keep
+159,21,1,28,NA,9,21,12,1,thorax length,mm,1.08,vb_team_data,NA,NA,NA,15,1.15,0.9391304347826088,159_thorax length,92,keep
+159,21,1,28,NA,9,15,6,1,thorax length,mm,1.03,vb_team_data,NA,NA,NA,12,1.15,0.8956521739130435,159_thorax length,92,keep
+159,21,1,28,NA,10,32,22,1,thorax length,mm,0.93,vb_team_data,NA,NA,NA,21,1.15,0.8086956521739131,159_thorax length,92,keep
+159,21,1,28,NA,11,21,10,1,thorax length,mm,1.06,vb_team_data,NA,NA,NA,16,1.15,0.9217391304347827,159_thorax length,92,keep
+159,21,1,28,NA,12,30,18,1,thorax length,mm,1.02,vb_team_data,NA,NA,NA,21,1.15,0.8869565217391305,159_thorax length,92,keep
+159,21,1,28,NA,16,26,10,1,thorax length,mm,1.07,vb_team_data,NA,NA,NA,21,1.15,0.9304347826086958,159_thorax length,92,keep
+159,21,1,28,NA,21,33,12,1,thorax length,mm,1.04,vb_team_data,NA,NA,NA,27,1.15,0.9043478260869566,159_thorax length,92,keep
+159,21,1,28,NA,21,31,10,1,thorax length,mm,1.05,vb_team_data,NA,NA,NA,26,1.15,0.9130434782608696,159_thorax length,92,keep
+159,21,1,28,NA,26,30,4,1,thorax length,mm,1.05,vb_team_data,NA,NA,NA,28,1.15,0.9130434782608696,159_thorax length,92,keep
+159,21,0,20,12,NA,NA,NA,NA,thorax length,mm,1.07,vb_team_data,NA,NA,NA,12,1.15,0.9304347826086958,159_thorax length,68,keep
+159,21,0,20,14,NA,NA,NA,NA,thorax length,mm,1.13,vb_team_data,NA,NA,NA,14,1.15,0.9826086956521739,159_thorax length,68,keep
+159,21,0,20,16,NA,NA,NA,NA,thorax length,mm,1.15,vb_team_data,NA,NA,NA,16,1.15,1,159_thorax length,68,keep
+159,21,0,20,18,NA,NA,NA,NA,thorax length,mm,1.15,vb_team_data,NA,NA,NA,18,1.15,1,159_thorax length,68,keep
+159,21,0,20,21,NA,NA,NA,NA,thorax length,mm,1.14,vb_team_data,NA,NA,NA,21,1.15,0.9913043478260869,159_thorax length,68,keep
+159,21,0,20,26,NA,NA,NA,NA,thorax length,mm,1.07,vb_team_data,NA,NA,NA,26,1.15,0.9304347826086958,159_thorax length,68,keep
+159,21,0,20,28,NA,NA,NA,NA,thorax length,mm,1.05,vb_team_data,NA,NA,NA,28,1.15,0.9130434782608696,159_thorax length,68,keep
+159,21,0,20,30,NA,NA,NA,NA,thorax length,mm,1.03,vb_team_data,NA,NA,NA,30,1.15,0.8956521739130435,159_thorax length,68,keep
+159,21,0,20,32,NA,NA,NA,NA,thorax length,mm,1.01,vb_team_data,NA,NA,NA,32,1.15,0.8782608695652174,159_thorax length,68,keep
+159,21,1,28,NA,5,15,10,1,thorax length,mm,1.03,vb_team_data,NA,NA,NA,10,1.15,0.8956521739130435,159_thorax length,92,keep
+159,21,1,28,NA,7,29,22,1,thorax length,mm,0.92,vb_team_data,NA,NA,NA,18,1.15,0.8,159_thorax length,92,keep
+159,21,1,28,NA,7,21,14,1,thorax length,mm,1.05,vb_team_data,NA,NA,NA,14,1.15,0.9130434782608696,159_thorax length,92,keep
+159,21,1,28,NA,9,21,12,1,thorax length,mm,1.09,vb_team_data,NA,NA,NA,15,1.15,0.9478260869565219,159_thorax length,92,keep
+159,21,1,28,NA,9,15,6,1,thorax length,mm,1.06,vb_team_data,NA,NA,NA,12,1.15,0.9217391304347827,159_thorax length,92,keep
+159,21,1,28,NA,10,32,22,1,thorax length,mm,0.95,vb_team_data,NA,NA,NA,21,1.15,0.8260869565217391,159_thorax length,92,keep
+159,21,1,28,NA,11,21,10,1,thorax length,mm,1.08,vb_team_data,NA,NA,NA,16,1.15,0.9391304347826088,159_thorax length,92,keep
+159,21,1,28,NA,12,30,18,1,thorax length,mm,1.03,vb_team_data,NA,NA,NA,21,1.15,0.8956521739130435,159_thorax length,92,keep
+159,21,1,28,NA,16,26,10,1,thorax length,mm,1.09,vb_team_data,NA,NA,NA,21,1.15,0.9478260869565219,159_thorax length,92,keep
+159,21,1,28,NA,21,33,12,1,thorax length,mm,1.05,vb_team_data,NA,NA,NA,27,1.15,0.9130434782608696,159_thorax length,92,keep
+159,21,1,28,NA,21,31,10,1,thorax length,mm,1.06,vb_team_data,NA,NA,NA,26,1.15,0.9217391304347827,159_thorax length,92,keep
+159,21,1,28,NA,26,30,4,1,thorax length,mm,1.04,vb_team_data,NA,NA,NA,28,1.15,0.9043478260869566,159_thorax length,92,keep
+159,21,0,20,12,NA,NA,NA,NA,thorax length,mm,0.94,vb_team_data,NA,NA,NA,12,1.15,0.8173913043478261,159_thorax length,68,keep
+159,21,0,20,14,NA,NA,NA,NA,thorax length,mm,0.98,vb_team_data,NA,NA,NA,14,1.15,0.8521739130434783,159_thorax length,68,keep
+159,21,0,20,16,NA,NA,NA,NA,thorax length,mm,1.02,vb_team_data,NA,NA,NA,16,1.15,0.8869565217391305,159_thorax length,68,keep
+159,21,0,20,18,NA,NA,NA,NA,thorax length,mm,1.02,vb_team_data,NA,NA,NA,18,1.15,0.8869565217391305,159_thorax length,68,keep
+159,21,0,20,21,NA,NA,NA,NA,thorax length,mm,0.99,vb_team_data,NA,NA,NA,21,1.15,0.8608695652173913,159_thorax length,68,keep
+159,21,0,20,26,NA,NA,NA,NA,thorax length,mm,0.94,vb_team_data,NA,NA,NA,26,1.15,0.8173913043478261,159_thorax length,68,keep
+159,21,0,20,28,NA,NA,NA,NA,thorax length,mm,0.92,vb_team_data,NA,NA,NA,28,1.15,0.8,159_thorax length,68,keep
+159,21,0,20,30,NA,NA,NA,NA,thorax length,mm,0.89,vb_team_data,NA,NA,NA,30,1.15,0.773913043478261,159_thorax length,68,keep
+159,21,0,20,32,NA,NA,NA,NA,thorax length,,0.88,vb_team_data,NA,NA,NA,32,1.15,0.7652173913043478,159_thorax length,68,keep
+159,21,1,28,NA,5,15,10,1,thorax length,mm,0.9,vb_team_data,NA,NA,NA,10,1.15,0.782608695652174,159_thorax length,92,keep
+159,21,1,28,NA,7,29,22,1,thorax length,mm,0.81,vb_team_data,NA,NA,NA,18,1.15,0.7043478260869567,159_thorax length,92,keep
+159,21,1,28,NA,7,21,14,1,thorax length,mm,0.92,vb_team_data,NA,NA,NA,14,1.15,0.8,159_thorax length,92,keep
+159,21,1,28,NA,9,21,12,1,thorax length,mm,0.96,vb_team_data,NA,NA,NA,15,1.15,0.8347826086956522,159_thorax length,92,keep
+159,21,1,28,NA,9,15,6,1,thorax length,mm,0.93,vb_team_data,NA,NA,NA,12,1.15,0.8086956521739131,159_thorax length,92,keep
+159,21,1,28,NA,10,32,22,1,thorax length,mm,0.82,vb_team_data,NA,NA,NA,21,1.15,0.7130434782608696,159_thorax length,92,keep
+159,21,1,28,NA,11,21,10,1,thorax length,mm,0.96,vb_team_data,NA,NA,NA,16,1.15,0.8347826086956522,159_thorax length,92,keep
+159,21,1,28,NA,12,30,18,1,thorax length,mm,0.88,vb_team_data,NA,NA,NA,21,1.15,0.7652173913043478,159_thorax length,92,keep
+159,21,1,28,NA,16,26,10,1,thorax length,mm,0.94,vb_team_data,NA,NA,NA,21,1.15,0.8173913043478261,159_thorax length,92,keep
+159,21,1,28,NA,21,33,12,1,thorax length,mm,0.9,vb_team_data,NA,NA,NA,27,1.15,0.782608695652174,159_thorax length,92,keep
+159,21,1,28,NA,21,31,10,1,thorax length,mm,0.92,vb_team_data,NA,NA,NA,26,1.15,0.8,159_thorax length,92,keep
+159,21,1,28,NA,26,30,4,1,thorax length,mm,0.91,vb_team_data,NA,NA,NA,28,1.15,0.791304347826087,159_thorax length,92,keep
+159,21,0,20,12,NA,NA,NA,NA,thorax length,mm,0.95,vb_team_data,NA,NA,NA,12,1.15,0.8260869565217391,159_thorax length,68,keep
+159,21,0,20,14,NA,NA,NA,NA,thorax length,mm,1,vb_team_data,NA,NA,NA,14,1.15,0.8695652173913044,159_thorax length,68,keep
+159,21,0,20,16,NA,NA,NA,NA,thorax length,mm,1.03,vb_team_data,NA,NA,NA,16,1.15,0.8956521739130435,159_thorax length,68,keep
+159,21,0,20,18,NA,NA,NA,NA,thorax length,mm,1.03,vb_team_data,NA,NA,NA,18,1.15,0.8956521739130435,159_thorax length,68,keep
+159,21,0,20,21,NA,NA,NA,NA,thorax length,mm,1,vb_team_data,NA,NA,NA,21,1.15,0.8695652173913044,159_thorax length,68,keep
+159,21,0,20,26,NA,NA,NA,NA,thorax length,mm,0.94,vb_team_data,NA,NA,NA,26,1.15,0.8173913043478261,159_thorax length,68,keep
+159,21,0,20,28,NA,NA,NA,NA,thorax length,mm,0.92,vb_team_data,NA,NA,NA,28,1.15,0.8,159_thorax length,68,keep
+159,21,0,20,30,NA,NA,NA,NA,thorax length,mm,0.89,vb_team_data,NA,NA,NA,30,1.15,0.773913043478261,159_thorax length,68,keep
+159,21,0,20,32,NA,NA,NA,NA,thorax length,mm,0.86,vb_team_data,NA,NA,NA,32,1.15,0.7478260869565218,159_thorax length,68,keep
+159,21,1,28,NA,5,15,10,1,thorax length,mm,0.92,vb_team_data,NA,NA,NA,10,1.15,0.8,159_thorax length,92,keep
+159,21,1,28,NA,7,29,22,1,thorax length,mm,0.83,vb_team_data,NA,NA,NA,18,1.15,0.7217391304347827,159_thorax length,92,keep
+159,21,1,28,NA,7,21,14,1,thorax length,mm,0.93,vb_team_data,NA,NA,NA,14,1.15,0.8086956521739131,159_thorax length,92,keep
+159,21,1,28,NA,9,21,12,1,thorax length,mm,0.98,vb_team_data,NA,NA,NA,15,1.15,0.8521739130434783,159_thorax length,92,keep
+159,21,1,28,NA,9,15,6,1,thorax length,mm,0.94,vb_team_data,NA,NA,NA,12,1.15,0.8173913043478261,159_thorax length,92,keep
+159,21,1,28,NA,10,32,22,1,thorax length,mm,0.85,vb_team_data,NA,NA,NA,21,1.15,0.7391304347826088,159_thorax length,92,keep
+159,21,1,28,NA,11,21,10,1,thorax length,mm,0.98,vb_team_data,NA,NA,NA,16,1.15,0.8521739130434783,159_thorax length,92,keep
+159,21,1,28,NA,12,30,18,1,thorax length,mm,0.9,vb_team_data,NA,NA,NA,21,1.15,0.782608695652174,159_thorax length,92,keep
+159,21,1,28,NA,16,26,10,1,thorax length,mm,0.95,vb_team_data,NA,NA,NA,21,1.15,0.8260869565217391,159_thorax length,92,keep
+159,21,1,28,NA,21,33,12,1,thorax length,mm,0.91,vb_team_data,NA,NA,NA,27,1.15,0.791304347826087,159_thorax length,92,keep
+159,21,1,28,NA,21,31,10,1,thorax length,mm,0.93,vb_team_data,NA,NA,NA,26,1.15,0.8086956521739131,159_thorax length,92,keep
+159,21,1,28,NA,26,30,4,1,thorax length,mm,0.91,vb_team_data,NA,NA,NA,28,1.15,0.791304347826087,159_thorax length,92,keep
+159,21,0,18,12,NA,NA,NA,NA,thorax length,mm,1.04,vb_team_data,NA,NA,NA,12,1.15,0.9043478260869566,159_thorax length,68,keep
+159,21,0,18,14,NA,NA,NA,NA,thorax length,mm,1.09,vb_team_data,NA,NA,NA,14,1.15,0.9478260869565219,159_thorax length,68,keep
+159,21,0,18,16,NA,NA,NA,NA,thorax length,mm,1.11,vb_team_data,NA,NA,NA,16,1.15,0.965217391304348,159_thorax length,68,keep
+159,21,0,18,18,NA,NA,NA,NA,thorax length,mm,1.1,vb_team_data,NA,NA,NA,18,1.15,0.9565217391304349,159_thorax length,68,keep
+159,21,0,18,21,NA,NA,NA,NA,thorax length,mm,1.07,vb_team_data,NA,NA,NA,21,1.15,0.9304347826086958,159_thorax length,68,keep
+159,21,0,18,26,NA,NA,NA,NA,thorax length,mm,1.02,vb_team_data,NA,NA,NA,26,1.15,0.8869565217391305,159_thorax length,68,keep
+159,21,0,18,28,NA,NA,NA,NA,thorax length,mm,0.99,vb_team_data,NA,NA,NA,28,1.15,0.8608695652173913,159_thorax length,68,keep
+159,21,0,18,30,NA,NA,NA,NA,thorax length,mm,0.96,vb_team_data,NA,NA,NA,30,1.15,0.8347826086956522,159_thorax length,68,keep
+159,21,1,28,NA,5,15,10,1,thorax length,mm,1.02,vb_team_data,NA,NA,NA,10,1.15,0.8869565217391305,159_thorax length,92,keep
+159,21,1,28,NA,7,29,22,1,thorax length,mm,0.93,vb_team_data,NA,NA,NA,18,1.15,0.8086956521739131,159_thorax length,92,keep
+159,21,1,28,NA,7,21,14,1,thorax length,mm,1.04,vb_team_data,NA,NA,NA,14,1.15,0.9043478260869566,159_thorax length,92,keep
+159,21,1,28,NA,9,21,12,1,thorax length,mm,1.06,vb_team_data,NA,NA,NA,15,1.15,0.9217391304347827,159_thorax length,92,keep
+159,21,1,28,NA,9,15,6,1,thorax length,mm,1.03,vb_team_data,NA,NA,NA,12,1.15,0.8956521739130435,159_thorax length,92,keep
+159,21,1,28,NA,11,21,10,1,thorax length,mm,1.06,vb_team_data,NA,NA,NA,16,1.15,0.9217391304347827,159_thorax length,92,keep
+159,21,1,28,NA,12,30,18,1,thorax length,mm,0.99,vb_team_data,NA,NA,NA,21,1.15,0.8608695652173913,159_thorax length,92,keep
+159,21,1,28,NA,16,26,10,1,thorax length,mm,1.04,vb_team_data,NA,NA,NA,21,1.15,0.9043478260869566,159_thorax length,92,keep
+159,21,1,28,NA,21,33,12,1,thorax length,mm,0.96,vb_team_data,NA,NA,NA,27,1.15,0.8347826086956522,159_thorax length,92,keep
+159,21,1,28,NA,21,31,10,1,thorax length,mm,0.98,vb_team_data,NA,NA,NA,26,1.15,0.8521739130434783,159_thorax length,92,keep
+159,21,1,28,NA,26,30,4,1,thorax length,mm,0.99,vb_team_data,NA,NA,NA,28,1.15,0.8608695652173913,159_thorax length,92,keep
+159,21,0,18,12,NA,NA,NA,NA,thorax length,mm,1.07,vb_team_data,NA,NA,NA,12,1.15,0.9304347826086958,159_thorax length,68,keep
+159,21,0,18,14,NA,NA,NA,NA,thorax length,mm,1.12,vb_team_data,NA,NA,NA,14,1.15,0.973913043478261,159_thorax length,68,keep
+159,21,0,18,16,NA,NA,NA,NA,thorax length,mm,1.13,vb_team_data,NA,NA,NA,16,1.15,0.9826086956521739,159_thorax length,68,keep
+159,21,0,18,18,NA,NA,NA,NA,thorax length,mm,1.12,vb_team_data,NA,NA,NA,18,1.15,0.973913043478261,159_thorax length,68,keep
+159,21,0,18,21,NA,NA,NA,NA,thorax length,mm,1.1,vb_team_data,NA,NA,NA,21,1.15,0.9565217391304349,159_thorax length,68,keep
+159,21,0,18,26,NA,NA,NA,NA,thorax length,mm,1.03,vb_team_data,NA,NA,NA,26,1.15,0.8956521739130435,159_thorax length,68,keep
+159,21,0,18,28,NA,NA,NA,NA,thorax length,mm,1,vb_team_data,NA,NA,NA,28,1.15,0.8695652173913044,159_thorax length,68,keep
+159,21,0,18,30,NA,NA,NA,NA,thorax length,mm,0.95,vb_team_data,NA,NA,NA,30,1.15,0.8260869565217391,159_thorax length,68,keep
+159,21,1,28,NA,5,15,10,1,thorax length,mm,1.05,vb_team_data,NA,NA,NA,10,1.15,0.9130434782608696,159_thorax length,92,keep
+159,21,1,28,NA,7,29,22,1,thorax length,mm,0.95,vb_team_data,NA,NA,NA,18,1.15,0.8260869565217391,159_thorax length,92,keep
+159,21,1,28,NA,7,21,14,1,thorax length,mm,1.05,vb_team_data,NA,NA,NA,14,1.15,0.9130434782608696,159_thorax length,92,keep
+159,21,1,28,NA,9,21,12,1,thorax length,mm,1.07,vb_team_data,NA,NA,NA,15,1.15,0.9304347826086958,159_thorax length,92,keep
+159,21,1,28,NA,9,15,6,1,thorax length,mm,1.07,vb_team_data,NA,NA,NA,12,1.15,0.9304347826086958,159_thorax length,92,keep
+159,21,1,28,NA,11,21,10,1,thorax length,mm,1.08,vb_team_data,NA,NA,NA,16,1.15,0.9391304347826088,159_thorax length,92,keep
+159,21,1,28,NA,12,30,18,1,thorax length,mm,1.01,vb_team_data,NA,NA,NA,21,1.15,0.8782608695652174,159_thorax length,92,keep
+159,21,1,28,NA,16,26,10,1,thorax length,mm,1.06,vb_team_data,NA,NA,NA,21,1.15,0.9217391304347827,159_thorax length,92,keep
+159,21,1,28,NA,21,33,12,1,thorax length,mm,0.97,vb_team_data,NA,NA,NA,27,1.15,0.8434782608695652,159_thorax length,92,keep
+159,21,1,28,NA,21,31,10,1,thorax length,mm,1,vb_team_data,NA,NA,NA,26,1.15,0.8695652173913044,159_thorax length,92,keep
+159,21,1,28,NA,26,30,4,1,thorax length,mm,1,vb_team_data,NA,NA,NA,28,1.15,0.8695652173913044,159_thorax length,92,keep
+159,21,0,18,12,NA,NA,NA,NA,thorax length,mm,0.96,vb_team_data,NA,NA,NA,12,1.15,0.8347826086956522,159_thorax length,68,keep
+159,21,0,18,14,NA,NA,NA,NA,thorax length,mm,0.99,vb_team_data,NA,NA,NA,14,1.15,0.8608695652173913,159_thorax length,68,keep
+159,21,0,18,16,NA,NA,NA,NA,thorax length,mm,1.01,vb_team_data,NA,NA,NA,16,1.15,0.8782608695652174,159_thorax length,68,keep
+159,21,0,18,18,NA,NA,NA,NA,thorax length,mm,1.01,vb_team_data,NA,NA,NA,18,1.15,0.8782608695652174,159_thorax length,68,keep
+159,21,0,18,21,NA,NA,NA,NA,thorax length,mm,0.97,vb_team_data,NA,NA,NA,21,1.15,0.8434782608695652,159_thorax length,68,keep
+159,21,0,18,26,NA,NA,NA,NA,thorax length,mm,0.91,vb_team_data,NA,NA,NA,26,1.15,0.791304347826087,159_thorax length,68,keep
+159,21,0,18,28,NA,NA,NA,NA,thorax length,mm,0.88,vb_team_data,NA,NA,NA,28,1.15,0.7652173913043478,159_thorax length,68,keep
+159,21,0,18,30,NA,NA,NA,NA,thorax length,mm,0.86,vb_team_data,NA,NA,NA,30,1.15,0.7478260869565218,159_thorax length,68,keep
+159,21,1,28,NA,5,15,10,1,thorax length,mm,0.93,vb_team_data,NA,NA,NA,10,1.15,0.8086956521739131,159_thorax length,92,keep
+159,21,1,28,NA,7,29,22,1,thorax length,mm,0.82,vb_team_data,NA,NA,NA,18,1.15,0.7130434782608696,159_thorax length,92,keep
+159,21,1,28,NA,7,21,14,1,thorax length,mm,0.95,vb_team_data,NA,NA,NA,14,1.15,0.8260869565217391,159_thorax length,92,keep
+159,21,1,28,NA,9,21,12,1,thorax length,mm,0.96,vb_team_data,NA,NA,NA,15,1.15,0.8347826086956522,159_thorax length,92,keep
+159,21,1,28,NA,9,15,6,1,thorax length,mm,0.93,vb_team_data,NA,NA,NA,12,1.15,0.8086956521739131,159_thorax length,92,keep
+159,21,1,28,NA,11,21,10,1,thorax length,mm,0.97,vb_team_data,NA,NA,NA,16,1.15,0.8434782608695652,159_thorax length,92,keep
+159,21,1,28,NA,12,30,18,1,thorax length,mm,0.87,vb_team_data,NA,NA,NA,21,1.15,0.7565217391304349,159_thorax length,92,keep
+159,21,1,28,NA,16,26,10,1,thorax length,mm,0.92,vb_team_data,NA,NA,NA,21,1.15,0.8,159_thorax length,92,keep
+159,21,1,28,NA,21,33,12,1,thorax length,mm,0.86,vb_team_data,NA,NA,NA,27,1.15,0.7478260869565218,159_thorax length,92,keep
+159,21,1,28,NA,21,31,10,1,thorax length,mm,0.87,vb_team_data,NA,NA,NA,26,1.15,0.7565217391304349,159_thorax length,92,keep
+159,21,1,28,NA,26,30,4,1,thorax length,mm,0.87,vb_team_data,NA,NA,NA,28,1.15,0.7565217391304349,159_thorax length,92,keep
+159,21,0,18,12,NA,NA,NA,NA,thorax length,mm,0.97,vb_team_data,NA,NA,NA,12,1.15,0.8434782608695652,159_thorax length,68,keep
+159,21,0,18,14,NA,NA,NA,NA,thorax length,mm,1.03,vb_team_data,NA,NA,NA,14,1.15,0.8956521739130435,159_thorax length,68,keep
+159,21,0,18,16,NA,NA,NA,NA,thorax length,mm,1.04,vb_team_data,NA,NA,NA,16,1.15,0.9043478260869566,159_thorax length,68,keep
+159,21,0,18,18,NA,NA,NA,NA,thorax length,mm,1.02,vb_team_data,NA,NA,NA,18,1.15,0.8869565217391305,159_thorax length,68,keep
+159,21,0,18,21,NA,NA,NA,NA,thorax length,mm,0.98,vb_team_data,NA,NA,NA,21,1.15,0.8521739130434783,159_thorax length,68,keep
+159,21,0,18,26,NA,NA,NA,NA,thorax length,mm,0.91,vb_team_data,NA,NA,NA,26,1.15,0.791304347826087,159_thorax length,68,keep
+159,21,0,18,28,NA,NA,NA,NA,thorax length,mm,0.89,vb_team_data,NA,NA,NA,28,1.15,0.773913043478261,159_thorax length,68,keep
+159,21,0,18,30,NA,NA,NA,NA,thorax length,mm,0.85,vb_team_data,NA,NA,NA,30,1.15,0.7391304347826088,159_thorax length,68,keep
+159,21,1,28,NA,5,15,10,1,thorax length,mm,0.95,vb_team_data,NA,NA,NA,10,1.15,0.8260869565217391,159_thorax length,92,keep
+159,21,1,28,NA,7,29,22,1,thorax length,mm,0.85,vb_team_data,NA,NA,NA,18,1.15,0.7391304347826088,159_thorax length,92,keep
+159,21,1,28,NA,7,21,14,1,thorax length,mm,0.96,vb_team_data,NA,NA,NA,14,1.15,0.8347826086956522,159_thorax length,92,keep
+159,21,1,28,NA,9,21,12,1,thorax length,mm,0.97,vb_team_data,NA,NA,NA,15,1.15,0.8434782608695652,159_thorax length,92,keep
+159,21,1,28,NA,9,15,6,1,thorax length,mm,0.95,vb_team_data,NA,NA,NA,12,1.15,0.8260869565217391,159_thorax length,92,keep
+159,21,1,28,NA,11,21,10,1,thorax length,mm,0.97,vb_team_data,NA,NA,NA,16,1.15,0.8434782608695652,159_thorax length,92,keep
+159,21,1,28,NA,12,30,18,1,thorax length,mm,0.9,vb_team_data,NA,NA,NA,21,1.15,0.782608695652174,159_thorax length,92,keep
+159,21,1,28,NA,16,26,10,1,thorax length,mm,0.94,vb_team_data,NA,NA,NA,21,1.15,0.8173913043478261,159_thorax length,92,keep
+159,21,1,28,NA,21,33,12,1,thorax length,mm,0.87,vb_team_data,NA,NA,NA,27,1.15,0.7565217391304349,159_thorax length,92,keep
+159,21,1,28,NA,21,31,10,1,thorax length,mm,0.88,vb_team_data,NA,NA,NA,26,1.15,0.7652173913043478,159_thorax length,92,keep
+159,21,1,28,NA,26,30,4,1,thorax length,mm,0.88,vb_team_data,NA,NA,NA,28,1.15,0.7652173913043478,159_thorax length,92,keep
+159,21,0,20,12,NA,NA,NA,NA,winglength,mm,2.84,vb_team_data,NA,NA,NA,12,3.07,0.9250814332247557,159_winglength,68,keep
+159,21,0,20,14,NA,NA,NA,NA,winglength,mm,2.99,vb_team_data,NA,NA,NA,14,3.07,0.973941368078176,159_winglength,68,keep
+159,21,0,20,16,NA,NA,NA,NA,winglength,mm,3.01,vb_team_data,NA,NA,NA,16,3.07,0.9804560260586319,159_winglength,68,keep
+159,21,0,20,18,NA,NA,NA,NA,winglength,mm,2.98,vb_team_data,NA,NA,NA,18,3.07,0.970684039087948,159_winglength,68,keep
+159,21,0,20,21,NA,NA,NA,NA,winglength,mm,2.87,vb_team_data,NA,NA,NA,21,3.07,0.9348534201954398,159_winglength,68,keep
+159,21,0,20,26,NA,NA,NA,NA,winglength,mm,2.65,vb_team_data,NA,NA,NA,26,3.07,0.8631921824104235,159_winglength,68,keep
+159,21,0,20,28,NA,NA,NA,NA,winglength,mm,2.56,vb_team_data,NA,NA,NA,28,3.07,0.8338762214983714,159_winglength,68,keep
+159,21,0,20,30,NA,NA,NA,NA,winglength,mm,2.48,vb_team_data,NA,NA,NA,30,3.07,0.8078175895765473,159_winglength,68,keep
+159,21,0,20,32,NA,NA,NA,NA,winglength,mm,2.42,vb_team_data,NA,NA,NA,32,3.07,0.7882736156351792,159_winglength,68,keep
+159,21,1,28,NA,5,15,10,1,winglength,mm,2.69,vb_team_data,NA,NA,NA,10,3.07,0.8762214983713356,159_winglength,92,keep
+159,21,1,28,NA,9,15,6,1,winglength,mm,2.79,vb_team_data,NA,NA,NA,12,3.07,0.9087947882736157,159_winglength,92,keep
+159,21,1,28,NA,7,21,14,1,winglength,mm,2.76,vb_team_data,NA,NA,NA,14,3.07,0.8990228013029316,159_winglength,92,keep
+159,21,1,28,NA,9,21,12,1,winglength,mm,2.84,vb_team_data,NA,NA,NA,15,3.07,0.9250814332247557,159_winglength,92,keep
+159,21,1,28,NA,11,21,10,1,winglength,mm,2.76,vb_team_data,NA,NA,NA,16,3.07,0.8990228013029316,159_winglength,92,keep
+159,21,1,28,NA,7,29,22,1,winglength,mm,2.22,vb_team_data,NA,NA,NA,18,3.07,0.723127035830619,159_winglength,92,keep
+159,21,1,28,NA,10,32,22,1,winglength,mm,2.24,vb_team_data,NA,NA,NA,21,3.07,0.729641693811075,159_winglength,92,keep
+159,21,1,28,NA,12,30,18,1,winglength,mm,2.46,vb_team_data,NA,NA,NA,21,3.07,0.8013029315960912,159_winglength,92,keep
+159,21,1,28,NA,16,26,10,1,winglength,mm,2.63,vb_team_data,NA,NA,NA,21,3.07,0.8566775244299675,159_winglength,92,keep
+159,21,1,28,NA,21,33,12,1,winglength,mm,2.5,vb_team_data,NA,NA,NA,27,3.07,0.8143322475570033,159_winglength,92,keep
+159,21,1,28,NA,21,31,10,1,winglength,mm,2.54,vb_team_data,NA,NA,NA,26,3.07,0.8273615635179153,159_winglength,92,keep
+159,21,1,28,NA,26,30,4,1,winglength,mm,2.51,vb_team_data,NA,NA,NA,28,3.07,0.8175895765472312,159_winglength,92,keep
+159,21,0,20,12,NA,NA,NA,NA,winglength,mm,2.95,vb_team_data,NA,NA,NA,12,3.07,0.9609120521172639,159_winglength,68,keep
+159,21,0,20,14,NA,NA,NA,NA,winglength,mm,3.06,vb_team_data,NA,NA,NA,14,3.07,0.9967426710097721,159_winglength,68,keep
+159,21,0,20,16,NA,NA,NA,NA,winglength,mm,3.07,vb_team_data,NA,NA,NA,16,3.07,1,159_winglength,68,keep
+159,21,0,20,18,NA,NA,NA,NA,winglength,mm,3.03,vb_team_data,NA,NA,NA,18,3.07,0.9869706840390879,159_winglength,68,keep
+159,21,0,20,21,NA,NA,NA,NA,winglength,mm,2.92,vb_team_data,NA,NA,NA,21,3.07,0.9511400651465798,159_winglength,68,keep
+159,21,0,20,26,NA,NA,NA,NA,winglength,mm,2.68,vb_team_data,NA,NA,NA,26,3.07,0.8729641693811075,159_winglength,68,keep
+159,21,0,20,28,NA,NA,NA,NA,winglength,mm,2.57,vb_team_data,NA,NA,NA,28,3.07,0.8371335504885994,159_winglength,68,keep
+159,21,0,20,30,NA,NA,NA,NA,winglength,mm,2.46,vb_team_data,NA,NA,NA,30,3.07,0.8013029315960912,159_winglength,68,keep
+159,21,0,20,32,NA,NA,NA,NA,winglength,mm,2.38,vb_team_data,NA,NA,NA,32,3.07,0.7752442996742671,159_winglength,68,keep
+159,21,1,28,NA,5,15,10,1,winglength,mm,2.81,vb_team_data,NA,NA,NA,10,3.07,0.9153094462540717,159_winglength,92,keep
+159,21,1,28,NA,9,15,6,1,winglength,mm,2.9,vb_team_data,NA,NA,NA,12,3.07,0.9446254071661238,159_winglength,92,keep
+159,21,1,28,NA,7,21,14,1,winglength,mm,2.79,vb_team_data,NA,NA,NA,14,3.07,0.9087947882736157,159_winglength,92,keep
+159,21,1,28,NA,9,21,12,1,winglength,mm,2.86,vb_team_data,NA,NA,NA,15,3.07,0.9315960912052117,159_winglength,92,keep
+159,21,1,28,NA,11,21,10,1,winglength,mm,2.83,vb_team_data,NA,NA,NA,16,3.07,0.9218241042345278,159_winglength,92,keep
+159,21,1,28,NA,7,29,22,1,winglength,mm,2.3,vb_team_data,NA,NA,NA,18,3.07,0.749185667752443,159_winglength,92,keep
+159,21,1,28,NA,10,32,22,1,winglength,mm,2.31,vb_team_data,NA,NA,NA,21,3.07,0.752442996742671,159_winglength,92,keep
+159,21,1,28,NA,12,30,18,1,winglength,mm,2.52,vb_team_data,NA,NA,NA,21,3.07,0.8208469055374593,159_winglength,92,keep
+159,21,1,28,NA,16,26,10,1,winglength,mm,2.71,vb_team_data,NA,NA,NA,21,3.07,0.8827361563517916,159_winglength,92,keep
+159,21,1,28,NA,21,33,12,1,winglength,mm,2.53,vb_team_data,NA,NA,NA,27,3.07,0.8241042345276873,159_winglength,92,keep
+159,21,1,28,NA,21,31,10,1,winglength,mm,2.58,vb_team_data,NA,NA,NA,26,3.07,0.8403908794788274,159_winglength,92,keep
+159,21,1,28,NA,26,30,4,1,winglength,mm,2.5,vb_team_data,NA,NA,NA,28,3.07,0.8143322475570033,159_winglength,92,keep
+159,21,0,20,12,NA,NA,NA,NA,winglength,mm,2.57,vb_team_data,NA,NA,NA,12,3.07,0.8371335504885994,159_winglength,68,keep
+159,21,0,20,14,NA,NA,NA,NA,winglength,mm,2.66,vb_team_data,NA,NA,NA,14,3.07,0.8664495114006515,159_winglength,68,keep
+159,21,0,20,16,NA,NA,NA,NA,winglength,mm,2.7,vb_team_data,NA,NA,NA,16,3.07,0.8794788273615636,159_winglength,68,keep
+159,21,0,20,18,NA,NA,NA,NA,winglength,mm,2.67,vb_team_data,NA,NA,NA,18,3.07,0.8697068403908795,159_winglength,68,keep
+159,21,0,20,21,NA,NA,NA,NA,winglength,mm,2.54,vb_team_data,NA,NA,NA,21,3.07,0.8273615635179153,159_winglength,68,keep
+159,21,0,20,26,NA,NA,NA,NA,winglength,mm,2.33,vb_team_data,NA,NA,NA,26,3.07,0.7589576547231272,159_winglength,68,keep
+159,21,0,20,28,NA,NA,NA,NA,winglength,mm,2.25,vb_team_data,NA,NA,NA,28,3.07,0.7328990228013029,159_winglength,68,keep
+159,21,0,20,30,NA,NA,NA,NA,winglength,mm,2.15,vb_team_data,NA,NA,NA,30,3.07,0.7003257328990228,159_winglength,68,keep
+159,21,0,20,32,NA,NA,NA,NA,winglength,mm,2.09,vb_team_data,NA,NA,NA,32,3.07,0.6807817589576547,159_winglength,68,keep
+159,21,1,28,NA,5,15,10,1,winglength,mm,2.45,vb_team_data,NA,NA,NA,10,3.07,0.7980456026058633,159_winglength,92,keep
+159,21,1,28,NA,9,15,6,1,winglength,mm,2.53,vb_team_data,NA,NA,NA,12,3.07,0.8241042345276873,159_winglength,92,keep
+159,21,1,28,NA,7,21,14,1,winglength,mm,2.43,vb_team_data,NA,NA,NA,14,3.07,0.7915309446254073,159_winglength,92,keep
+159,21,1,28,NA,9,21,12,1,winglength,mm,2.52,vb_team_data,NA,NA,NA,15,3.07,0.8208469055374593,159_winglength,92,keep
+159,21,1,28,NA,11,21,10,1,winglength,mm,2.48,vb_team_data,NA,NA,NA,16,3.07,0.8078175895765473,159_winglength,92,keep
+159,21,1,28,NA,7,29,22,1,winglength,mm,1.99,vb_team_data,NA,NA,NA,18,3.07,0.6482084690553747,159_winglength,92,keep
+159,21,1,28,NA,10,32,22,1,winglength,mm,1.99,vb_team_data,NA,NA,NA,21,3.07,0.6482084690553747,159_winglength,92,keep
+159,21,1,28,NA,12,30,18,1,winglength,mm,2.15,vb_team_data,NA,NA,NA,21,3.07,0.7003257328990228,159_winglength,92,keep
+159,21,1,28,NA,16,26,10,1,winglength,mm,2.31,vb_team_data,NA,NA,NA,21,3.07,0.752442996742671,159_winglength,92,keep
+159,21,1,28,NA,21,33,12,1,winglength,mm,2.17,vb_team_data,NA,NA,NA,27,3.07,0.7068403908794788,159_winglength,92,keep
+159,21,1,28,NA,21,31,10,1,winglength,mm,2.22,vb_team_data,NA,NA,NA,26,3.07,0.723127035830619,159_winglength,92,keep
+159,21,1,28,NA,26,30,4,1,winglength,mm,2.2,vb_team_data,NA,NA,NA,28,3.07,0.716612377850163,159_winglength,92,keep
+159,21,0,20,12,NA,NA,NA,NA,winglength,mm,2.62,vb_team_data,NA,NA,NA,12,3.07,0.8534201954397395,159_winglength,68,keep
+159,21,0,20,14,NA,NA,NA,NA,winglength,mm,2.72,vb_team_data,NA,NA,NA,14,3.07,0.8859934853420196,159_winglength,68,keep
+159,21,0,20,16,NA,NA,NA,NA,winglength,mm,2.77,vb_team_data,NA,NA,NA,16,3.07,0.9022801302931597,159_winglength,68,keep
+159,21,0,20,18,NA,NA,NA,NA,winglength,mm,2.72,vb_team_data,NA,NA,NA,18,3.07,0.8859934853420196,159_winglength,68,keep
+159,21,0,20,21,NA,NA,NA,NA,winglength,mm,2.57,vb_team_data,NA,NA,NA,21,3.07,0.8371335504885994,159_winglength,68,keep
+159,21,0,20,26,NA,NA,NA,NA,winglength,mm,2.35,vb_team_data,NA,NA,NA,26,3.07,0.7654723127035832,159_winglength,68,keep
+159,21,0,20,28,NA,NA,NA,NA,winglength,mm,2.25,vb_team_data,NA,NA,NA,28,3.07,0.7328990228013029,159_winglength,68,keep
+159,21,0,20,30,NA,NA,NA,NA,winglength,mm,2.14,vb_team_data,NA,NA,NA,30,3.07,0.6970684039087949,159_winglength,68,keep
+159,21,0,20,32,NA,NA,NA,NA,winglength,mm,2.05,vb_team_data,NA,NA,NA,32,3.07,0.6677524429967426,159_winglength,68,keep
+159,21,1,28,NA,5,15,10,1,winglength,mm,2.51,vb_team_data,NA,NA,NA,10,3.07,0.8175895765472312,159_winglength,92,keep
+159,21,1,28,NA,9,15,6,1,winglength,mm,2.59,vb_team_data,NA,NA,NA,12,3.07,0.8436482084690554,159_winglength,92,keep
+159,21,1,28,NA,7,21,14,1,winglength,mm,2.47,vb_team_data,NA,NA,NA,14,3.07,0.8045602605863194,159_winglength,92,keep
+159,21,1,28,NA,9,21,12,1,winglength,mm,2.55,vb_team_data,NA,NA,NA,15,3.07,0.8306188925081434,159_winglength,92,keep
+159,21,1,28,NA,11,21,10,1,winglength,mm,2.54,vb_team_data,NA,NA,NA,16,3.07,0.8273615635179153,159_winglength,92,keep
+159,21,1,28,NA,7,29,22,1,winglength,mm,2.06,vb_team_data,NA,NA,NA,18,3.07,0.6710097719869708,159_winglength,92,keep
+159,21,1,28,NA,10,32,22,1,winglength,mm,2.08,vb_team_data,NA,NA,NA,21,3.07,0.6775244299674268,159_winglength,92,keep
+159,21,1,28,NA,12,30,18,1,winglength,mm,2.21,vb_team_data,NA,NA,NA,21,3.07,0.7198697068403909,159_winglength,92,keep
+159,21,1,28,NA,16,26,10,1,winglength,mm,2.38,vb_team_data,NA,NA,NA,21,3.07,0.7752442996742671,159_winglength,92,keep
+159,21,1,28,NA,21,33,12,1,winglength,mm,2.19,vb_team_data,NA,NA,NA,27,3.07,0.7133550488599348,159_winglength,92,keep
+159,21,1,28,NA,21,31,10,1,winglength,mm,2.26,vb_team_data,NA,NA,NA,26,3.07,0.7361563517915309,159_winglength,92,keep
+159,21,1,28,NA,26,30,4,1,winglength,mm,2.18,vb_team_data,NA,NA,NA,28,3.07,0.7100977198697069,159_winglength,92,keep
+159,21,0,18,12,NA,NA,NA,NA,winglength,mm,2.63,vb_team_data,NA,NA,NA,12,3.07,0.8566775244299675,159_winglength,68,keep
+159,21,0,18,14,NA,NA,NA,NA,winglength,mm,2.7,vb_team_data,NA,NA,NA,14,3.07,0.8794788273615636,159_winglength,68,keep
+159,21,0,18,16,NA,NA,NA,NA,winglength,mm,2.69,vb_team_data,NA,NA,NA,16,3.07,0.8762214983713356,159_winglength,68,keep
+159,21,0,18,18,NA,NA,NA,NA,winglength,mm,2.64,vb_team_data,NA,NA,NA,18,3.07,0.8599348534201955,159_winglength,68,keep
+159,21,0,18,21,NA,NA,NA,NA,winglength,mm,2.51,vb_team_data,NA,NA,NA,21,3.07,0.8175895765472312,159_winglength,68,keep
+159,21,0,18,26,NA,NA,NA,NA,winglength,mm,2.3,vb_team_data,NA,NA,NA,26,3.07,0.749185667752443,159_winglength,68,keep
+159,21,0,18,28,NA,NA,NA,NA,winglength,mm,2.21,vb_team_data,NA,NA,NA,28,3.07,0.7198697068403909,159_winglength,68,keep
+159,21,0,18,30,NA,NA,NA,NA,winglength,mm,2.11,vb_team_data,NA,NA,NA,30,3.07,0.6872964169381107,159_winglength,68,keep
+159,21,1,28,NA,5,15,10,1,winglength,mm,2.53,vb_team_data,NA,NA,NA,10,3.07,0.8241042345276873,159_winglength,92,keep
+159,21,1,28,NA,9,15,6,1,winglength,mm,2.62,vb_team_data,NA,NA,NA,12,3.07,0.8534201954397395,159_winglength,92,keep
+159,21,1,28,NA,7,21,14,1,winglength,mm,2.54,vb_team_data,NA,NA,NA,14,3.07,0.8273615635179153,159_winglength,92,keep
+159,21,1,28,NA,9,21,12,1,winglength,mm,2.58,vb_team_data,NA,NA,NA,15,3.07,0.8403908794788274,159_winglength,92,keep
+159,21,1,28,NA,11,21,10,1,winglength,mm,2.51,vb_team_data,NA,NA,NA,16,3.07,0.8175895765472312,159_winglength,92,keep
+159,21,1,28,NA,7,29,22,1,winglength,mm,2.12,vb_team_data,NA,NA,NA,18,3.07,0.6905537459283388,159_winglength,92,keep
+159,21,1,28,NA,16,26,10,1,winglength,mm,2.4,vb_team_data,NA,NA,NA,21,3.07,0.7817589576547231,159_winglength,92,keep
+159,21,1,28,NA,12,30,18,1,winglength,mm,2.24,vb_team_data,NA,NA,NA,21,3.07,0.729641693811075,159_winglength,92,keep
+159,21,1,28,NA,21,33,12,1,winglength,mm,2.17,vb_team_data,NA,NA,NA,27,3.07,0.7068403908794788,159_winglength,92,keep
+159,21,1,28,NA,21,31,10,1,winglength,mm,2.21,vb_team_data,NA,NA,NA,26,3.07,0.7198697068403909,159_winglength,92,keep
+159,21,1,28,NA,26,30,4,1,winglength,mm,2.19,vb_team_data,NA,NA,NA,28,3.07,0.7133550488599348,159_winglength,92,keep
+159,21,0,18,12,NA,NA,NA,NA,winglength,mm,2.7,vb_team_data,NA,NA,NA,12,3.07,0.8794788273615636,159_winglength,68,keep
+159,21,0,18,14,NA,NA,NA,NA,winglength,mm,2.76,vb_team_data,NA,NA,NA,14,3.07,0.8990228013029316,159_winglength,68,keep
+159,21,0,18,16,NA,NA,NA,NA,winglength,mm,2.74,vb_team_data,NA,NA,NA,16,3.07,0.8925081433224756,159_winglength,68,keep
+159,21,0,18,18,NA,NA,NA,NA,winglength,mm,2.68,vb_team_data,NA,NA,NA,18,3.07,0.8729641693811075,159_winglength,68,keep
+159,21,0,18,21,NA,NA,NA,NA,winglength,mm,2.57,vb_team_data,NA,NA,NA,21,3.07,0.8371335504885994,159_winglength,68,keep
+159,21,0,18,26,NA,NA,NA,NA,winglength,mm,2.33,vb_team_data,NA,NA,NA,26,3.07,0.7589576547231272,159_winglength,68,keep
+159,21,0,18,28,NA,NA,NA,NA,winglength,mm,2.23,vb_team_data,NA,NA,NA,28,3.07,0.7263843648208469,159_winglength,68,keep
+159,21,0,18,30,NA,NA,NA,NA,winglength,mm,2.09,vb_team_data,NA,NA,NA,30,3.07,0.6807817589576547,159_winglength,68,keep
+159,21,1,28,NA,5,15,10,1,winglength,mm,2.6,vb_team_data,NA,NA,NA,10,3.07,0.8469055374592834,159_winglength,92,keep
+159,21,1,28,NA,9,15,6,1,winglength,mm,2.7,vb_team_data,NA,NA,NA,12,3.07,0.8794788273615636,159_winglength,92,keep
+159,21,1,28,NA,7,21,14,1,winglength,mm,2.58,vb_team_data,NA,NA,NA,14,3.07,0.8403908794788274,159_winglength,92,keep
+159,21,1,28,NA,9,21,12,1,winglength,mm,2.61,vb_team_data,NA,NA,NA,15,3.07,0.8501628664495114,159_winglength,92,keep
+159,21,1,28,NA,11,21,10,1,winglength,mm,2.53,vb_team_data,NA,NA,NA,16,3.07,0.8241042345276873,159_winglength,92,keep
+159,21,1,28,NA,7,29,22,1,winglength,mm,2.18,vb_team_data,NA,NA,NA,18,3.07,0.7100977198697069,159_winglength,92,keep
+159,21,1,28,NA,16,26,10,1,winglength,mm,2.42,vb_team_data,NA,NA,NA,21,3.07,0.7882736156351792,159_winglength,92,keep
+159,21,1,28,NA,12,30,18,1,winglength,mm,2.3,vb_team_data,NA,NA,NA,21,3.07,0.749185667752443,159_winglength,92,keep
+159,21,1,28,NA,21,33,12,1,winglength,mm,2.2,vb_team_data,NA,NA,NA,27,3.07,0.716612377850163,159_winglength,92,keep
+159,21,1,28,NA,21,31,10,1,winglength,mm,2.23,vb_team_data,NA,NA,NA,26,3.07,0.7263843648208469,159_winglength,92,keep
+159,21,1,28,NA,26,30,4,1,winglength,mm,2.2,vb_team_data,NA,NA,NA,28,3.07,0.716612377850163,159_winglength,92,keep
+159,21,0,18,12,NA,NA,NA,NA,winglength,mm,2.41,vb_team_data,NA,NA,NA,12,3.07,0.7850162866449513,159_winglength,68,keep
+159,21,0,18,14,NA,NA,NA,NA,winglength,mm,2.47,vb_team_data,NA,NA,NA,14,3.07,0.8045602605863194,159_winglength,68,keep
+159,21,0,18,16,NA,NA,NA,NA,winglength,mm,2.46,vb_team_data,NA,NA,NA,16,3.07,0.8013029315960912,159_winglength,68,keep
+159,21,0,18,18,NA,NA,NA,NA,winglength,mm,2.39,vb_team_data,NA,NA,NA,18,3.07,0.7785016286644952,159_winglength,68,keep
+159,21,0,18,21,NA,NA,NA,NA,winglength,mm,2.27,vb_team_data,NA,NA,NA,21,3.07,0.739413680781759,159_winglength,68,keep
+159,21,0,18,26,NA,NA,NA,NA,winglength,mm,2.05,vb_team_data,NA,NA,NA,26,3.07,0.6677524429967426,159_winglength,68,keep
+159,21,0,18,28,NA,NA,NA,NA,winglength,mm,1.95,vb_team_data,NA,NA,NA,28,3.07,0.6351791530944626,159_winglength,68,keep
+159,21,0,18,30,NA,NA,NA,NA,winglength,mm,1.87,vb_team_data,NA,NA,NA,30,3.07,0.6091205211726385,159_winglength,68,keep
+159,21,1,28,NA,5,15,10,1,winglength,mm,2.29,vb_team_data,NA,NA,NA,10,3.07,0.745928338762215,159_winglength,92,keep
+159,21,1,28,NA,9,15,6,1,winglength,mm,2.36,vb_team_data,NA,NA,NA,12,3.07,0.7687296416938111,159_winglength,92,keep
+159,21,1,28,NA,7,21,14,1,winglength,mm,2.31,vb_team_data,NA,NA,NA,14,3.07,0.752442996742671,159_winglength,92,keep
+159,21,1,28,NA,9,21,12,1,winglength,mm,2.33,vb_team_data,NA,NA,NA,15,3.07,0.7589576547231272,159_winglength,92,keep
+159,21,1,28,NA,11,21,10,1,winglength,mm,2.27,vb_team_data,NA,NA,NA,16,3.07,0.739413680781759,159_winglength,92,keep
+159,21,1,28,NA,7,29,22,1,winglength,mm,1.88,vb_team_data,NA,NA,NA,18,3.07,0.6123778501628665,159_winglength,92,keep
+159,21,1,28,NA,16,26,10,1,winglength,mm,2.12,vb_team_data,NA,NA,NA,21,3.07,0.6905537459283388,159_winglength,92,keep
+159,21,1,28,NA,12,30,18,1,winglength,mm,1.98,vb_team_data,NA,NA,NA,21,3.07,0.6449511400651466,159_winglength,92,keep
+159,21,1,28,NA,21,33,12,1,winglength,mm,1.95,vb_team_data,NA,NA,NA,27,3.07,0.6351791530944626,159_winglength,92,keep
+159,21,1,28,NA,21,31,10,1,winglength,mm,1.95,vb_team_data,NA,NA,NA,26,3.07,0.6351791530944626,159_winglength,92,keep
+159,21,1,28,NA,26,30,4,1,winglength,mm,1.93,vb_team_data,NA,NA,NA,28,3.07,0.6286644951140066,159_winglength,92,keep
+159,21,0,18,12,NA,NA,NA,NA,winglength,mm,2.45,vb_team_data,NA,NA,NA,12,3.07,0.7980456026058633,159_winglength,68,keep
+159,21,0,18,14,NA,NA,NA,NA,winglength,mm,2.53,vb_team_data,NA,NA,NA,14,3.07,0.8241042345276873,159_winglength,68,keep
+159,21,0,18,16,NA,NA,NA,NA,winglength,mm,2.51,vb_team_data,NA,NA,NA,16,3.07,0.8175895765472312,159_winglength,68,keep
+159,21,0,18,18,NA,NA,NA,NA,winglength,mm,2.43,vb_team_data,NA,NA,NA,18,3.07,0.7915309446254073,159_winglength,68,keep
+159,21,0,18,21,NA,NA,NA,NA,winglength,mm,2.3,vb_team_data,NA,NA,NA,21,3.07,0.749185667752443,159_winglength,68,keep
+159,21,0,18,26,NA,NA,NA,NA,winglength,mm,2.07,vb_team_data,NA,NA,NA,26,3.07,0.6742671009771987,159_winglength,68,keep
+159,21,0,18,28,NA,NA,NA,NA,winglength,mm,1.97,vb_team_data,NA,NA,NA,28,3.07,0.6416938110749186,159_winglength,68,keep
+159,21,0,18,30,NA,NA,NA,NA,winglength,mm,1.86,vb_team_data,NA,NA,NA,30,3.07,0.6058631921824105,159_winglength,68,keep
+159,21,1,28,NA,5,15,10,1,winglength,mm,2.33,vb_team_data,NA,NA,NA,10,3.07,0.7589576547231272,159_winglength,92,keep
+159,21,1,28,NA,9,15,6,1,winglength,mm,2.42,vb_team_data,NA,NA,NA,12,3.07,0.7882736156351792,159_winglength,92,keep
+159,21,1,28,NA,7,21,14,1,winglength,mm,2.35,vb_team_data,NA,NA,NA,14,3.07,0.7654723127035832,159_winglength,92,keep
+159,21,1,28,NA,9,21,12,1,winglength,mm,2.35,vb_team_data,NA,NA,NA,15,3.07,0.7654723127035832,159_winglength,92,keep
+159,21,1,28,NA,11,21,10,1,winglength,mm,2.3,vb_team_data,NA,NA,NA,16,3.07,0.749185667752443,159_winglength,92,keep
+159,21,1,28,NA,7,29,22,1,winglength,mm,1.93,vb_team_data,NA,NA,NA,18,3.07,0.6286644951140066,159_winglength,92,keep
+159,21,1,28,NA,16,26,10,1,winglength,mm,2.16,vb_team_data,NA,NA,NA,21,3.07,0.7035830618892509,159_winglength,92,keep
+159,21,1,28,NA,12,30,18,1,winglength,mm,2.03,vb_team_data,NA,NA,NA,21,3.07,0.6612377850162866,159_winglength,92,keep
+159,21,1,28,NA,21,33,12,1,winglength,mm,1.96,vb_team_data,NA,NA,NA,27,3.07,0.6384364820846906,159_winglength,92,keep
+159,21,1,28,NA,21,31,10,1,winglength,mm,1.97,vb_team_data,NA,NA,NA,26,3.07,0.6416938110749186,159_winglength,92,keep
+159,21,1,28,NA,26,30,4,1,winglength,mm,1.95,vb_team_data,NA,NA,NA,28,3.07,0.6351791530944626,159_winglength,92,keep
+165,,0,18,12,NA,NA,NA,NA,survival,percent,15,vb_team_data,NA,NA,NA,12,97,0.15463917525773196,165_survival,20,keep
+165,,0,18,17,NA,NA,NA,NA,survival,percent,60,vb_team_data,NA,NA,NA,17,97,0.6185567010309279,165_survival,20,keep
+165,,0,18,22,NA,NA,NA,NA,survival,percent,97,vb_team_data,NA,NA,NA,22,97,1,165_survival,20,keep
+165,,0,18,27,NA,NA,NA,NA,survival,percent,87,vb_team_data,NA,NA,NA,27,97,0.8969072164948454,165_survival,20,keep
+165,,0,18,30,NA,NA,NA,NA,survival,percent,90,vb_team_data,NA,NA,NA,30,97,0.9278350515463918,165_survival,20,keep
+165,,0,18,12,NA,NA,NA,NA,survival,percent,0,vb_team_data,NA,NA,NA,12,97,0,165_survival,20,keep
+165,,0,18,17,NA,NA,NA,NA,survival,percent,0,vb_team_data,NA,NA,NA,17,97,0,165_survival,20,keep
+165,,0,18,22,NA,NA,NA,NA,survival,percent,0,vb_team_data,NA,NA,NA,22,97,0,165_survival,20,keep
+165,,0,18,27,NA,NA,NA,NA,survival,percent,0,vb_team_data,NA,NA,NA,27,97,0,165_survival,20,keep
+165,,0,18,30,NA,NA,NA,NA,survival,percent,10,vb_team_data,NA,NA,NA,30,97,0.10309278350515463,165_survival,20,keep
+165,,0,18,12,NA,NA,NA,NA,survival,percent,13,vb_team_data,NA,NA,NA,12,97,0.13402061855670103,165_survival,20,keep
+165,,0,18,17,NA,NA,NA,NA,survival,percent,68,vb_team_data,NA,NA,NA,17,97,0.7010309278350515,165_survival,20,keep
+165,,0,18,22,NA,NA,NA,NA,survival,percent,85,vb_team_data,NA,NA,NA,22,97,0.8762886597938144,165_survival,20,keep
+165,,0,18,27,NA,NA,NA,NA,survival,percent,68,vb_team_data,NA,NA,NA,27,97,0.7010309278350515,165_survival,20,keep
+165,,0,18,30,NA,NA,NA,NA,survival,percent,85,vb_team_data,NA,NA,NA,30,97,0.8762886597938144,165_survival,20,keep
+165,,0,18,12,NA,NA,NA,NA,survival,percent,0,vb_team_data,NA,NA,NA,12,97,0,165_survival,20,keep
+165,,0,18,17,NA,NA,NA,NA,survival,percent,10,vb_team_data,NA,NA,NA,17,97,0.10309278350515463,165_survival,20,keep
+165,,0,18,22,NA,NA,NA,NA,survival,percent,5,vb_team_data,NA,NA,NA,22,97,0.05154639175257732,165_survival,20,keep
+165,,0,18,27,NA,NA,NA,NA,survival,percent,28,vb_team_data,NA,NA,NA,27,97,0.28865979381443296,165_survival,20,keep
+165,,0,18,30,NA,NA,NA,NA,survival,percent,81,vb_team_data,NA,NA,NA,30,97,0.8350515463917526,165_survival,20,keep
+165,,0,18,12,NA,NA,NA,NA,development rate,1/days,0.012,vb_team_data,NA,NA,NA,12,0.059,0.2033898305084746,165_development rate,15,keep
+165,,0,18,17,NA,NA,NA,NA,development rate,1/days,0.02,vb_team_data,NA,NA,NA,17,0.059,0.33898305084745767,165_development rate,15,keep
+165,,0,18,22,NA,NA,NA,NA,development rate,1/days,0.043,vb_team_data,NA,NA,NA,22,0.059,0.7288135593220338,165_development rate,15,keep
+165,,0,18,27,NA,NA,NA,NA,development rate,1/days,0.053,vb_team_data,NA,NA,NA,27,0.059,0.8983050847457628,165_development rate,15,keep
+165,,0,18,30,NA,NA,NA,NA,development rate,1/days,0.059,vb_team_data,NA,NA,NA,30,0.059,1,165_development rate,15,keep
+165,,0,18,30,NA,NA,NA,NA,development rate,1/days,0.05,vb_team_data,NA,NA,NA,30,0.059,0.8474576271186441,165_development rate,15,keep
+165,,0,18,12,NA,NA,NA,NA,development rate,1/days,0.012,vb_team_data,NA,NA,NA,12,0.059,0.2033898305084746,165_development rate,15,keep
+165,,0,18,17,NA,NA,NA,NA,development rate,1/days,0.02,vb_team_data,NA,NA,NA,17,0.059,0.33898305084745767,165_development rate,15,keep
+165,,0,18,22,NA,NA,NA,NA,development rate,1/days,0.04,vb_team_data,NA,NA,NA,22,0.059,0.6779661016949153,165_development rate,15,keep
+165,,0,18,27,NA,NA,NA,NA,development rate,1/days,0.052,vb_team_data,NA,NA,NA,27,0.059,0.8813559322033898,165_development rate,15,keep
+165,,0,18,30,NA,NA,NA,NA,development rate,1/days,0.055,vb_team_data,NA,NA,NA,30,0.059,0.9322033898305085,165_development rate,15,keep
+165,,0,18,17,NA,NA,NA,NA,development rate,1/days,0.018,vb_team_data,NA,NA,NA,17,0.059,0.3050847457627119,165_development rate,15,keep
+165,,0,18,22,NA,NA,NA,NA,development rate,1/days,0.033,vb_team_data,NA,NA,NA,22,0.059,0.5593220338983051,165_development rate,15,keep
+165,,0,18,27,NA,NA,NA,NA,development rate,1/days,0.046,vb_team_data,NA,NA,NA,27,0.059,0.7796610169491526,165_development rate,15,keep
+165,,0,18,30,NA,NA,NA,NA,development rate,1/days,0.05,vb_team_data,NA,NA,NA,30,0.059,0.8474576271186441,165_development rate,15,keep
+168,28,0,18,18,NA,NA,NA,NA,spawning,percent,8,vb_team_data,NA,NA,NA,18,71.4,0.11204481792717086,168_spawning,10,keep
+168,28,0,18,20,NA,NA,NA,NA,spawning,percent,15.1,vb_team_data,NA,NA,NA,20,71.4,0.21148459383753498,168_spawning,10,keep
+168,28,0,18,22,NA,NA,NA,NA,spawning,percent,14.2,vb_team_data,NA,NA,NA,22,71.4,0.19887955182072828,168_spawning,10,keep
+168,28,0,18,24,NA,NA,NA,NA,spawning,percent,51.9,vb_team_data,NA,NA,NA,24,71.4,0.726890756302521,168_spawning,10,keep
+168,28,0,18,26,NA,NA,NA,NA,spawning,percent,50.5,vb_team_data,NA,NA,NA,26,71.4,0.707282913165266,168_spawning,10,keep
+168,28,0,18,28,NA,NA,NA,NA,spawning,percent,70.8,vb_team_data,NA,NA,NA,28,71.4,0.9915966386554621,168_spawning,10,keep
+168,28,0,18,30,NA,NA,NA,NA,spawning,percent,71.4,vb_team_data,NA,NA,NA,30,71.4,1,168_spawning,10,keep
+168,28,0,18,32,NA,NA,NA,NA,spawning,percent,54.4,vb_team_data,NA,NA,NA,32,71.4,0.7619047619047619,168_spawning,10,keep
+168,28,0,18,34,NA,NA,NA,NA,spawning,percent,44.4,vb_team_data,NA,NA,NA,34,71.4,0.6218487394957982,168_spawning,10,keep
+168,28,0,18,36,NA,NA,NA,NA,spawning,percent,1.7,vb_team_data,NA,NA,NA,36,71.4,0.023809523809523808,168_spawning,10,keep
+168,28,1,21,NA,16,24,8,2,spawning,percent,11.2,vb_team_data,NA,NA,NA,20,71.4,0.15686274509803919,168_spawning,5,keep
+168,28,1,21,NA,28,32,4,2,spawning,percent,50.4,vb_team_data,NA,NA,NA,30,71.4,0.7058823529411764,168_spawning,5,keep
+168,28,1,21,NA,28,36,8,2,spawning,percent,49.4,vb_team_data,NA,NA,NA,32,71.4,0.69187675070028,168_spawning,5,keep
+168,28,1,21,NA,28,38,10,2,spawning,percent,22.1,vb_team_data,NA,NA,NA,33,71.4,0.30952380952380953,168_spawning,5,keep
+168,28,1,21,NA,30,39,9,2,spawning,percent,22,vb_team_data,NA,NA,NA,34.5,71.4,0.30812324929971985,168_spawning,5,keep
+168,28,0,18,18,NA,NA,NA,NA,fecundity,number of eggs,2.1,vb_team_data,NA,NA,NA,18,10,0.21000000000000002,168_fecundity,10,keep
+168,28,0,18,20,NA,NA,NA,NA,fecundity,number of eggs,2.9,vb_team_data,NA,NA,NA,20,10,0.29,168_fecundity,10,keep
+168,28,0,18,22,NA,NA,NA,NA,fecundity,number of eggs,1.4,vb_team_data,NA,NA,NA,22,10,0.13999999999999999,168_fecundity,10,keep
+168,28,0,18,24,NA,NA,NA,NA,fecundity,number of eggs,5.7,vb_team_data,NA,NA,NA,24,10,0.5700000000000001,168_fecundity,10,keep
+168,28,0,18,26,NA,NA,NA,NA,fecundity,number of eggs,4.3,vb_team_data,NA,NA,NA,26,10,0.43,168_fecundity,10,keep
+168,28,0,18,28,NA,NA,NA,NA,fecundity,number of eggs,7.1,vb_team_data,NA,NA,NA,28,10,0.71,168_fecundity,10,keep
+168,28,0,18,30,NA,NA,NA,NA,fecundity,number of eggs,10,vb_team_data,NA,NA,NA,30,10,1,168_fecundity,10,keep
+168,28,0,18,32,NA,NA,NA,NA,fecundity,number of eggs,6.4,vb_team_data,NA,NA,NA,32,10,0.64,168_fecundity,10,keep
+168,28,0,18,34,NA,NA,NA,NA,fecundity,number of eggs,3.2,vb_team_data,NA,NA,NA,34,10,0.32,168_fecundity,10,keep
+168,28,0,18,36,NA,NA,NA,NA,fecundity,number of eggs,0.4,vb_team_data,NA,NA,NA,36,10,0.04,168_fecundity,10,keep
+168,28,1,21,NA,16,24,8,2,fecundity,number of eggs,1.1,vb_team_data,NA,NA,NA,20,10,0.11000000000000001,168_fecundity,5,keep
+168,28,1,21,NA,28,32,4,2,fecundity,number of eggs,6.4,vb_team_data,NA,NA,NA,30,10,0.64,168_fecundity,5,keep
+168,28,1,21,NA,28,36,8,2,fecundity,number of eggs,5.6,vb_team_data,NA,NA,NA,32,10,0.5599999999999999,168_fecundity,5,keep
+168,28,1,21,NA,28,38,10,2,fecundity,number of eggs,2.6,vb_team_data,NA,NA,NA,33,10,0.26,168_fecundity,5,keep
+168,28,1,21,NA,30,39,9,2,fecundity,number of eggs,0.8,vb_team_data,NA,NA,NA,34.5,10,0.08,168_fecundity,5,keep
+168,28,0,18,18,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,0.43,vb_team_data,NA,NA,NA,18,7.62,0.05643044619422572,168_fecundity/body weight,10,keep
+168,28,0,18,20,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,0.73,vb_team_data,NA,NA,NA,20,7.62,0.0958005249343832,168_fecundity/body weight,10,keep
+168,28,0,18,22,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,0.58,vb_team_data,NA,NA,NA,22,7.62,0.07611548556430446,168_fecundity/body weight,10,keep
+168,28,0,18,24,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,4.11,vb_team_data,NA,NA,NA,24,7.62,0.5393700787401575,168_fecundity/body weight,10,keep
+168,28,0,18,26,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,2.81,vb_team_data,NA,NA,NA,26,7.62,0.3687664041994751,168_fecundity/body weight,10,keep
+168,28,0,18,28,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,5.82,vb_team_data,NA,NA,NA,28,7.62,0.7637795275590551,168_fecundity/body weight,10,keep
+168,28,0,18,30,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,7.62,vb_team_data,NA,NA,NA,30,7.62,1,168_fecundity/body weight,10,keep
+168,28,0,18,32,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,4.86,vb_team_data,NA,NA,NA,32,7.62,0.6377952755905513,168_fecundity/body weight,10,keep
+168,28,0,18,34,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,2.13,vb_team_data,NA,NA,NA,34,7.62,0.2795275590551181,168_fecundity/body weight,10,keep
+168,28,0,18,36,NA,NA,NA,NA,fecundity/body weight,eggs/g/day,0.18,vb_team_data,NA,NA,NA,36,7.62,0.023622047244094488,168_fecundity/body weight,10,keep
+168,28,1,21,NA,16,24,8,2,fecundity/body weight,eggs/g/day,0.33,vb_team_data,NA,NA,NA,20,7.62,0.04330708661417323,168_fecundity/body weight,5,keep
+168,28,1,21,NA,28,32,4,2,fecundity/body weight,eggs/g/day,5.17,vb_team_data,NA,NA,NA,30,7.62,0.6784776902887139,168_fecundity/body weight,5,keep
+168,28,1,21,NA,28,36,8,2,fecundity/body weight,eggs/g/day,3.91,vb_team_data,NA,NA,NA,32,7.62,0.5131233595800525,168_fecundity/body weight,5,keep
+168,28,1,21,NA,28,38,10,2,fecundity/body weight,eggs/g/day,1.15,vb_team_data,NA,NA,NA,33,7.62,0.15091863517060367,168_fecundity/body weight,5,keep
+168,28,1,21,NA,30,39,9,2,fecundity/body weight,eggs/g/day,0.79,vb_team_data,NA,NA,NA,34.5,7.62,0.1036745406824147,168_fecundity/body weight,5,keep
+168,28,0,18,18,NA,NA,NA,NA,egg yolk size,mm (assumed),1.07,vb_team_data,NA,NA,NA,18,1.08,0.9907407407407407,168_egg yolk size,9,keep
+168,28,0,18,20,NA,NA,NA,NA,egg yolk size,mm (assumed),1.08,vb_team_data,NA,NA,NA,20,1.08,1,168_egg yolk size,9,keep
+168,28,0,18,22,NA,NA,NA,NA,egg yolk size,mm (assumed),1.07,vb_team_data,NA,NA,NA,22,1.08,0.9907407407407407,168_egg yolk size,9,keep
+168,28,0,18,24,NA,NA,NA,NA,egg yolk size,mm (assumed),1.06,vb_team_data,NA,NA,NA,24,1.08,0.9814814814814815,168_egg yolk size,9,keep
+168,28,0,18,26,NA,NA,NA,NA,egg yolk size,mm (assumed),1.02,vb_team_data,NA,NA,NA,26,1.08,0.9444444444444444,168_egg yolk size,9,keep
+168,28,0,18,28,NA,NA,NA,NA,egg yolk size,mm (assumed),1.01,vb_team_data,NA,NA,NA,28,1.08,0.9351851851851851,168_egg yolk size,9,keep
+168,28,0,18,30,NA,NA,NA,NA,egg yolk size,mm (assumed),1,vb_team_data,NA,NA,NA,30,1.08,0.9259259259259258,168_egg yolk size,9,keep
+168,28,0,18,32,NA,NA,NA,NA,egg yolk size,mm (assumed),1.02,vb_team_data,NA,NA,NA,32,1.08,0.9444444444444444,168_egg yolk size,9,keep
+168,28,0,18,34,NA,NA,NA,NA,egg yolk size,mm (assumed),1.04,vb_team_data,NA,NA,NA,34,1.08,0.9629629629629629,168_egg yolk size,9,keep
+168,28,0,18,18,NA,NA,NA,NA,gonosomatic index,proportion,0.05,vb_team_data,NA,NA,NA,18,0.14,0.35714285714285715,168_gonosomatic index,10,keep
+168,28,0,18,20,NA,NA,NA,NA,gonosomatic index,proportion,0.08,vb_team_data,NA,NA,NA,20,0.14,0.5714285714285714,168_gonosomatic index,10,keep
+168,28,0,18,22,NA,NA,NA,NA,gonosomatic index,proportion,0.09,vb_team_data,NA,NA,NA,22,0.14,0.6428571428571428,168_gonosomatic index,10,keep
+168,28,0,18,24,NA,NA,NA,NA,gonosomatic index,proportion,0.13,vb_team_data,NA,NA,NA,24,0.14,0.9285714285714285,168_gonosomatic index,10,keep
+168,28,0,18,26,NA,NA,NA,NA,gonosomatic index,proportion,0.14,vb_team_data,NA,NA,NA,26,0.14,1,168_gonosomatic index,10,keep
+168,28,0,18,28,NA,NA,NA,NA,gonosomatic index,proportion,0.1,vb_team_data,NA,NA,NA,28,0.14,0.7142857142857143,168_gonosomatic index,10,keep
+168,28,0,18,30,NA,NA,NA,NA,gonosomatic index,proportion,0.07,vb_team_data,NA,NA,NA,30,0.14,0.5,168_gonosomatic index,10,keep
+168,28,0,18,32,NA,NA,NA,NA,gonosomatic index,proportion,0.09,vb_team_data,NA,NA,NA,32,0.14,0.6428571428571428,168_gonosomatic index,10,keep
+168,28,0,18,34,NA,NA,NA,NA,gonosomatic index,proportion,0.05,vb_team_data,NA,NA,NA,34,0.14,0.35714285714285715,168_gonosomatic index,10,keep
+168,28,0,18,36,NA,NA,NA,NA,gonosomatic index,proportion,0.02,vb_team_data,NA,NA,NA,36,0.14,0.14285714285714285,168_gonosomatic index,10,keep
+168,28,1,21,NA,16,24,8,2,gonosomatic index,proportion,0.09,vb_team_data,NA,NA,NA,20,0.14,0.6428571428571428,168_gonosomatic index,5,keep
+168,28,1,21,NA,28,32,4,2,gonosomatic index,proportion,0.09,vb_team_data,NA,NA,NA,30,0.14,0.6428571428571428,168_gonosomatic index,5,keep
+168,28,1,21,NA,28,36,8,2,gonosomatic index,proportion,0.09,vb_team_data,NA,NA,NA,32,0.14,0.6428571428571428,168_gonosomatic index,5,keep
+168,28,1,21,NA,28,38,10,2,gonosomatic index,proportion,0.04,vb_team_data,NA,NA,NA,33,0.14,0.2857142857142857,168_gonosomatic index,5,keep
+168,28,1,21,NA,30,39,9,2,gonosomatic index,proportion,0.04,vb_team_data,NA,NA,NA,34.5,0.14,0.2857142857142857,168_gonosomatic index,5,keep
+168,28,0,18,18,NA,NA,NA,NA,egg hatch,percent,0,vb_team_data,NA,NA,NA,18,83.7,0,168_egg hatch,10,keep
+168,28,0,18,20,NA,NA,NA,NA,egg hatch,percent,0,vb_team_data,NA,NA,NA,20,83.7,0,168_egg hatch,10,keep
+168,28,0,18,22,NA,NA,NA,NA,egg hatch,percent,2.6,vb_team_data,NA,NA,NA,22,83.7,0.03106332138590203,168_egg hatch,10,keep
+168,28,0,18,24,NA,NA,NA,NA,egg hatch,percent,51.8,vb_team_data,NA,NA,NA,24,83.7,0.6188769414575865,168_egg hatch,10,keep
+168,28,0,18,26,NA,NA,NA,NA,egg hatch,percent,83.7,vb_team_data,NA,NA,NA,26,83.7,1,168_egg hatch,10,keep
+168,28,0,18,28,NA,NA,NA,NA,egg hatch,percent,68.9,vb_team_data,NA,NA,NA,28,83.7,0.8231780167264039,168_egg hatch,10,keep
+168,28,0,18,30,NA,NA,NA,NA,egg hatch,percent,77.6,vb_team_data,NA,NA,NA,30,83.7,0.9271206690561529,168_egg hatch,10,keep
+168,28,0,18,32,NA,NA,NA,NA,egg hatch,percent,12.3,vb_team_data,NA,NA,NA,32,83.7,0.14695340501792115,168_egg hatch,10,keep
+168,28,0,18,34,NA,NA,NA,NA,egg hatch,percent,6.5,vb_team_data,NA,NA,NA,34,83.7,0.07765830346475508,168_egg hatch,10,keep
+168,28,0,18,36,NA,NA,NA,NA,egg hatch,percent,0,vb_team_data,NA,NA,NA,36,83.7,0,168_egg hatch,10,keep
+168,28,1,21,NA,16,24,8,2,egg hatch,percent,0,vb_team_data,NA,NA,NA,20,83.7,0,168_egg hatch,5,keep
+168,28,1,21,NA,28,32,4,2,egg hatch,percent,61.2,vb_team_data,NA,NA,NA,30,83.7,0.7311827956989247,168_egg hatch,5,keep
+168,28,1,21,NA,28,36,8,2,egg hatch,percent,49,vb_team_data,NA,NA,NA,32,83.7,0.5854241338112306,168_egg hatch,5,keep
+168,28,1,21,NA,28,38,10,2,egg hatch,percent,0,vb_team_data,NA,NA,NA,33,83.7,0,168_egg hatch,5,keep
+168,28,1,21,NA,30,39,9,2,egg hatch,percent,0,vb_team_data,NA,NA,NA,34.5,83.7,0,168_egg hatch,5,keep
+VB19-1,NA,0,12.5,22.5,NA,NA,NA,NA,development time,days ,66.4,vb_team_data,NA,NA,NA,22.5,66.4,1,VB19-1_development time,6,keep
+VB19-1,NA,0,12.5,25,NA,NA,NA,NA,development time,days ,41.9,vb_team_data,NA,NA,NA,25,66.4,0.6310240963855421,VB19-1_development time,6,keep
+VB19-1,NA,0,12.5,27.5,NA,NA,NA,NA,development time,days ,28.2,vb_team_data,NA,NA,NA,27.5,66.4,0.42469879518072284,VB19-1_development time,6,keep
+VB19-1,NA,0,12.5,30,NA,NA,NA,NA,development time,days ,24.3,vb_team_data,NA,NA,NA,30,66.4,0.36596385542168675,VB19-1_development time,6,keep
+VB19-1,NA,0,12.5,32.5,NA,NA,NA,NA,development time,days ,19.7,vb_team_data,NA,NA,NA,32.5,66.4,0.2966867469879518,VB19-1_development time,6,keep
+VB19-1,NA,0,12.5,35,NA,NA,NA,NA,development time,days ,18.8,vb_team_data,NA,NA,NA,35,66.4,0.2831325301204819,VB19-1_development time,6,keep
+VB19-1,NA,1,10,NA,17.5,27.5,10,2,development time,days ,61.6,vb_team_data,NA,NA,NA,22.5,66.4,0.927710843373494,VB19-1_development time,6,keep
+VB19-1,NA,1,10,NA,20,30,10,2,development time,days ,38.2,vb_team_data,NA,NA,NA,25,66.4,0.5753012048192772,VB19-1_development time,6,keep
+VB19-1,NA,1,10,NA,22.5,32.5,10,2,development time,days ,27.5,vb_team_data,NA,NA,NA,27.5,66.4,0.4141566265060241,VB19-1_development time,6,keep
+VB19-1,NA,1,10,NA,25,35,10,2,development time,days ,24.3,vb_team_data,NA,NA,NA,30,66.4,0.36596385542168675,VB19-1_development time,6,keep
+VB19-1,NA,1,10,NA,27.5,37.5,10,2,development time,days ,21.4,vb_team_data,NA,NA,NA,32.5,66.4,0.322289156626506,VB19-1_development time,6,keep
+VB19-1,NA,1,10,NA,30,40,10,2,development time,days ,20.8,vb_team_data,NA,NA,NA,35,66.4,0.3132530120481928,VB19-1_development time,6,keep
+VB19-2,NA,0,13.9,35,NA,NA,NA,NA,survival,percentage,54.5,vb_team_data,NA,NA,NA,35,54.5,1,VB19-2_survival,6,keep
+VB19-2,NA,0,13.9,32.2,NA,NA,NA,NA,survival,percentage,35.6,vb_team_data,NA,NA,NA,32.2,54.5,0.653211009174312,VB19-2_survival,6,keep
+VB19-2,NA,0,13.9,28.9,NA,NA,NA,NA,survival,percentage,36.7,vb_team_data,NA,NA,NA,28.9,54.5,0.6733944954128441,VB19-2_survival,6,keep
+VB19-2,NA,0,13.9,26.7,NA,NA,NA,NA,survival,percentage,44.6,vb_team_data,NA,NA,NA,26.7,54.5,0.818348623853211,VB19-2_survival,6,keep
+VB19-2,NA,0,13.9,23.9,NA,NA,NA,NA,survival,percentage,28.6,vb_team_data,NA,NA,NA,23.9,54.5,0.5247706422018349,VB19-2_survival,6,keep
+VB19-2,NA,0,13.9,21.1,NA,NA,NA,NA,survival,percentage,23.7,vb_team_data,NA,NA,NA,21.1,54.5,0.4348623853211009,VB19-2_survival,6,keep
+VB19-2,NA,0,13.9,35,NA,NA,NA,NA,Teneral WT - Female,mg,133.7,vb_team_data,NA,NA,NA,35,139,0.9618705035971222,VB19-2_Teneral WT - Female,5,keep
+VB19-2,NA,0,13.9,28.9,NA,NA,NA,NA,Teneral WT - Female,mg,137.6,vb_team_data,NA,NA,NA,28.9,139,0.9899280575539567,VB19-2_Teneral WT - Female,5,keep
+VB19-2,NA,0,13.9,26.7,NA,NA,NA,NA,Teneral WT - Female,mg,139,vb_team_data,NA,NA,NA,26.7,139,1,VB19-2_Teneral WT - Female,5,keep
+VB19-2,NA,0,13.9,23.9,NA,NA,NA,NA,Teneral WT - Female,mg,124.9,vb_team_data,NA,NA,NA,23.9,139,0.8985611510791367,VB19-2_Teneral WT - Female,5,keep
+VB19-2,NA,0,13.9,21.1,NA,NA,NA,NA,Teneral WT - Female,mg,80.4,vb_team_data,NA,NA,NA,21.1,139,0.5784172661870504,VB19-2_Teneral WT - Female,5,keep
+VB19-2,NA,0,13.9,35,NA,NA,NA,NA,Teneral WT - Male,mg,97.9,vb_team_data,NA,NA,NA,35,98.3,0.9959308240081385,VB19-2_Teneral WT - Male,5,keep
+VB19-2,NA,0,13.9,28.9,NA,NA,NA,NA,Teneral WT - Male,mg,98.3,vb_team_data,NA,NA,NA,28.9,98.3,1,VB19-2_Teneral WT - Male,5,keep
+VB19-2,NA,0,13.9,26.7,NA,NA,NA,NA,Teneral WT - Male,mg,98.2,vb_team_data,NA,NA,NA,26.7,98.3,0.9989827060020346,VB19-2_Teneral WT - Male,5,keep
+VB19-2,NA,0,13.9,23.9,NA,NA,NA,NA,Teneral WT - Male,mg,87.5,vb_team_data,NA,NA,NA,23.9,98.3,0.8901322482197356,VB19-2_Teneral WT - Male,5,keep
+VB19-2,NA,0,13.9,21.1,NA,NA,NA,NA,Teneral WT - Male,mg,76.3,vb_team_data,NA,NA,NA,21.1,98.3,0.7761953204476093,VB19-2_Teneral WT - Male,5,keep
+VB19-3,NA,1,NA,NA,35,37.77777778,2.777777778,1,development time -Males,days,11.71,vb_team_data,NA,NA,NA,36.388888890000004,70.91,0.1651389084755324,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,29.44444444,37.77777778,8.333333333,1,development time -Males,days,13.5,vb_team_data,NA,NA,NA,33.61111111,70.91,0.1903821745875053,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,21.11111111,37.77777778,16.66666667,1,development time -Males,days,18.35,vb_team_data,NA,NA,NA,29.444444445000002,70.91,0.2587787336059794,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,32.22222222,35,2.777777778,1,development time -Males,days,12.73,vb_team_data,NA,NA,NA,33.611111109999996,70.91,0.1795233394443661,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,29.44444444,35,5.555555556,1,development time -Males,days,13.28,vb_team_data,NA,NA,NA,32.22222222,70.91,0.1872796502608941,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,21.11111111,35,13.88888889,1,development time -Males,days,17.72,vb_team_data,NA,NA,NA,28.055555554999998,70.91,0.24989423212522915,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,4.444444444,35,30.55555556,1,development time -Males,days,25.12,vb_team_data,NA,NA,NA,19.722222222,70.91,0.35425186856578766,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,26.66666667,33.88888889,7.222222222,1,development time -Males,days,15.71,vb_team_data,NA,NA,NA,30.27777778,70.91,0.22154844168664506,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,23.88888889,33.33333333,9.444444444,1,development time -Males,days,16.8,vb_team_data,NA,NA,NA,28.611111110000003,70.91,0.23692003948667326,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,18.33333333,33.88888889,15.55555556,1,development time -Males,days,19.99,vb_team_data,NA,NA,NA,26.111111109999996,70.91,0.2819066422225356,VB19-3_development time -Males,10,keep
+VB19-3,NA,1,NA,NA,35,37.77777778,2.777777778,1,development time -Females,days,12.46,vb_team_data,NA,NA,NA,36.388888890000004,75.42,0.16520816759480245,VB19-3_development time -Females,10,keep
+VB19-3,NA,1,NA,NA,29.44444444,37.77777778,8.333333333,1,development time -Females,days,14.56,vb_team_data,NA,NA,NA,33.61111111,75.42,0.19305224078493768,VB19-3_development time -Females,10,keep
+VB19-3,NA,1,NA,NA,21.11111111,37.77777778,16.66666667,1,development time -Females,days,19.52,vb_team_data,NA,NA,NA,29.444444445000002,75.42,0.2588172898435428,VB19-3_development time -Females,10,keep
+VB19-3,NA,1,NA,NA,32.22222222,35,2.777777778,1,development time -Females,days,13.52,vb_team_data,NA,NA,NA,33.611111109999996,75.42,0.17926279501458497,VB19-3_development time -Females,10,keep
+VB19-3,NA,1,NA,NA,29.44444444,35,5.555555556,1,development time -Females,days,14.04,vb_team_data,NA,NA,NA,32.22222222,75.42,0.18615751789976132,VB19-3_development time -Females,10,keep
+VB19-3,NA,1,NA,NA,21.11111111,35,13.88888889,1,development time -Females,days,18.01,vb_team_data,NA,NA,NA,28.055555554999998,75.42,0.23879607531158845,VB19-3_development time -Females,10,keep
+VB19-3,NA,1,NA,NA,4.444444444,35,30.55555556,1,development time -Females,days,25.77,vb_team_data,NA,NA,NA,19.722222222,75.42,0.3416865552903739,VB19-3_development time -Females,10,keep
+VB19-3,NA,1,NA,NA,26.66666667,33.88888889,7.222222222,1,development time -Females,days,16.44,vb_team_data,NA,NA,NA,30.27777778,75.42,0.21797931583134447,VB19-3_development time -Females,10,keep
+VB19-3,NA,1,NA,NA,23.88888889,33.33333333,9.444444444,1,development time -Females,days,17.21,vb_team_data,NA,NA,NA,28.611111110000003,75.42,0.22818880933439406,VB19-3_development time -Females,10,keep
+VB19-3,NA,1,NA,NA,18.33333333,33.88888889,15.55555556,1,development time -Females,days,20.85,vb_team_data,NA,NA,NA,26.111111109999996,75.42,0.2764518695306285,VB19-3_development time -Females,10,keep
+VB19-3,NA,0,22.22222222,40.55555556,NA,NA,NA,NA,development time -Females,days,17.03,vb_team_data,NA,NA,NA,40.55555556,75.42,0.22580217448952533,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,37.77777778,NA,NA,NA,NA,development time -Females,days,14.44,vb_team_data,NA,NA,NA,37.77777778,75.42,0.19146115088835852,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,35,NA,NA,NA,NA,development time -Females,days,13.63,vb_team_data,NA,NA,NA,35,75.42,0.1807212940864492,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,33.88888889,NA,NA,NA,NA,development time -Females,days,13.74,vb_team_data,NA,NA,NA,33.88888889,75.42,0.18217979315831345,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,33.33333333,NA,NA,NA,NA,development time -Females,days,13.52,vb_team_data,NA,NA,NA,33.33333333,75.42,0.17926279501458497,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,32.22222222,NA,NA,NA,NA,development time -Females,days,14.67,vb_team_data,NA,NA,NA,32.22222222,75.42,0.1945107398568019,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,29.44444444,NA,NA,NA,NA,development time -Females,days,17.68,vb_team_data,NA,NA,NA,29.44444444,75.42,0.23442057809599576,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,26.66666667,NA,NA,NA,NA,development time -Females,days,20.89,vb_team_data,NA,NA,NA,26.66666667,75.42,0.2769822328294882,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,23.88888889,NA,NA,NA,NA,development time -Females,days,28.28,vb_team_data,NA,NA,NA,23.88888889,75.42,0.37496685229382126,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,21.11111111,NA,NA,NA,NA,development time -Females,days,41.17,vb_team_data,NA,NA,NA,21.11111111,75.42,0.5458764253513657,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,18.33333333,NA,NA,NA,NA,development time -Females,days,75.42,vb_team_data,NA,NA,NA,18.33333333,75.42,1,VB19-3_development time -Females,11,keep
+VB19-3,NA,0,22.22222222,40.55555556,NA,NA,NA,NA,development time -Males,days,15.59,vb_team_data,NA,NA,NA,40.55555556,70.91,0.21985615569031167,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,37.77777778,NA,NA,NA,NA,development time -Males,days,13.23,vb_team_data,NA,NA,NA,37.77777778,70.91,0.1865745310957552,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,35,NA,NA,NA,NA,development time -Males,days,12.96,vb_team_data,NA,NA,NA,35,70.91,0.18276688760400508,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,33.88888889,NA,NA,NA,NA,development time -Males,days,13.92,vb_team_data,NA,NA,NA,33.88888889,70.91,0.19630517557467214,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,33.33333333,NA,NA,NA,NA,development time -Males,days,13.14,vb_team_data,NA,NA,NA,33.33333333,70.91,0.18530531659850516,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,32.22222222,NA,NA,NA,NA,development time -Males,days,14.32,vb_team_data,NA,NA,NA,32.22222222,70.91,0.2019461288957834,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,29.44444444,NA,NA,NA,NA,development time -Males,days,17.1,vb_team_data,NA,NA,NA,29.44444444,70.91,0.24115075447750672,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,26.66666667,NA,NA,NA,NA,development time -Males,days,20.07,vb_team_data,NA,NA,NA,26.66666667,70.91,0.2830348328867579,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,23.88888889,NA,NA,NA,NA,development time -Males,days,26.69,vb_team_data,NA,NA,NA,23.88888889,70.91,0.3763926103511494,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,21.11111111,NA,NA,NA,NA,development time -Males,days,40.44,vb_team_data,NA,NA,NA,21.11111111,70.91,0.5703003807643492,VB19-3_development time -Males,11,keep
+VB19-3,NA,0,22.22222222,18.33333333,NA,NA,NA,NA,development time -Males,days,70.91,vb_team_data,NA,NA,NA,18.33333333,70.91,1,VB19-3_development time -Males,11,keep
+VB19-4,NA,0,22.3,7.2,NA,NA,NA,NA,total development time,days,10000,vb_team_data,NA,NA,NA,7.2,10000,1,VB19-4_total development time,9,keep
+VB19-4,NA,0,22.3,10,NA,NA,NA,NA,total development time,days,10000,vb_team_data,NA,NA,NA,10,10000,1,VB19-4_total development time,9,keep
+VB19-4,NA,0,22.3,12.7,NA,NA,NA,NA,total development time,days,129.5,vb_team_data,NA,NA,NA,12.7,10000,0.01295,VB19-4_total development time,9,keep
+VB19-4,NA,0,22.3,18.3,NA,NA,NA,NA,total development time,days,47.8,vb_team_data,NA,NA,NA,18.3,10000,0.0047799999999999995,VB19-4_total development time,9,keep
+VB19-4,NA,0,22.3,23.9,NA,NA,NA,NA,total development time,days,33.5,vb_team_data,NA,NA,NA,23.9,10000,0.00335,VB19-4_total development time,9,keep
+VB19-4,NA,0,22.3,26.7,NA,NA,NA,NA,total development time,days,30.8,vb_team_data,NA,NA,NA,26.7,10000,0.0030800000000000003,VB19-4_total development time,9,keep
+VB19-4,NA,0,22.3,29.4,NA,NA,NA,NA,total development time,days,27.5,vb_team_data,NA,NA,NA,29.4,10000,0.00275,VB19-4_total development time,9,keep
+VB19-4,NA,0,22.3,32.3,NA,NA,NA,NA,total development time,days,27.2,vb_team_data,NA,NA,NA,32.3,10000,0.0027199999999999998,VB19-4_total development time,9,keep
+VB19-4,NA,0,NA,25.7,18.3,29.4,11.1,1,total development time,days,32.3,vb_team_data,NA,NA,NA,25.7,10000,0.00323,VB19-4_total development time,9,keep
+VB19-5,NA,0,17,18,NA,NA,NA,NA,Development Time - Males,days,21,vb_team_data,NA,NA,NA,18,21,1,VB19-5_Development Time - Males,6,keep
+VB19-5,NA,0,17,22,NA,NA,NA,NA,Development Time - Males,days,7.4,vb_team_data,NA,NA,NA,22,21,0.3523809523809524,VB19-5_Development Time - Males,6,keep
+VB19-5,NA,0,17,26,NA,NA,NA,NA,Development Time - Males,days,5.1,vb_team_data,NA,NA,NA,26,21,0.24285714285714283,VB19-5_Development Time - Males,6,keep
+VB19-5,NA,0,17,30,NA,NA,NA,NA,Development Time - Males,days,4.6,vb_team_data,NA,NA,NA,30,21,0.21904761904761902,VB19-5_Development Time - Males,6,keep
+VB19-5,NA,0,17,33.5,NA,NA,NA,NA,Development Time - Males,days,4.1,vb_team_data,NA,NA,NA,33.5,21,0.1952380952380952,VB19-5_Development Time - Males,6,keep
+VB19-5,NA,0,17,35,NA,NA,NA,NA,Development Time - Males,days,4,vb_team_data,NA,NA,NA,35,21,0.19047619047619047,VB19-5_Development Time - Males,6,keep
+VB19-5,NA,0,17,18,NA,NA,NA,NA,Development Time - Females,days,24,vb_team_data,NA,NA,NA,18,26,0.9230769230769231,VB19-5_Development Time - Females,6,keep
+VB19-5,NA,0,17,22,NA,NA,NA,NA,Development Time - Females,days,10.3,vb_team_data,NA,NA,NA,22,26,0.3961538461538462,VB19-5_Development Time - Females,6,keep
+VB19-5,NA,0,17,26,NA,NA,NA,NA,Development Time - Females,days,6.3,vb_team_data,NA,NA,NA,26,26,0.2423076923076923,VB19-5_Development Time - Females,6,keep
+VB19-5,NA,0,17,30,NA,NA,NA,NA,Development Time - Females,days,5,vb_team_data,NA,NA,NA,30,26,0.19230769230769232,VB19-5_Development Time - Females,6,keep
+VB19-5,NA,0,17,33.5,NA,NA,NA,NA,Development Time - Females,days,5.5,vb_team_data,NA,NA,NA,33.5,26,0.21153846153846154,VB19-5_Development Time - Females,6,keep
+VB19-5,NA,0,17,35,NA,NA,NA,NA,Development Time - Females,days,4,vb_team_data,NA,NA,NA,35,26,0.15384615384615385,VB19-5_Development Time - Females,6,keep
+VB19-5,NA,0,17,18,NA,NA,NA,NA,Adult longeivity - Males,days,18,vb_team_data,NA,NA,NA,18,64,0.28125,VB19-5_Adult longeivity - Males,6,keep
+VB19-5,NA,0,17,22,NA,NA,NA,NA,Adult longeivity - Males,days,56,vb_team_data,NA,NA,NA,22,64,0.875,VB19-5_Adult longeivity - Males,6,keep
+VB19-5,NA,0,17,26,NA,NA,NA,NA,Adult longeivity - Males,days,56,vb_team_data,NA,NA,NA,26,64,0.875,VB19-5_Adult longeivity - Males,6,keep
+VB19-5,NA,0,17,30,NA,NA,NA,NA,Adult longeivity - Males,days,22,vb_team_data,NA,NA,NA,30,64,0.34375,VB19-5_Adult longeivity - Males,6,keep
+VB19-5,NA,0,17,33.5,NA,NA,NA,NA,Adult longeivity - Males,days,2,vb_team_data,NA,NA,NA,33.5,64,0.03125,VB19-5_Adult longeivity - Males,6,keep
+VB19-5,NA,0,17,35,NA,NA,NA,NA,Adult longeivity - Males,days,1,vb_team_data,NA,NA,NA,35,64,0.015625,VB19-5_Adult longeivity - Males,6,keep
+VB19-5,NA,0,17,18,NA,NA,NA,NA,Adult longeivity - Females,days,23,vb_team_data,NA,NA,NA,18,81,0.2839506172839506,VB19-5_Adult longeivity - Females,6,keep
+VB19-5,NA,0,17,22,NA,NA,NA,NA,Adult longeivity - Females,days,64,vb_team_data,NA,NA,NA,22,81,0.7901234567901234,VB19-5_Adult longeivity - Females,6,keep
+VB19-5,NA,0,17,26,NA,NA,NA,NA,Adult longeivity - Females,days,70,vb_team_data,NA,NA,NA,26,81,0.8641975308641975,VB19-5_Adult longeivity - Females,6,keep
+VB19-5,NA,0,17,30,NA,NA,NA,NA,Adult longeivity - Females,days,29,vb_team_data,NA,NA,NA,30,81,0.35802469135802467,VB19-5_Adult longeivity - Females,6,keep
+VB19-5,NA,0,17,33.5,NA,NA,NA,NA,Adult longeivity - Females,days,3,vb_team_data,NA,NA,NA,33.5,81,0.037037037037037035,VB19-5_Adult longeivity - Females,6,keep
+VB19-5,NA,0,17,35,NA,NA,NA,NA,Adult longeivity - Females,days,0,vb_team_data,NA,NA,NA,35,81,0,VB19-5_Adult longeivity - Females,6,keep
+VB19-5,NA,0,17,18,NA,NA,NA,NA,Fecundity,days,1027,vb_team_data,NA,NA,NA,18,12600,0.0815079365079365,VB19-5_Fecundity,6,keep
+VB19-5,NA,0,17,22,NA,NA,NA,NA,Fecundity,days,8430,vb_team_data,NA,NA,NA,22,12600,0.669047619047619,VB19-5_Fecundity,6,keep
+VB19-5,NA,0,17,26,NA,NA,NA,NA,Fecundity,days,10090,vb_team_data,NA,NA,NA,26,12600,0.8007936507936508,VB19-5_Fecundity,6,keep
+VB19-5,NA,0,17,30,NA,NA,NA,NA,Fecundity,days,3970,vb_team_data,NA,NA,NA,30,12600,0.31507936507936507,VB19-5_Fecundity,6,keep
+VB19-5,NA,0,17,33.5,NA,NA,NA,NA,Fecundity,days,0,vb_team_data,NA,NA,NA,33.5,12600,0,VB19-5_Fecundity,6,keep
+VB19-5,NA,0,17,35,NA,NA,NA,NA,Fecundity,days,0,vb_team_data,NA,NA,NA,35,12600,0,VB19-5_Fecundity,6,keep
+VB19-5,NA,1,NA,NA,12,16,4,1,Development Time - Males,days,21,vb_team_data,NA,NA,NA,14,21,1,VB19-5_Development Time - Males,5,keep
+VB19-5,NA,1,NA,NA,14,22,8,NA,Development Time - Males,days,16,vb_team_data,NA,NA,NA,18,21,0.7619047619047619,VB19-5_Development Time - Males,5,keep
+VB19-5,NA,1,NA,NA,18,26,8,NA,Development Time - Males,days,8.3,vb_team_data,NA,NA,NA,22,21,0.3952380952380953,VB19-5_Development Time - Males,5,keep
+VB19-5,NA,1,NA,NA,22,30,8,NA,Development Time - Males,days,4.6,vb_team_data,NA,NA,NA,26,21,0.21904761904761902,VB19-5_Development Time - Males,5,keep
+VB19-5,NA,1,NA,NA,27,33,6,NA,Development Time - Males,days,4.1,vb_team_data,NA,NA,NA,30,21,0.1952380952380952,VB19-5_Development Time - Males,5,keep
+VB19-5,NA,1,NA,NA,12,16,4,NA,Development Time - Females,days,26,vb_team_data,NA,NA,NA,14,26,1,VB19-5_Development Time - Females,5,keep
+VB19-5,NA,1,NA,NA,14,22,8,NA,Development Time - Females,days,18,vb_team_data,NA,NA,NA,18,26,0.6923076923076923,VB19-5_Development Time - Females,5,keep
+VB19-5,NA,1,NA,NA,18,26,8,NA,Development Time - Females,days,9.3,vb_team_data,NA,NA,NA,22,26,0.3576923076923077,VB19-5_Development Time - Females,5,keep
+VB19-5,NA,1,NA,NA,22,30,8,NA,Development Time - Females,days,7.1,vb_team_data,NA,NA,NA,26,26,0.27307692307692305,VB19-5_Development Time - Females,5,keep
+VB19-5,NA,1,NA,NA,27,33,6,NA,Development Time - Females,days,5.2,vb_team_data,NA,NA,NA,30,26,0.2,VB19-5_Development Time - Females,5,keep
+VB19-5,NA,1,NA,NA,12,16,4,NA,Adult longeivity - Males,days,4,vb_team_data,NA,NA,NA,14,64,0.0625,VB19-5_Adult longeivity - Males,5,keep
+VB19-5,NA,1,NA,NA,14,22,8,NA,Adult longeivity - Males,days,26,vb_team_data,NA,NA,NA,18,64,0.40625,VB19-5_Adult longeivity - Males,5,keep
+VB19-5,NA,1,NA,NA,18,26,8,NA,Adult longeivity - Males,days,64,vb_team_data,NA,NA,NA,22,64,1,VB19-5_Adult longeivity - Males,5,keep
+VB19-5,NA,1,NA,NA,22,30,8,NA,Adult longeivity - Males,days,64,vb_team_data,NA,NA,NA,26,64,1,VB19-5_Adult longeivity - Males,5,keep
+VB19-5,NA,1,NA,NA,27,33,6,NA,Adult longeivity - Males,days,29,vb_team_data,NA,NA,NA,30,64,0.453125,VB19-5_Adult longeivity - Males,5,keep
+VB19-5,NA,1,NA,NA,12,16,4,NA,Adult longeivity - Females,days,5.06,vb_team_data,NA,NA,NA,14,81,0.06246913580246913,VB19-5_Adult longeivity - Females,5,keep
+VB19-5,NA,1,NA,NA,14,22,8,NA,Adult longeivity - Females,days,32.8,vb_team_data,NA,NA,NA,18,81,0.4049382716049382,VB19-5_Adult longeivity - Females,5,keep
+VB19-5,NA,1,NA,NA,18,26,8,NA,Adult longeivity - Females,days,71,vb_team_data,NA,NA,NA,22,81,0.8765432098765432,VB19-5_Adult longeivity - Females,5,keep
+VB19-5,NA,1,NA,NA,22,30,8,NA,Adult longeivity - Females,days,81,vb_team_data,NA,NA,NA,26,81,1,VB19-5_Adult longeivity - Females,5,keep
+VB19-5,NA,1,NA,NA,27,33,6,NA,Adult longeivity - Females,days,41,vb_team_data,NA,NA,NA,30,81,0.5061728395061729,VB19-5_Adult longeivity - Females,5,keep
+VB19-5,NA,1,NA,NA,12,16,4,NA,Fecundity,days,0,vb_team_data,NA,NA,NA,14,12600,0,VB19-5_Fecundity,5,keep
+VB19-5,NA,1,NA,NA,14,22,8,NA,Fecundity,days,4850,vb_team_data,NA,NA,NA,18,12600,0.38492063492063494,VB19-5_Fecundity,5,keep
+VB19-5,NA,1,NA,NA,18,26,8,NA,Fecundity,days,10650,vb_team_data,NA,NA,NA,22,12600,0.8452380952380952,VB19-5_Fecundity,5,keep
+VB19-5,NA,1,NA,NA,22,30,8,NA,Fecundity,days,12600,vb_team_data,NA,NA,NA,26,12600,1,VB19-5_Fecundity,5,keep
+VB19-5,NA,1,NA,NA,27,33,6,NA,Fecundity,days,6140,vb_team_data,NA,NA,NA,30,12600,0.4873015873015873,VB19-5_Fecundity,5,keep
+9,NA,1,10-35,30,25,35,25-35,1,development rate of pupal stage,days^-1,0.10428876,maggie_data,NA,NA,NA,30,0.14907538,0.6995706467426076,9_development rate of pupal stage,5,keep
+9,NA,1,10-35,25,20,30,20-30,1,development rate of pupal stage,days^-1,0.09906724,maggie_data,NA,NA,NA,25,0.14907538,0.6645446082377922,9_development rate of pupal stage,5,keep
+9,NA,1,10-35,20,15,25,15-25,1,development rate of pupal stage,days^-1,0.04948213,maggie_data,NA,NA,NA,20,0.14907538,0.33192690838688454,9_development rate of pupal stage,5,keep
+9,NA,1,10-35,15,10,20,10-20,1,development rate of pupal stage,days^-1,0.02599383,maggie_data,NA,NA,NA,15,0.14907538,0.174367021569893,9_development rate of pupal stage,5,keep
+9,NA,1,10-35,12.5,10,15,10-15,1,development rate of pupal stage,days^-1,0.00311185,maggie_data,NA,NA,NA,12.5,0.14907538,0.02087433887473572,9_development rate of pupal stage,5,keep
+9,NA,0,10-40,34,34,34,NA,NA,development rate of egg,days^-1,0.10922166,maggie_data,NA,NA,NA,34,0.12468716,0.8759655765677877,9_development rate of egg,10,keep
+9,NA,0,10-40,33,33,33,NA,NA,development rate of egg,days^-1,0.12355659,maggie_data,NA,NA,NA,33,0.12468716,0.9909327472050851,9_development rate of egg,10,keep
+9,NA,0,10-40,32.5,32.5,32.5,NA,NA,development rate of egg,days^-1,0.12454022,maggie_data,NA,NA,NA,32.5,0.12468716,0.998821530621116,9_development rate of egg,10,keep
+9,NA,0,10-40,30,30,30,NA,NA,development rate of egg,days^-1,0.12468716,maggie_data,NA,NA,NA,30,0.12468716,1,9_development rate of egg,10,keep
+9,NA,0,10-40,27.5,27.5,27.5,NA,NA,development rate of egg,days^-1,0.1050602,maggie_data,NA,NA,NA,27.5,0.12468716,0.8425903677652133,9_development rate of egg,10,keep
+9,NA,0,10-40,25,25,25,NA,NA,development rate of egg,days^-1,0.08872373,maggie_data,NA,NA,NA,25,0.12468716,0.7115707022278798,9_development rate of egg,10,keep
+9,NA,0,10-40,22.5,22.5,22.5,NA,NA,development rate of egg,days^-1,0.06667565,maggie_data,NA,NA,NA,22.5,0.12468716,0.53474351328557,9_development rate of egg,10,keep
+9,NA,0,10-40,20,20,20,NA,NA,development rate of egg,days^-1,0.0475703,maggie_data,NA,NA,NA,20,0.12468716,0.3815172308038775,9_development rate of egg,10,keep
+9,NA,0,10-40,17.5,17.5,17.5,NA,NA,development rate of egg,days^-1,0.03105996,maggie_data,NA,NA,NA,17.5,0.12468716,0.24910311534884585,9_development rate of egg,10,keep
+9,NA,0,10-40,15,15,15,NA,NA,development rate of egg,days^-1,0.01576262,maggie_data,NA,NA,NA,15,0.12468716,0.12641734722324255,9_development rate of egg,10,keep
+9,NA,0,10-40,30,30,30,NA,NA,development rate of first-instar larva,days^-1,0.05999366,maggie_data,NA,NA,NA,30,0.05999366,1,9_development rate of first-instar larva,7,keep
+9,NA,0,10-40,27.5,27.5,27.5,NA,NA,development rate of first-instar larva,days^-1,0.05995587,maggie_data,NA,NA,NA,27.5,0.05999366,0.9993701001072447,9_development rate of first-instar larva,7,keep
+9,NA,0,10-40,25,25,25,NA,NA,development rate of first-instar larva,days^-1,0.05179138,maggie_data,NA,NA,NA,25,0.05999366,0.8632808866803592,9_development rate of first-instar larva,7,keep
+9,NA,0,10-40,22.5,22.5,22.5,NA,NA,development rate of first-instar larva,days^-1,0.04420051,maggie_data,NA,NA,NA,22.5,0.05999366,0.7367530169021194,9_development rate of first-instar larva,7,keep
+9,NA,0,10-40,20,20,20,NA,NA,development rate of first-instar larva,days^-1,0.0267626,maggie_data,NA,NA,NA,20,0.05999366,0.44609047022635395,9_development rate of first-instar larva,7,keep
+9,NA,0,10-40,17.5,17.5,17.5,NA,NA,development rate of first-instar larva,days^-1,0.0098027,maggie_data,NA,NA,NA,17.5,0.05999366,0.1633955988016067,9_development rate of first-instar larva,7,keep
+9,NA,0,10-40,15,15,15,NA,NA,development rate of first-instar larva,days^-1,0.00622663,maggie_data,NA,NA,NA,15,0.05999366,0.10378813361278509,9_development rate of first-instar larva,7,keep
+9,NA,0,10-40,30,30,30,NA,NA,development rate of second-instar larva,days^-1,0.029863931,maggie_data,NA,NA,NA,30,0.03257298,0.9168314044339817,9_development rate of second-instar larva,7,keep
+9,NA,0,10-40,27.5,27.5,27.5,NA,NA,development rate of second-instar larva,days^-1,0.032445004,maggie_data,NA,NA,NA,27.5,0.03257298,0.9960710994204398,9_development rate of second-instar larva,7,keep
+9,NA,0,10-40,25,25,25,NA,NA,development rate of second-instar larva,days^-1,0.03257298,maggie_data,NA,NA,NA,25,0.03257298,1,9_development rate of second-instar larva,7,keep
+9,NA,0,10-40,22.5,22.5,22.5,NA,NA,development rate of second-instar larva,days^-1,0.02002593,maggie_data,NA,NA,NA,22.5,0.03257298,0.6148019002252787,9_development rate of second-instar larva,7,keep
+9,NA,0,10-40,20,20,20,NA,NA,development rate of second-instar larva,days^-1,0.01412304,maggie_data,NA,NA,NA,20,0.03257298,0.4335814530939447,9_development rate of second-instar larva,7,keep
+9,NA,0,10-40,17.5,17.5,17.5,NA,NA,development rate of second-instar larva,days^-1,0.01327928,maggie_data,NA,NA,NA,17.5,0.03257298,0.40767777464634797,9_development rate of second-instar larva,7,keep
+9,NA,0,10-40,15,15,15,NA,NA,development rate of second-instar larva,days^-1,0.00476997,maggie_data,NA,NA,NA,15,0.03257298,0.14643947222513876,9_development rate of second-instar larva,7,keep
+9,NA,0,10-40,35,35,35,NA,NA,development rate of pupal stage,days^-1,0.1307041,maggie_data,NA,NA,NA,35,0.14907538,0.87676516403983,9_development rate of pupal stage,10,keep
+9,NA,0,10-40,32.5,32.5,32.5,NA,NA,development rate of pupal stage,days^-1,0.14907538,maggie_data,NA,NA,NA,32.5,0.14907538,1,9_development rate of pupal stage,10,keep
+9,NA,0,10-40,30,30,30,NA,NA,development rate of pupal stage,days^-1,0.136184,maggie_data,NA,NA,NA,30,0.14907538,0.9135244196593696,9_development rate of pupal stage,10,keep
+9,NA,0,10-40,27.5,27.5,27.5,NA,NA,development rate of pupal stage,days^-1,0.12207868,maggie_data,NA,NA,NA,27.5,0.14907538,0.8189057106545694,9_development rate of pupal stage,10,keep
+9,NA,0,10-40,25,25,25,NA,NA,development rate of pupal stage,days^-1,0.09782311,maggie_data,NA,NA,NA,25,0.14907538,0.6561989645775178,9_development rate of pupal stage,10,keep
+9,NA,0,10-40,22.5,22.5,22.5,NA,NA,development rate of pupal stage,days^-1,0.07173811,maggie_data,NA,NA,NA,22.5,0.14907538,0.48122037320984856,9_development rate of pupal stage,10,keep
+9,NA,0,10-40,20,20,20,NA,NA,development rate of pupal stage,days^-1,0.05113484,maggie_data,NA,NA,NA,20,0.14907538,0.34301331313057865,9_development rate of pupal stage,10,keep
+9,NA,0,10-40,17.5,17.5,17.5,NA,NA,development rate of pupal stage,days^-1,0.03093622,maggie_data,NA,NA,NA,17.5,0.14907538,0.20752065163275116,9_development rate of pupal stage,10,keep
+9,NA,0,10-40,15,15,15,NA,NA,development rate of pupal stage,days^-1,0.0139892,maggie_data,NA,NA,NA,15,0.14907538,0.09383977421355558,9_development rate of pupal stage,10,keep
+9,NA,0,10-40,13,13,13,NA,NA,development rate of pupal stage,days^-1,0.00396184,maggie_data,NA,NA,NA,13,0.14907538,0.02657608519931326,9_development rate of pupal stage,10,keep
+10,25,0,10-34,10,10,10,NA,NA,development time,days,0,maggie_data,NA,NA,NA,10,14.15,0,10_development time,34,keep
+10,25,0,10-34,15,15,15,NA,NA,development time,days,14.15,maggie_data,NA,NA,NA,15,14.15,1,10_development time,34,keep
+10,25,0,10-34,20,20,20,NA,NA,development time,days,6.78,maggie_data,NA,NA,NA,20,14.15,0.4791519434628975,10_development time,34,keep
+10,25,0,10-34,22.5,22.5,22.5,NA,NA,development time,days,5.27,maggie_data,NA,NA,NA,22.5,14.15,0.37243816254416956,10_development time,34,keep
+10,25,0,10-34,25,25,25,NA,NA,development time,days,4.26,maggie_data,NA,NA,NA,25,14.15,0.3010600706713781,10_development time,34,keep
+10,25,0,10-34,26,26,26,NA,NA,development time,days,4,maggie_data,NA,NA,NA,26,14.15,0.2826855123674912,10_development time,34,keep
+10,25,0,10-34,27,27,27,NA,NA,development time,days,3.78,maggie_data,NA,NA,NA,27,14.15,0.26713780918727914,10_development time,34,keep
+10,25,0,10-34,27.5,27.5,27.5,NA,NA,development time,days,3.65,maggie_data,NA,NA,NA,27.5,14.15,0.2579505300353357,10_development time,34,keep
+10,25,0,10-34,28,28,28,NA,NA,development time,days,3.56,maggie_data,NA,NA,NA,28,14.15,0.25159010600706716,10_development time,34,keep
+10,25,0,10-34,28.5,28.5,28.5,NA,NA,development time,days,3.45,maggie_data,NA,NA,NA,28.5,14.15,0.24381625441696114,10_development time,34,keep
+10,25,0,10-34,29,29,29,NA,NA,development time,days,3.4,maggie_data,NA,NA,NA,29,14.15,0.24028268551236748,10_development time,34,keep
+10,25,0,10-34,29.5,29.5,29.5,NA,NA,development time,days,3.35,maggie_data,NA,NA,NA,29.5,14.15,0.23674911660777384,10_development time,34,keep
+10,25,0,10-34,30,30,30,NA,NA,development time,days,3.35,maggie_data,NA,NA,NA,30,14.15,0.23674911660777384,10_development time,34,keep
+10,25,0,10-34,31,31,31,NA,NA,development time,days,3.35,maggie_data,NA,NA,NA,31,14.15,0.23674911660777384,10_development time,34,keep
+10,25,0,10-34,32,32,32,NA,NA,development time,days,3.5,maggie_data,NA,NA,NA,32,14.15,0.24734982332155475,10_development time,34,keep
+10,25,0,10-34,33,33,33,NA,NA,development time,days,3.63,maggie_data,NA,NA,NA,33,14.15,0.2565371024734982,10_development time,34,keep
+10,25,0,10-34,34,34,34,NA,NA,development time,days,0,maggie_data,NA,NA,NA,34,14.15,0,10_development time,34,keep
+10,25,0,10-34,10,10,10,NA,NA,development time,days,0,maggie_data,NA,NA,NA,10,14.15,0,10_development time,34,keep
+10,25,0,10-34,15,15,15,NA,NA,development time,days,13.54,maggie_data,NA,NA,NA,15,14.15,0.9568904593639576,10_development time,34,keep
+10,25,0,10-34,20,20,20,NA,NA,development time,days,6.45,maggie_data,NA,NA,NA,20,14.15,0.4558303886925795,10_development time,34,keep
+10,25,0,10-34,22.5,22.5,22.5,NA,NA,development time,days,4.93,maggie_data,NA,NA,NA,22.5,14.15,0.3484098939929328,10_development time,34,keep
+10,25,0,10-34,25,25,25,NA,NA,development time,days,4.02,maggie_data,NA,NA,NA,25,14.15,0.2840989399293286,10_development time,34,keep
+10,25,0,10-34,26,26,26,NA,NA,development time,days,3.81,maggie_data,NA,NA,NA,26,14.15,0.2692579505300353,10_development time,34,keep
+10,25,0,10-34,27,27,27,NA,NA,development time,days,3.59,maggie_data,NA,NA,NA,27,14.15,0.2537102473498233,10_development time,34,keep
+10,25,0,10-34,27.5,27.5,27.5,NA,NA,development time,days,3.48,maggie_data,NA,NA,NA,27.5,14.15,0.24593639575971732,10_development time,34,keep
+10,25,0,10-34,28,28,28,NA,NA,development time,days,3.37,maggie_data,NA,NA,NA,28,14.15,0.2381625441696113,10_development time,34,keep
+10,25,0,10-34,28.5,28.5,28.5,NA,NA,development time,days,3.27,maggie_data,NA,NA,NA,28.5,14.15,0.23109540636042403,10_development time,34,keep
+10,25,0,10-34,29,29,29,NA,NA,development time,days,3.22,maggie_data,NA,NA,NA,29,14.15,0.2275618374558304,10_development time,34,keep
+10,25,0,10-34,29.5,29.5,29.5,NA,NA,development time,days,3.17,maggie_data,NA,NA,NA,29.5,14.15,0.22402826855123673,10_development time,34,keep
+10,25,0,10-34,30,30,30,NA,NA,development time,days,3.23,maggie_data,NA,NA,NA,30,14.15,0.2282685512367491,10_development time,34,keep
+10,25,0,10-34,31,31,31,NA,NA,development time,days,3.21,maggie_data,NA,NA,NA,31,14.15,0.22685512367491165,10_development time,34,keep
+10,25,0,10-34,32,32,32,NA,NA,development time,days,3.36,maggie_data,NA,NA,NA,32,14.15,0.23745583038869256,10_development time,34,keep
+10,25,0,10-34,33,33,33,NA,NA,development time,days,3.5,maggie_data,NA,NA,NA,33,14.15,0.24734982332155475,10_development time,34,keep
+10,25,0,10-34,34,34,34,NA,NA,development time,days,0,maggie_data,NA,NA,NA,34,14.15,0,10_development time,34,keep
+10,25,1,24-33,28.5,24,33,24-33,1,development time,days,4.06,maggie_data,NA,NA,NA,28.5,14.15,0.2869257950530035,10_development time,52,keep
+10,25,1,24-33,28.5,24,33,33-24,1,development time,days,4.32,maggie_data,NA,NA,NA,28.5,14.15,0.3053003533568905,10_development time,52,keep
+10,25,1,24-33,28,24,32,24-32,1,development time,days,3.97,maggie_data,NA,NA,NA,28,14.15,0.280565371024735,10_development time,52,keep
+10,25,1,24-33,28,24,32,32-24,1,development time,days,4.22,maggie_data,NA,NA,NA,28,14.15,0.29823321554770316,10_development time,52,keep
+10,25,1,24-33,28.5,26,31,26-31,1,development time,days,3.64,maggie_data,NA,NA,NA,28.5,14.15,0.25724381625441695,10_development time,52,keep
+10,25,1,24-33,28.5,26,31,31-26,1,development time,days,3.75,maggie_data,NA,NA,NA,28.5,14.15,0.26501766784452296,10_development time,52,keep
+10,25,1,24-33,27.5,25,30,25-30,1,development time,days,3.67,maggie_data,NA,NA,NA,27.5,14.15,0.2593639575971731,10_development time,52,keep
+10,25,1,24-33,27.5,25,30,30-25,1,development time,days,3.95,maggie_data,NA,NA,NA,27.5,14.15,0.2791519434628975,10_development time,52,keep
+10,25,1,24-33,25,20,30,20-30,1,development time,days,4.86,maggie_data,NA,NA,NA,25,14.15,0.3434628975265018,10_development time,52,keep
+10,25,1,24-33,25,20,30,30-20,1,development time,days,4.57,maggie_data,NA,NA,NA,25,14.15,0.32296819787985864,10_development time,52,keep
+10,25,1,24-33,28.5,24,33,24-33,1,development time,days,3.88,maggie_data,NA,NA,NA,28.5,14.15,0.2742049469964664,10_development time,52,keep
+10,25,1,24-33,28.5,24,33,33-24,1,development time,days,4.17,maggie_data,NA,NA,NA,28.5,14.15,0.29469964664310955,10_development time,52,keep
+10,25,1,24-33,28,24,32,24-32,1,development time,days,3.84,maggie_data,NA,NA,NA,28,14.15,0.2713780918727915,10_development time,52,keep
+10,25,1,24-33,28,24,32,32-24,1,development time,days,3.97,maggie_data,NA,NA,NA,28,14.15,0.280565371024735,10_development time,52,keep
+10,25,1,24-33,28.5,26,31,26-31,1,development time,days,3.54,maggie_data,NA,NA,NA,28.5,14.15,0.25017667844522967,10_development time,52,keep
+10,25,1,24-33,28.5,26,31,31-26,1,development time,days,3.45,maggie_data,NA,NA,NA,28.5,14.15,0.24381625441696114,10_development time,52,keep
+10,25,1,24-33,27.5,25,30,25-30,1,development time,days,3.5,maggie_data,NA,NA,NA,27.5,14.15,0.24734982332155475,10_development time,52,keep
+10,25,1,24-33,27.5,25,30,30-25,1,development time,days,3.7,maggie_data,NA,NA,NA,27.5,14.15,0.26148409893992935,10_development time,52,keep
+10,25,1,24-33,25,20,30,20-30,1,development time,days,4.5,maggie_data,NA,NA,NA,25,14.15,0.31802120141342755,10_development time,52,keep
+10,25,1,24-33,25,20,30,30-20,1,development time,days,4.34,maggie_data,NA,NA,NA,25,14.15,0.3067137809187279,10_development time,52,keep
+10,25,1,15-29,25,21,29,21-29,1,development time,days,4.52,maggie_data,NA,NA,NA,25,14.15,0.319434628975265,10_development time,52,keep
+10,25,1,15-29,25,21,29,29-21,1,development time,days,4.39,maggie_data,NA,NA,NA,25,14.15,0.31024734982332153,10_development time,52,keep
+10,25,1,15-29,25,22.5,27.5,22.5-27.5,1,development time,days,4.31,maggie_data,NA,NA,NA,25,14.15,0.3045936395759717,10_development time,52,keep
+10,25,1,15-29,25,22.5,27.5,27.5-22.5,1,development time,days,4.17,maggie_data,NA,NA,NA,25,14.15,0.29469964664310955,10_development time,52,keep
+10,25,1,15-29,20,15,25,15-25,1,development time,days,6.95,maggie_data,NA,NA,NA,20,14.15,0.4911660777385159,10_development time,52,keep
+10,25,1,15-29,25,21,29,21-29,1,development time,days,4.17,maggie_data,NA,NA,NA,25,14.15,0.29469964664310955,10_development time,52,keep
+10,25,1,15-29,25,21,29,29-21,1,development time,days,4.23,maggie_data,NA,NA,NA,25,14.15,0.29893992932862196,10_development time,52,keep
+10,25,1,15-29,25,22.5,27.5,22.5-27.5,1,development time,days,4.01,maggie_data,NA,NA,NA,25,14.15,0.28339222614840986,10_development time,52,keep
+10,25,1,15-29,25,22.5,27.5,27.5-22.5,1,development time,days,3.97,maggie_data,NA,NA,NA,25,14.15,0.280565371024735,10_development time,52,keep
+10,25,1,15-29,20,15,25,15-25,1,development time,days,6.38,maggie_data,NA,NA,NA,20,14.15,0.45088339222614837,10_development time,52,keep
+10,25,1,15-29,17,7,27,7-27,1,development time,days,3.75,maggie_data,NA,NA,NA,17,14.15,0.26501766784452296,10_development time,52,keep
+10,25,1,15-29,17,7,27,27-7,1,development time,days,3.85,maggie_data,NA,NA,NA,17,14.15,0.27208480565371024,10_development time,52,keep
+10,25,1,15-29,17.5,8,27,8-27,1,development time,days,3.71,maggie_data,NA,NA,NA,17.5,14.15,0.26219081272084804,10_development time,52,keep
+10,25,1,15-29,17.5,8,27,27-8,1,development time,days,3.6,maggie_data,NA,NA,NA,17.5,14.15,0.254416961130742,10_development time,52,keep
+10,25,1,15-29,18,9,27,9-27,1,development time,days,3.67,maggie_data,NA,NA,NA,18,14.15,0.2593639575971731,10_development time,52,keep
+10,25,1,15-29,18,9,27,27-9,1,development time,days,3.59,maggie_data,NA,NA,NA,18,14.15,0.2537102473498233,10_development time,52,keep
+10,25,1,15-29,18.5,10,27,10-27,1,development time,days,3.56,maggie_data,NA,NA,NA,18.5,14.15,0.25159010600706716,10_development time,52,keep
+10,25,1,15-29,18.5,10,27,27-10,1,development time,days,3.73,maggie_data,NA,NA,NA,18.5,14.15,0.26360424028268553,10_development time,52,keep
+10,25,1,15-29,15,10,20,10-20,1,development time,days,6.1,maggie_data,NA,NA,NA,15,14.15,0.431095406360424,10_development time,52,keep
+10,25,1,15-29,15,10,20,20-10,1,development time,days,6.04,maggie_data,NA,NA,NA,15,14.15,0.42685512367491163,10_development time,52,keep
+10,25,1,15-29,15,10,20,20-10,1,development time,days,6.07,maggie_data,NA,NA,NA,15,14.15,0.42897526501766786,10_development time,52,keep
+10,25,1,15-29,17,7,27,7-27,1,development time,days,3.64,maggie_data,NA,NA,NA,17,14.15,0.25724381625441695,10_development time,52,keep
+10,25,1,15-29,17,7,27,27-7,1,development time,days,3.73,maggie_data,NA,NA,NA,17,14.15,0.26360424028268553,10_development time,52,keep
+10,25,1,15-29,17.5,8,27,8-27,1,development time,days,3.68,maggie_data,NA,NA,NA,17.5,14.15,0.26007067137809187,10_development time,52,keep
+10,25,1,15-29,17.5,8,27,27-8,1,development time,days,3.43,maggie_data,NA,NA,NA,17.5,14.15,0.24240282685512368,10_development time,52,keep
+10,25,1,15-29,18,9,27,9-27,1,development time,days,3.43,maggie_data,NA,NA,NA,18,14.15,0.24240282685512368,10_development time,52,keep
+10,25,1,15-29,18,9,27,27-9,1,development time,days,3.43,maggie_data,NA,NA,NA,18,14.15,0.24240282685512368,10_development time,52,keep
+10,25,1,15-29,18.5,10,27,10-27,1,development time,days,3.34,maggie_data,NA,NA,NA,18.5,14.15,0.2360424028268551,10_development time,52,keep
+10,25,1,15-29,18.5,10,27,27-10,1,development time,days,3.37,maggie_data,NA,NA,NA,18.5,14.15,0.2381625441696113,10_development time,52,keep
+10,25,1,15-29,15,10,20,10-20,1,development time,days,5.59,maggie_data,NA,NA,NA,15,14.15,0.39505300353356887,10_development time,52,keep
+10,25,1,15-29,15,10,20,20-10,1,development time,days,5.75,maggie_data,NA,NA,NA,15,14.15,0.40636042402826855,10_development time,52,keep
+10,25,1,15-29,15,10,20,20-10,1,development time,days,5.59,maggie_data,NA,NA,NA,15,14.15,0.39505300353356887,10_development time,52,keep
+11,NA,1,10-32,10.5,5,16,5-16,2,development rate,100/T,2.22293454,maggie_data,NA,NA,NA,10.5,16.3567536,0.1359031623487927,11_development rate,15,keep
+11,NA,1,10-32,12.5,7,18,7-18,2,development rate,100/T,2.9652523,maggie_data,NA,NA,NA,12.5,16.3567536,0.18128611413453094,11_development rate,15,keep
+11,NA,1,10-32,16.1,10.600000000000001,21.6,10.6-21.6,2,development rate,100/T,4.86984561,maggie_data,NA,NA,NA,16.1,16.3567536,0.2977269040722115,11_development rate,15,keep
+11,NA,1,10-32,21.1,15.600000000000001,26.6,15.6-26.6,2,development rate,100/T,7.14466489,maggie_data,NA,NA,NA,21.1,16.3567536,0.43680213474634716,11_development rate,15,keep
+11,NA,1,10-32,23.9,18.4,29.4,18.4-29.4,2,development rate,100/T,7.09737299,maggie_data,NA,NA,NA,23.9,16.3567536,0.43391085808127594,11_development rate,15,keep
+11,NA,1,10-32,26.7,21.2,32.2,21.2-32.2,2,development rate,100/T,6.63371145,maggie_data,NA,NA,NA,26.700000000000003,16.3567536,0.4055640631524827,11_development rate,15,keep
+11,NA,1,10-32,8,2.5,13.5,2.5-13.5,2,development rate,100/T,2.22724033,maggie_data,NA,NA,NA,8,16.3567536,0.13616640468313956,11_development rate,15,keep
+11,NA,1,10-32,10.5,5,16,5-16,2,development rate,100/T,3.26170576,maggie_data,NA,NA,NA,10.5,16.3567536,0.1994103377579766,11_development rate,15,keep
+11,NA,1,10-32,12.5,7,18,7-18,2,development rate,100/T,5.7905665,maggie_data,NA,NA,NA,12.5,16.3567536,0.3540168569880517,11_development rate,15,keep
+11,NA,1,10-32,16.1,10.600000000000001,21.6,10.6-21.6,2,development rate,100/T,8.40166778,maggie_data,NA,NA,NA,16.1,16.3567536,0.5136513018084469,11_development rate,15,keep
+11,NA,1,10-32,21.1,15.600000000000001,26.6,15.6-26.6,2,development rate,100/T,13.0451725,maggie_data,NA,NA,NA,21.1,16.3567536,0.7975404422549961,11_development rate,15,keep
+11,NA,1,10-32,23.9,18.4,29.4,18.4--29.4,2,development rate,100/T,14.9920343,maggie_data,NA,NA,NA,23.9,16.3567536,0.9165653935142729,11_development rate,15,keep
+11,NA,1,10-32,26.7,21.2,32.2,21.2-32.2,2,development rate,100/T,16.3567536,maggie_data,NA,NA,NA,26.700000000000003,16.3567536,1,11_development rate,15,keep
+11,NA,1,10-32,29.4,23.9,34.9,23.7-34.7,2,development rate,100/T,16.3521608,maggie_data,NA,NA,NA,29.4,16.3567536,0.9997192107852012,11_development rate,15,keep
+11,NA,1,10-32,32.2,26.700000000000003,37.7,26.7-37.7,2,development rate,100/T,16.138522,maggie_data,NA,NA,NA,32.2,16.3567536,0.9866580126266619,11_development rate,15,keep
+11,NA,1,10-32,10.5,5,16,5-16,2,development time,days,37.5417303,maggie_data,NA,NA,NA,10.5,48.1555018,0.7795937929567996,11_development time,20,keep
+11,NA,1,10-32,12.5,7,18,7-18,2,development time,days,33.2162797,maggie_data,NA,NA,NA,12.5,48.1555018,0.6897712298369196,11_development time,20,keep
+11,NA,1,10-32,16.1,10.600000000000001,21.6,10.6-21.6,2,development time,days,28.1801589,maggie_data,NA,NA,NA,16.1,48.1555018,0.5851908472896444,11_development time,20,keep
+11,NA,1,10-32,21.1,15.600000000000001,26.6,15.6-26.6,2,development time,days,25.4276125,maggie_data,NA,NA,NA,21.1,48.1555018,0.5280313058642034,11_development time,20,keep
+11,NA,1,10-32,23.9,18.4,29.4,18.4-29.4,2,development time,days,25.3384827,maggie_data,NA,NA,NA,23.9,48.1555018,0.5261804311631116,11_development time,20,keep
+11,NA,1,10-32,26.7,21.2,32.2,21.2-32.2,2,development time,days,25.7058382,maggie_data,NA,NA,NA,26.700000000000003,48.1555018,0.5338089572145212,11_development time,20,keep
+11,NA,1,10-32,8,2.5,13.5,2.5-13.5,2,development time,days,38.377053,maggie_data,NA,NA,NA,8,48.1555018,0.7969401535755566,11_development time,20,keep
+11,NA,1,10-32,10.5,5,16,5-16,2,development time,days,31.6413662,maggie_data,NA,NA,NA,10.5,48.1555018,0.6570664828997794,11_development time,20,keep
+11,NA,1,10-32,12.5,7,18,7-18,2,development time,days,27.4405682,maggie_data,NA,NA,NA,12.5,48.1555018,0.5698324630478672,11_development time,20,keep
+11,NA,1,10-32,16.1,10.600000000000001,21.6,10.6-21.6,2,development time,days,24.6067859,maggie_data,NA,NA,NA,16.1,48.1555018,0.5109859721158589,11_development time,20,keep
+11,NA,1,10-32,21.1,15.600000000000001,26.6,15.6-26.6,2,development time,days,22.8928672,maggie_data,NA,NA,NA,21.1,48.1555018,0.4753946349698302,11_development time,20,keep
+11,NA,1,10-32,23.9,18.4,29.4,18.4-29.4,2,development time,days,22.5128815,maggie_data,NA,NA,NA,23.9,48.1555018,0.46750382943782337,11_development time,20,keep
+11,NA,1,10-32,26.7,21.2,32.2,21.2-32.2,2,development time,days,22.2569742,maggie_data,NA,NA,NA,26.700000000000003,48.1555018,0.4621896433026059,11_development time,20,keep
+11,NA,1,10-32,29.4,23.9,34.9,23.9-34.9,2,development time,days,22.2940757,maggie_data,NA,NA,NA,29.4,48.1555018,0.46296009524710213,11_development time,20,keep
+11,NA,1,10-32,32.3,26.799999999999997,37.8,26.8-37.8,2,development time,days,22.3298855,maggie_data,NA,NA,NA,32.3,48.1555018,0.4637037236729615,11_development time,20,keep
+11,NA,1,10-26.8,10.5,5,16,5-16,2,development time,days,45.0007021,maggie_data,NA,NA,NA,10.5,48.1555018,0.9344872427432579,11_development time,20,keep
+11,NA,1,10-26.8,12.5,7,18,7-18,2,development time,days,33.8966924,maggie_data,NA,NA,NA,12.5,48.1555018,0.703900720228815,11_development time,20,keep
+11,NA,1,10-26.8,16.1,10.600000000000001,21.6,10.6-21.6,2,development time,days,20.8368261,maggie_data,NA,NA,NA,16.1,48.1555018,0.4326987638201706,11_development time,20,keep
+11,NA,1,10-26.8,21.1,15.600000000000001,26.6,15.6-26.6,2,development time,days,13.7943125,maggie_data,NA,NA,NA,21.1,48.1555018,0.2864535096589939,11_development time,20,keep
+11,NA,1,10-26.8,26.7,21.2,32.2,21.2-32.2,2,development time,days,15.0553813,maggie_data,NA,NA,NA,26.700000000000003,48.1555018,0.3126409389840477,11_development time,20,keep
+11,NA,0,10-26.8,15.5314523,15.5314523,15.5314523,NA,NA,development time,days,48.1555018,maggie_data,NA,NA,NA,15.5314523,48.1555018,1,11_development time,5,keep
+11,NA,0,10-26.8,18.2071172,18.2071172,18.2071172,NA,NA,development time,days,23.0662065,maggie_data,NA,NA,NA,18.2071172,48.1555018,0.478994209131053,11_development time,5,keep
+11,NA,0,10-26.8,21.2199637,21.2199637,21.2199637,NA,NA,development time,days,16.9322616,maggie_data,NA,NA,NA,21.2199637,48.1555018,0.35161634635899486,11_development time,5,keep
+11,NA,0,10-26.8,23.9247342,23.9247342,23.9247342,NA,NA,development time,days,14.1960027,maggie_data,NA,NA,NA,23.9247342,48.1555018,0.2947950321223732,11_development time,5,keep
+11,NA,0,10-26.8,26.8384346,26.8384346,26.8384346,NA,NA,development time,days,11.9179429,maggie_data,NA,NA,NA,26.8384346,48.1555018,0.24748870751046767,11_development time,5,keep
+12,NA,0,12.8-36.7,12.8,12.8,12.8,NA,NA,development rate,812/ Time,2.74080336,maggie_data,NA,NA,NA,12.8,26.6726151,0.10275720433576833,12_development rate,18,keep
+12,NA,0,12.8-36.7,13.3,13.3,13.3,NA,NA,development rate,812/ Time,3.20058859,maggie_data,NA,NA,NA,13.3,26.6726151,0.11999530522224647,12_development rate,18,keep
+12,NA,0,12.8-36.7,13.9,13.9,13.9,NA,NA,development rate,812/ Time,3.76638177,maggie_data,NA,NA,NA,13.9,26.6726151,0.14120781767664017,12_development rate,18,keep
+12,NA,0,12.8-36.7,14.4,14.4,14.4,NA,NA,development rate,812/ Time,4.29717291,maggie_data,NA,NA,NA,14.4,26.6726151,0.16110804635725423,12_development rate,18,keep
+12,NA,0,12.8-36.7,15.6,15.6,15.6,NA,NA,development rate,812/ Time,5.25237156,maggie_data,NA,NA,NA,15.6,26.6726151,0.19692000729242332,12_development rate,18,keep
+12,NA,0,12.8-36.7,16.9,16.9,16.9,NA,NA,development rate,812/ Time,6.87861996,maggie_data,NA,NA,NA,16.9,26.6726151,0.25789072178378186,12_development rate,18,keep
+12,NA,0,12.8-36.7,19.7,19.7,19.7,NA,NA,development rate,812/ Time,10.8359162,maggie_data,NA,NA,NA,19.7,26.6726151,0.40625623544502015,12_development rate,18,keep
+12,NA,0,12.8-36.7,21.1,21.1,21.1,NA,NA,development rate,812/ Time,12.8848189,maggie_data,NA,NA,NA,21.1,26.6726151,0.4830729514782373,12_development rate,18,keep
+12,NA,0,12.8-36.7,23.9,23.9,23.9,NA,NA,development rate,812/ Time,17.4061551,maggie_data,NA,NA,NA,23.9,26.6726151,0.6525852465062565,12_development rate,18,keep
+12,NA,0,12.8-36.7,26.7,26.7,26.7,NA,NA,development rate,812/ Time,21.292195,maggie_data,NA,NA,NA,26.7,26.6726151,0.7982792433427346,12_development rate,18,keep
+12,NA,0,12.8-36.7,29.4,29.4,29.4,NA,NA,development rate,812/ Time,24.2976738,maggie_data,NA,NA,NA,29.4,26.6726151,0.9109595631663427,12_development rate,18,keep
+12,NA,0,12.8-36.7,30.8,30.8,30.8,NA,NA,development rate,812/ Time,25.4305125,maggie_data,NA,NA,NA,30.8,26.6726151,0.9534315403516619,12_development rate,18,keep
+12,NA,0,12.8-36.7,32.2,32.2,32.2,NA,NA,development rate,812/ Time,26.104693,maggie_data,NA,NA,NA,32.2,26.6726151,0.9787076708500172,12_development rate,18,keep
+12,NA,0,12.8-36.7,33.6,33.6,33.6,NA,NA,development rate,812/ Time,26.6726151,maggie_data,NA,NA,NA,33.6,26.6726151,1,12_development rate,18,keep
+12,NA,0,12.8-36.7,35,35,35,NA,NA,development rate,812/ Time,25.4077831,maggie_data,NA,NA,NA,35,26.6726151,0.9525793779403354,12_development rate,18,keep
+12,NA,0,12.8-36.7,35.6,35.6,35.6,NA,NA,development rate,812/ Time,23.0834977,maggie_data,NA,NA,NA,35.6,26.6726151,0.8654381137153664,12_development rate,18,keep
+12,NA,0,12.8-36.7,36.1,36.1,36.1,NA,NA,development rate,812/ Time,20.6175762,maggie_data,NA,NA,NA,36.1,26.6726151,0.7729866802599343,12_development rate,18,keep
+12,NA,0,12.8-36.7,36.7,36.7,36.7,NA,NA,development rate,812/ Time,15.4715882,maggie_data,NA,NA,NA,36.7,26.6726151,0.5800551667691556,12_development rate,18,keep
+12,NA,0,12.8-36.7,12.5,12.5,12.5,NA,NA,development time,hours,0,maggie_data,NA,NA,NA,12.5,516,0,12_development time,65,keep
+12,NA,0,12.8-36.7,12.8,12.8,12.8,NA,NA,development time,hours,264,maggie_data,NA,NA,NA,12.8,516,0.5116279069767442,12_development time,65,keep
+12,NA,0,12.8-36.7,13.3,13.3,13.3,NA,NA,development time,hours,193,maggie_data,NA,NA,NA,13.3,516,0.374031007751938,12_development time,65,keep
+12,NA,0,12.8-36.7,13.9,13.9,13.9,NA,NA,development time,hours,176,maggie_data,NA,NA,NA,13.9,516,0.34108527131782945,12_development time,65,keep
+12,NA,0,12.8-36.7,14.4,14.4,14.4,NA,NA,development time,hours,136,maggie_data,NA,NA,NA,14.4,516,0.26356589147286824,12_development time,65,keep
+12,NA,0,12.8-36.7,15.6,15.6,15.6,NA,NA,development time,hours,103,maggie_data,NA,NA,NA,15.6,516,0.1996124031007752,12_development time,65,keep
+12,NA,0,12.8-36.7,16.9,16.9,16.9,NA,NA,development time,hours,80,maggie_data,NA,NA,NA,16.9,516,0.15503875968992248,12_development time,65,keep
+12,NA,0,12.8-36.7,18.3,18.3,18.3,NA,NA,development time,hours,65.5,maggie_data,NA,NA,NA,18.3,516,0.12693798449612403,12_development time,65,keep
+12,NA,0,12.8-36.7,19.7,19.7,19.7,NA,NA,development time,hours,54.1,maggie_data,NA,NA,NA,19.7,516,0.10484496124031008,12_development time,65,keep
+12,NA,0,12.8-36.7,21.1,21.1,21.1,NA,NA,development time,hours,40.1,maggie_data,NA,NA,NA,21.1,516,0.07771317829457365,12_development time,65,keep
+12,NA,0,12.8-36.7,23.9,23.9,23.9,NA,NA,development time,hours,32.6,maggie_data,NA,NA,NA,23.9,516,0.06317829457364342,12_development time,65,keep
+12,NA,0,12.8-36.7,26.7,26.7,26.7,NA,NA,development time,hours,28.5,maggie_data,NA,NA,NA,26.7,516,0.055232558139534885,12_development time,65,keep
+12,NA,0,12.8-36.7,29.4,29.4,29.4,NA,NA,development time,hours,27,maggie_data,NA,NA,NA,29.4,516,0.05232558139534884,12_development time,65,keep
+12,NA,0,12.8-36.7,30.8,30.8,30.8,NA,NA,development time,hours,26.3,maggie_data,NA,NA,NA,30.8,516,0.05096899224806202,12_development time,65,keep
+12,NA,0,12.8-36.7,32.2,32.2,32.2,NA,NA,development time,hours,25.7,maggie_data,NA,NA,NA,32.2,516,0.0498062015503876,12_development time,65,keep
+12,NA,0,12.8-36.7,33.6,33.6,33.6,NA,NA,development time,hours,27.1,maggie_data,NA,NA,NA,33.6,516,0.052519379844961245,12_development time,65,keep
+12,NA,0,12.8-36.7,35,35,35,NA,NA,development time,hours,29.7,maggie_data,NA,NA,NA,35,516,0.05755813953488372,12_development time,65,keep
+12,NA,0,12.8-36.7,35.6,35.6,35.6,NA,NA,development time,hours,33.6,maggie_data,NA,NA,NA,35.6,516,0.06511627906976744,12_development time,65,keep
+12,NA,0,12.8-36.7,36.1,36.1,36.1,NA,NA,development time,hours,42.8,maggie_data,NA,NA,NA,36.1,516,0.08294573643410852,12_development time,65,keep
+12,NA,0,12.8-36.7,36.7,36.7,36.7,NA,NA,development time,hours,0,maggie_data,NA,NA,NA,36.7,516,0,12_development time,65,keep
+12,NA,0,12.8-36.7,11.1,11.1,11.1,NA,NA,development time,hours,0,maggie_data,NA,NA,NA,11.1,516,0,12_development time,65,keep
+12,NA,0,12.8-36.7,11.4,11.4,11.4,NA,NA,development time,hours,240,maggie_data,NA,NA,NA,11.4,516,0.46511627906976744,12_development time,65,keep
+12,NA,0,12.8-36.7,11.67,11.67,11.67,NA,NA,development time,hours,216.5,maggie_data,NA,NA,NA,11.67,516,0.41957364341085274,12_development time,65,keep
+12,NA,0,12.8-36.7,12.2,12.2,12.2,NA,NA,development time,hours,176.5,maggie_data,NA,NA,NA,12.2,516,0.34205426356589147,12_development time,65,keep
+12,NA,0,12.8-36.7,12.8,12.8,12.8,NA,NA,development time,hours,147.8,maggie_data,NA,NA,NA,12.8,516,0.2864341085271318,12_development time,65,keep
+12,NA,0,12.8-36.7,13.3,13.3,13.3,NA,NA,development time,hours,131.4,maggie_data,NA,NA,NA,13.3,516,0.25465116279069766,12_development time,65,keep
+12,NA,0,12.8-36.7,13.9,13.9,13.9,NA,NA,development time,hours,116.4,maggie_data,NA,NA,NA,13.9,516,0.22558139534883723,12_development time,65,keep
+12,NA,0,12.8-36.7,14.4,14.4,14.4,NA,NA,development time,hours,99.6,maggie_data,NA,NA,NA,14.4,516,0.19302325581395346,12_development time,65,keep
+12,NA,0,12.8-36.7,15.6,15.6,15.6,NA,NA,development time,hours,84,maggie_data,NA,NA,NA,15.6,516,0.16279069767441862,12_development time,65,keep
+12,NA,0,12.8-36.7,16.9,16.9,16.9,NA,NA,development time,hours,65.4,maggie_data,NA,NA,NA,16.9,516,0.12674418604651164,12_development time,65,keep
+12,NA,0,12.8-36.7,18.3,18.3,18.3,NA,NA,development time,hours,53.8,maggie_data,NA,NA,NA,18.3,516,0.10426356589147286,12_development time,65,keep
+12,NA,0,12.8-36.7,19.7,19.7,19.7,NA,NA,development time,hours,44.1,maggie_data,NA,NA,NA,19.7,516,0.08546511627906977,12_development time,65,keep
+12,NA,0,12.8-36.7,21.1,21.1,21.1,NA,NA,development time,hours,37.7,maggie_data,NA,NA,NA,21.1,516,0.07306201550387598,12_development time,65,keep
+12,NA,0,12.8-36.7,23.9,23.9,23.9,NA,NA,development time,hours,29.1,maggie_data,NA,NA,NA,23.9,516,0.05639534883720931,12_development time,65,keep
+12,NA,0,12.8-36.7,26.7,26.7,26.7,NA,NA,development time,hours,23.9,maggie_data,NA,NA,NA,26.7,516,0.04631782945736434,12_development time,65,keep
+12,NA,0,12.8-36.7,29.4,29.4,29.4,NA,NA,development time,hours,21.2,maggie_data,NA,NA,NA,29.4,516,0.04108527131782946,12_development time,65,keep
+12,NA,0,12.8-36.7,30.8,30.8,30.8,NA,NA,development time,hours,19.9,maggie_data,NA,NA,NA,30.8,516,0.038565891472868215,12_development time,65,keep
+12,NA,0,12.8-36.7,32.2,32.2,32.2,NA,NA,development time,hours,19.5,maggie_data,NA,NA,NA,32.2,516,0.0377906976744186,12_development time,65,keep
+12,NA,0,12.8-36.7,33.6,33.6,33.6,NA,NA,development time,hours,19.4,maggie_data,NA,NA,NA,33.6,516,0.0375968992248062,12_development time,65,keep
+12,NA,0,12.8-36.7,35,35,35,NA,NA,development time,hours,23.9,maggie_data,NA,NA,NA,35,516,0.04631782945736434,12_development time,65,keep
+12,NA,0,12.8-36.7,35.6,35.6,35.6,NA,NA,development time,hours,26.3,maggie_data,NA,NA,NA,35.6,516,0.05096899224806202,12_development time,65,keep
+12,NA,0,12.8-36.7,36.1,36.1,36.1,NA,NA,development time,hours,31.2,maggie_data,NA,NA,NA,36.1,516,0.06046511627906977,12_development time,65,keep
+12,NA,0,12.8-36.7,36.4,36.4,36.4,NA,NA,development time,hours,41.5,maggie_data,NA,NA,NA,36.4,516,0.08042635658914729,12_development time,65,keep
+12,NA,0,12.8-36.7,36.7,36.7,36.7,NA,NA,development time,hours,0,maggie_data,NA,NA,NA,36.7,516,0,12_development time,65,keep
+12,NA,0,12.8-36.7,11.4,11.4,11.4,NA,NA,development time,hours,0,maggie_data,NA,NA,NA,11.4,516,0,12_development time,65,keep
+12,NA,0,12.8-36.7,11.6,11.6,11.6,NA,NA,development time,hours,516,maggie_data,NA,NA,NA,11.6,516,1,12_development time,65,keep
+12,NA,0,12.8-36.7,12.2,12.2,12.2,NA,NA,development time,hours,423,maggie_data,NA,NA,NA,12.2,516,0.8197674418604651,12_development time,65,keep
+12,NA,0,12.8-36.7,12.8,12.8,12.8,NA,NA,development time,hours,363,maggie_data,NA,NA,NA,12.8,516,0.7034883720930233,12_development time,65,keep
+12,NA,0,12.8-36.7,13.3,13.3,13.3,NA,NA,development time,hours,309.7,maggie_data,NA,NA,NA,13.3,516,0.6001937984496124,12_development time,65,keep
+12,NA,0,12.8-36.7,13.9,13.9,13.9,NA,NA,development time,hours,251.3,maggie_data,NA,NA,NA,13.9,516,0.48701550387596904,12_development time,65,keep
+12,NA,0,12.8-36.7,14.4,14.4,14.4,NA,NA,development time,hours,237.8,maggie_data,NA,NA,NA,14.4,516,0.46085271317829457,12_development time,65,keep
+12,NA,0,12.8-36.7,15.6,15.6,15.6,NA,NA,development time,hours,185.3,maggie_data,NA,NA,NA,15.6,516,0.359108527131783,12_development time,65,keep
+12,NA,0,12.8-36.7,16.9,16.9,16.9,NA,NA,development time,hours,142.7,maggie_data,NA,NA,NA,16.9,516,0.2765503875968992,12_development time,65,keep
+12,NA,0,12.8-36.7,18.3,18.3,18.3,NA,NA,development time,hours,112.9,maggie_data,NA,NA,NA,18.3,516,0.2187984496124031,12_development time,65,keep
+12,NA,0,12.8-36.7,19.7,19.7,19.7,NA,NA,development time,hours,92.9,maggie_data,NA,NA,NA,19.7,516,0.1800387596899225,12_development time,65,keep
+12,NA,0,12.8-36.7,21.1,21.1,21.1,NA,NA,development time,hours,76.7,maggie_data,NA,NA,NA,21.1,516,0.14864341085271318,12_development time,65,keep
+12,NA,0,12.8-36.7,23.9,23.9,23.9,NA,NA,development time,hours,57.6,maggie_data,NA,NA,NA,23.9,516,0.11162790697674418,12_development time,65,keep
+12,NA,0,12.8-36.7,26.7,26.7,26.7,NA,NA,development time,hours,44.8,maggie_data,NA,NA,NA,26.7,516,0.08682170542635659,12_development time,65,keep
+12,NA,0,12.8-36.7,29.4,29.4,29.4,NA,NA,development time,hours,38.4,maggie_data,NA,NA,NA,29.4,516,0.07441860465116279,12_development time,65,keep
+12,NA,0,12.8-36.7,30.8,30.8,30.8,NA,NA,development time,hours,36.2,maggie_data,NA,NA,NA,30.8,516,0.07015503875968992,12_development time,65,keep
+12,NA,0,12.8-36.7,32.2,32.2,32.2,NA,NA,development time,hours,34.7,maggie_data,NA,NA,NA,32.2,516,0.06724806201550389,12_development time,65,keep
+12,NA,0,12.8-36.7,33.6,33.6,33.6,NA,NA,development time,hours,37.4,maggie_data,NA,NA,NA,33.6,516,0.07248062015503876,12_development time,65,keep
+12,NA,0,12.8-36.7,35,35,35,NA,NA,development time,hours,43.6,maggie_data,NA,NA,NA,35,516,0.08449612403100776,12_development time,65,keep
+12,NA,0,12.8-36.7,35.6,35.6,35.6,NA,NA,development time,hours,47.2,maggie_data,NA,NA,NA,35.6,516,0.09147286821705426,12_development time,65,keep
+12,NA,0,12.8-36.7,35.8,35.8,35.8,NA,NA,development time,hours,0,maggie_data,NA,NA,NA,35.8,516,0,12_development time,65,keep
+13,NA,0,18-30,18,18,18,NA,NA,development rate,hour ^-1,0.00805191,maggie_data,NA,NA,NA,18,0.0331,0.2432601208459215,13_development rate,16,keep
+13,NA,0,18-30,22,22,22,NA,NA,development rate,hour ^-1,0.01253588,maggie_data,NA,NA,NA,22,0.0331,0.37872749244712994,13_development rate,16,keep
+13,NA,0,18-30,26,26,26,NA,NA,development rate,hour ^-1,0.01667664,maggie_data,NA,NA,NA,26,0.0331,0.5038259818731118,13_development rate,16,keep
+13,NA,0,18-30,30,30,30,NA,NA,development rate,hour ^-1,0.01772519,maggie_data,NA,NA,NA,30,0.0331,0.5355042296072507,13_development rate,16,keep
+13,NA,0,18-30,18,18,18,NA,NA,development rate,hour ^-1,0.00785463,maggie_data,NA,NA,NA,18,0.0331,0.2373,13_development rate,16,keep
+13,NA,0,18-30,22,22,22,NA,NA,development rate,hour ^-1,0.01236811,maggie_data,NA,NA,NA,22,0.0331,0.37365891238670695,13_development rate,16,keep
+13,NA,0,18-30,26,26,26,NA,NA,development rate,hour ^-1,0.01957796,maggie_data,NA,NA,NA,26,0.0331,0.5914791540785499,13_development rate,16,keep
+13,NA,0,18-30,30,30,30,NA,NA,development rate,hour ^-1,0.01582649,maggie_data,NA,NA,NA,30,0.0331,0.4781416918429003,13_development rate,16,keep
+13,NA,0,18-30,18,18,18,NA,NA,development rate,hour ^-1,8.5079e-4,maggie_data,NA,NA,NA,18,0.0331,0.025703625377643508,13_development rate,16,keep
+13,NA,0,18-30,22,22,22,NA,NA,development rate,hour ^-1,9.8922e-4,maggie_data,NA,NA,NA,22,0.0331,0.02988580060422961,13_development rate,16,keep
+13,NA,0,18-30,26,26,26,NA,NA,development rate,hour ^-1,0.00131896,maggie_data,NA,NA,NA,26,0.0331,0.039847734138972815,13_development rate,16,keep
+13,NA,0,18-30,30,30,30,NA,NA,development rate,hour ^-1,0.00117044,maggie_data,NA,NA,NA,30,0.0331,0.035360725075528704,13_development rate,16,keep
+13,NA,0,18-30,18,18,18,NA,NA,development rate,hour ^-1,7.1762e-4,maggie_data,NA,NA,NA,18,0.0331,0.021680362537764352,13_development rate,16,keep
+13,NA,0,18-30,22,22,22,NA,NA,development rate,hour ^-1,0.00135356,maggie_data,NA,NA,NA,22,0.0331,0.04089305135951662,13_development rate,16,keep
+13,NA,0,18-30,26,26,26,NA,NA,development rate,hour ^-1,0.00182614,maggie_data,NA,NA,NA,26,0.0331,0.055170392749244714,13_development rate,16,keep
+13,NA,0,18-30,30,30,30,NA,NA,development rate,hour ^-1,0.00155776,maggie_data,NA,NA,NA,30,0.0331,0.047062235649546834,13_development rate,16,keep
+13,NA,1,18-34,23,18,28,18-28,2,development rate,hour ^-1,0.0175,maggie_data,NA,NA,NA,23,0.0331,0.5287009063444109,13_development rate,10,keep
+13,NA,1,18-34,26,18,34,18-34,2,development rate,hour ^-1,0.0178,maggie_data,NA,NA,NA,26,0.0331,0.5377643504531723,13_development rate,10,keep
+13,NA,1,18-34,23,18,28,18-28,2,development rate,hour ^-1,0.0194,maggie_data,NA,NA,NA,23,0.0331,0.5861027190332327,13_development rate,10,keep
+13,NA,1,18-34,26,18,34,18-34,2,development rate,hour ^-1,0.0331,maggie_data,NA,NA,NA,26,0.0331,1,13_development rate,10,keep
+13,NA,1,18-34,23,18,28,18-28,2,development rate,hour ^-1,0.0026,maggie_data,NA,NA,NA,23,0.0331,0.07854984894259819,13_development rate,10,keep
+13,NA,1,18-34,26,18,34,18-34,2,development rate,hour ^-1,0.0024,maggie_data,NA,NA,NA,26,0.0331,0.07250755287009063,13_development rate,10,keep
+13,NA,1,18-34,23,18,28,18-28,2,development rate,hour ^-1,0.0018,maggie_data,NA,NA,NA,23,0.0331,0.05438066465256798,13_development rate,10,keep
+13,NA,1,18-34,26,18,34,18-34,2,development rate,hour ^-1,0.0016,maggie_data,NA,NA,NA,26,0.0331,0.04833836858006043,13_development rate,10,keep
+13,NA,1,18-34,23,18,28,18-28,2,development rate,hour ^-1,0.0077,maggie_data,NA,NA,NA,23,0.0331,0.23262839879154082,13_development rate,10,keep
+13,NA,1,18-34,26,18,34,18-34,2,development rate,hour ^-1,0.0076,maggie_data,NA,NA,NA,26,0.0331,0.229607250755287,13_development rate,10,keep
+15,NA,0,5-27.5,12.5,NA,NA,NA,NA,innate capacity for increase (rm),NA,0,maggie_data,NA,NA,NA,12.5,0.376,0,15_innate capacity for increase (rm),6,keep
+15,NA,1,5-27.5,12.5,5,20,43971,1,innate capacity for increase (rm),NA,0,maggie_data,NA,NA,NA,12.5,0.376,0,15_innate capacity for increase (rm),8,keep
+15,NA,0,5-27.5,15,NA,NA,NA,NA,innate capacity for increase (rm),NA,0,maggie_data,NA,NA,NA,15,0.376,0,15_innate capacity for increase (rm),6,keep
+15,NA,0,5-27.5,17.5,NA,NA,NA,NA,innate capacity for increase (rm),NA,0,maggie_data,NA,NA,NA,17.5,0.376,0,15_innate capacity for increase (rm),6,keep
+15,NA,0,5-27.5,20,NA,NA,NA,NA,innate capacity for increase (rm),NA,0.239,maggie_data,NA,NA,NA,20,0.376,0.6356382978723404,15_innate capacity for increase (rm),6,keep
+15,NA,1,5-27.5,NA,17.5,22.5,17.5-22.5,1,innate capacity for increase (rm),NA,0.265,maggie_data,NA,NA,NA,20,0.376,0.7047872340425533,15_innate capacity for increase (rm),8,keep
+15,NA,1,5-27.5,NA,15,25,15-25,1,innate capacity for increase (rm),NA,0.248,maggie_data,NA,NA,NA,20,0.376,0.6595744680851063,15_innate capacity for increase (rm),8,keep
+15,NA,1,5-27.5,NA,12.5,27.5,12.5-27.5,1,innate capacity for increase (rm),NA,0.124,maggie_data,NA,NA,NA,20,0.376,0.32978723404255317,15_innate capacity for increase (rm),8,keep
+15,NA,0,5-27.5,22.5,NA,NA,NA,NA,innate capacity for increase (rm),NA,0.32,maggie_data,NA,NA,NA,22.5,0.376,0.851063829787234,15_innate capacity for increase (rm),6,keep
+15,NA,1,5-27.5,NA,20,25,20-25,1,innate capacity for increase (rm),NA,0.348,maggie_data,NA,NA,NA,22.5,0.376,0.925531914893617,15_innate capacity for increase (rm),8,keep
+15,NA,1,5-27.5,NA,17.5,27.5,17.5-27.5,1,innate capacity for increase (rm),NA,0.278,maggie_data,NA,NA,NA,22.5,0.376,0.7393617021276596,15_innate capacity for increase (rm),8,keep
+15,NA,1,5-27.5,NA,21,26,21-26,1,innate capacity for increase (rm),NA,0.354,maggie_data,NA,NA,NA,23.5,0.376,0.9414893617021276,15_innate capacity for increase (rm),8,keep
+15,NA,0,5-27.5,25,NA,NA,NA,NA,innate capacity for increase (rm),NA,0.376,maggie_data,NA,NA,NA,25,0.376,1,15_innate capacity for increase (rm),6,keep
+15,NA,1,5-27.5,NA,22.5,27.5,22.5-27.5,1,innate capacity for increase (rm),NA,0.36,maggie_data,NA,NA,NA,25,0.376,0.9574468085106382,15_innate capacity for increase (rm),8,keep
+16,25 constant,0,NA,10,10,10,NA,NA,growth rate,ln(mg)*day^-1,0.26878768,maggie_data,NA,NA,NA,10,0.79771821,0.33694564901558405,16_growth rate,25,keep
+16,25 constant,0,NA,15,15,15,NA,NA,growth rate,ln(mg)*day^-1,0.36209535,maggie_data,NA,NA,NA,15,0.79771821,0.45391385762649195,16_growth rate,25,keep
+16,25 constant,0,NA,20,20,20,NA,NA,growth rate,ln(mg)*day^-1,0.53749652,maggie_data,NA,NA,NA,20,0.79771821,0.6737924661391396,16_growth rate,25,keep
+16,25 constant,0,NA,25,25,25,NA,NA,growth rate,ln(mg)*day^-1,0.67020221,maggie_data,NA,NA,NA,25,0.79771821,0.8401490671749866,16_growth rate,25,keep
+16,25 constant,0,NA,30,30,30,NA,NA,growth rate,ln(mg)*day^-1,0.67650032,maggie_data,NA,NA,NA,30,0.79771821,0.8480442235360279,16_growth rate,25,keep
+16,25 constant,0,NA,35,35,35,NA,NA,growth rate,ln(mg)*day^-1,0.59413784,maggie_data,NA,NA,NA,35,0.79771821,0.7447966368976333,16_growth rate,25,keep
+16,25 constant,0,NA,40,40,40,NA,NA,growth rate,ln(mg)*day^-1,0.58072999,maggie_data,NA,NA,NA,40,0.79771821,0.7279888846965147,16_growth rate,25,keep
+16,25 plus 10,0,NA,10,10,10,NA,NA,growth rate,ln(mg)*day^-1,0.23759855,maggie_data,NA,NA,NA,10,0.79771821,0.2978477199360912,16_growth rate,25,keep
+16,25 plus 10,0,NA,15,15,15,NA,NA,growth rate,ln(mg)*day^-1,0.36209535,maggie_data,NA,NA,NA,15,0.79771821,0.45391385762649195,16_growth rate,25,keep
+16,25 plus 10,0,NA,20,20,20,NA,NA,growth rate,ln(mg)*day^-1,0.46854188,maggie_data,NA,NA,NA,20,0.79771821,0.5873526191661088,16_growth rate,25,keep
+16,25 plus 10,0,NA,25,25,25,NA,NA,growth rate,ln(mg)*day^-1,0.66199332,maggie_data,NA,NA,NA,25,0.79771821,0.8298586038295402,16_growth rate,25,keep
+16,25 plus 10,0,NA,30,30,30,NA,NA,growth rate,ln(mg)*day^-1,0.72246545,maggie_data,NA,NA,NA,30,0.79771821,0.9056649841301729,16_growth rate,25,keep
+16,25 plus 10,0,NA,35,35,35,NA,NA,growth rate,ln(mg)*day^-1,0.79771821,maggie_data,NA,NA,NA,35,0.79771821,1,16_growth rate,25,keep
+16,25 plus 10,0,NA,40,40,40,NA,NA,growth rate,ln(mg)*day^-1,0.56431222,maggie_data,NA,NA,NA,40,0.79771821,0.707407970541377,16_growth rate,25,keep
+16,25 constant,0,NA,15,15,15,NA,NA,growth rate,ln(mg)*day^-1,-0.0017493,maggie_data,NA,NA,NA,15,0.79771821,-0.002192879613466515,16_growth rate,25,keep
+16,25 constant,0,NA,20,20,20,NA,NA,growth rate,ln(mg)*day^-1,0.25889213,maggie_data,NA,NA,NA,20,0.79771821,0.32454083002568035,16_growth rate,25,keep
+16,25 constant,0,NA,25,25,25,NA,NA,growth rate,ln(mg)*day^-1,0.44956268,maggie_data,NA,NA,NA,25,0.79771821,0.5635607591307211,16_growth rate,25,keep
+16,25 constant,0,NA,30,30,30,NA,NA,growth rate,ln(mg)*day^-1,0.58950437,maggie_data,NA,NA,NA,30,0.79771821,0.7389882324486488,16_growth rate,25,keep
+16,25 constant,0,NA,35,35,35,NA,NA,growth rate,ln(mg)*day^-1,0.06122449,maggie_data,NA,NA,NA,35,0.79771821,0.07674952036007802,16_growth rate,25,keep
+16,25 constant,0,NA,20,20,20,NA,NA,growth rate,ln(mg)*day^-1,0.17530266,maggie_data,NA,NA,NA,20,0.79771821,0.2197551187906316,16_growth rate,25,keep
+16,25 constant,0,NA,25,25,25,NA,NA,growth rate,ln(mg)*day^-1,0.30992736,maggie_data,NA,NA,NA,25,0.79771821,0.38851734373720764,16_growth rate,25,keep
+16,25 constant,0,NA,30,30,30,NA,NA,growth rate,ln(mg)*day^-1,0.36125908,maggie_data,NA,NA,NA,30,0.79771821,0.4528655300472582,16_growth rate,25,keep
+16,NA,1,NA,20,15,25,15-25,2,growth rate,ln(mg)*day^-1,0.15786925,maggie_data,NA,NA,NA,20,0.79771821,0.19790102321971564,16_growth rate,12,keep
+16,NA,1,NA,25,20,30,20-30,2,growth rate,ln(mg)*day^-1,0.31283293,maggie_data,NA,NA,NA,25,0.79771821,0.3921596950883195,16_growth rate,12,keep
+16,NA,1,NA,30,25,35,25-35,2,growth rate,ln(mg)*day^-1,0.34769976,maggie_data,NA,NA,NA,30,0.79771821,0.43586789876590637,16_growth rate,12,keep
+16,NA,1,NA,20,10,30,10-30,2,growth rate,ln(mg)*day^-1,0.17530266,maggie_data,NA,NA,NA,20,0.79771821,0.2197551187906316,16_growth rate,12,keep
+16,NA,1,NA,25,15,35,15-35,2,growth rate,ln(mg)*day^-1,0.28958838,maggie_data,NA,NA,NA,25,0.79771821,0.36302089681517985,16_growth rate,12,keep
+16,NA,1,NA,30,20,40,20-40,2,growth rate,ln(mg)*day^-1,0.19079903,maggie_data,NA,NA,NA,30,0.79771821,0.23918098848464298,16_growth rate,12,keep
+16,NA,0,NA,20,20,20,NA,NA,growth rate,ln(mg)*day^-1,0.1769495,maggie_data,NA,NA,NA,20,0.79771821,0.22181955705887674,16_growth rate,25,keep
+16,NA,0,NA,25,25,25,NA,NA,growth rate,ln(mg)*day^-1,0.2442601,maggie_data,NA,NA,NA,25,0.79771821,0.30619847577504844,16_growth rate,25,keep
+16,NA,0,NA,30,30,30,NA,NA,growth rate,ln(mg)*day^-1,0.37548972,maggie_data,NA,NA,NA,30,0.79771821,0.47070471162993766,16_growth rate,25,keep
+16,NA,1,NA,20,15,25,15-25,2,growth rate,ln(mg)*day^-1,0.14982736,maggie_data,NA,NA,NA,20,0.79771821,0.1878199069819404,16_growth rate,12,keep
+16,NA,1,NA,25,20,30,20-30,2,growth rate,ln(mg)*day^-1,0.22682669,maggie_data,NA,NA,NA,25,0.79771821,0.2843443802041325,16_growth rate,12,keep
+16,NA,1,NA,30,25,35,25-35,2,growth rate,ln(mg)*day^-1,0.34159492,maggie_data,NA,NA,NA,30,0.79771821,0.42821502094079067,16_growth rate,12,keep
+16,NA,1,NA,20,10,30,10-30,2,growth rate,ln(mg)*day^-1,0.19050533,maggie_data,NA,NA,NA,20,0.79771821,0.2388128133617509,16_growth rate,12,keep
+16,NA,1,NA,25,15,35,15-35,2,growth rate,ln(mg)*day^-1,0.25588238,maggie_data,NA,NA,NA,25,0.79771821,0.32076788117949573,16_growth rate,12,keep
+16,NA,1,NA,30,20,40,20-40,2,growth rate,ln(mg)*day^-1,0.27670038,maggie_data,NA,NA,NA,30,0.79771821,0.34686481583515566,16_growth rate,12,keep
+kingsolver,NA,0,NA,9.961416001,NA,NA,NA,NA,growth rate,NA,1.1962320841550727,NA,constant observed,NA,NA,9.961416001,1.8388985844802923,0.6505155282900773,kingsolver_growth rate,7,keep
+kingsolver,NA,0,NA,14.87146509,NA,NA,NA,NA,growth rate,NA,1.2680633800088845,NA,constant observed,NA,NA,14.87146509,1.8388985844802923,0.689577658447795,kingsolver_growth rate,7,keep
+kingsolver,NA,0,NA,19.81962765,NA,NA,NA,NA,growth rate,NA,1.489673429346803,NA,constant observed,NA,NA,19.81962765,1.8388985844802923,0.8100900408098433,kingsolver_growth rate,7,keep
+kingsolver,NA,0,NA,24.64921499,NA,NA,NA,NA,growth rate,NA,1.8057757791634317,NA,constant observed,NA,NA,24.64921499,1.8388985844802923,0.9819876932874894,kingsolver_growth rate,7,keep
+kingsolver,NA,0,NA,29.72348134,NA,NA,NA,NA,growth rate,NA,1.8388985844802923,NA,constant observed,NA,NA,29.72348134,1.8388985844802923,1,kingsolver_growth rate,7,keep
+kingsolver,NA,0,NA,34.76481014,NA,NA,NA,NA,growth rate,NA,1.6084364933356812,NA,constant observed,NA,NA,34.76481014,1.8388985844802923,0.8746738438489015,kingsolver_growth rate,7,keep
+kingsolver,NA,0,NA,39.98117854,NA,NA,NA,NA,growth rate,NA,1.5792046970261564,NA,constant observed,NA,NA,39.98117854,1.8388985844802923,0.8587774825398921,kingsolver_growth rate,7,keep
+kingsolver,NA,1,NA,20,NA,NA,NA,NA,growth rate,NA,1.1517536017191996,NA,variable observed,1.1517536017191996,0,20,1.8388985844802923,0.6263279614436742,kingsolver_growth rate,9,keep
+kingsolver,NA,1,NA,25,NA,NA,NA,NA,growth rate,NA,1.3037207919819829,NA,variable observed,1.3037207919819829,0,25,1.8388985844802923,0.7089682938390206,kingsolver_growth rate,9,keep
+kingsolver,NA,1,NA,30,NA,NA,NA,NA,growth rate,NA,1.4018809000944727,NA,variable observed,1.4018809000944727,0,30,1.8388985844802923,0.7623481316076335,kingsolver_growth rate,9,keep
+kingsolver,NA,1,NA,20,NA,NA,NA,NA,growth rate,NA,1.1403601539154407,NA,variable observed,1.1403601539154407,5,20,1.8388985844802923,0.6201321614686697,kingsolver_growth rate,9,keep
+kingsolver,NA,1,NA,25,NA,NA,NA,NA,growth rate,NA,1.3050518554993111,NA,variable observed,1.3050518554993111,5,25,1.8388985844802923,0.7096921312102394,kingsolver_growth rate,9,keep
+kingsolver,NA,1,NA,30,NA,NA,NA,NA,growth rate,NA,1.370605909807506,NA,variable observed,1.370605909807506,5,30,1.8388985844802923,0.7453406736918368,kingsolver_growth rate,9,keep
+kingsolver,NA,1,NA,20,NA,NA,NA,NA,growth rate,NA,1.1536406656375324,NA,variable observed,1.1536406656375324,10,20,1.8388985844802923,0.6273541539342548,kingsolver_growth rate,9,keep
+kingsolver,NA,1,NA,25,NA,NA,NA,NA,growth rate,NA,1.276007249075356,NA,variable observed,1.276007249075356,10,25,1.8388985844802923,0.6938975644684505,kingsolver_growth rate,9,keep
+kingsolver,NA,1,NA,30,NA,NA,NA,NA,growth rate,NA,1.1614427531336085,NA,variable observed,1.1614427531336085,10,30,1.8388985844802923,0.6315969586010934,kingsolver_growth rate,9,keep
