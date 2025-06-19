@@ -1,0 +1,61 @@
+curve_id,study_id,genus_species,additional_complexity,trait,trait_def,units
+1,10,Drosophila melanogaster,female,development rate,1/time to hatch,1/days
+2,10,Drosophila melanogaster,male,development rate,1/time to hatch,1/days
+3,119,Pistia stratiotes,NA,weight gain,change in wet mass from beginning to end / total days,g/day
+4,13,Limnodynastes peronii,25 to 31,development rate,NA,hour ^-1
+5,13,Limnodynastes peronii,31 to 42,development rate,NA,hour ^-1
+6,13,Limnodynastes peronii,embryonic,development rate,NA,hour ^-1
+7,13,Limnodynastes peronii,hatching to 25,development rate,NA,hour ^-1
+8,15,Drosophila melanogaster,NA,innate capacity for increase (rm),NA,NA
+9,150,Pelodiscus sinensis,NA,1/Duration of incubation,1/number of days from laying to hatching,1/days
+10,150,Pelodiscus sinensis,NA,Body mass,wet body mass (g),g
+11,150,Pelodiscus sinensis,NA,Carapace width,NA,mm
+12,150,Pelodiscus sinensis,NA,Hatching success,percent of eggs in treatment that hatched,percent
+13,150,Pelodiscus sinensis,NA,Max distance travelled,Max distance traveled in a single dash by hatchling on race track,m
+14,159,drosophila melanogaster,Bordeaux - F,thorax length,thorax length,mm
+15,159,drosophila melanogaster,Bordeaux - M,thorax length,thorax length,mm
+16,159,drosophila melanogaster,Cordoba - F,thorax length,thorax length,mm
+17,159,drosophila melanogaster,Cordoba - M,thorax length,thorax length,mm
+18,159,drosophila simulans,Bordeaux - F,thorax length,thorax length,mm
+19,159,drosophila simulans,Bordeaux - M,thorax length,thorax length,mm
+20,159,drosophila simulans,Cordoba - F,thorax length,thorax length,mm
+21,159,drosophila simulans,Cordoba - M,thorax length,thorax length,mm
+22,159,drosophila melanogaster,Bordeaux - F,winglength,left wing,mm
+23,159,drosophila melanogaster,Bordeaux - M,winglength,left wing,mm
+24,159,drosophila melanogaster,Cordoba - F,winglength,left wing,mm
+25,159,drosophila melanogaster,Cordoba - M,winglength,left wing,mm
+26,159,drosophila simulans,Bordeaux - F,winglength,left wing,mm
+27,159,drosophila simulans,Bordeaux - M,winglength,left wing,mm
+28,159,drosophila simulans,Cordoba - F,winglength,left wing,mm
+29,159,drosophila simulans,Cordoba - M,winglength,left wing,mm
+30,165,Leptinotarsa decemlineata,horsenettle-NC,development rate,inverse of devel. time,1/days
+31,165,Leptinotarsa decemlineata,potato-MA,development rate,inverse of devel. time,1/days
+32,165,Leptinotarsa decemlineata,potato-NC,development rate,inverse of devel. time,1/days
+33,165,Leptinotarsa decemlineata,horsenettle-MA,survival,percent survival L1 to adult,percent
+34,165,Leptinotarsa decemlineata,horsenettle-NC,survival,percent survival L1 to adult,percent
+35,165,Leptinotarsa decemlineata,potato-MA,survival,percent survival L1 to adult,percent
+36,165,Leptinotarsa decemlineata,potato-NC,survival,percent survival L1 to adult,percent
+37,168,Cyprinodon n. nevadensis,NA,egg hatch,percentage eggs hatched,percent
+38,168,Cyprinodon n. nevadensis,NA,egg yolk size,yolk diameter,mm (assumed)
+39,168,Cyprinodon n. nevadensis,NA,fecundity,eggs per spawning,number of eggs
+40,168,Cyprinodon n. nevadensis,NA,fecundity/body weight,eggs per gram body weight per day,eggs/g/day
+41,168,Cyprinodon n. nevadensis,NA,gonosomatic index,ovary weight/(body weight-ovary weight),proportion
+42,168,Cyprinodon n. nevadensis,NA,spawning,percentage of days where spawning occurred,percent
+43,9,japonica popilla,NA,development rate of egg,time to hatch,days^-1
+44,9,japonica popilla,NA,development rate of first-instar larva,time to first of three pre-pupae stages,days^-1
+45,9,japonica popilla,NA,development rate of pupal stage,time to split ski on the dorsal surface,days^-1
+46,9,japonica popilla,NA,development rate of second-instar larva,time to two of three pre-pupae stages,days^-1
+47,90,Parameciidae Paramecium,infected,Population size,NA,individuals/ml
+48,90,Parameciidae Paramecium,uninfected,Population size,NA,individuals/ml
+49,VB19-1,Tribolium T. castaneum,NA,development rate,1/time to development,1/days
+50,VB19-2,Anasa A. tristis,NA,Teneral WT - Female,Teneral WT - Female,mg
+51,VB19-2,Anasa A. tristis,NA,Teneral WT - Male,Teneral WT - Male,mg
+52,VB19-2,Anasa A. tristis,NA,survival,percent survival,percentage
+53,VB19-3,Circulifer C. tenellus,female,development rate,1/time to development,1/days
+54,VB19-3,Circulifer C. tenellus,male,development rate,1/time to development,1/days
+55,VB19-4,Listronotus L. oregonencis,NA,development rate,1/total development time - egg to adult,1/days
+56,VB19-5,Aedes A. Kromebeini,female,Adult longeivity - Females,Adult longeivity - Females,days
+57,VB19-5,Aedes A. Kromebeini,male,Adult longeivity - Males,Adult longeivity - Males,days
+58,VB19-5,Aedes A. Kromebeini,NA,Fecundity,#eggs per 10 females,days
+59,VB19-5,Aedes A. Kromebeini,female,development rate,1/time to development,1/days
+60,VB19-5,Aedes A. Kromebeini,male,development rate,1/duration of 50% hatching to enclusion,1/days

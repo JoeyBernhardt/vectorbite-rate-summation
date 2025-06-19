@@ -362,6 +362,11 @@ data$dtr[data$study_id == "150" & is.na(data$dtr)] <-
   data$max_temp[data$study_id == "150" & is.na(data$dtr)] - 
   data$min_temp[data$study_id == "150" & is.na(data$dtr)]
 
+## Convert incubation duration to rate
+data$response[data$study_id == "150" & data$trait == "Duration of incubation"] <- 1/data$response[data$study_id == "150" & data$trait == "Duration of incubation"]
+data$units[data$study_id == "150" & data$trait == "Duration of incubation"] <- "1/days"
+data$trait[data$study_id == "150" & data$trait == "Duration of incubation"] <- "1/Duration of incubation"
+data$trait_def[data$study_id == "150" & data$trait == "1/Duration of incubation"] <- "1/number of days from laying to hatching"
 
 ## Study ID 159 (curve_id 31-34) ----
 ## i. separate data into F and M and 2 different populations
@@ -576,11 +581,11 @@ num_of_const <- data %>%
   summarise(n = n()) %>% 
   arrange(n)
 
-## Remove papers with <3 data from constant temp treatment ----
+## Remove papers with <4 data from constant temp treatment ----
 curve_needed <- num_of_const %>% 
-  filter(n >= 3)
+  filter(n >= 4)
 
-curve_needed <- c(curve_needed$curve_id) # 72 from maggie and vb_team
+curve_needed <- c(curve_needed$curve_id) # 60 from maggie and vb_team
 curve_needed
 
 data <- data %>% filter(curve_id %in% curve_needed)
@@ -595,18 +600,18 @@ data <- data %>%
   relocate(curve_id, .before = study_id) %>% 
   arrange(curve_id)
 
-unique(data$curve_id) # 72 curves from vb_team and maggie's data
+unique(data$curve_id) # 60 curves from vb_team and maggie's data
 
 
 ## Save the dataset
-# write_csv(data, "data-processed/vb_maggie_data_20250507.csv")
+# write_csv(data, "data-processed/vb_maggie_data_20250611.csv")
 
-data <- read_csv("data-processed/vb_maggie_data_20250507.csv")
+data <- read_csv("data-processed/vb_maggie_data_20250611.csv")
 
 
 ## Plot each curve again
 # Create a directory for output files
-output_dir <- "figures/data-paper-plots-20250507"
+output_dir <- "figures/Lilian/data-paper-plots-20250618"
 
 if (!dir.exists(output_dir)) {
   dir.create(output_dir)
