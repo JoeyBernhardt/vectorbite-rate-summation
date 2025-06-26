@@ -5,8 +5,15 @@
 ## 1. Function to perform rate summation
 
 
-#### 0. Load tidyverse library ----
+#### 0. Load packages ----
 library(tidyverse)
+library(boot)
+library(car)
+library(rTPC)
+library(nls.multstart)
+library(broom)
+library(minpack.lm)
+
 
 ################################################################################
 #### 1. Functions to process TPC model output
@@ -34,60 +41,122 @@ calcPostQuants <- function(TPC_predictions, trait_treatment_name, temp_gradient)
 }
 
 
-################################################################################
-#### Function to do Bootstrapping ----
+########################### Bootstrapping ######################################
+#### Function to get model-specific formula and prediction function ----
+get_formula <- function(model_name) {
+	switch(model_name,
+		   "briere" = list(
+		   	formula = rlang::expr(rate ~ briere1_1999(temp = temp, tmin, tmax, a)),
+		   	predict_fn = function(df) briere1_1999(temp = df$temp, tmin = df$tmin, tmax = df$tmax, a = df$a),
+		   	lower = function(temp, rate) get_lower_lims(temp, rate, "briere1_1999"),
+		   	upper = function(temp, rate) get_upper_lims(temp, rate, "briere1_1999")
+		   ),
+		   "quadratic" = list(
+		   	formula = rlang::expr(rate ~ quadratic(temp, tmin, tmax, a)),
+		   	predict_fn = function(df) quadratic(temp = df$temp, tmin = df$tmin, tmax = df$tmax, a = df$a),
+		   	lower = function(temp, rate) quadratic.lower_lims(temp, rate),
+		   	upper = function(temp, rate) quadratic.upper_lims(temp, rate)
+		   ),
+		   "lactin" = list(
+		   	formula = rate ~ lactin2_1995(temp = temp, a, b, tmax, delta_t),
+		   	predict_fn = function(df) lactin2_1995(temp = df$temp, a = df$a, b = df$b, tmax = df$tmax, delta_t = df$delta_t),
+		   	lower = function(temp, rate) get_lower_lims(temp, rate, "lactin2_1995"),
+		   	upper = function(temp, rate) get_upper_lims(temp, rate, "lactin2_1995")
+		   ),
+		   "sharpeschoolfull" = list(
+		   	formula = rate ~ sharpeschoolfull_1981(temp = temp, r_tref, e, el, tl, eh, th, tref = 20),
+		   	predict_fn = function(df) sharpeschoolfull_1981(temp = df$temp, r_tref = df$r_tref, e = df$e, el = df$el, tl = df$tl, eh = df$eh, th = df$th, tref = 20),
+		   	lower = function(temp, rate) get_lower_lims(temp, rate, "sharpeschoolfull_1981"),
+		   	upper = function(temp, rate) get_upper_lims(temp, rate, "sharpeschoolfull_1981")
+		   ),
+		   stop("Invalid model name")
+	)}
 
+
+#### Function to do Bootstrapping ----
 # Arguments:
-# 1) TPC_fits = predicted trait values (from constant temperature TPC) across the temperature gradient for every MCMC iteration 
-#			df: 451 cols (temperature gradient) x 5000 rows (MCMC iterations)
-# 2) model_name = the TPC model fitted. Must be "briere", "quadratic", "lactin", or "sharpeschoolfull"
+# 1) TPC_fits = TPC model fit. Columns: 
+#				i. "data": a list of data used to fit the TPC model
+#              ii; Name of TPC model, one of ("briere", "quadratic", "lactin", 
+#					or "sharpeschoolfull")": TPC model output in a list
+#             iii; "coefs": list of the coefficients of the model fit
+#			df: >=3 cols (data, name of TPC model, coefs) x (# of curves) rows
+#
+# 2) model_name = the name of TPC model. Must be "briere", "quadratic", "lactin", or "sharpeschoolfull"
 #			
-# 3) temp_grad = temperature gradient values to apply rate summation over
-#			vector: 451 elements
+# 3) temp_grad = temperature gradient values for predictions
+#			vector: 501 elements
 #
 # Returns: 
-#	1) rs_calc_gradient = trait values predicted by rate summation across a mean temperature gradient for every MCMC iteration
-#			df: 451 cols (temperature gradient) x 5000 rows (MCMC iterations)
+#	1) boot_conf_preds = 
+#			df:  cols  x (# of curves) rows
 #
 
-bootstrapping <- function(TPC_fits, model_name, temp_grad) {
-	# run for loops to bootstrap the TPC model
-	for(i in 1:nrow(TPC_fits)){
+bootstrap <- function(TPC_fits, model_name, temp_grad) {
+	
+	## Make sure model_name is one of the fitted TPC models 
+	mod_names <- c("briere", "quadratic", "lactin", "sharpeschoolfull")
+	
+	model_name <- tryCatch(rlang::arg_match(model_name, mod_names), error = function(e){
+		cli::cli_abort(c("x"="Supplied {.arg model_name} ({.val {model_name}}) is not an available model in rTPC.",
+						 "!"="Please check the spelling of {.arg model_name}."
+		), call=rlang::caller_env(n=4))
+	})
+	
+	## Create empty list column
+	TPC_fits <- TPC_fits %>% mutate(bootstrap = list(rep(NA, n())))
+	
+	model_info <- get_formula(model_name)
+	
+	## Loop over each curve (i.e. row) and bootstrap the TPC model
+	for(i in 1:nrow(TPC_fits)) {
 		temp_data <- TPC_fits$data[[i]]
+		
+		### Refit the model using the coefficients of the model fit as the start values
 		temp_fit <- nlsLM(rate ~ briere1_1999(temp = temp, tmin, tmax, a),
-						  data = temp_data,
+						  data = TPC_fits$data[[i]],
 						  start = TPC_fits$coefs[[i]],
-						  lower = get_lower_lims(temp_data$temp, temp_data$rate, model_name = 'briere1_1999'),
-						  upper = get_upper_lims(temp_data$temp, temp_data$rate, model_name = 'briere1_1999'))
-		boot <- Boot(temp_fit, method = 'residual')
+						  lower = model_info$lower(temp_data$temp, temp_data$rate),
+						  upper = model_info$upper(temp_data$temp, temp_data$rate))
+		
+		# Bootstrap using residual resampling
+		boot <- car::Boot(temp_fit, method = "residual")
 		TPC_fits$bootstrap[[i]] <- boot
+		
 		rm(list = c('temp_fit', 'temp_data', 'boot'))
 	}
-	
+
 	## Get the raw values of each bootstrap
 	TPC_fits <- mutate(TPC_fits, output_boot = map(bootstrap, function(x) x$t))
-	
-	## Calculate predictions with a gnarly written function
-	TPC_fits <- mutate(TPC_fits, preds = map2(output_boot, data, function(x, y){
-		temp <- as.data.frame(x) %>%
-			drop_na() %>%
-			mutate(iter = 1:n()) %>%
-			group_by_all() %>%
-			do(data.frame(temp = temp_grad)) %>%
-			ungroup() %>%
-			mutate(pred = briere1_1999(temp = temp, tmin, tmax, a))
-		return(temp)
-	}))
-	
-	# select, unnest and calculate 95% CIs of predictions
-	boot_conf_preds_bri <- select(TPC_fits, curve_id, preds) %>%
+
+	## Create predictions for each bootstrapped model across temperature gradient
+	TPC_fits <- TPC_fits %>%
+		mutate(preds = map2(output_boot, data, function(x, y){
+			temp <- as.data.frame(x) %>%
+				drop_na() %>%
+				mutate(iter = 1:n()) %>%
+				group_by_all() %>%
+				do(data.frame(temp = temp_grad)) %>%
+				ungroup() %>%
+				mutate(pred = model_info$predict_fn(.))
+			return(temp)
+	}
+	))
+
+	# Un-nest and calculate bootstrapped 95% confidence intervals of predictions
+	boot_conf_preds <- TPC_fits %>%
+		select(curve_id, preds) %>%
 		unnest(preds) %>%
-		drop_na(pred) %>% 
+		drop_na(pred) %>%
 		group_by(curve_id, temp) %>%
-		summarise(conf_lower = quantile(pred, 0.025),
-				  conf_upper = quantile(pred, 0.975),
-				  .groups = 'drop') %>% 
+		summarise(
+			conf_lower = quantile(pred, 0.025),
+			conf_upper = quantile(pred, 0.975),
+			.groups = 'drop'
+			) %>%
 		mutate(model_name = model_name)
+
+	 return(TPC_fits)
 }
 
 
@@ -284,8 +353,10 @@ timetemps_alt <- function(temp_grad = seq(0, 50, 0.1), dtr) {
 ##			df: 2 cols (time: time point in hrs, temp: temperature at the corresponding time point)
 ## 3) mean_temp = average temperature of the time series
 ##			if mean_temp is not provided, it will be the average temp over the time series
-## time_resolution = time resolution in hours (Default: 1 hr; if time resolution is 30 mins, then time_resolution = 0.5)
-##
+## 4) time_resolution = time resolution in hours (Default: 1 hr; if time resolution is 30 mins, then time_resolution = 0.5)
+## 5) total_time = total length of time (Default: 24 hrs)
+## 6) start_end_equal= Boolean; if the fluctuation regime is cyclic and temp at time = 0 is equal to time = total_time,
+##    then the temperature at the last time step will be removed as it is a repeat (default: TRUE)
 ##
 ## Returns: 
 ##	1) timetemps_df = data frame with the temperature profiles in an diurnal fluctuation regime over time, for a range of average temperatures
@@ -296,13 +367,15 @@ timetemps_timeseries <- function(
 		temp_grad = seq(0, 50, 0.1), 
 		time_series_df,              
 		mean_temp = mean(time_series_df$temp),                   
-		time_resolution = 1
+		time_resolution = 1,
+		total_time = 24,
+		start_end_equal = T
 		) {
 	# Interpolate to evenly spaced time points
 	approx_temp <- approx(x = time_series_df$time, y = time_series_df$temp, 
 						  xout = seq(min(time_series_df$time), 
 						  		   max(time_series_df$time), 
-						  		   length.out = 24 / time_resolution + 1))$y
+						  		   length.out = total_time / time_resolution + 1))$y
 	
 	# Center the interpolated time series around mean temperature
 	centered_temp <- approx_temp - mean_temp
@@ -316,17 +389,18 @@ timetemps_timeseries <- function(
 	colnames(timetemps_df) <- paste0("Tavg_", temp_grad)
 	
 	# Add a column to show the time step
-	timetemps_df$time_hr <- seq(0, 24, by = time_resolution)
+	timetemps_df$time_hr <- seq(0, total_time, by = time_resolution)
 	timetemps_df <- timetemps_df %>% relocate(time_hr) # move time column to the front
 	
 	# Change the temperature value to 0 if it is below 0 (to ensure they are within the model prediction)
-	timetemps_df[timetemps_df < 0] <- 0
+	timetemps_df[, -1] <- lapply(timetemps_df[, -1], function(col) ifelse(col < 0, 0, col))
 	# Change the temperature value to 0 if it is above 50
-	timetemps_df[timetemps_df > 50] <- 50
+	timetemps_df[, -1] <- lapply(timetemps_df[, -1], function(col) ifelse(col > 50, 50, col))
 	
-	
-	# Remove the last row since time = 24 is equal to time = 0
-	timetemps_df <- timetemps_df[-nrow(timetemps_df), ]
+	# Remove the last row if time = total_time is equal to time = 0
+	if (start_end_equal) {
+		timetemps_df <- timetemps_df[-nrow(timetemps_df), ]
+	}
 	
 	# Round to nearest 0.1C and convert to df
 	timetemps_df = round(as.data.frame(timetemps_df), 1)
